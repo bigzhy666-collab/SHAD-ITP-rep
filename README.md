@@ -1,4 +1,4 @@
-﻿# ds-workspace-git
+﻿# dc-rep
 
 用于存放工作区文件与项目的 Git 仓库。
 
