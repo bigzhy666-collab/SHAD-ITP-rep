@@ -5,7 +5,7 @@ import {Activity,ArrowLeftRight,Bot,ChartNoAxesCombined,FileText,LayoutDashboard
 import {useWorkspace} from './stores/workspace'
 import {time} from './utils'
 const store=useWorkspace(),route=useRoute(),router=useRouter(),menu=ref(false)
-const nav=[{name:'总览',path:'/overview',icon:LayoutDashboard},{name:'管网管理',path:'/networks',icon:Network},{name:'异常检测',path:'/detections',icon:Activity},{name:'AI诊断',path:'/diagnosis',icon:Bot}]
+const nav=[{name:'总览',path:'/overview',icon:LayoutDashboard},{name:'管网管理',path:'/networks',icon:Network},{name:'数据监测',path:'/detections',icon:Activity},{name:'AI诊断',path:'/diagnosis',icon:Bot}]
 const c=computed(()=>store.context);let timer:ReturnType<typeof setInterval>
 function key(e:KeyboardEvent){if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='r'&&!e.shiftKey){e.preventDefault();store.refresh()}if(e.key==='Escape')menu.value=false}
 function report(){router.push('/diagnosis')}

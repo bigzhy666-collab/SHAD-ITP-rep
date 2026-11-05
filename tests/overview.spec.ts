@@ -4,7 +4,7 @@ const routes=['overview','networks','detections','diagnosis']
 test('四模块可导航，已移除工控工具，切换入口紧接对象路径',async({page})=>{
  const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/overview')
  const nav=page.getByRole('navigation');await expect(nav.getByRole('link')).toHaveCount(4)
- for(const [i,name] of ['总览','管网管理','异常检测','AI诊断'].entries()){await nav.getByRole('link',{name,exact:true}).click();await expect(page).toHaveURL(new RegExp('/'+routes[i]));await expect(page.locator('main')).toBeVisible()}
+ for(const [i,name] of ['总览','管网管理','数据监测','AI诊断'].entries()){await nav.getByRole('link',{name,exact:true}).click();await expect(page).toHaveURL(new RegExp('/'+routes[i]));await expect(page.locator('main')).toBeVisible()}
  await expect(page.getByText('工控支撑工具',{exact:true})).toHaveCount(0);await expect(page.getByText('残差阈值标定',{exact:true})).toHaveCount(0)
  await page.getByRole('link',{name:'切换管段对象'}).click();await expect(page).toHaveURL(/networks\?pick=1/);expect(errors).toEqual([])
 })
