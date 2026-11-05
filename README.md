@@ -1,6 +1,6 @@
 # SHAD 智慧供热异常检测与辅助诊断平台
 
-V3.1 四模块前端交互演示。使用 Vue 3、TypeScript、Pinia、Vue Router 和 ECharts，按本地 Stitch 五页原型及最新修改说明实现，使用 impeccable 完成设计上下文、质量规范检查与检测。
+V3.2 四模块前端交互演示。使用 Vue 3、TypeScript、Pinia、Vue Router 和 ECharts，按本地 Stitch 五页原型及最新修改说明实现，使用 impeccable 完成设计上下文、质量规范检查与检测。
 
 ## 启动
 
@@ -26,7 +26,7 @@ npm run preview
 |---|---|---|
 | 总览 | `/overview` | 指标及时间切换、图例、缩放、异常定位、拓扑节点联动、检测与报告快捷入口 |
 | 管网管理 | `/networks` | 企业→管网→管段选择、组织维护、参数与历史数据、分页、CSV、带入检测条件 |
-| 异常检测 | `/detections/:id?` | 任务列表、新建/复制配置、排队与运行、失败重试、异常选择/回放、送入 AI |
+| 异常检测（数据监测） | `/detections/:id?` | 参数分类、单/多参数监测、最新采样、时间趋势、异常定位、采样明细与CSV、底部页内检测/记录、送入AI诊断 |
 | AI诊断 | `/diagnosis/:id?` | 单/多选异常事件、五阶段图文证据、具体原因与处理建议、历史记录、同页报告、备注、归档、版本及 Word/PDF |
 
 顶栏对象路径后的切换图标进入管网管理。刷新按钮和 Ctrl+R 刷新数据并保留当前路由、页面筛选及已保存记录。移动端提供折叠导航、单参数图表选择和局部表格滚动。
@@ -63,7 +63,7 @@ npm run build
 
 Playwright 自动启动本地预览，覆盖业务闭环、失败重试、来源与选择恢复、持久化、实际文件下载和七种宽度，截图生成至 `test-results`。验收记录见 [verification/验收记录.md](verification/验收记录.md)，稳定截图入口见 [verification/index.html](verification/index.html)，导出样本见 `verification/exports`。
 
-- [PRD.md](PRD.md)：V3.1 功能、交互、状态及验收约定。
+- [PRD.md](PRD.md)：V3.2 功能、交互、状态及验收约定。
 - [PRODUCT.md](PRODUCT.md)、[DESIGN.md](DESIGN.md)：产品与设计上下文。
 - [stitch-export/index.html](stitch-export/index.html)：已修复的五页原型截图及 HTML 入口，各页保留原始 JSON 响应。
 - `src/services/demo.ts`：演示数据与校验；真实服务从服务层接入，并将任务轮询改为后台状态。
@@ -71,3 +71,5 @@ Playwright 自动启动本地预览，覆盖业务闭环、失败重试、来源
 - `src/services/export.ts`：Word/PDF 共享报告内容及导出实现。
 
 旧地址 `/analysis/:id?` 与 `/reports/:id?` 自动兼容至 AI诊断。原浏览器历史保留；旧记录缺少过程字段时展示标明演示性质的证据摘要。新版验证见 `verification/ai-diagnosis/验收记录.md`。
+
+本轮数据监测修改依据《SHAD「数据监测」模块 UI》。新增截图、验收记录见 `verification/data-monitoring`。侧栏仍为异常检测，页面标题数据监测；监测时间与检测表单独立，点击“使用当前监测范围与参数”带入。当前演示缺少供水压力，不生成该参数。数据质量问题与数值异常独立分类。
