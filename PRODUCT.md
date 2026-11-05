@@ -1,0 +1,23 @@
+# SHAD 产品上下文
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+web
+
+## Users
+供热值班人员、运维工程师及运行管理人员，在桌面工作台查看管段运行信息并完成异常检测、辅助分析与报告归档。
+
+## Product Purpose
+企业 → 供热管网 → 管段，确定对象后进行检测 → 自研小模型辅助分析 → 诊断报告。当前为完整前端演示，所有模型结果及数据均明确标识演示，不操作真实设备。
+
+## Capabilities and Constraints
+使用 Vue 3、TypeScript、Pinia、Vue Router、ECharts。五个一级入口：总览、管网管理、异常检测、AI 分析、诊断报告。浏览器本地保存历史，真实接口尚未提供。Word/PDF 必须为有效文件。
+
+## Brand Commitments
+严格采用 stitch-export 中的五页设计及用户明确修订：移除独立工控工具入口；对象路径在标题右侧，紧接切换图标；保留刷新与 Ctrl+R。
+
+## Evidence on Hand
+PRD.md 为产品规则；stitch-export 为布局依据。用户已选择黑灰橙色 Stitch 原型及前端演示闭环。
+
+## Product Principles
+对象来源可追溯；事实和示例推测分开；查询失败不等于任务失败；交互有可恢复反馈。

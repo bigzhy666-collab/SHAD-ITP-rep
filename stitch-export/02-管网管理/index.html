@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SHAD · 智慧供热异常检测与辅助诊断平台 - 管网管理</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Space Grotesk, Barlow, JetBrains Mono, Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-base": "#0A0B0E",
+            "surface": "#101116",
+            "surface-canvas": "#101116",
+            "surface-card": "#14161B",
+            "surface-card-hover": "#1C1F26",
+            "surface-container": "#1B1D23",
+            "border-grid": "#2B2E36",
+            "border-subtle": "#1B1D23",
+            "outline": "#8B8F99",
+            "on-surface": "#E8E9ED",
+            "on-surface-variant": "#C3C6CD",
+            "primary": "#FFB877",
+            "primary-container": "#FB7A18",
+            "on-primary-container": "#1A0B00",
+            "metric-supply": "#FF7849",
+            "metric-supply-warm": "#FF7849",
+            "metric-return": "#00B4D8",
+            "metric-pressure": "#7C3AED",
+            "metric-flow": "#4EA8FF",
+            "urgent": "#EF4444",
+            "critical": "#F97316",
+            "warning": "#F59E0B",
+            "info": "#3B82F6",
+            "real": "#10B981",
+            "offline": "#6B7280"
+          },
+          fontFamily: {
+            sans: ["Space Grotesk", "Barlow", "system-ui", "sans-serif"],
+            mono: ["JetBrains Mono", "DIN Alternate", "monospace"],
+            barlow: ["Barlow", "sans-serif"]
+          },
+          borderRadius: {
+            DEFAULT: "4px",
+            sm: "2px",
+            md: "4px",
+            lg: "4px"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    :root {
+      --surface-base: #0A0B0E;
+      --surface: #101116;
+      --surface-card: #14161B;
+      --surface-card-hover: #1C1F26;
+      --surface-container: #1B1D23;
+      --border-grid: #2B2E36;
+      --border-subtle: #1B1D23;
+      --outline: #8B8F99;
+      --on-surface: #E8E9ED;
+      --on-surface-variant: #C3C6CD;
+      --primary: #FFB877;
+      --primary-container: #FB7A18;
+      --metric-supply: #FF7849;
+      --metric-return: #00B4D8;
+      --metric-pressure: #7C3AED;
+      --metric-flow: #4EA8FF;
+      --urgent: #EF4444;
+      --warning: #F59E0B;
+      --real: #10B981;
+      --r: 4px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--surface-base);
+      color: var(--on-surface);
+      font-family: 'Space Grotesk', 'Barlow', system-ui, sans-serif;
+      font-variant-numeric: tabular-nums;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    ::selection { background: rgba(251, 122, 24, 0.35); color: #fff; }
+
+    /* 工控 SCADA 40px * 40px 几何网格纹理背景 */
+    .scada-grid-bg {
+      background-color: var(--surface);
+      background-image:
+        linear-gradient(to right, rgba(43, 46, 54, 0.20) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(43, 46, 54, 0.20) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .material-symbols-outlined {
+      font-size: 16px;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    /* 工业标准紧凑 4px 卡片 */
+    .scada-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border-grid);
+      border-radius: var(--r);
+      position: relative;
+    }
+    .scada-card:hover {
+      border-color: #383D48;
+    }
+
+    .scada-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 12px;
+      border-bottom: 1px solid var(--border-grid);
+      background: rgba(10, 11, 14, 0.55);
+    }
+
+    .scada-btn {
+      border: 1px solid var(--border-grid);
+      background: #171A21;
+      color: var(--on-surface-variant);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 9px;
+      border-radius: var(--r);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .scada-btn:hover {
+      background: #20242E;
+      border-color: var(--primary-container);
+      color: #FFF;
+    }
+    .scada-btn-primary {
+      background: var(--primary-container);
+      border-color: var(--primary-container);
+      color: #1A0B00;
+      font-weight: 700;
+    }
+    .scada-btn-primary:hover {
+      background: #FFA155;
+      color: #000;
+    }
+
+    /* 微闪指示灯 */
+    .ping-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      animation: blinkSlow 2s infinite ease-in-out;
+    }
+    @keyframes blinkSlow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(0.85); }
+    }
+
+    /* Custom Scrollbar for SCADA terminals */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0B0E;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2B2E36;
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3B404C;
+    }
+  </style>
+</head>
+<body class="bg-surface-base text-on-surface antialiased min-h-screen flex selection:bg-primary-container/30">
+<!-- ==================== 1. SCADA 标准工控深色侧边栏 ==================== -->
+<aside class="w-[236px] shrink-0 bg-surface border-r border-border-grid flex flex-col h-screen sticky top-0 z-40 select-none py-3 px-2.5">
+<!-- Brand / SCADA LOGO -->
+<div class="px-2 py-1.5 pb-3 border-b border-border-subtle flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-[4px] bg-[#1A1D24] border border-[#2B2E36] flex items-center justify-center relative overflow-hidden shrink-0 shadow-inner">
+<svg height="22" viewbox="0 0 28 24" width="26">
+<line stroke="#333842" stroke-width="1" x1="2" x2="26" y1="20" y2="20"></line>
+<line stroke="#333842" stroke-width="1" x1="3" x2="3" y1="4" y2="20"></line>
+<polyline fill="none" points="4,16 8,16 12,6 16,18 20,10 24,10" stroke="#FB7A18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></polyline>
+<circle cx="12" cy="6" fill="#EF4444" r="2.2" stroke="#FFF" stroke-width="0.8"></circle>
+</svg>
+</div>
+<div class="min-w-0 flex-1">
+<div class="text-[14px] font-bold text-white tracking-widest font-sans flex items-center justify-between">
+<span>SHAD</span>
+<span class="text-[9px] px-1 py-0.2 bg-primary-container/15 text-primary-container border border-primary-container/40 font-mono rounded-[2px]">V0.14</span>
+</div>
+<div class="text-[9px] text-outline font-mono tracking-tight flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-real inline-block"></span>
+<span>CONSOLE · 模拟数据</span>
+</div>
+</div>
+</div>
+<!-- 管网上下文快速锚定框 (PRD N-01 工控风格) -->
+<div class="my-2.5 p-2 bg-[#12141A] border border-border-grid rounded-[4px]">
+<div class="flex items-center justify-between text-[9px] font-mono text-primary font-semibold mb-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[11px] text-primary-container">device_hub</span>
+          受析管段 (PRD N-01)
+        </span>
+<span class="text-real text-[8.5px] font-mono">SCADA 联动</span>
+</div>
+<div class="text-[11px] font-bold text-gray-200 truncate font-mono">1号二次供热管段 (DN300)</div>
+<div class="text-[9px] text-outline font-mono mt-0.5 flex justify-between">
+<span>城北主力网 · K2+140</span>
+<span class="text-primary">桩号: #029</span>
+</div>
+</div>
+<!-- 侧边导航组 -->
+<div class="flex-1 overflow-y-auto space-y-3 pr-0.5">
+<div>
+<div class="px-2 text-[9px] font-mono text-outline uppercase tracking-widest mb-1.5 font-bold">
+          核心监测模块
+        </div>
+<nav class="space-y-0.5">
+<!-- 0: 总览看板 -->
+<a class="flex items-center gap-2 px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] opacity-75">dashboard</span>
+<span>总览看板</span>
+</a>
+<!-- 1: 管网管理 (当前激活态: #FB7A18 实色橙底配黑字 #1A0B00 及左侧加粗条 #A34700) -->
+<a class="flex items-center justify-between px-2.5 py-1.5 text-[11.5px] font-bold rounded-[4px] bg-[#FB7A18] text-[#1A0B00] border-l-[3px] border-[#A34700] shadow-sm" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] text-[#1A0B00]">hub</span>
+<span>管网管理</span>
+</div>
+<span class="text-[8.5px] font-mono px-1 py-0.2 bg-black/20 text-[#1A0B00] border border-black/30 rounded-[2px]">ON</span>
+</a>
+<!-- 2: 异常检测 -->
+<a class="flex items-center justify-between px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] opacity-75">warning</span>
+<span>异常检测</span>
+</div>
+<span class="text-[9px] font-mono px-1 py-0.2 bg-urgent/20 text-urgent border border-urgent/40 rounded-[2px] font-bold">2 待研判</span>
+</a>
+<!-- 3: AI 分析 -->
+<a class="flex items-center justify-between px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[15px] opacity-75">psychology</span>
+<span>AI 分析</span>
+</div>
+<span class="text-[8.5px] font-mono px-1 py-0.2 bg-primary-container/15 text-primary border border-primary-container/35 rounded-[2px]">RUN</span>
+</a>
+<!-- 4: 诊断报告 -->
+<a class="flex items-center gap-2 px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] opacity-75">assessment</span>
+<span>诊断报告</span>
+</a>
+</nav>
+</div>
+<div>
+<div class="px-2 text-[9px] font-mono text-outline uppercase tracking-widest mb-1.5 font-bold">
+          工控支撑工具
+        </div>
+<nav class="space-y-0.5">
+<a class="flex items-center gap-2 px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] opacity-75">tune</span>
+<span>残差阈值标定</span>
+</a>
+<a class="flex items-center gap-2 px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] opacity-75">receipt_long</span>
+<span>闭环操作日志</span>
+</a>
+<a class="flex items-center gap-2 px-2.5 py-1.5 text-[11.5px] text-on-surface-variant hover:text-white hover:bg-surface-card-hover rounded-[4px] border-l-2 border-transparent transition-colors" href="#">
+<span class="material-symbols-outlined text-[15px] opacity-75">database</span>
+<span>SCADA 点表通道</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- 底部控制台操作 -->
+<div class="pt-2 border-t border-border-subtle bg-surface space-y-2">
+<button class="w-full py-1.5 px-2 bg-[#1C2029] hover:bg-primary-container hover:text-black text-primary border border-primary-container/40 rounded-[4px] text-[11px] font-mono font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>
+<span>一键生成分析报告</span>
+</button>
+<div class="text-[9px] font-mono text-outline text-center flex items-center justify-between px-1">
+<span>SHAD SCADA Core</span>
+<span class="text-real flex items-center gap-1 font-bold">● v2.3</span>
+</div>
+</div>
+</aside>
+<!-- ==================== 2. 主视口内容区 (SCADA 40px*40px 工业背景) ==================== -->
+<div class="flex-1 min-w-0 flex flex-col scada-grid-bg min-h-screen">
+<!-- 顶部工控全局操作栏 (Top Bar) -->
+<header class="h-11 px-4 bg-surface/90 border-b border-border-grid flex items-center justify-between gap-4 backdrop-blur-sm sticky top-0 z-30">
+<!-- 平台标题与层级路径 -->
+<div class="flex items-center gap-2.5 min-w-0">
+<span class="text-[12px] font-bold text-gray-200 tracking-tight whitespace-nowrap hidden sm:inline">
+          SHAD 智慧供热
+        </span>
+<span class="text-[#3B404C] hidden sm:inline">|</span>
+<div class="flex items-center gap-1.5 text-[11px] font-mono text-outline truncate">
+<span>北方热力集团</span>
+<span class="text-[#3B404C]">&gt;</span>
+<span>城北主力供热网</span>
+<span class="text-[#3B404C]">&gt;</span>
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-metric-return"></span>
+            1号二次供热管段 (DN300)
+          </span>
+</div>
+</div>
+<!-- 右侧工控指示灯与值班工号 -->
+<div class="flex items-center gap-2.5 shrink-0">
+<!-- 遥测在线状态心跳指示 -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-[#101E17] border border-real/40 rounded-[4px] text-real text-[10px] font-mono">
+<span class="ping-dot text-real"></span>
+<span class="font-bold">SCADA 遥测在线 (200ms)</span>
+</div>
+<!-- 数据源切换 -->
+<div class="hidden md:flex items-center gap-1 bg-[#14161B] border border-border-grid px-2 py-0.5 rounded-[4px]">
+<span class="text-[9.5px] font-mono text-outline">源:</span>
+<span class="text-[10px] font-mono text-gray-200">模拟运行数据集 (Sim-A)</span>
+</div>
+<!-- 工业等宽时钟 -->
+<div class="px-2 py-0.5 bg-[#14161B] border border-border-grid rounded-[4px] text-primary font-mono text-[11px] font-bold tracking-wider" id="live-scada-clock">
+          2025-02-26 14:38:42
+        </div>
+<!-- 刷新与通知 -->
+<button class="w-6 h-6 flex items-center justify-center border border-border-grid bg-[#14161B] text-outline hover:text-primary hover:border-primary-container rounded-[4px] transition-colors cursor-pointer" title="刷新遥测数据">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+</button>
+<!-- 值班工程师工号 -->
+<div class="flex items-center gap-2 pl-2 border-l border-border-grid">
+<div class="w-5 h-5 rounded-[4px] bg-primary-container text-[#1A0B00] font-mono font-bold text-[10px] flex items-center justify-center">
+            07
+          </div>
+<div class="text-[10.5px] leading-tight font-mono">
+<span class="text-gray-200 font-semibold">张工 (热网运维)</span>
+</div>
+</div>
+</div>
+</header>
+<!-- 主体内容滚动区 (N-01/N-02 工控布局) -->
+<main class="p-3.5 space-y-3 flex-1">
+<!-- ==================== SECTION 1: 3-TIER SCOPE SELECTOR (PRD N-01) ==================== -->
+<section class="scada-card p-2 bg-[#12141A]">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-2.5">
+<!-- 3级选择器网格 -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2 flex-1">
+<!-- Tier 1: 所属企业 -->
+<div class="bg-[#0C0E13] rounded-[4px] p-2 border border-border-grid hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between text-[9px] font-mono text-outline mb-0.5">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                  所属企业 (Tier 1)
+                </span>
+<span class="text-[9px] text-primary bg-primary-container/10 px-1 py-0.2 rounded-[2px] font-mono">8 管网在线</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer group pt-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-base">hub</span>
+<span class="text-[11.5px] font-bold text-gray-200 group-hover:text-primary transition-colors">北方热力有限责任公司</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">tune</span>
+</div>
+</div>
+<!-- Tier 2: 供热管网 -->
+<div class="bg-[#0C0E13] rounded-[4px] p-2 border border-border-grid hover:border-primary-container/40 transition-colors">
+<div class="flex items-center justify-between text-[9px] font-mono text-outline mb-0.5">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-metric-flow"></span>
+                  供热管网 (Tier 2)
+                </span>
+<span class="text-[9px] text-metric-flow bg-metric-flow/10 px-1 py-0.2 rounded-[2px] font-mono">下辖 24 管段</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer group pt-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-metric-flow text-base">hub</span>
+<span class="text-[11.5px] font-bold text-gray-200 group-hover:text-metric-flow transition-colors">城北主力供热网</span>
+</div>
+<span class="material-symbols-outlined text-outline text-sm">tune</span>
+</div>
+</div>
+<!-- Tier 3: 目标管段 (Active Target) -->
+<div class="bg-[#0C0E13] rounded-[4px] p-2 border border-primary-container/50 bg-gradient-to-r from-primary-container/10 to-transparent transition-colors">
+<div class="flex items-center justify-between text-[9px] font-mono text-outline mb-0.5">
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-metric-return animate-ping"></span>
+                  目标管段 (Tier 3 · 详情对象)
+                </span>
+<span class="text-[9px] text-metric-return bg-metric-return/10 px-1 py-0.2 rounded-[2px] font-mono">二次网 · DN300</span>
+</div>
+<div class="flex items-center justify-between cursor-pointer group pt-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary-container text-base">hub</span>
+<span class="text-[11.5px] font-bold text-primary">1号二次供热主干管 (K2+140)</span>
+</div>
+<span class="material-symbols-outlined text-primary-container text-sm">tune</span>
+</div>
+</div>
+</div>
+<!-- 快速检索与切换按键 -->
+<div class="flex items-center gap-2">
+<div class="relative w-44">
+<input class="w-full bg-[#0C0E13] border border-border-grid rounded-[4px] px-2.5 py-1.5 text-[11px] font-mono text-gray-200 placeholder:text-outline focus:outline-none focus:border-primary-container transition-all" placeholder="快速检索管段编码..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-2 text-outline text-xs pointer-events-none">search</span>
+</div>
+<button class="scada-btn" title="重置遥测拓扑">
+<span class="material-symbols-outlined text-[13px]">swap_horiz</span>
+<span>切换对象</span>
+</button>
+<button class="scada-btn scada-btn-primary" title="执行诊断">
+<span class="material-symbols-outlined text-[13px]">play_arrow</span>
+<span>快速研判</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 2: 核心遥测卡片 (4-METRIC SCADA BENTO) ==================== -->
+<section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2.5">
+<!-- CARD 1: 供水温度 (红/橙 #FF7849) -->
+<div class="scada-card p-3 border-l-[3px] border-l-metric-supply">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-metric-supply shadow-[0_0_6px_#FF7849]"></span>
+<span class="text-[11.5px] font-bold text-gray-300 font-sans">供水温度 (T1 / T_sup)</span>
+</div>
+<span class="px-1.5 py-0.2 rounded-[2px] text-[9px] font-mono bg-real/15 text-real border border-real/30">
+              ● 正常工况
+            </span>
+</div>
+<div class="flex items-baseline justify-between my-1">
+<div class="font-mono text-[28px] font-bold text-metric-supply leading-none tracking-tight flex items-baseline gap-1">
+<span>68.4</span>
+<span class="text-[12px] text-outline font-normal">°C</span>
+</div>
+<div class="text-[10px] font-mono text-real flex items-center gap-0.5">
+<span>+0.2°C</span>
+<span class="text-outline text-[9px] ml-1">基线 68.0</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="h-8 w-full mt-1.5 pt-1 border-t border-border-subtle">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 160 32">
+<path d="M0,22 Q20,16 40,20 T80,12 T120,15 T160,8 L160,32 L0,32 Z" fill="#FF7849" fill-opacity="0.12"></path>
+<path d="M0,22 Q20,16 40,20 T80,12 T120,15 T160,8" fill="none" stroke="#FF7849" stroke-width="1.8"></path>
+<circle cx="160" cy="8" fill="#FF7849" r="2.5"></circle>
+</svg>
+</div>
+<div class="mt-1 text-[9px] font-mono text-outline flex justify-between">
+<span>采样周期: 10s</span>
+<span>测点: TE-101A (优质)</span>
+</div>
+</div>
+<!-- CARD 2: 回水温度 (青蓝 #00B4D8) -->
+<div class="scada-card p-3 border-l-[3px] border-l-metric-return">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-metric-return shadow-[0_0_6px_#00B4D8]"></span>
+<span class="text-[11.5px] font-bold text-gray-300 font-sans">回水温度 (T2 / T_ret)</span>
+</div>
+<span class="px-1.5 py-0.2 rounded-[2px] text-[9px] font-mono bg-warning/15 text-warning border border-warning/30">
+              ● 轻微波动
+            </span>
+</div>
+<div class="flex items-baseline justify-between my-1">
+<div class="font-mono text-[28px] font-bold text-metric-return leading-none tracking-tight flex items-baseline gap-1">
+<span>42.1</span>
+<span class="text-[12px] text-outline font-normal">°C</span>
+</div>
+<div class="text-[10px] font-mono text-warning flex items-center gap-0.5">
+<span>+1.8°C</span>
+<span class="text-outline text-[9px] ml-1">温差 26.3°C</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="h-8 w-full mt-1.5 pt-1 border-t border-border-subtle">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 160 32">
+<path d="M0,16 Q30,22 60,14 T110,24 T140,10 T160,16 L160,32 L0,32 Z" fill="#00B4D8" fill-opacity="0.12"></path>
+<path d="M0,16 Q30,22 60,14 T110,24 T140,10 T160,16" fill="none" stroke="#00B4D8" stroke-width="1.8"></path>
+<circle cx="160" cy="16" fill="#00B4D8" r="2.5"></circle>
+</svg>
+</div>
+<div class="mt-1 text-[9px] font-mono text-outline flex justify-between">
+<span>设计回温: 40.0°C</span>
+<span>测点: TE-102B (优)</span>
+</div>
+</div>
+<!-- CARD 3: 供回水压差 (紫色 #7C3AED) -->
+<div class="scada-card p-3 border-l-[3px] border-l-metric-pressure">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-metric-pressure shadow-[0_0_6px_#7C3AED]"></span>
+<span class="text-[11.5px] font-bold text-gray-300 font-sans">供回水压差 (ΔP)</span>
+</div>
+<span class="px-1.5 py-0.2 rounded-[2px] text-[9px] font-mono bg-real/15 text-real border border-real/30">
+              ● 恒压平衡
+            </span>
+</div>
+<div class="flex items-baseline justify-between my-1">
+<div class="font-mono text-[28px] font-bold text-metric-pressure leading-none tracking-tight flex items-baseline gap-1">
+<span>0.42</span>
+<span class="text-[12px] text-outline font-normal">MPa</span>
+</div>
+<div class="text-[10px] font-mono text-real flex items-center gap-0.5">
+<span>±0.01</span>
+<span class="text-outline text-[9px] ml-1">设定 0.40</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="h-8 w-full mt-1.5 pt-1 border-t border-border-subtle">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 160 32">
+<path d="M0,18 Q35,19 70,17 T120,18 T145,19 T160,17 L160,32 L0,32 Z" fill="#7C3AED" fill-opacity="0.12"></path>
+<path d="M0,18 Q35,19 70,17 T120,18 T145,19 T160,17" fill="none" stroke="#7C3AED" stroke-width="1.8"></path>
+<circle cx="160" cy="17" fill="#7C3AED" r="2.5"></circle>
+</svg>
+</div>
+<div class="mt-1 text-[9px] font-mono text-outline flex justify-between">
+<span>P1: 0.85 / P2: 0.43</span>
+<span>测点: PT-201</span>
+</div>
+</div>
+<!-- CARD 4: 瞬时流量 (天蓝 #4EA8FF) -->
+<div class="scada-card p-3 border-l-[3px] border-l-metric-flow">
+<div class="flex items-center justify-between mb-1.5">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-metric-flow shadow-[0_0_6px_#4EA8FF]"></span>
+<span class="text-[11.5px] font-bold text-gray-300 font-sans">瞬时循环流量 (Q)</span>
+</div>
+<span class="px-1.5 py-0.2 rounded-[2px] text-[9px] font-mono bg-real/15 text-real border border-real/30">
+              ● 测点在线
+            </span>
+</div>
+<div class="flex items-baseline justify-between my-1">
+<div class="font-mono text-[28px] font-bold text-metric-flow leading-none tracking-tight flex items-baseline gap-1">
+<span>186.5</span>
+<span class="text-[12px] text-outline font-normal">m³/h</span>
+</div>
+<div class="text-[10px] font-mono text-real flex items-center gap-0.5">
+<span>98.6%</span>
+<span class="text-outline text-[9px] ml-1">额定 190</span>
+</div>
+</div>
+<!-- Sparkline -->
+<div class="h-8 w-full mt-1.5 pt-1 border-t border-border-subtle">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 160 32">
+<path d="M0,14 Q30,11 60,16 T110,13 T140,15 T160,11 L160,32 L0,32 Z" fill="#4EA8FF" fill-opacity="0.12"></path>
+<path d="M0,14 Q30,11 60,16 T110,13 T140,15 T160,11" fill="none" stroke="#4EA8FF" stroke-width="1.8"></path>
+<circle cx="160" cy="11" fill="#4EA8FF" r="2.5"></circle>
+</svg>
+</div>
+<div class="mt-1 text-[9px] font-mono text-outline flex justify-between">
+<span>累计流量: 48,210 t</span>
+<span>超声波: FT-098</span>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 3: 时序趋势分析与 AI 诊断推理 (8:4 布局) ==================== -->
+<section class="grid grid-cols-1 xl:grid-cols-12 gap-3">
+<!-- 左侧 8列：高精时序遥测趋势与异常区间 (SCADA TIME-SERIES) -->
+<div class="xl:col-span-8 scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<span class="text-[12px] font-bold text-gray-100 font-sans">高精时序遥测趋势与异常区间 (SCADA Time-Series)</span>
+<span class="text-[9px] font-mono text-primary bg-primary-container/10 border border-primary-container/30 px-1.5 py-0.2 rounded-[2px]">
+                采样分辨率: 10s
+              </span>
+</div>
+<!-- 时间与通道切换 -->
+<div class="flex items-center gap-1.5">
+<div class="flex bg-[#0C0E13] border border-border-grid rounded-[2px] p-0.5 text-[9.5px] font-mono">
+<button class="px-2 py-0.5 bg-primary-container text-black font-bold rounded-[2px]">综合双轴</button>
+<button class="px-2 py-0.5 text-outline hover:text-white">温度 (°C)</button>
+<button class="px-2 py-0.5 text-outline hover:text-white">压力 (MPa)</button>
+<button class="px-2 py-0.5 text-outline hover:text-white">流量 (m³/h)</button>
+</div>
+</div>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between">
+<!-- 指标图例栏 -->
+<div class="flex flex-wrap items-center gap-3.5 pb-2 text-[10px] font-mono">
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-metric-supply inline-block"></span>
+<span class="text-gray-300">T1 供温 (68.4°C)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-metric-return inline-block"></span>
+<span class="text-gray-300">T2 回温 (42.1°C)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-metric-pressure inline-block border-dashed"></span>
+<span class="text-gray-300">P1 压力 (0.85 MPa)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-metric-flow inline-block"></span>
+<span class="text-gray-300">Q 流量 (186.5 m³/h)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-3 h-2 border border-urgent/60 bg-urgent/15 inline-block"></span>
+<span class="text-urgent font-bold">残差异常识别区间 (3.4σ)</span>
+</div>
+<div class="ml-auto flex items-center gap-1.5 text-outline text-[9px]">
+<span class="w-1.5 h-1.5 rounded-full bg-real animate-ping"></span>
+<span>推流中</span>
+</div>
+</div>
+<!-- SVG 遥测曲线图表 -->
+<div class="relative w-full h-72 bg-[#0A0C10] border border-border-grid rounded-[4px] p-2 overflow-hidden">
+<!-- 刻度背景 -->
+<div class="absolute inset-0 flex flex-col justify-between p-4 pointer-events-none opacity-20">
+<div class="w-full border-b border-dashed border-[#2B2E36]"></div>
+<div class="w-full border-b border-dashed border-[#2B2E36]"></div>
+<div class="w-full border-b border-dashed border-[#2B2E36]"></div>
+<div class="w-full border-b border-dashed border-[#2B2E36]"></div>
+</div>
+<!-- 左轴 (温度) & 右轴 (压力) -->
+<div class="absolute left-2 top-3 bottom-6 flex flex-col justify-between text-[9px] font-mono text-metric-supply">
+<span>80°C</span>
+<span>65°C</span>
+<span>50°C</span>
+<span>35°C</span>
+</div>
+<div class="absolute right-2 top-3 bottom-6 flex flex-col justify-between text-[9px] font-mono text-metric-pressure text-right">
+<span>1.0MPa</span>
+<span>0.7MPa</span>
+<span>0.4MPa</span>
+<span>0.1MPa</span>
+</div>
+<!-- SVG 曲线 -->
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 800 240">
+<defs>
+<lineargradient id="area-sup" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#FF7849" stop-opacity="0.20"></stop>
+<stop offset="100%" stop-color="#FF7849" stop-opacity="0.0"></stop>
+</lineargradient>
+<lineargradient id="area-ret" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#00B4D8" stop-opacity="0.20"></stop>
+<stop offset="100%" stop-color="#00B4D8" stop-opacity="0.0"></stop>
+</lineargradient>
+</defs>
+<!-- 异常区间阴影 (03:24 区域) -->
+<rect fill="rgba(239, 68, 68, 0.12)" height="195" stroke="#EF4444" stroke-dasharray="3,3" stroke-width="1" width="110" x="520" y="20"></rect>
+<text fill="#EF4444" font-family="JetBrains Mono" font-size="9" font-weight="700" text-anchor="middle" x="575" y="34">
+                  残差异常区间: 03:24 骤降
+                </text>
+<!-- 告警基线虚线 -->
+<line stroke="#EF4444" stroke-dasharray="4,4" stroke-opacity="0.45" stroke-width="1.2" x1="30" x2="770" y1="55" y2="55"></line>
+<text fill="#EF4444" font-family="JetBrains Mono" font-size="9" opacity="0.8" x="710" y="50">警戒线 75°C</text>
+<!-- P1 压力曲线 (紫色 #7C3AED) -->
+<path d="M30,150 C120,145 200,155 280,148 C360,142 440,152 520,148 C600,165 680,145 770,146" fill="none" stroke="#7C3AED" stroke-dasharray="3,2" stroke-width="1.8"></path>
+<!-- T2 回水温度曲线 (青蓝 #00B4D8) -->
+<path d="M30,190 C110,195 190,188 270,196 C350,202 430,190 510,194 C550,215 580,218 630,200 C700,192 770,195 770,195" fill="none" stroke="#00B4D8" stroke-width="2.2"></path>
+<path d="M30,190 C110,195 190,188 270,196 C350,202 430,190 510,194 C550,215 580,218 630,200 C700,192 770,195 770,195 L770,225 L30,225 Z" fill="url(#area-ret)"></path>
+<!-- T1 供水温度曲线 (红/橙 #FF7849) -->
+<path d="M30,85 C100,82 170,88 250,80 C330,72 410,84 490,78 C570,72 650,80 770,76" fill="none" stroke="#FF7849" stroke-width="2.4"></path>
+<path d="M30,85 C100,82 170,88 250,80 C330,72 410,84 490,78 C570,72 650,80 770,76 L770,225 L30,225 Z" fill="url(#area-sup)"></path>
+<!-- 测点高亮点与指示垂线 -->
+<line stroke="#FFB877" stroke-dasharray="2,2" stroke-opacity="0.8" x1="575" x2="575" y1="20" y2="215"></line>
+<circle cx="575" cy="74" fill="#FF7849" r="3.5" stroke="#fff" stroke-width="1.2"></circle>
+<circle cx="575" cy="216" fill="#00B4D8" r="3.5" stroke="#fff" stroke-width="1.2"></circle>
+<circle cx="575" cy="158" fill="#7C3AED" r="3.5" stroke="#fff" stroke-width="1.2"></circle>
+</svg>
+<!-- 悬浮采样气泡 HUD -->
+<div class="absolute left-[72%] top-14 -translate-x-1/2 bg-[#14171E] border border-primary-container p-2 rounded-[2px] shadow-lg pointer-events-none font-mono text-[9.5px]">
+<div class="text-outline border-b border-border-grid pb-1 mb-1">采样快照: 14:15:00</div>
+<div class="text-metric-supply flex justify-between gap-3"><span>T1 供水:</span><b>68.4 °C</b></div>
+<div class="text-metric-return flex justify-between gap-3"><span>T2 回水:</span><b>38.4 °C (偏离)</b></div>
+<div class="text-metric-pressure flex justify-between gap-3"><span>P1 压力:</span><b>0.85 MPa</b></div>
+</div>
+</div>
+<!-- 底部滑动时间刷选器 (Brush) -->
+<div class="mt-2 pt-1 border-t border-border-subtle">
+<div class="w-full h-6 bg-[#0C0E13] border border-border-grid rounded-[2px] relative overflow-hidden flex items-center">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 600 24">
+<path d="M0,16 Q150,8 300,14 T600,10" fill="none" stroke="rgba(251,122,24,0.3)" stroke-width="1.2"></path>
+<rect fill="rgba(251,122,24,0.12)" height="22" stroke="#FB7A18" stroke-width="1" width="180" x="360" y="1"></rect>
+<line stroke="#FB7A18" stroke-width="2" x1="360" x2="360" y1="4" y2="20"></line>
+<line stroke="#FB7A18" stroke-width="2" x1="540" x2="540" y1="4" y2="20"></line>
+</svg>
+</div>
+<div class="flex items-center justify-between text-[9px] font-mono text-outline mt-1 px-1">
+<span>12:40</span>
+<span>13:00</span>
+<span>13:20</span>
+<span>13:40</span>
+<span>14:00</span>
+<span>14:20</span>
+<span class="text-primary font-bold">14:38 (现在)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 右侧 4列：AI 辅助诊断与证据链 (Dashcube 规范) -->
+<div class="xl:col-span-4 scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-container text-base">psychology</span>
+<span class="text-[12px] font-bold text-gray-100 font-sans">自研小模型辅助诊断 (AI)</span>
+</div>
+<span class="px-1.5 py-0.2 rounded-[2px] text-[9px] font-mono bg-real/15 text-real border border-real/30 font-bold">
+              健康度 94.2
+            </span>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-2.5">
+<!-- 模型置信度环形与主诊断 -->
+<div class="flex items-center gap-3 bg-[#0F1116] p-2.5 rounded-[4px] border border-border-grid">
+<div class="relative w-14 h-14 shrink-0">
+<svg class="w-full h-full" viewbox="0 0 64 64">
+<circle cx="32" cy="32" fill="none" r="26" stroke="#1F232D" stroke-width="5"></circle>
+<circle cx="32" cy="32" fill="none" r="26" stroke="#FB7A18" stroke-dasharray="163.3" stroke-dashoffset="24.5" stroke-linecap="round" stroke-width="5" transform="rotate(-90 32 32)"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-mono font-bold text-[13px] text-primary">
+                  87%
+                </div>
+</div>
+<div class="min-w-0">
+<div class="text-[12px] font-bold text-gray-100 truncate">回水温度骤降异常</div>
+<div class="text-[9.5px] font-mono text-outline mt-0.5 leading-snug">
+                  模型: ThermalNet-Mini (已收敛) · 残差偏离度 3.4σ
+                </div>
+</div>
+</div>
+<!-- 水力平衡度进度条 -->
+<div class="bg-[#0C0E13] p-2.5 rounded-[4px] border border-border-grid">
+<div class="flex items-center justify-between text-[9.5px] font-mono mb-1.5">
+<span class="text-outline">水力平衡度与水击风险评估</span>
+<span class="text-real font-bold">极低风险 (0.04)</span>
+</div>
+<div class="w-full bg-[#1B1D23] h-1.5 rounded-[2px] overflow-hidden">
+<div class="bg-gradient-to-r from-real via-metric-flow to-warning h-full w-[94%]"></div>
+</div>
+<div class="flex justify-between text-[8.5px] font-mono text-outline mt-1">
+<span>0.0 严重失衡</span>
+<span>0.5 警戒</span>
+<span>1.0 完美平衡</span>
+</div>
+</div>
+<!-- 时序特征证据链 (Evidence Trail) -->
+<div class="space-y-1.5 flex-1">
+<div class="text-[10px] font-mono text-outline font-bold flex justify-between">
+<span>物理机理成因分析权重 (SHAP Top 3)</span>
+<span class="text-primary cursor-pointer hover:underline">权重矩阵</span>
+</div>
+<div class="p-2 rounded-[4px] bg-[#0E1015] border border-border-grid flex items-start gap-2">
+<span class="material-symbols-outlined text-real text-sm mt-0.5">check_circle</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between text-[10px] font-mono">
+<span class="font-bold text-gray-200 truncate">供回温差相关性吻合</span>
+<span class="text-real font-bold">R² = 0.98</span>
+</div>
+<p class="text-[9px] font-sans text-outline mt-0.5 leading-snug">温降斜率与末端负荷变化保持动态一致，未检测到截流。</p>
+</div>
+</div>
+<div class="p-2 rounded-[4px] bg-[#0E1015] border border-border-grid flex items-start gap-2">
+<span class="material-symbols-outlined text-warning text-sm mt-0.5">warning</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between text-[10px] font-mono">
+<span class="font-bold text-gray-200 truncate">次干支路阀门扰动</span>
+<span class="text-warning font-bold">Δ 0.03 MPa</span>
+</div>
+<p class="text-[9px] font-sans text-outline mt-0.5 leading-snug">检测到 13:42 伴随阀门开度微调，处于自愈经济区间。</p>
+</div>
+</div>
+<div class="p-2 rounded-[4px] bg-[#0E1015] border border-border-grid flex items-start gap-2">
+<span class="material-symbols-outlined text-metric-return text-sm mt-0.5">psychology</span>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between text-[10px] font-mono">
+<span class="font-bold text-gray-200 truncate">节能自优配置建议</span>
+<span class="text-metric-return font-bold">节能 3.4%</span>
+</div>
+<p class="text-[9px] font-sans text-outline mt-0.5 leading-snug">建议夜间微调回水频段 1.2Hz，可降低电耗与散热边际损耗。</p>
+</div>
+</div>
+</div>
+<!-- 操作按钮 -->
+<button class="w-full py-1.5 bg-[#171A22] hover:bg-primary-container hover:text-black text-gray-200 border border-border-grid hover:border-primary-container rounded-[4px] text-[11px] font-mono font-bold flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[13px]">assessment</span>
+<span>调用推演引擎并导出完整诊断书</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 4: 运行历史数据列表 (秒级数据帧 N-02) ==================== -->
+<section class="scada-card p-3">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-2.5 border-b border-border-grid gap-2">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary-container"></span>
+<h3 class="text-[12.5px] font-bold text-gray-100 font-sans">运行历史数据列表 (精准遥测帧)</h3>
+<span class="px-1.5 py-0.2 rounded-[2px] text-[9.5px] font-mono bg-[#0C0E13] text-outline border border-border-grid">
+                秒级审计流 (Total: 1,480 条)
+              </span>
+</div>
+<p class="text-[9.5px] font-sans text-outline mt-0.5">
+              记录管段传感器上传之未经插值的纯真实数据，支持即时回溯与模型反标
+            </p>
+</div>
+<!-- 工具栏 -->
+<div class="flex items-center gap-2">
+<button class="scada-btn">
+<span class="material-symbols-outlined text-[13px]">receipt_long</span>
+<span>导出 CSV</span>
+</button>
+<button class="scada-btn scada-btn-primary">
+<span class="material-symbols-outlined text-[13px]">warning</span>
+<span>发起异常检测</span>
+</button>
+</div>
+</div>
+<!-- 表格容器 -->
+<div class="overflow-x-auto mt-2">
+<table class="w-full text-left font-mono text-[11px] border-collapse">
+<thead>
+<tr class="border-b border-border-grid text-[9.5px] text-outline bg-[#0C0E13]">
+<th class="py-2 px-3">采样时间 (精确到秒)</th>
+<th class="py-2 px-3">测点编号 &amp; 名称</th>
+<th class="py-2 px-3">采集数值</th>
+<th class="py-2 px-3">工程单位</th>
+<th class="py-2 px-3">数据质量状态</th>
+<th class="py-2 px-3">基线偏离度</th>
+<th class="py-2 px-3 text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-subtle text-[11px]">
+<!-- ROW 1 -->
+<tr class="hover:bg-surface-card-hover transition-colors">
+<td class="py-2.5 px-3 text-gray-300">2025-02-26 14:38:40</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-metric-supply"></span>
+<span class="font-bold text-gray-200">TE-101A (供水温度测点)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 font-bold text-metric-supply">68.42</td>
+<td class="py-2.5 px-3 text-outline">°C</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-[2px] text-[9.5px] bg-real/15 text-real border border-real/30">
+<span class="w-1.5 h-1.5 rounded-full bg-real"></span>
+                    优 (GOOD)
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-real">+0.2°C</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-primary hover:underline mr-3 text-[10.5px]">曲线标定</button>
+<button class="text-outline hover:text-white text-[10.5px]">溯源</button>
+</td>
+</tr>
+<!-- ROW 2 -->
+<tr class="hover:bg-surface-card-hover transition-colors">
+<td class="py-2.5 px-3 text-gray-300">2025-02-26 14:38:30</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-metric-return"></span>
+<span class="font-bold text-gray-200">TE-102B (回水温度测点)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 font-bold text-metric-return">42.10</td>
+<td class="py-2.5 px-3 text-outline">°C</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-[2px] text-[9.5px] bg-warning/15 text-warning border border-warning/30">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                    良 (波动校正)
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-warning">+1.8°C</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-primary hover:underline mr-3 text-[10.5px]">曲线标定</button>
+<button class="text-outline hover:text-white text-[10.5px]">溯源</button>
+</td>
+</tr>
+<!-- ROW 3 -->
+<tr class="hover:bg-surface-card-hover transition-colors">
+<td class="py-2.5 px-3 text-gray-300">2025-02-26 14:38:20</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-metric-pressure"></span>
+<span class="font-bold text-gray-200">PT-201 (供水进网压力)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 font-bold text-metric-pressure">0.852</td>
+<td class="py-2.5 px-3 text-outline">MPa</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-[2px] text-[9.5px] bg-real/15 text-real border border-real/30">
+<span class="w-1.5 h-1.5 rounded-full bg-real"></span>
+                    优 (GOOD)
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-real">-0.008 MPa</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-primary hover:underline mr-3 text-[10.5px]">曲线标定</button>
+<button class="text-outline hover:text-white text-[10.5px]">溯源</button>
+</td>
+</tr>
+<!-- ROW 4 -->
+<tr class="hover:bg-surface-card-hover transition-colors">
+<td class="py-2.5 px-3 text-gray-300">2025-02-26 14:38:10</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-metric-flow"></span>
+<span class="font-bold text-gray-200">FT-098 (超声波流量计)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 font-bold text-metric-flow">186.54</td>
+<td class="py-2.5 px-3 text-outline">m³/h</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-[2px] text-[9.5px] bg-real/15 text-real border border-real/30">
+<span class="w-1.5 h-1.5 rounded-full bg-real"></span>
+                    优 (GOOD)
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-outline">-3.4 m³/h</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-primary hover:underline mr-3 text-[10.5px]">曲线标定</button>
+<button class="text-outline hover:text-white text-[10.5px]">溯源</button>
+</td>
+</tr>
+<!-- ROW 5 -->
+<tr class="hover:bg-surface-card-hover transition-colors">
+<td class="py-2.5 px-3 text-gray-300">2025-02-26 14:38:00</td>
+<td class="py-2.5 px-3">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="font-bold text-gray-200">DP-303 (管网压差变送器)</span>
+</div>
+</td>
+<td class="py-2.5 px-3 font-bold text-gray-200">0.421</td>
+<td class="py-2.5 px-3 text-outline">MPa</td>
+<td class="py-2.5 px-3">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.2 rounded-[2px] text-[9.5px] bg-[#1C1F26] text-outline border border-border-grid">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+                    校验中 (CALIB)
+                  </span>
+</td>
+<td class="py-2.5 px-3 text-real">±0.001 MPa</td>
+<td class="py-2.5 px-3 text-right">
+<button class="text-primary hover:underline mr-3 text-[10.5px]">曲线标定</button>
+<button class="text-outline hover:text-white text-[10.5px]">溯源</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- 分页栏 -->
+<div class="flex flex-col sm:flex-row items-center justify-between pt-3 border-t border-border-grid mt-3 gap-2 text-[10px] font-mono text-outline">
+<div>显示 1 至 5 共 1,480 条遥测数据点</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-0.5 rounded-[2px] bg-[#0C0E13] hover:bg-surface-card-hover border border-border-grid text-outline disabled:opacity-40">上一页</button>
+<button class="px-2 py-0.5 rounded-[2px] bg-primary-container text-[#1A0B00] font-bold">1</button>
+<button class="px-2 py-0.5 rounded-[2px] bg-[#0C0E13] hover:bg-surface-card-hover border border-border-grid text-outline">2</button>
+<button class="px-2 py-0.5 rounded-[2px] bg-[#0C0E13] hover:bg-surface-card-hover border border-border-grid text-outline">3</button>
+<span class="px-1">...</span>
+<button class="px-2 py-0.5 rounded-[2px] bg-[#0C0E13] hover:bg-surface-card-hover border border-border-grid text-outline">296</button>
+<button class="px-2 py-0.5 rounded-[2px] bg-[#0C0E13] hover:bg-surface-card-hover border border-border-grid text-outline">下一页</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Inline Script for SCADA Clock Precision -->
+<script>
+    function updateClock() {
+      const now = new Date();
+      const pad = (n) => String(n).padStart(2, '0');
+      const timeStr = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+      const clockEl = document.getElementById('live-scada-clock');
+      if (clockEl) {
+        clockEl.textContent = timeStr;
+      }
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body></html>

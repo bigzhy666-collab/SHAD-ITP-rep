@@ -1,0 +1,95 @@
+{
+  "projectId": "4152994336654102843",
+  "screens": [
+    {
+      "deviceType": "DESKTOP",
+      "height": "2736",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/012e380c3a8f465eac6ea60bee0c502c:download",
+        "mimeType": "text/html",
+        "name": "projects/4152994336654102843/screens/012e380c3a8f465eac6ea60bee0c502c/fileEntries/html"
+      },
+      "name": "projects/4152994336654102843/screens/012e380c3a8f465eac6ea60bee0c502c",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/screenshot_00065f5f497c768b00302644f01d6085:download",
+        "mimeType": "image/png",
+        "name": "projects/4152994336654102843/screens/012e380c3a8f465eac6ea60bee0c502c/fileEntries/screenshot"
+      },
+      "title": "总览看板 - 工业SCADA供热异常检测与辅助诊断平台",
+      "width": "2560",
+      "folder": "01-总览看板"
+    },
+    {
+      "deviceType": "DESKTOP",
+      "height": "2326",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/ae92910361dc41b6a62b44fd9d6244c7:download",
+        "mimeType": "text/html",
+        "name": "projects/4152994336654102843/screens/ae92910361dc41b6a62b44fd9d6244c7/fileEntries/html"
+      },
+      "name": "projects/4152994336654102843/screens/ae92910361dc41b6a62b44fd9d6244c7",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/screenshot_00065f5f51d2abf403749930ff22487d:download",
+        "mimeType": "image/png",
+        "name": "projects/4152994336654102843/screens/ae92910361dc41b6a62b44fd9d6244c7/fileEntries/screenshot"
+      },
+      "title": "管网管理 - 工业SCADA供段层级与遥测详情",
+      "width": "2560",
+      "folder": "02-管网管理"
+    },
+    {
+      "deviceType": "DESKTOP",
+      "height": "2246",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/d3e1e6857df34be9ac2ff8bd0c7ea8b2:download",
+        "mimeType": "text/html",
+        "name": "projects/4152994336654102843/screens/d3e1e6857df34be9ac2ff8bd0c7ea8b2/fileEntries/html"
+      },
+      "name": "projects/4152994336654102843/screens/d3e1e6857df34be9ac2ff8bd0c7ea8b2",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/screenshot_00065f5f504c4fae022d4efed22750cd:download",
+        "mimeType": "image/png",
+        "name": "projects/4152994336654102843/screens/d3e1e6857df34be9ac2ff8bd0c7ea8b2/fileEntries/screenshot"
+      },
+      "title": "异常检测 - 工业SCADA时序任务详情与异常曲线",
+      "width": "2560",
+      "folder": "03-异常检测"
+    },
+    {
+      "deviceType": "DESKTOP",
+      "height": "3462",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/cefa019d957e4f4fafc114cdf55bd474:download",
+        "mimeType": "text/html",
+        "name": "projects/4152994336654102843/screens/cefa019d957e4f4fafc114cdf55bd474/fileEntries/html"
+      },
+      "name": "projects/4152994336654102843/screens/cefa019d957e4f4fafc114cdf55bd474",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/screenshot_00065f5f50cb88d809106bd1cb0889d3:download",
+        "mimeType": "image/png",
+        "name": "projects/4152994336654102843/screens/cefa019d957e4f4fafc114cdf55bd474/fileEntries/screenshot"
+      },
+      "title": "诊断报告 - 工业SCADA报告详情与导出归档",
+      "width": "2560",
+      "folder": "04-诊断报告"
+    },
+    {
+      "deviceType": "DESKTOP",
+      "height": "2838",
+      "htmlCode": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/c1623f4d7cfd42409390a03182fc1279:download",
+        "mimeType": "text/html",
+        "name": "projects/4152994336654102843/screens/c1623f4d7cfd42409390a03182fc1279/fileEntries/html"
+      },
+      "name": "projects/4152994336654102843/screens/c1623f4d7cfd42409390a03182fc1279",
+      "screenshot": {
+        "downloadUrl": "https://stitch.googleapis.com/v1/projects/4152994336654102843/files/screenshot_00065f5f50bdbcee053b710dfa12867d:download",
+        "mimeType": "image/png",
+        "name": "projects/4152994336654102843/screens/c1623f4d7cfd42409390a03182fc1279/fileEntries/screenshot"
+      },
+      "title": "AI分析 - 工业SCADA自研小模型辅助诊断详情",
+      "width": "2560",
+      "folder": "05-AI分析"
+    }
+  ]
+}
