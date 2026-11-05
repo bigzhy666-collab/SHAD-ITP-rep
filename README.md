@@ -1,6 +1,6 @@
 # SHAD 智慧供热异常检测与辅助诊断平台
 
-V3.0 五页前端交互演示。使用 Vue 3、TypeScript、Pinia、Vue Router 和 ECharts，按本地 Stitch 五页原型及最新修改说明实现，使用 impeccable 完成设计上下文、质量规范检查与检测。
+V3.1 四模块前端交互演示。使用 Vue 3、TypeScript、Pinia、Vue Router 和 ECharts，按本地 Stitch 五页原型及最新修改说明实现，使用 impeccable 完成设计上下文、质量规范检查与检测。
 
 ## 启动
 
@@ -20,15 +20,14 @@ npm run preview
 
 部署时将 `dist` 作为站点目录，并将前端路由回退至 `index.html`。应用字体在本地加载，没有 Tailwind CDN 运行依赖。PDF 使用 `public/fonts/NotoSansSC.ttf`（约 10.6 MB，OFL 许可证见同目录），首次导出需读取该字体；生产部署需保持资源可访问。
 
-## 五页与主要操作
+## 四模块与主要操作
 
 | 页面 | 地址 | 可操作内容 |
 |---|---|---|
 | 总览 | `/overview` | 指标及时间切换、图例、缩放、异常定位、拓扑节点联动、检测与报告快捷入口 |
 | 管网管理 | `/networks` | 企业→管网→管段选择、组织维护、参数与历史数据、分页、CSV、带入检测条件 |
 | 异常检测 | `/detections/:id?` | 任务列表、新建/复制配置、排队与运行、失败重试、异常选择/回放、送入 AI |
-| AI 分析 | `/analysis/:id?` | 任务记录、创建/重试、关联散点/对齐时序、示例归因与核查建议、生成报告 |
-| 诊断报告 | `/reports/:id?` | 历史报告、来源选择、章节及曲线、备注、归档、版本、Word/PDF 下载 |
+| AI诊断 | `/diagnosis/:id?` | 单/多选异常事件、五阶段图文证据、具体原因与处理建议、历史记录、同页报告、备注、归档、版本及 Word/PDF |
 
 顶栏对象路径后的切换图标进入管网管理。刷新按钮和 Ctrl+R 刷新数据并保留当前路由、页面筛选及已保存记录。移动端提供折叠导航、单参数图表选择和局部表格滚动。
 
@@ -37,8 +36,8 @@ npm run preview
 1. 在管网管理保留“北方热力有限责任公司 / 城北主力供热网 / 1号二次供热管段”，点击确认选择。
 2. 使用 2026-11-03 00:00–08:00 的历史数据发起检测；可选择正常、异常或失败场景。
 3. 检测完成后定位或回放异常，选择需要分析的异常并送入 AI。
-4. 分析成功后切换关联图，核对依据与核查方向；返回检测会保留本次异常选择。
-5. 生成报告，填写并保存备注，下载 Word/PDF，确认归档。
+4. 在 AI诊断查看阶段进度、时序和关联证据，完成后查看可能原因、解决建议与复核标准；返回检测保留事件选择。
+5. 诊断完成后自动生成同页报告，填写并保存备注，下载 Word/PDF，确认归档。
 6. 重新生成创建新版本；刷新页面检查任务、备注和归档仍存在。
 
 “3号末端支路”演示无参数，“西区供热支线”演示无采样。检测和 AI 的失败场景提供重试入口。存储失败显示持续提示并支持重试；PDF 字体读取或生成失败显示错误并可重新导出。
@@ -64,9 +63,11 @@ npm run build
 
 Playwright 自动启动本地预览，覆盖业务闭环、失败重试、来源与选择恢复、持久化、实际文件下载和七种宽度，截图生成至 `test-results`。验收记录见 [verification/验收记录.md](verification/验收记录.md)，稳定截图入口见 [verification/index.html](verification/index.html)，导出样本见 `verification/exports`。
 
-- [PRD.md](PRD.md)：V3.0 功能、交互、状态及验收约定。
+- [PRD.md](PRD.md)：V3.1 功能、交互、状态及验收约定。
 - [PRODUCT.md](PRODUCT.md)、[DESIGN.md](DESIGN.md)：产品与设计上下文。
 - [stitch-export/index.html](stitch-export/index.html)：已修复的五页原型截图及 HTML 入口，各页保留原始 JSON 响应。
 - `src/services/demo.ts`：演示数据与校验；真实服务从服务层接入，并将任务轮询改为后台状态。
 - `src/stores/workspace.ts`：对象、任务、报告关联及有版本的本地存储。
 - `src/services/export.ts`：Word/PDF 共享报告内容及导出实现。
+
+旧地址 `/analysis/:id?` 与 `/reports/:id?` 自动兼容至 AI诊断。原浏览器历史保留；旧记录缺少过程字段时展示标明演示性质的证据摘要。新版验证见 `verification/ai-diagnosis/验收记录.md`。

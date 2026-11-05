@@ -5,8 +5,7 @@ import App from './App.vue'
 import Overview from './views/Overview.vue'
 import Networks from './views/Networks.vue'
 import Detections from './views/Detections.vue'
-import Analysis from './views/Analysis.vue'
-import Reports from './views/Reports.vue'
+import Diagnosis from './views/Diagnosis.vue'
 import '@fontsource/space-grotesk/latin-400.css'
 import '@fontsource/space-grotesk/latin-700.css'
 import '@fontsource/jetbrains-mono/latin-400.css'
@@ -23,8 +22,9 @@ const router = createRouter({
     { path: '/overview', component: Overview },
     { path: '/networks', component: Networks },
     { path: '/detections/:id?', component: Detections },
-    { path: '/analysis/:id?', component: Analysis },
-    { path: '/reports/:id?', component: Reports },
+    { path: '/diagnosis/:id?', component: Diagnosis },
+    { path: '/analysis/:id?', redirect: to => ({path:'/diagnosis'+(to.params.id?'/'+to.params.id:''),query:to.query}) },
+    { path: '/reports/:id?', redirect: to => ({path:'/diagnosis'+(to.params.id?'/'+to.params.id:''),query:to.params.id?to.query:{...to.query,history:'reports'}}) },
     { path: '/:pathMatch(.*)*', redirect: '/overview' },
   ],
 })

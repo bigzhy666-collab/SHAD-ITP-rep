@@ -1,12 +1,18 @@
 import type { Report } from '../domain'
 import { metricInfo } from '../domain'
 import { download, time } from '../utils'
+import { causesFor } from './demo'
+import { restoredSteps } from './diagnosis'
+export function reportEvents(r:Report){return r.detection.anomalies.filter(a=>!r.analysis||r.analysis.anomalyIds.includes(a.id))}
 export function reportText(r: Report): { heading: string; lines: string[] }[] {
+ const events=reportEvents(r)
+ const causes=r.causes.map(c=>({...causesFor(r.detection,r.analysis?.anomalyIds??[]).find(x=>x.title===c.title),...c}))
  return [
   { heading: '基本信息与工况边界', lines: [`报告编号：${r.id} / V${r.version}`, `所属企业：${r.context.enterprise.name}`, `供热管网：${r.context.network.name}`, `管段：${r.context.segment.name}（${r.context.segment.code}，DN${r.context.segment.diameter}）`, `生成时间：${time(r.createdAt)}`, `检测范围：${time(r.detection.start)} — ${time(r.detection.end)}`, `来源检测：${r.detectionId}`, `来源分析：${r.analysisId ?? '未提供（阶段性检测报告）'}`] },
-  { heading: '异常检测概况与数据证据', lines: [`算法：${r.detection.algorithm} / 残差系数 ${r.detection.threshold} σ`, `监测参数：${r.detection.metrics.map(m => metricInfo[m].label).join('、')}`, ...r.detection.anomalies.map(a => `${a.title}：${time(a.start)} — ${a.end ? time(a.end) : '持续中'}；观测 ${a.value} ${metricInfo[a.metric].unit}，基准 ${a.baseline} ${metricInfo[a.metric].unit}；${a.evidence}`), ...(r.detection.anomalies.length ? [] : ['当前检测范围未检出异常。'])] },
-  { heading: 'AI 辅助诊断与核查建议', lines: r.analysis ? [`模型：${r.analysis.model}`, `分析异常：${r.detection.anomalies.filter(a=>r.analysis!.anomalyIds.includes(a.id)).map(a=>a.title).join('、')}`,  ...r.causes.flatMap(c => [`可能原因：${c.title} / 示例权重 ${c.weight}%`, `依据：${c.evidence}`, `核查：${c.check}`])] : ['本报告未包含 AI 分析，不提供模型原因判断。'] },
+  { heading: '异常检测概况与数据证据', lines: [`算法：${r.detection.algorithm} / 残差系数 ${r.detection.threshold} σ`, `监测参数：${r.detection.metrics.map(m => metricInfo[m].label).join('、')}`, ...events.map(a => `${a.title}：${time(a.start)} — ${a.end ? time(a.end) : '持续中'}；观测 ${a.value} ${metricInfo[a.metric].unit}，基准 ${a.baseline} ${metricInfo[a.metric].unit}；${a.evidence}`), ...(events.length ? [] : ['当前检测范围未检出异常。'])] },
+  { heading: '原因诊断与解决方案建议', lines: r.analysis ? [`模型：${r.analysis.model}`, `所选事件：${events.map(a=>a.title).join('、')}`, ...causes.flatMap(c => [`可能原因：${c.title} / 示例权重 ${c.weight}%`, `依据：${c.evidence}`, `核查：${c.check}`,`解决建议：${c.solution??'补齐现场数据并复核后确定处理方案。'}`,`复核标准：${c.verification??'对比处置前后参数并确认异常是否消失。'}`])] : ['本报告仅记录数值异常，未包含原因诊断及解决方案。'] },
   { heading: '完整性与演示说明', lines: ['本报告为 SHAD 前端交互演示产物。数据、检测及模型权重均为示例，未连接真实设备或算法服务，不构成实际运行诊断。', '事实、算法示例结果和原因推测分别呈现；现场处置须由专业人员核验。', `归档状态：${r.archivedAt ? '已归档 · ' + time(r.archivedAt) : '待归档'}`, `备注：${r.note || '无'}`] },
+  ...(r.analysis?[{heading:'分析过程与证据摘要',lines:(r.process??restoredSteps(r.analysis,r.detection)).flatMap(s=>[s.title+'：'+s.summary,...s.evidence])}]:[]),
  ]
 }
 export async function exportDocx(r: Report, image?: string) {
