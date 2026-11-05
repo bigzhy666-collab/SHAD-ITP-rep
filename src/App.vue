@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {computed,onBeforeUnmount,onMounted,ref} from 'vue'
 import {RouterLink,RouterView,useRoute,useRouter} from 'vue-router'
-import {Activity,ArrowLeftRight,Bot,ChartNoAxesCombined,FileText,LayoutDashboard,Menu,Network,RefreshCw,X} from 'lucide-vue-next'
+import {Activity,ArrowLeftRight,Bot,FileText,LayoutDashboard,Menu,Network,RefreshCw,X} from 'lucide-vue-next'
 import {useWorkspace} from './stores/workspace'
 import {time} from './utils'
 const store=useWorkspace(),route=useRoute(),router=useRouter(),menu=ref(false)
@@ -14,7 +14,7 @@ onMounted(()=>{store.tick();timer=setInterval(store.tick,400);window.addEventLis
 <template>
 <a href="#main-content" class="skip-link">跳转到主要内容</a><div v-if="menu" class="nav-shade" @click="menu=false"></div>
 <aside :class="['sidebar',{open:menu}]" aria-label="主导航">
-<RouterLink to="/overview" class="brand"><span class="brand-icon"><ChartNoAxesCombined :size="32" /></span><div><strong>SHAD · SMART</strong><small><i class="dot"></i> CONSOLE · 演示数据</small></div><span class="version">V0.4</span></RouterLink><button class="close-nav icon-button" aria-label="关闭导航" @click="menu=false"><X :size="20" /></button>
+<RouterLink to="/overview" class="brand" aria-label="SHAD 首页"><img class="brand-mark" src="/shad-mark.svg" alt=""/><div class="brand-copy"><div class="brand-title-row"><strong>SHAD</strong><span class="version">V0.14</span></div><small><i class="dot"></i> CONSOLE · 模拟数据</small></div></RouterLink><button class="close-nav icon-button" aria-label="关闭导航" @click="menu=false"><X :size="20" /></button>
 <div class="sidebar-object"><div class="flex between"><span class="orange">受析管段</span><span class="green">本地演示</span></div><strong>{{c?.segment.name??'未选择管段'}} <template v-if="c">（DN{{c.segment.diameter}}）</template></strong><div class="muted">{{c?.network.name??'请进入管网管理选择'}} <span class="orange">{{c?.segment.code}}</span></div></div>
 <div class="nav-caption">核心监测模块</div><nav><RouterLink v-for="item in nav" :key="item.path" :to="item.path" :aria-label="item.name" :class="['nav-item',{active:route.path.startsWith(item.path)}]" :aria-current="route.path.startsWith(item.path)?'page':undefined" @click="menu=false"><component :is="item.icon" :size="21" /><span>{{item.name}}</span><span v-if="item.path==='/detections'" class="nav-count">{{store.state.detections.filter(d=>d.status==='success'&&d.anomalies.length).length}}</span></RouterLink></nav>
 <div class="sidebar-bottom"><button class="wide secondary orange" @click="report"><FileText :size="17" />进入 AI诊断</button><p>演示服务 <i class="dot"></i> 数据保存在本机</p></div></aside>
