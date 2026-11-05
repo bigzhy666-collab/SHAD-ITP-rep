@@ -6,14 +6,8 @@ import Overview from './views/Overview.vue'
 import Networks from './views/Networks.vue'
 import Detections from './views/Detections.vue'
 import Diagnosis from './views/Diagnosis.vue'
-import '@fontsource/space-grotesk/latin-400.css'
-import '@fontsource/space-grotesk/latin-700.css'
-import '@fontsource/jetbrains-mono/latin-400.css'
-import '@fontsource/jetbrains-mono/latin-600.css'
-import '@fontsource/barlow-condensed/latin-600.css'
-import '@fontsource/noto-sans-sc/400.css'
-import '@fontsource/noto-sans-sc/600.css'
 import './style.css'
+import './theme.css'
 
 const router = createRouter({
   history: createWebHistory(),

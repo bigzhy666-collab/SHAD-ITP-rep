@@ -14,10 +14,10 @@ web
 使用 Vue 3、TypeScript、Pinia、Vue Router、ECharts。四个一级入口：总览、管网管理、数据监测、AI诊断。浏览器本地保存历史，真实接口尚未提供。Word/PDF 必须为有效文件。
 
 ## Brand Commitments
-严格采用 stitch-export 中的五页设计及用户明确修订：移除独立工控工具入口；对象路径在标题右侧，紧接切换图标；保留刷新与 Ctrl+R。
+布局和交互采用 stitch-export 及现有四模块设计，外观采用用户提供的《SHAD-总览页-v0.14(4).html》浅色蓝白风格及明确修订：移除独立工控工具入口；对象路径在标题右侧，紧接切换图标；保留刷新与 Ctrl+R。
 
 ## Evidence on Hand
-PRD.md 为产品规则；stitch-export 为布局依据。用户已选择黑灰橙色 Stitch 原型及前端演示闭环。
+PRD.md 为产品规则；stitch-export 为布局依据。用户已在保留现有图标、图表、按键设置和交互的前提下，指定参考 HTML 的颜色、系统字体和背景；前端演示闭环不变。
 
 ## Product Principles
 对象来源可追溯；事实和示例推测分开；查询失败不等于任务失败；交互有可恢复反馈。

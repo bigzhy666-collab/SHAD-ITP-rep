@@ -18,7 +18,7 @@ npm run build
 npm run preview
 ```
 
-部署时将 `dist` 作为站点目录，并将前端路由回退至 `index.html`。应用字体在本地加载，没有 Tailwind CDN 运行依赖。PDF 使用 `public/fonts/NotoSansSC.ttf`（约 10.6 MB，OFL 许可证见同目录），首次导出需读取该字体；生产部署需保持资源可访问。
+部署时将 `dist` 作为站点目录，并将前端路由回退至 `index.html`。界面沿用参考 HTML 的系统字体，无界面字体或 Tailwind CDN 运行依赖；颜色与字体变量位于 `src/theme.css`。PDF 使用 `public/fonts/NotoSansSC.ttf`（约 10.6 MB，OFL 许可证见同目录），首次导出需读取该字体；生产部署需保持资源可访问。
 
 ## 四模块与主要操作
 

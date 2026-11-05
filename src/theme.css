@@ -1,0 +1,60 @@
+/* Palette and typography from SHAD-总览页-v0.14(4).html.
+   Layout, chart geometry, controls and the approved logo remain unchanged. */
+:root {
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", Arial, sans-serif;
+  --canvas: #f8fafc;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --surface-container: #f1f5f9;
+  --border: #e2e8f0;
+  --border-subtle: #eef2f6;
+  --border-hover: #94a3b8;
+  --text: #1e293b;
+  --muted: #5f6f85; /* Slightly deeper on selected/hover surfaces for readable metadata. */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #eff6ff;
+  --primary-border: #bfdbfe;
+  --on-primary: #ffffff;
+  --orange: var(--primary); /* Existing action class; metric colors are independent. */
+  --success: #15803d;
+  --success-soft: #f0fdf4;
+  --success-border: #bbf7d0;
+  --danger: #b91c1c;
+  --danger-soft: #fef2f2;
+  --danger-border: #fecaca;
+  --warning: #92400e;
+  --warning-soft: #fffbeb;
+  --warning-border: #fde68a;
+  --cyan: #0e7490;
+  --purple: #6d28d9;
+  --purple-soft: #f5f3ff;
+  --purple-border: #ddd6fe;
+  --metric-supply: #ff7849;
+  --metric-supply-text: #c2410c;
+  --metric-return-text: #0e7490;
+  --metric-pressure-text: #7c3aed;
+  --metric-flow-text: #0369a1;
+  --selection: #bfdbfe;
+  --overlay: rgb(15 23 42 / 40%);
+  --shadow: rgb(15 23 42 / 12%);
+  -webkit-font-smoothing: antialiased;
+  font-variant-numeric: tabular-nums;
+}
+/* Match the reference's light chrome; no sizing or placement overrides. */
+.topbar, .panel-heading { background: var(--canvas); }
+.primary:hover:not(:disabled) { color: var(--on-primary); }
+.nav-item:hover { color: var(--text); }
+.nav-item.active:hover { background: var(--primary-hover); color: var(--on-primary); }
+.clock { color: var(--text); }
+.avatar { background: var(--primary-soft); color: var(--primary-hover); }
+input:focus-visible, select:focus-visible, textarea:focus-visible { border-color: var(--primary); }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, [tabindex]:focus-visible { outline-color: var(--primary); }
+textarea { caret-color: var(--primary); }
+.topology-node .orange { color: #c2410c; }
+.topology svg { font-family: var(--font-ui); }
+.topology svg circle[fill="#242b35"] { fill: #e2e8f0; }
+.topology svg circle[fill="#14161b"], .topology svg rect[fill="#101116"] { fill: var(--surface); }
+.topology svg text[fill="#e8e9ed"] { fill: var(--text); }
+
+.brand .version { color: #c2410c; border-color: #fdba74; background: #fff7ed; }
