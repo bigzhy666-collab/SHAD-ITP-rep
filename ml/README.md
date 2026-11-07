@@ -34,6 +34,7 @@
 │   └── inference.py         # 【模型产物】训练/保存/加载/打分 + 国内字段映射
 ├── scripts/
 │   ├── run_baseline.py      # 论文协议实验（--features raw|phys|phys2、--adapt-thr、--sensor-quality）
+│   ├── run_build_final.py   # 组合最终配置（M1 自适应阈值 + M2 全局阈值）并重算指标
 │   ├── run_supervised.py    # 跨站窗口级监督模型（二分类 + 故障类型）
 │   ├── run_quality.py       # 传感器体检报告（93 站逐测点健康度 + 外部验证）
 │   ├── run_pretrain.py      # 跨站预训练实验（负结果，保留复现）
@@ -47,7 +48,7 @@
 │   ├── 模型研发报告.md        # 完整技术报告（结论/协议/消融/局限/复现）
 │   ├── 模型卡.md             # 输入输出、使用方法、风险与落地
 │   ├── 文献/基线方法与评估协议.md
-│   └── 数据/国内数据源调研.md
+│   └── 数据/国内数据可得性结论.md
 ├── 勘探/                    # 数据清点与质量报告（93 站可用性）
 └── 数据缓存/                # 站点级 pickle 缓存（自动生成，可删）
 ```
@@ -60,16 +61,23 @@ PY=python   # 需要 numpy / pandas / scikit-learn / matplotlib
 # 1) 复现论文协议基线（约 6-8 分钟，115 个事件）
 $PY scripts/run_baseline.py --variant default --out baseline_default
 
-# 2) 跑本文模型（紧凑物理特征 + 循环时间特征）
+# 2) 跑紧凑物理特征版本（M2 的最终配置）
 $PY scripts/run_baseline.py --variant cyclic --features phys2 --out final_phys2
 
-# 3) 监督模型（约 2-3 分钟）
+# 3) 跑工况自适应阈值版本（M1 的最终配置）
+$PY scripts/run_baseline.py --variant cyclic --features phys2 --adapt-thr --out final_v3_gated
+
+# 4) 组合最终模型并重算指标（输出 reports/final_best，即报告里的 0.780 / 58% / 3.75 天）
+$PY scripts/run_build_final.py
+
+# 5) 监督模型（约 2-3 分钟）与传感器体检
 $PY scripts/run_supervised.py
+$PY scripts/run_quality.py
 
-# 4) 出图
-$PY scripts/make_figures.py --runs reports/baseline_default:基线AE reports/final_phys2:本文模型
+# 6) 出图
+$PY scripts/make_figures.py --runs reports/baseline_default:论文口径基线 reports/final_best:最终模型 --out-prefix final2
 
-# 5) 训练一个站的模型并用它打分
+# 7) 训练一个站的模型并用它打分
 $PY scripts/train_station_model.py --mfr M1 --sid 7 --start 2015-04-12 --end 2017-11-12 --out models/M1_s7.pkl
 $PY scripts/score_station.py --model models/M1_s7.pkl --mfr M1 --sid 7 --start 2017-11-18 --end 2017-11-27
 ```
@@ -90,6 +98,6 @@ $PY scripts/score_station.py --model models/M1_s7.pkl --mfr M1 --sid 7 --start 2
 ## 下一步（未完成项）
 
 1. 故障类型分层与可解释归因（当前 18 类准确率 0.142，仅可作参考）；
-2. 国内数据接入与迁移验证（公开数据源清单见[国内数据源调研](docs/数据/国内数据源调研.md)）；
+2. 国内数据接入与迁移验证（公开数据源清单见[国内数据可得性结论](docs/数据/国内数据可得性结论.md)）；
 3. 传感器体检已落地（`src/quality.py` + `scripts/run_quality.py`，已知坏传感器命中 6/6、13 个站需降级）；下一步做坏传感器的代理特征替换（如室外温度坏时用回水温度或设定值推等价工况），而不是简单剔除；
 4. 跨站预训练已完成并验证为负结果，不再作为改进方向。

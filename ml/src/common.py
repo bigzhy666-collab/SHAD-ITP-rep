@@ -2,7 +2,7 @@
 
 PreDist 数据集关键事实（来自 README + 数据探查）：
   - 两家厂商 M1 / M2，93 个换热站，10 分钟采样，CSV 分隔符为 ';'
-  - M1 有 35 站、M2 有 61 站（部分站在 README 中缺失，属正常）
+  - M1 有 35 站、M2 有 58 站（论文写 61，数据包缺 22/30/32 号站）
   - M2 存在重名列（outdoor_temperature 出现两次）、含空格列名（s_hc1.2_dhw_control unit_mode）、
     且单位与 M1 不同（W / Wh / ml/h / ml），必须在加载时统一
 """
@@ -13,8 +13,20 @@ from pathlib import Path
 
 # ---------------------------------------------------------------- 路径
 ROOT = Path(__file__).resolve().parents[1]          # 工作站/
-# 原始数据集位置：优先读环境变量 PREDIST_DATA，否则用项目根目录下的 数据/
-DATA = Path(os.environ.get("PREDIST_DATA", str(ROOT / "数据")))
+
+
+def _default_data_dir() -> Path:
+    """原始数据目录：优先环境变量，其次 项目根/数据、项目根的上级/数据。"""
+    env = os.environ.get("PREDIST_DATA")
+    if env:
+        return Path(env)
+    for cand in (ROOT / "数据", ROOT.parent / "数据"):
+        if (cand / "manufacturer 1").is_dir():
+            return cand
+    return ROOT / "数据"
+
+
+DATA = _default_data_dir()
 CACHE = ROOT / "数据缓存"
 REPORTS = ROOT / "reports"
 FIGURES = REPORTS / "figures"
