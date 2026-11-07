@@ -1,0 +1,116 @@
+﻿key,manufacturer,event_id,sid,kind,fault_label,monitoring_potential,config_type,c_max,n_points,n_train,n_features,t_ae,score_kind,elapsed_s
+M1_E1_S10_fault,M1,1,10,fault,Motorised control valve (primary side): Actuator defective,3.4,SH + DHW,35,336,22708,13,8.85149804091446,mahalanobis,2.6
+M1_E3_S12_fault,M1,3,12,fault,Control unit: Incorrect parameterisation,4.0,SH + DHW,1,336,12533,12,8.734809592691338,mahalanobis,1.4
+M1_E13_S24_fault,M1,13,24,fault,Failure of the heating circuit pump,3.8,SH + DHW with sub-circuits,200,336,1014,15,8.214415403234014,mahalanobis,0.3
+M1_E40_S24_fault,M1,40,24,fault,"Safety relief valve: Water loss, does not close properly",2.0,SH + DHW with sub-circuits,6,335,5768,15,8.995417021572145,mahalanobis,0.8
+M1_E24_S13_fault,M1,24,13,fault,Failure of the heating circuit pump,3.8,SH + DHW,4,336,22847,13,9.122386308468235,mahalanobis,2.6
+M1_E38_S24_fault,M1,38,24,fault,Incorrect setting of the differential pressure regulator,3.1,SH + DHW with sub-circuits,16,336,15315,15,11.436854134366698,mahalanobis,1.8
+M1_E6_S21_fault,M1,6,21,fault,Control unit: Incorrect parameterisation,4.0,SH + DHW,1,336,16826,12,8.260619446536367,mahalanobis,2.1
+M1_E34_S20_fault,M1,34,20,fault,unknown,,SH + DHW with sub-circuits,1,336,29282,19,11.439802684659652,mahalanobis,3.6
+M1_E67_S7_fault,M1,67,7,fault,Motorised control valve (primary side) defective,3.4,SH + DHW,334,336,34853,14,9.466710885353606,mahalanobis,4.2
+M1_E44_S8_fault,M1,44,8,fault,Temperature monitor/controller defective,3.0,SH + DHW,39,336,36296,13,8.368942763395152,mahalanobis,4.3
+M1_E20_S11_fault,M1,20,11,fault,"Safety relief valve: Water loss, does not close properly",2.0,SH + DHW,28,244,58006,12,8.352848239964484,mahalanobis,4.1
+M1_E37_S19_fault,M1,37,19,fault,Control unit: Incorrect parameterisation,4.0,SH + DHW with sub-circuits,19,336,40583,17,10.039372700688391,mahalanobis,5.1
+M1_E5_S11_fault,M1,5,11,fault,Failure of the heating circuit pump,3.8,SH + DHW,1,337,65040,12,8.253500236428733,mahalanobis,3.9
+M1_E29_S17_fault,M1,29,17,fault,Motorised control valve (primary side): Control valve jams when closed,3.2,SH + DHW,0,336,53760,8,7.477271395104152,mahalanobis,5.3
+M1_E65_S11_fault,M1,65,11,fault,Leakage,1.75,SH + DHW,1,336,34892,12,8.325304336834158,mahalanobis,3.9
+M1_E64_S6_fault,M1,64,6,fault,Differential pressure regulator defective,3.2,SH + DHW,31,336,961,8,6.34548942555935,mahalanobis,0.2
+M1_E49_S18_fault,M1,49,18,fault,Control unit: Incorrect parameterisation,4.0,SH + DHW,40,335,40986,14,8.690402489213229,mahalanobis,4.7
+M1_E47_S28_fault,M1,47,28,fault,Failure of the heating circuit pump,3.8,SH + DHW,207,336,3160,8,7.440639112908873,mahalanobis,0.4
+M1_E45_S31_fault,M1,45,31,fault,"Heat exchanger: Leakage, external",2.0,SH + DHW,2,336,1550,12,7.787597736953512,mahalanobis,0.3
+M1_E23_S27_fault,M1,23,27,fault,Control unit: Incorrect parameterisation,4.0,SH + DHW,2,336,2025,12,9.104122516999762,mahalanobis,0.3
+M1_E57_S9_fault,M1,57,9,fault,Differential pressure regulator defective,3.2,SH + DHW,14,336,86682,12,8.524652579827828,mahalanobis,7.5
+M1_E15_S29_fault,M1,15,29,fault,Failure of the domestic hot water storage charging pump,3.7,SH + DHW with sub-circuits,28,336,6794,19,8.556315128216685,mahalanobis,1.1
+M1_E69_S26_fault,M1,69,26,fault,unknown,,SH + DHW with sub-circuits,102,336,23676,19,15.692393935174252,mahalanobis,3.1
+M1_E10_S30_fault,M1,10,30,fault,Leakage,1.75,SH + DHW,13,336,4201,14,10.808916905761707,mahalanobis,0.6
+M1_E53_S13_fault,M1,53,13,fault,Shut-off valve closed,2.8,SH + DHW,2,337,66417,13,9.461688832498162,mahalanobis,8.1
+M1_E7_S26_fault,M1,7,26,fault,Incorrect setting of the differential pressure regulator,3.1,SH + DHW with sub-circuits,95,336,28194,19,15.708485234155727,mahalanobis,3.8
+M1_E2_S9_normal,M1,2,9,normal,,,SH + DHW,0,337,34858,12,8.300344676677655,mahalanobis,3.8
+M1_E4_S15_normal,M1,4,15,normal,,,SH + DHW with sub-circuits,1,337,30410,20,12.256710503184513,mahalanobis,4.2
+M1_E8_S6_normal,M1,8,6,normal,,,SH + DHW,3,337,19445,8,7.00863997123071,mahalanobis,2.0
+M1_E12_S19_normal,M1,12,19,normal,,,SH + DHW with sub-circuits,1,337,28074,17,10.874685611541677,mahalanobis,3.7
+M1_E14_S26_normal,M1,14,26,normal,,,SH + DHW with sub-circuits,0,337,19863,19,15.332387651456427,mahalanobis,2.7
+M1_E16_S17_normal,M1,16,17,normal,,,SH + DHW,1,337,32758,8,7.417161644287296,mahalanobis,3.3
+M1_E17_S2_normal,M1,17,2,normal,,,SH + DHW,1,337,35039,8,7.801986643029754,mahalanobis,2.4
+M1_E18_S16_normal,M1,18,16,normal,,,SH + DHW,5,337,22964,8,7.177817362865289,mahalanobis,2.4
+M1_E19_S8_normal,M1,19,8,normal,,,SH + DHW,0,337,26621,13,8.79101737121224,mahalanobis,3.2
+M1_E21_S1_normal,M1,21,1,normal,,,SH + DHW,1,337,25319,12,8.252066577011577,mahalanobis,2.8
+M1_E22_S5_normal,M1,22,5,normal,,,SH + DHW,1,337,34990,12,9.780105749741223,mahalanobis,3.1
+M1_E25_S20_normal,M1,25,20,normal,,,SH + DHW with sub-circuits,2,337,24337,19,11.163821224951624,mahalanobis,3.1
+M1_E26_S4_normal,M1,26,4,normal,,,SH + DHW,1,337,32292,12,8.359614014446814,mahalanobis,3.2
+M1_E27_S12_normal,M1,27,12,normal,,,SH + DHW,0,336,5711,12,8.2973005919476,mahalanobis,0.6
+M1_E28_S7_normal,M1,28,7,normal,,,SH + DHW,1,336,5874,12,8.708502861706414,mahalanobis,0.8
+M1_E30_S16_normal,M1,30,16,normal,,,SH + DHW,1,337,9765,8,8.463542679084881,mahalanobis,1.0
+M1_E31_S3_normal,M1,31,3,normal,,,SH + DHW,1,337,35088,9,9.123315384206567,mahalanobis,3.8
+M1_E33_S3_normal,M1,33,3,normal,,,SH + DHW,0,337,35039,8,7.624078950139939,mahalanobis,3.5
+M1_E35_S11_normal,M1,35,11,normal,,,SH + DHW,2,337,35023,12,9.19714413824793,mahalanobis,3.7
+M1_E39_S15_normal,M1,39,15,normal,,,SH + DHW with sub-circuits,2,337,23114,20,11.837611107740218,mahalanobis,3.1
+M1_E41_S2_normal,M1,41,2,normal,,,SH + DHW,1,337,27241,8,7.713182197842309,mahalanobis,2.7
+M1_E42_S22_normal,M1,42,22,normal,,,SH + DHW,1,337,23791,16,11.20374499771057,mahalanobis,2.8
+M1_E43_S25_normal,M1,43,25,normal,,,SH + DHW,1,337,35015,8,8.91245848183435,mahalanobis,3.5
+M1_E46_S4_normal,M1,46,4,normal,,,SH + DHW,1,337,32292,12,8.68478586816291,mahalanobis,3.1
+M1_E48_S11_normal,M1,48,11,normal,,,SH + DHW,1,337,27939,12,7.94526264805935,mahalanobis,2.9
+M1_E50_S17_normal,M1,50,17,normal,,,SH + DHW,1,337,16440,8,7.779582061417314,mahalanobis,1.7
+M1_E51_S20_normal,M1,51,20,normal,,,SH + DHW with sub-circuits,1,337,35009,19,10.920139348634905,mahalanobis,4.6
+M1_E54_S22_normal,M1,54,22,normal,,,SH + DHW,1,337,16609,13,8.628131592581017,mahalanobis,2.0
+M1_E55_S23_normal,M1,55,23,normal,,,SH + DHW with sub-circuits,1,337,23535,20,10.788479761641339,mahalanobis,3.1
+M1_E56_S2_normal,M1,56,2,normal,,,SH + DHW,1,337,35039,8,7.765959968782305,mahalanobis,2.7
+M1_E58_S5_normal,M1,58,5,normal,,,SH + DHW,2,337,35006,12,9.642021754504917,mahalanobis,3.8
+M1_E59_S22_normal,M1,59,22,normal,,,SH + DHW,6,337,10686,15,9.38574919011601,mahalanobis,1.4
+M1_E61_S14_normal,M1,61,14,normal,,,SH + DHW,0,337,34191,13,8.450903500999956,mahalanobis,3.7
+M1_E66_S19_normal,M1,66,19,normal,,,SH + DHW with sub-circuits,0,337,22890,17,11.467767643652811,mahalanobis,2.8
+M1_E68_S13_normal,M1,68,13,normal,,,SH + DHW,1,337,35054,13,9.641400383130959,mahalanobis,3.5
+M2_E41_S4_fault,M2,41,4,fault,Air in the piping system,2.1,SH,2,336,3766,10,2.2217640241911734,rmse,0.4
+M2_E40_S10_fault,M2,40,10,fault,unknown,,SH,2,336,16214,9,0.9954075661895094,rmse,1.6
+M2_E38_S10_fault,M2,38,10,fault,Incorrect setting of the differential pressure regulator,3.1,SH,1,311,19441,9,1.0407947181190287,rmse,2.1
+M2_E37_S4_fault,M2,37,4,fault,unknown,,SH,6,336,10281,10,1.2238219867481004,rmse,1.1
+M2_E36_S20_fault,M2,36,20,fault,Failure of the domestic hot water storage charging pump,3.7,SH + DHW,1,337,9623,13,1.0279645252960574,rmse,1.1
+M2_E31_S16_fault,M2,31,16,fault,Motorised control valve (primary side): Actuator defective,3.4,SH,1,336,32757,10,0.8030966643898065,rmse,2.5
+M2_E30_S21_fault,M2,30,21,fault,Control unit: Incorrect parameterisation,4.0,SH + DHW with sub-circuits,0,336,44621,26,0.9540207541697969,rmse,5.3
+M2_E29_S19_fault,M2,29,19,fault,Leakage,1.75,SH + DHW,1,336,46081,15,0.9421189622440784,rmse,5.4
+M2_E28_S52_fault,M2,28,52,fault,Low pre-charge at the expansion vessel,2.9,SH + DHW,2,336,46516,15,0.8807362833213097,rmse,4.3
+M2_E26_S39_fault,M2,26,39,fault,Air in the piping system,2.1,SH with buffer tank,1,336,828,12,1.3256587799235229,rmse,0.2
+M2_E25_S10_fault,M2,25,10,fault,Failure of the heating circuit pump,3.8,SH,329,336,68806,9,1.0187679769214744,rmse,3.9
+M2_E22_S26_fault,M2,22,26,fault,Incorrect setting of the differential pressure regulator,3.1,SH + DHW,0,337,3497,13,1.3720982603555143,rmse,0.5
+M2_E21_S53_fault,M2,21,53,fault,Failure of the domestic hot water storage charging pump,3.7,SH with buffer tank,4,336,3066,11,1.4104726651807975,rmse,0.4
+M2_E20_S50_fault,M2,20,50,fault,Failure of the domestic hot water storage charging pump,3.7,SH with buffer tank,26,336,2297,12,1.6000702877584152,rmse,0.3
+M2_E18_S11_fault,M2,18,11,fault,Incorrect setting of the differential pressure regulator,3.1,SH,33,336,3044,9,0.865222788322625,rmse,0.4
+M2_E13_S15_fault,M2,13,15,fault,Leakage,1.75,SH,216,336,1048,9,0.9490234217158394,rmse,0.2
+M2_E12_S43_fault,M2,12,43,fault,Strainer (secondary side): Poor flow rate,3.6,SH + DHW,46,336,1741,13,1.4187260476381005,rmse,0.3
+M2_E10_S18_fault,M2,10,18,fault,Leakage,1.75,SH with buffer tank,25,336,1924,11,1.9133710493968148,rmse,0.3
+M2_E8_S59_fault,M2,8,59,fault,Failure of the heating circuit pump,3.8,SH,4,336,2101,9,1.2959060136135823,rmse,0.3
+M2_E6_S35_fault,M2,6,35,fault,Leakage,1.75,SH with buffer tank,2,336,4975,12,1.4230656659603913,rmse,0.6
+M2_E5_S8_fault,M2,5,8,fault,Leakage,1.75,SH,3,337,5405,10,1.0798525563188908,rmse,0.7
+M2_E3_S45_fault,M2,3,45,fault,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,SH,7,336,3935,9,1.1547821076297053,rmse,0.5
+M2_E2_S53_fault,M2,2,53,fault,Incorrect setting of the differential pressure regulator,3.1,SH with buffer tank,4,337,5164,11,1.6947438475600807,rmse,0.6
+M2_E1_S24_fault,M2,1,24,fault,Shut-off valve closed,2.8,SH + DHW,55,336,7061,13,1.0633978140613929,rmse,0.9
+M2_E43_S24_normal,M2,43,24,normal,,,SH + DHW,1,337,6079,13,1.0838757478595586,rmse,0.8
+M2_E44_S53_normal,M2,44,53,normal,,,SH with buffer tank,1,337,4698,12,0.5841095366949534,rmse,0.5
+M2_E45_S53_normal,M2,45,53,normal,,,SH with buffer tank,1,337,7914,12,0.5523986955110617,rmse,0.9
+M2_E46_S8_normal,M2,46,8,normal,,,SH,2,337,4033,9,1.006274207566013,rmse,0.5
+M2_E47_S35_normal,M2,47,35,normal,,,SH with buffer tank,1,337,3553,11,1.3771155037809528,rmse,0.4
+M2_E48_S59_normal,M2,48,59,normal,,,SH,6,337,4456,9,1.0905489360118745,rmse,0.5
+M2_E49_S43_normal,M2,49,43,normal,,,SH + DHW,2,337,5092,13,1.5310555844236229,rmse,0.6
+M2_E50_S11_normal,M2,50,11,normal,,,SH,7,337,8150,9,0.8503096062681934,rmse,0.9
+M2_E51_S26_normal,M2,51,26,normal,,,SH + DHW,0,289,9008,13,1.1442140047345823,rmse,1.0
+M2_E52_S52_normal,M2,52,52,normal,,,SH + DHW,2,337,22178,13,0.9482789850406026,rmse,2.4
+M2_E53_S52_normal,M2,53,52,normal,,,SH + DHW,4,337,33922,15,0.8613116025099525,rmse,3.7
+M2_E54_S52_normal,M2,54,52,normal,,,SH + DHW,2,337,38194,15,0.8663257644803655,rmse,3.2
+M2_E55_S52_normal,M2,55,52,normal,,,SH + DHW,0,337,65249,15,0.8726474169836642,rmse,7.3
+M2_E56_S19_normal,M2,56,19,normal,,,SH + DHW,0,337,36559,15,1.002697632952469,rmse,4.1
+M2_E57_S19_normal,M2,57,19,normal,,,SH + DHW,0,337,49107,15,0.9609448717814164,rmse,5.3
+M2_E58_S19_normal,M2,58,19,normal,,,SH + DHW,0,337,58815,15,0.9462736873769222,rmse,5.6
+M2_E59_S10_normal,M2,59,10,normal,,,SH,0,337,40612,9,1.0250077524028354,rmse,4.2
+M2_E60_S10_normal,M2,60,10,normal,,,SH,0,337,49492,9,1.0235157197519091,rmse,4.0
+M2_E61_S4_normal,M2,61,4,normal,,,SH,1,337,16265,10,0.8245951101181619,rmse,1.8
+M2_E62_S4_normal,M2,62,4,normal,,,SH,2,337,38345,10,0.7755564543875568,rmse,4.0
+M2_E63_S4_normal,M2,63,4,normal,,,SH,35,337,46121,10,0.7697991158982025,rmse,4.9
+M2_E64_S7_normal,M2,64,7,normal,,,SH + DHW,1,337,60992,13,1.0350925028740081,rmse,4.1
+M2_E65_S9_normal,M2,65,9,normal,,,SH,9,337,45859,9,0.8558007809146351,rmse,3.6
+M2_E66_S12_normal,M2,66,12,normal,,,SH,0,337,30847,10,0.6624268623406135,rmse,3.2
+M2_E67_S31_normal,M2,67,31,normal,,,SH,24,337,6145,9,0.7187036555417402,rmse,0.7
+M2_E68_S40_normal,M2,68,40,normal,,,SH + DHW,1,337,66847,16,1.1667985141151318,rmse,7.0
+M2_E69_S40_normal,M2,69,40,normal,,,SH + DHW,0,337,72703,16,1.208944520990668,rmse,7.2
+M2_E70_S49_normal,M2,70,49,normal,,,SH + DHW,1,337,40606,14,0.7393391533681009,rmse,3.5
+M2_E71_S55_normal,M2,71,55,normal,,,SH with sub-circuits,1,337,69775,17,0.6586714723229203,rmse,7.4
+M2_E72_S60_normal,M2,72,60,normal,,,SH + DHW,12,337,59555,15,0.9486225856836171,rmse,4.3

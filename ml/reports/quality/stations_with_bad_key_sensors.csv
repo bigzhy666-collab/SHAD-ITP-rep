@@ -1,0 +1,14 @@
+﻿manufacturer,sid,column
+M1,5,outdoor_temperature
+M1,19,outdoor_temperature
+M1,31,outdoor_temperature
+M2,3,outdoor_temperature
+M2,7,outdoor_temperature
+M2,17,outdoor_temperature
+M2,18,outdoor_temperature
+M2,21,outdoor_temperature
+M2,28,outdoor_temperature
+M2,41,outdoor_temperature
+M2,45,outdoor_temperature
+M2,47,outdoor_temperature
+M2,61,outdoor_temperature

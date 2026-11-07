@@ -1,0 +1,1600 @@
+﻿manufacturer,sid,column,coverage,n_unique,std,longest_flat_h,out_of_range_ratio,spike_ratio,verdict,reasons,is_key_sensor,severe
+M1,1,outdoor_temperature,1.0,16073,7.0104,3.5,0.0,0.0,ok,,True,False
+M1,1,s_hc1_supply_temperature,1.0,17557,12.2338,3.5,0.0,0.0191,ok,,True,False
+M1,1,s_hc1_supply_temperature_setpoint,1.0,14788,18.6602,494.0,0.0,0.055,noisy,5.5% 突跳,True,False
+M1,1,s_dhw_supply_temperature,1.0,7365,1.8026,3.5,0.0,0.012,ok,,False,False
+M1,1,s_dhw_supply_temperature_setpoint,1.0,68,5.2837,96.5,0.0,0.0,ok,,False,False
+M1,1,p_hc1_return_temperature,1.0,14517,5.9199,5.0,0.0,0.0024,ok,,True,False
+M1,1,s_dhw_upper_storage_temperature,1.0,12089,4.1693,2.5,0.0,0.0,ok,,False,False
+M1,1,s_dhw_lower_storage_temperature,1.0,18849,16.8237,2.5,0.0,0.0,ok,,False,False
+M1,1,p_net_meter_energy,0.9405,33815,425076.25,156.5,0.0,0.0001,ok,,False,False
+M1,1,p_net_meter_volume,0.9405,33676,8449.583,156.5,0.0,0.0001,ok,,False,False
+M1,1,p_net_meter_heat_power,0.9405,6194,22.3547,156.5,0.0,0.0836,noisy,8.4% 相邻点突跳,True,False
+M1,1,p_net_meter_flow,0.9405,9318,350.8165,156.5,0.0,0.0678,noisy,6.8% 相邻点突跳,True,False
+M1,1,p_net_supply_temperature,0.9405,968,7.4613,156.5,0.0,0.0012,ok,,True,False
+M1,1,p_net_return_temperature,0.9405,857,6.7679,156.5,0.0,0.0066,ok,,True,False
+M1,2,outdoor_temperature,1.0,7816,6.3043,8.0,0.0,0.0,ok,,True,False
+M1,2,s_hc1_supply_temperature,1.0,8500,9.8598,28.5,0.0,0.0037,ok,,True,False
+M1,2,s_hc1_supply_temperature_setpoint,1.0,5558,12.795,474.5,0.0,0.0168,ok,,True,False
+M1,2,p_hc1_return_temperature,1.0,7448,8.9133,37.5,0.0,0.0018,ok,,True,False
+M1,2,p_net_meter_energy,0.961,63019,84635.0703,555.5,0.0,0.0,frozen,连续 556h 数值不变（阈值 168h）,False,False
+M1,2,p_net_meter_volume,0.961,66809,1658.506,555.5,0.0,0.0,frozen,连续 556h 数值不变（阈值 168h）,False,False
+M1,2,p_net_meter_heat_power,0.961,1151,5.6006,555.5,0.0,0.0109,frozen,连续 556h 数值不变（阈值 168h）,True,False
+M1,2,p_net_meter_flow,0.961,3153,98.0349,555.5,0.0,0.007,frozen,连续 556h 数值不变（阈值 168h）,True,False
+M1,2,p_net_supply_temperature,0.9583,853,24.634,676.0,0.0,0.0076,frozen,连续 676h 数值不变（阈值 168h）,True,False
+M1,2,p_net_return_temperature,0.9583,509,8.5714,676.0,0.0,0.003,frozen,连续 676h 数值不变（阈值 168h）,True,False
+M1,3,outdoor_temperature,1.0,7613,6.0972,9.0,0.0,0.0,ok,,True,False
+M1,3,s_hc1_supply_temperature,1.0,7872,8.8417,27.5,0.0,0.0011,ok,,True,False
+M1,3,s_hc1_supply_temperature_setpoint,1.0,4716,12.434,191.0,0.0,0.017,ok,,True,False
+M1,3,p_hc1_return_temperature,1.0,5697,5.5397,23.0,0.0,0.0003,ok,,True,False
+M1,3,p_hc1_return_temperature_setpoint,1.0,7,0.1053,39917.5,0.0,0.0,ok,,False,False
+M1,3,s_dhw_upper_storage_temperature_setpoint,1.0,3,18.3105,28303.0,0.0,0.0,ok,,False,False
+M1,3,p_net_meter_energy,0.9805,70879,1033300.375,705.5,0.0,0.0,frozen,连续 706h 数值不变（阈值 168h）,False,False
+M1,3,p_net_meter_volume,0.9805,73434,21327.459,705.5,0.0,0.0,frozen,连续 706h 数值不变（阈值 168h）,False,False
+M1,3,p_net_meter_heat_power,0.9805,6013,57.6416,705.5,0.0,0.0004,frozen,连续 706h 数值不变（阈值 168h）,True,False
+M1,3,p_net_meter_flow,0.9805,6805,1004.5422,705.5,0.0,0.0005,frozen,连续 706h 数值不变（阈值 168h）,True,False
+M1,3,p_net_supply_temperature,0.9805,16993,13.4693,705.5,0.0,0.0045,frozen,连续 706h 数值不变（阈值 168h）,True,False
+M1,3,p_net_return_temperature,0.9805,13980,5.6375,705.5,0.0,0.0008,frozen,连续 706h 数值不变（阈值 168h）,True,False
+M1,4,outdoor_temperature,1.0,8444,7.1385,5.0,0.0,0.0001,ok,,True,False
+M1,4,s_hc1_supply_temperature,1.0,10045,15.249,2.5,0.0,0.0019,ok,,True,False
+M1,4,s_hc1_supply_temperature_setpoint,1.0,8573,13.3281,4806.5,0.0,0.0396,noisy,4.0% 突跳,True,False
+M1,4,s_dhw_supply_temperature,1.0,2700,1.1435,3.5,0.0,0.0032,ok,,False,False
+M1,4,s_dhw_supply_temperature_setpoint,1.0,35,0.2626,22.5,0.0,0.0,ok,,False,False
+M1,4,p_hc1_return_temperature,1.0,7851,9.0944,4.5,0.0,0.0008,ok,,True,False
+M1,4,s_dhw_upper_storage_temperature,1.0,4793,3.6478,4.5,0.0,0.0,ok,,False,False
+M1,4,s_dhw_upper_storage_temperature_setpoint,1.0,3,0.219,38623.0,0.0,0.0,ok,,False,False
+M1,4,s_dhw_lower_storage_temperature,1.0,8559,13.7215,3.5,0.0,0.0463,noisy,4.6% 相邻点突跳,False,False
+M1,4,p_net_meter_energy,0.9173,71237,330822.4062,254.0,0.0,0.0,frozen,连续 254h 数值不变（阈值 168h）,False,False
+M1,4,p_net_meter_volume,0.9173,71236,6507.7407,254.0,0.0,0.0,frozen,连续 254h 数值不变（阈值 168h）,False,False
+M1,4,p_net_meter_heat_power,0.9173,3548,21.8116,254.0,0.0,0.0497,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,4,p_net_meter_flow,0.9173,9471,383.9412,254.0,0.0,0.0343,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,4,p_net_supply_temperature,0.9173,797,6.655,254.0,0.0,0.0001,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,4,p_net_return_temperature,0.9173,965,7.7366,254.0,0.0,0.0005,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,5,outdoor_temperature,0.9802,8628,6.1309,925.0,0.0,0.0,frozen,连续 925h 数值不变（阈值 72h）,True,True
+M1,5,s_hc1_supply_temperature,0.9802,10013,8.082,925.0,0.0,0.0046,frozen,连续 925h 数值不变（阈值 168h）,True,False
+M1,5,s_hc1_supply_temperature_setpoint,0.9802,8568,9.3959,925.0,0.0,0.0092,ok,,True,False
+M1,5,s_dhw_supply_temperature,0.9802,3505,2.0064,925.0,0.0,0.0298,frozen,连续 925h 数值不变（阈值 168h）,False,False
+M1,5,s_dhw_supply_temperature_setpoint,0.9802,6,0.0869,8230.5,0.0,0.0,ok,,False,False
+M1,5,p_hc1_return_temperature,0.9802,7681,5.0947,925.0,0.0,0.0032,frozen,连续 925h 数值不变（阈值 168h）,True,False
+M1,5,s_dhw_upper_storage_temperature,0.9787,3095,2.0521,925.0,0.0,0.0212,frozen,连续 925h 数值不变（阈值 168h）,False,False
+M1,5,s_dhw_lower_storage_temperature,0.9802,4103,3.261,925.0,0.0,0.0301,frozen,连续 925h 数值不变（阈值 168h）,False,False
+M1,5,p_net_meter_energy,0.8131,74652,65619.8516,2965.5,0.0,0.0,frozen,连续 2966h 数值不变（阈值 168h）,False,False
+M1,5,p_net_meter_volume,0.8131,63407,1378.0745,2965.5,0.0,0.0,frozen,连续 2966h 数值不变（阈值 168h）,False,False
+M1,5,p_net_meter_heat_power,0.8131,972,2.6419,2965.5,0.0,0.0118,frozen,连续 2966h 数值不变（阈值 168h）,True,False
+M1,5,p_net_meter_flow,0.8117,1901,41.798,2965.5,0.0,0.0128,frozen,连续 2966h 数值不变（阈值 168h）,True,False
+M1,5,p_net_supply_temperature,0.8131,493,5.5042,2965.5,0.0,0.0009,frozen,连续 2966h 数值不变（阈值 168h）,True,False
+M1,5,p_net_return_temperature,0.8131,445,5.992,2965.5,0.0,0.0011,frozen,连续 2966h 数值不变（阈值 168h）,True,False
+M1,6,outdoor_temperature,1.0,13194,6.3906,1.5,0.0,0.0,ok,,True,False
+M1,6,s_hc1_supply_temperature,1.0,15715,12.8878,1.5,0.0,0.0122,ok,,True,False
+M1,6,s_hc1_supply_temperature_setpoint,1.0,13257,17.149,281.0,0.0,0.0442,noisy,4.4% 突跳,True,False
+M1,6,p_hc1_return_temperature,1.0,13526,7.837,2.0,0.0,0.0008,ok,,True,False
+M1,6,p_net_meter_energy,1.0,17825,67117.5,282.0,0.0,0.0,frozen,连续 282h 数值不变（阈值 168h）,False,False
+M1,6,p_net_meter_volume,1.0,14529,1173.1666,283.0,0.0,0.0,frozen,连续 283h 数值不变（阈值 168h）,False,False
+M1,6,p_net_meter_flow,1.0,6084,317.7141,2.0,0.0,0.0027,ok,,True,False
+M1,6,p_net_supply_temperature,1.0,1338,24.5079,145.5,0.0,0.0331,noisy,3.3% 相邻点突跳,True,False
+M1,6,p_net_meter_heat_power,1.0,4473,18.071,281.5,0.0,0.0034,frozen,连续 282h 数值不变（阈值 168h）,True,False
+M1,6,p_net_return_temperature,1.0,829,7.784,123.0,0.0,0.0019,ok,,True,False
+M1,7,outdoor_temperature,1.0,8183,7.2713,4.5,0.0,0.0009,ok,,True,False
+M1,7,p_dhw_return_temperature_setpoint,1.0,3,2.4895,20924.5,0.0,0.0,ok,,False,False
+M1,7,s_hc1_supply_temperature,1.0,9598,9.0998,4.0,0.0,0.0015,ok,,True,False
+M1,7,s_hc1_supply_temperature_setpoint,1.0,8581,15.2742,498.5,0.0,0.0247,noisy,2.5% 突跳,True,False
+M1,7,s_dhw_supply_temperature,1.0,2059,1.4723,4.5,0.0,0.0051,ok,,False,False
+M1,7,s_dhw_supply_temperature_setpoint,1.0,33,1.0377,7056.0,0.0,0.0,ok,,False,False
+M1,7,p_hc1_return_temperature,1.0,7448,6.198,4.5,0.0,0.0,ok,,True,False
+M1,7,p_hc1_return_temperature_setpoint,1.0,5,2.2327,20610.0,0.0,0.0,ok,,False,False
+M1,7,s_dhw_upper_storage_temperature,1.0,2564,15.9814,7.0,0.0,0.0191,ok,,False,False
+M1,7,s_dhw_upper_storage_temperature_setpoint,1.0,7,0.687,19655.0,0.0,0.0,ok,,False,False
+M1,7,s_dhw_lower_storage_temperature,1.0,4858,19.8643,2.5,0.0,0.2877,noisy,28.8% 相邻点突跳,False,False
+M1,7,p_net_meter_energy,0.7173,48678,333281.5938,3887.0,0.0,0.0,frozen,连续 3887h 数值不变（阈值 168h）,False,False
+M1,7,p_net_meter_volume,0.7173,48681,6180.1074,3887.0,0.0,0.0,frozen,连续 3887h 数值不变（阈值 168h）,False,False
+M1,7,p_net_meter_heat_power,0.7173,1553,21.0195,3887.0,0.0,0.0436,frozen,连续 3887h 数值不变（阈值 168h）,True,False
+M1,7,p_net_meter_flow,0.7173,7649,324.1769,3887.0,0.0,0.0107,frozen,连续 3887h 数值不变（阈值 168h）,True,False
+M1,7,p_net_supply_temperature,0.6348,452,6.3362,7051.5,0.0,0.0005,frozen,连续 7052h 数值不变（阈值 168h）,True,False
+M1,7,p_net_return_temperature,0.6348,469,5.2992,7051.5,0.0,0.0,frozen,连续 7052h 数值不变（阈值 168h）,True,False
+M1,8,outdoor_temperature,1.0,7965,5.7979,13.5,0.0,0.0001,ok,,True,False
+M1,8,p_dhw_return_temperature,1.0,5245,5.1527,4.0,0.0,0.1341,noisy,13.4% 相邻点突跳,False,False
+M1,8,s_hc1_supply_temperature,1.0,9230,9.7808,1.5,0.0,0.0051,ok,,True,False
+M1,8,s_hc1_supply_temperature_setpoint,1.0,7232,11.053,234.0,0.0,0.0047,ok,,True,False
+M1,8,s_dhw_supply_temperature,1.0,2253,1.4616,3.0,0.0,0.0011,ok,,False,False
+M1,8,s_dhw_supply_temperature_setpoint,1.0,59,0.172,266.0,0.0,0.0,ok,,False,False
+M1,8,p_hc1_return_temperature,0.9982,6810,5.0464,38.0,0.0,0.0002,ok,,True,False
+M1,8,s_dhw_upper_storage_temperature,1.0,3999,2.7468,7.5,0.0,0.0343,noisy,3.4% 相邻点突跳,False,False
+M1,8,s_dhw_lower_storage_temperature,1.0,10341,19.2211,2.0,0.0,0.086,noisy,8.6% 相邻点突跳,False,False
+M1,8,p_net_meter_energy,0.8613,50362,109167.7969,280.0,0.0,0.0,frozen,连续 280h 数值不变（阈值 168h）,False,False
+M1,8,p_net_meter_volume,0.8613,47774,1809.6018,280.0,0.0,0.0,frozen,连续 280h 数值不变（阈值 168h）,False,False
+M1,8,p_net_meter_heat_power,0.8613,1981,7.7043,280.0,0.0,0.0052,frozen,连续 280h 数值不变（阈值 168h）,True,False
+M1,8,p_net_meter_flow,0.8613,4145,106.4562,280.0,0.0,0.0007,frozen,连续 280h 数值不变（阈值 168h）,True,False
+M1,8,p_net_supply_temperature,0.8613,851,5.5499,280.0,0.0,0.0011,frozen,连续 280h 数值不变（阈值 168h）,True,False
+M1,8,p_net_return_temperature,0.8613,911,6.7026,280.0,0.0,0.0046,frozen,连续 280h 数值不变（阈值 168h）,True,False
+M1,9,outdoor_temperature,1.0,9290,6.3111,6.5,0.0,0.0,ok,,True,False
+M1,9,s_hc1_supply_temperature,1.0,9430,7.7214,6.0,0.0,0.0104,ok,,True,False
+M1,9,s_hc1_supply_temperature_setpoint,0.9987,7069,9.1042,639.5,0.0,0.0084,ok,,True,False
+M1,9,s_dhw_supply_temperature,1.0,2652,1.0485,3.0,0.0,0.0008,ok,,False,False
+M1,9,s_dhw_supply_temperature_setpoint,1.0,7,0.0244,13315.5,0.0,0.0,ok,,False,False
+M1,9,p_hc1_return_temperature,1.0,8493,5.2554,7.5,0.0,0.0022,ok,,True,False
+M1,9,s_dhw_upper_storage_temperature,1.0,2776,1.4062,3.5,0.0,0.0019,ok,,False,False
+M1,9,s_dhw_lower_storage_temperature,1.0,4604,8.2328,5.5,0.0,0.0199,ok,,False,False
+M1,9,p_net_meter_energy,0.9969,93461,136563.0312,13.5,0.0,0.0,ok,,False,False
+M1,9,p_net_meter_volume,0.9969,90720,2907.615,13.5,0.0,0.0,ok,,False,False
+M1,9,p_net_meter_heat_power,0.9969,1462,6.8297,45.0,0.0,0.0023,ok,,True,False
+M1,9,p_net_meter_flow,0.9959,3384,102.3088,43.0,0.0,0.0013,ok,,True,False
+M1,9,p_net_supply_temperature,0.9969,497,7.2914,13.5,0.0,0.0005,ok,,True,False
+M1,9,p_net_return_temperature,0.9969,376,6.124,24.0,0.0,0.0005,ok,,True,False
+M1,10,outdoor_temperature,1.0,7461,7.6633,3.5,0.0,0.0003,ok,,True,False
+M1,10,s_hc1_supply_temperature,1.0,7303,12.8098,2.0,0.0,0.0009,ok,,True,False
+M1,10,s_hc1_supply_temperature_setpoint,1.0,5591,18.6739,236.5,0.0,0.0176,ok,,True,False
+M1,10,s_dhw_supply_temperature,1.0,2632,1.9466,1.5,0.0,0.0012,ok,,False,False
+M1,10,s_dhw_supply_temperature_setpoint,1.0,48,0.6263,24.5,0.0,0.0,ok,,False,False
+M1,10,p_hc1_return_temperature,1.0,6281,8.9302,2.5,0.0,0.0005,ok,,True,False
+M1,10,s_dhw_upper_storage_temperature,1.0,4453,3.7376,2.5,0.0,0.0011,ok,,False,False
+M1,10,s_dhw_upper_storage_temperature_setpoint,1.0,7,0.5611,16555.5,0.0,0.0,ok,,False,False
+M1,10,s_dhw_lower_storage_temperature,1.0,8044,12.2776,2.5,0.0,0.0,ok,,False,False
+M1,10,p_net_meter_energy,0.8972,43625,258136.1094,254.5,0.0,0.0,frozen,连续 254h 数值不变（阈值 168h）,False,False
+M1,10,p_net_meter_volume,0.8972,43736,5716.5386,254.5,0.0,0.0,frozen,连续 254h 数值不变（阈值 168h）,False,False
+M1,10,p_net_meter_heat_power,0.8972,2884,21.3938,254.5,0.0,0.0119,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,10,p_net_meter_flow,0.8972,9249,394.9211,254.5,0.0,0.0012,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,10,p_net_supply_temperature,0.8972,619,7.606,254.5,0.0,0.0002,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,10,p_net_return_temperature,0.8972,582,6.0935,254.5,0.0,0.0001,frozen,连续 254h 数值不变（阈值 168h）,True,False
+M1,11,outdoor_temperature,1.0,9967,8.0989,5.5,0.0,0.0036,ok,,True,False
+M1,11,s_hc1_supply_temperature,1.0,7749,7.5348,5.5,0.0,0.0226,noisy,2.3% 相邻点突跳,True,False
+M1,11,s_hc1_supply_temperature_setpoint,1.0,3928,15.7992,1171.5,0.0,0.0206,noisy,2.1% 突跳,True,False
+M1,11,s_dhw_supply_temperature,1.0,2454,0.9806,3.5,0.0,0.0049,ok,,False,False
+M1,11,s_dhw_supply_temperature_setpoint,1.0,10,0.011,14930.0,0.0,0.0,ok,,False,False
+M1,11,p_hc1_return_temperature,1.0,6424,4.9588,5.5,0.0,0.0049,ok,,True,False
+M1,11,s_dhw_upper_storage_temperature,1.0,1662,0.807,5.0,0.0,0.0002,ok,,False,False
+M1,11,s_dhw_lower_storage_temperature,1.0,2674,2.1912,4.5,0.0,0.013,ok,,False,False
+M1,11,p_net_meter_energy,0.7909,80322,94859.2812,10000.0,0.0,0.0,frozen,连续 10000h 数值不变（阈值 168h）,False,False
+M1,11,p_net_meter_volume,0.7909,78754,1955.6454,10000.0,0.0,0.0,frozen,连续 10000h 数值不变（阈值 168h）,False,False
+M1,11,p_net_meter_heat_power,0.7909,1063,5.3468,10000.0,0.0,0.0065,frozen,连续 10000h 数值不变（阈值 168h）,True,False
+M1,11,p_net_meter_flow,0.7909,3022,80.1287,10000.0,0.0,0.0041,frozen,连续 10000h 数值不变（阈值 168h）,True,False
+M1,11,p_net_supply_temperature,0.7406,497,6.0242,10000.0,0.0,0.0002,frozen,连续 10000h 数值不变（阈值 168h）,True,False
+M1,11,p_net_return_temperature,0.7406,481,7.6386,10000.0,0.0,0.0024,frozen,连续 10000h 数值不变（阈值 168h）,True,False
+M1,12,outdoor_temperature,1.0,10193,7.1983,5.0,0.0,0.0,ok,,True,False
+M1,12,s_hc1_supply_temperature,1.0,9121,11.6347,11.0,0.0,0.0052,ok,,True,False
+M1,12,s_hc1_supply_temperature_setpoint,1.0,4583,16.1898,1603.0,0.0,0.0087,ok,,True,False
+M1,12,s_dhw_supply_temperature,1.0,3971,0.9095,4.0,0.0,0.0002,ok,,False,False
+M1,12,s_dhw_supply_temperature_setpoint,1.0,10,0.532,12485.5,0.0,0.0,ok,,False,False
+M1,12,p_hc1_return_temperature,1.0,8394,6.474,10.5,0.0,0.0023,ok,,True,False
+M1,12,s_dhw_upper_storage_temperature,1.0,4135,1.0067,5.5,0.0,0.0028,ok,,False,False
+M1,12,s_dhw_upper_storage_temperature_setpoint,1.0,4,0.531,27874.0,0.0,0.0,ok,,False,False
+M1,12,s_dhw_lower_storage_temperature,1.0,6604,12.8049,5.5,0.0,0.0527,noisy,5.3% 相邻点突跳,False,False
+M1,12,p_net_meter_energy,0.7766,76690,307076.3125,10121.0,0.0,0.0,frozen,连续 10121h 数值不变（阈值 168h）,False,False
+M1,12,p_net_meter_volume,0.7766,76663,5758.29,10121.0,0.0,0.0,frozen,连续 10121h 数值不变（阈值 168h）,False,False
+M1,12,p_net_meter_heat_power,0.7766,4464,17.8659,10121.0,0.0,0.0021,frozen,连续 10121h 数值不变（阈值 168h）,True,False
+M1,12,p_net_meter_flow,0.7766,11003,317.3966,10121.0,0.0,0.0021,frozen,连续 10121h 数值不变（阈值 168h）,True,False
+M1,12,p_net_supply_temperature,0.7766,692,5.1399,10121.0,0.0,0.0009,frozen,连续 10121h 数值不变（阈值 168h）,True,False
+M1,12,p_net_return_temperature,0.7766,949,4.77,10121.0,0.0,0.0017,frozen,连续 10121h 数值不变（阈值 168h）,True,False
+M1,13,outdoor_temperature,1.0,9304,6.95,7.0,0.0,0.0,ok,,True,False
+M1,13,s_hc1_supply_temperature,1.0,6299,6.9256,2.5,0.0,0.0014,ok,,True,False
+M1,13,s_hc1_supply_temperature_setpoint,1.0,6225,14.5784,1077.0,0.0,0.0193,ok,,True,False
+M1,13,s_dhw_supply_temperature,1.0,2958,2.5637,2.0,0.0,0.0001,ok,,False,False
+M1,13,s_dhw_supply_temperature_setpoint,1.0,33,2.3064,20465.0,0.0,0.0,ok,,False,False
+M1,13,p_hc1_return_temperature,1.0,6439,7.1791,7.5,0.0,0.0013,ok,,True,False
+M1,13,s_dhw_upper_storage_temperature,1.0,2072,3.0552,2.0,0.0,0.0146,ok,,False,False
+M1,13,s_dhw_upper_storage_temperature_setpoint,1.0,9,2.3306,30261.0,0.0,0.0,ok,,False,False
+M1,13,s_dhw_lower_storage_temperature,1.0,4405,24.1122,5.0,0.0,0.2199,noisy,22.0% 相邻点突跳,False,False
+M1,13,p_net_meter_energy,0.7966,74135,1235892.0,289.5,0.0,0.0,frozen,连续 290h 数值不变（阈值 168h）,False,False
+M1,13,p_net_meter_volume,0.7966,74138,28301.0059,289.5,0.0,0.0,frozen,连续 290h 数值不变（阈值 168h）,False,False
+M1,13,p_net_meter_heat_power,0.7966,7476,57.8722,289.5,0.0,0.0103,frozen,连续 290h 数值不变（阈值 168h）,True,False
+M1,13,p_net_meter_flow,0.7966,3268,1005.8724,289.5,0.0,0.0027,frozen,连续 290h 数值不变（阈值 168h）,True,False
+M1,13,p_net_supply_temperature,0.7966,14852,5.9994,289.5,0.0,0.0004,frozen,连续 290h 数值不变（阈值 168h）,True,False
+M1,13,p_net_return_temperature,0.7966,13486,5.5601,289.5,0.0,0.0005,frozen,连续 290h 数值不变（阈值 168h）,True,False
+M1,14,outdoor_temperature,1.0,8801,6.8637,5.5,0.0,0.0,ok,,True,False
+M1,14,s_hc1_supply_temperature,1.0,8892,9.1748,7.5,0.0,0.0012,ok,,True,False
+M1,14,s_hc1_supply_temperature_setpoint,1.0,8381,12.8256,275.0,0.0,0.006,ok,,True,False
+M1,14,s_dhw_supply_temperature,1.0,3315,1.6489,2.5,0.0,0.0001,ok,,False,False
+M1,14,s_dhw_supply_temperature_setpoint,1.0,15,0.1469,26.5,0.0,0.0,ok,,False,False
+M1,14,p_hc1_return_temperature,1.0,7517,6.3654,8.5,0.0,0.0011,ok,,True,False
+M1,14,p_hc1_return_temperature_setpoint,1.0,290,0.1644,1700.5,0.0,0.0,ok,,False,False
+M1,14,s_dhw_upper_storage_temperature,1.0,2695,1.6183,1.5,0.0,0.0086,ok,,False,False
+M1,14,s_dhw_lower_storage_temperature,1.0,10953,12.6223,2.0,0.0,0.0,ok,,False,False
+M1,14,p_net_meter_energy,0.7867,72984,1518987.25,333.0,0.0,0.0,frozen,连续 333h 数值不变（阈值 168h）,False,False
+M1,14,p_net_meter_volume,0.7867,73034,33439.8945,333.0,0.0,0.0,frozen,连续 333h 数值不变（阈值 168h）,False,False
+M1,14,p_net_meter_heat_power,0.7867,8512,74.2806,333.0,0.0,0.0025,frozen,连续 333h 数值不变（阈值 168h）,True,False
+M1,14,p_net_meter_flow,0.7867,3869,1375.6464,333.0,0.0,0.0002,frozen,连续 333h 数值不变（阈值 168h）,True,False
+M1,14,p_net_supply_temperature,0.7867,15179,6.0745,333.0,0.0,0.0003,frozen,连续 333h 数值不变（阈值 168h）,True,False
+M1,14,p_net_return_temperature,0.7867,13768,5.6525,333.0,0.0,0.0004,frozen,连续 333h 数值不变（阈值 168h）,True,False
+M1,15,outdoor_temperature,1.0,9431,7.6221,5.0,0.0,0.0025,ok,,True,False
+M1,15,s_hc1_supply_temperature,1.0,7634,8.5731,12.5,0.0,0.0039,ok,,True,False
+M1,15,s_hc1_supply_temperature_setpoint,1.0,5743,21.1662,453.0,0.0,0.0701,noisy,7.0% 突跳,True,False
+M1,15,s_dhw_supply_temperature,1.0,1616,0.9246,6.5,0.0,0.0038,ok,,False,False
+M1,15,s_dhw_supply_temperature_setpoint,1.0,13,0.1307,3364.0,0.0,0.0,ok,,False,False
+M1,15,p_hc1_return_temperature,1.0,6946,6.5005,10.5,0.0,0.0129,ok,,True,False
+M1,15,p_hc1_return_temperature_setpoint,1.0,3,1.3464,40582.5,0.0,0.0,ok,,False,False
+M1,15,s_dhw_upper_storage_temperature,1.0,2516,2.5493,8.0,0.0,0.0474,noisy,4.7% 相邻点突跳,False,False
+M1,15,s_dhw_upper_storage_temperature_setpoint,1.0,4,0.0929,27737.5,0.0,0.0,ok,,False,False
+M1,15,s_dhw_lower_storage_temperature,1.0,12313,14.7484,6.5,0.0,0.1637,noisy,16.4% 相邻点突跳,False,False
+M1,15,p_net_meter_energy,0.5266,59329,182742.5781,26600.0,0.0,0.0,frozen,连续 26600h 数值不变（阈值 168h）,False,False
+M1,15,p_net_meter_volume,0.5266,59023,3961.8965,26600.0,0.0,0.0,frozen,连续 26600h 数值不变（阈值 168h）,False,False
+M1,15,p_net_meter_heat_power,0.5266,2335,16.8322,26600.0,0.0,0.0179,frozen,连续 26600h 数值不变（阈值 168h）,True,False
+M1,15,p_net_meter_flow,0.5266,8013,343.1423,26600.0,0.0,0.0021,frozen,连续 26600h 数值不变（阈值 168h）,True,False
+M1,15,p_net_supply_temperature,0.5266,384,5.658,26600.0,0.0,0.0012,frozen,连续 26600h 数值不变（阈值 168h）,True,False
+M1,15,p_net_return_temperature,0.5266,412,4.3098,26600.0,0.0,0.0022,frozen,连续 26600h 数值不变（阈值 168h）,True,False
+M1,15,s_hc1.1_supply_temperature,0.9699,8411,11.2393,1697.5,0.0,0.0147,frozen,连续 1698h 数值不变（阈值 168h）,False,False
+M1,15,s_hc1.2_supply_temperature,0.9699,7129,13.4826,1697.5,0.0,0.0063,frozen,连续 1698h 数值不变（阈值 168h）,False,False
+M1,15,s_hc1.1_return_temperature,0.9699,7160,6.7819,1697.5,0.0,0.0061,frozen,连续 1698h 数值不变（阈值 168h）,False,False
+M1,15,s_hc1.2_return_temperature,0.9699,7625,14.5359,1697.5,0.0,0.0217,frozen,连续 1698h 数值不变（阈值 168h）,False,False
+M1,15,s_hc1.1_supply_temperature_setpoint,0.9699,4937,18.6636,1697.5,0.0,0.026,noisy,2.6% 突跳,False,False
+M1,15,s_hc1.1_return_temperature_setpoint,0.9699,3,7.405,22984.5,0.0,0.0,ok,,False,False
+M1,15,s_hc1.2_supply_temperature_setpoint,0.9699,4751,20.6656,1697.5,0.0,0.0,ok,,False,False
+M1,15,s_hc1.2_return_temperature_setpoint,0.9699,936,2.8244,16805.0,0.0,0.0,ok,,False,False
+M1,16,outdoor_temperature,1.0,8741,7.7485,6.0,0.0,0.0001,ok,,True,False
+M1,16,p_dhw_return_temperature_setpoint,1.0,5,2.8065,21661.0,0.0,0.0,ok,,False,False
+M1,16,s_hc1_supply_temperature,1.0,3243,3.0309,1.5,0.0,0.0003,ok,,True,False
+M1,16,s_hc1_supply_temperature_setpoint,1.0,2250,3.8466,2950.0,0.0,0.0,ok,,True,False
+M1,16,p_hc1_return_temperature,1.0,6819,6.676,2.0,0.0,0.0002,ok,,True,False
+M1,16,p_net_meter_energy,0.9967,62842,744591.625,16.0,0.0,0.0,ok,,False,False
+M1,16,p_net_meter_volume,0.9967,63441,19392.207,16.0,0.0,0.0,ok,,False,False
+M1,16,p_net_meter_heat_power,0.9967,5934,131.4622,31.0,0.0,0.076,noisy,7.6% 相邻点突跳,True,False
+M1,16,p_net_meter_flow,0.9967,1234,3065.876,31.0,0.0,0.0808,noisy,8.1% 相邻点突跳,True,False
+M1,16,p_net_supply_temperature,0.9967,11759,4.5363,15.0,0.0,0.0051,ok,,True,False
+M1,16,p_net_return_temperature,0.9967,12312,6.4024,15.0,0.0,0.0016,ok,,True,False
+M1,17,outdoor_temperature,1.0,10685,7.5489,6.5,0.0,0.0002,ok,,True,False
+M1,17,s_hc1_supply_temperature,1.0,5601,4.0529,3.0,0.0,0.0001,ok,,True,False
+M1,17,s_hc1_supply_temperature_setpoint,1.0,6065,4.1477,27.5,0.0,0.0004,ok,,True,False
+M1,17,p_hc1_return_temperature,1.0,4632,3.359,4.0,0.0,0.0006,ok,,True,False
+M1,17,p_hc1_return_temperature_setpoint,1.0,37,1.6773,40674.5,0.0,0.0,ok,,False,False
+M1,17,s_dhw_upper_storage_temperature_setpoint,1.0,2,0.0655,40674.5,0.0,0.0,ok,,False,False
+M1,17,p_net_meter_energy,0.6935,64703,1039148.3125,7513.0,0.0,0.0,frozen,连续 7513h 数值不变（阈值 168h）,False,False
+M1,17,p_net_meter_volume,0.6935,64701,29723.0449,7513.0,0.0,0.0,frozen,连续 7513h 数值不变（阈值 168h）,False,False
+M1,17,p_net_meter_heat_power,0.6935,9281,68.5071,7513.0,0.0,0.0,frozen,连续 7513h 数值不变（阈值 168h）,True,False
+M1,17,p_net_meter_flow,0.6935,22257,1593.6451,7513.0,0.0,0.0,frozen,连续 7513h 数值不变（阈值 168h）,True,False
+M1,17,p_net_supply_temperature,0.6935,16743,6.7666,7513.0,0.0,0.0011,frozen,连续 7513h 数值不变（阈值 168h）,True,False
+M1,17,p_net_return_temperature,0.6935,7425,2.0263,7513.0,0.0,0.0002,frozen,连续 7513h 数值不变（阈值 168h）,True,False
+M1,18,outdoor_temperature,1.0,10721,7.4293,6.0,0.0,0.0055,ok,,True,False
+M1,18,s_hc1_supply_temperature,1.0,9173,10.9708,6.0,0.0,0.0021,ok,,True,False
+M1,18,s_hc1_supply_temperature_setpoint,1.0,8878,15.8707,689.5,0.0,0.0344,noisy,3.4% 突跳,True,False
+M1,18,s_dhw_supply_temperature,1.0,3865,1.7624,2.0,0.0,0.0001,ok,,False,False
+M1,18,s_dhw_supply_temperature_setpoint,1.0,46,1.1091,24.5,0.0,0.0,ok,,False,False
+M1,18,p_hc1_return_temperature,1.0,7599,8.9941,7.5,0.0,0.0027,ok,,True,False
+M1,18,p_hc1_return_temperature_setpoint,1.0,3,0.4991,30326.0,0.0,0.0,ok,,False,False
+M1,18,s_dhw_upper_storage_temperature,1.0,4437,3.2814,3.0,0.0,0.0017,ok,,False,False
+M1,18,s_dhw_upper_storage_temperature_setpoint,1.0,9,1.0984,31000.5,0.0,0.0,ok,,False,False
+M1,18,s_dhw_lower_storage_temperature,1.0,12609,17.4799,3.5,0.0,0.0,ok,,False,False
+M1,18,p_net_meter_energy,0.5467,62499,710109.875,25558.0,0.0,0.0,frozen,连续 25558h 数值不变（阈值 168h）,False,False
+M1,18,p_net_meter_volume,0.5467,62499,19018.6465,25558.0,0.0,0.0,frozen,连续 25558h 数值不变（阈值 168h）,False,False
+M1,18,p_net_meter_heat_power,0.5467,7774,62.6405,25558.0,0.0,0.0001,frozen,连续 25558h 数值不变（阈值 168h）,True,False
+M1,18,p_net_meter_flow,0.5467,4732,1392.1215,25558.0,0.0,0.0002,frozen,连续 25558h 数值不变（阈值 168h）,True,False
+M1,18,p_net_supply_temperature,0.5467,720,7.4438,25558.0,0.0,0.0002,frozen,连续 25558h 数值不变（阈值 168h）,True,False
+M1,18,p_net_return_temperature,0.5467,608,4.8101,25558.0,0.0,0.0355,frozen,连续 25558h 数值不变（阈值 168h）,True,False
+M1,19,outdoor_temperature,0.8151,7934,8.9772,5984.5,0.0041,0.003,frozen,连续 5984h 数值不变（阈值 72h）,True,True
+M1,19,p_dhw_return_temperature,1.0,6349,5.6282,2.0,0.0,0.0,ok,,False,False
+M1,19,s_hc1_supply_temperature,1.0,10222,10.3727,1.5,0.0,0.0001,ok,,True,False
+M1,19,s_hc1_supply_temperature_setpoint,1.0,7694,10.2785,269.0,0.0,0.0019,ok,,True,False
+M1,19,s_dhw_supply_temperature,1.0,2428,1.408,1.5,0.0,0.0002,ok,,False,False
+M1,19,s_dhw_supply_temperature_setpoint,1.0,42,0.8651,1548.0,0.0,0.0,ok,,False,False
+M1,19,p_hc1_return_temperature,1.0,8549,7.4693,7.5,0.0,0.001,ok,,True,False
+M1,19,s_dhw_upper_storage_temperature,1.0,5112,4.3118,3.5,0.0,0.0582,noisy,5.8% 相邻点突跳,False,False
+M1,19,s_dhw_upper_storage_temperature_setpoint,1.0,8,0.8322,22865.5,0.0,0.0,ok,,False,False
+M1,19,s_dhw_lower_storage_temperature,1.0,9808,15.813,1.5,0.0,0.0,ok,,False,False
+M1,19,p_net_meter_energy,0.9766,73460,3756378.25,572.5,0.0,0.0,frozen,连续 572h 数值不变（阈值 168h）,False,False
+M1,19,p_net_meter_volume,0.9766,73460,98931.1797,572.5,0.0,0.0,frozen,连续 572h 数值不变（阈值 168h）,False,False
+M1,19,p_net_meter_heat_power,0.9918,12008,124.5879,253.0,0.0,0.0,frozen,连续 253h 数值不变（阈值 168h）,True,False
+M1,19,p_net_meter_flow,0.9918,15251,2492.4524,253.0,0.0,0.0,frozen,连续 253h 数值不变（阈值 168h）,True,False
+M1,19,p_net_supply_temperature,0.9766,10387,4.0393,572.5,0.0,0.0007,frozen,连续 572h 数值不变（阈值 168h）,True,False
+M1,19,p_net_return_temperature,0.9766,13890,5.6027,572.5,0.0,0.0,frozen,连续 572h 数值不变（阈值 168h）,True,False
+M1,19,s_hc1.1_supply_temperature,1.0,9669,10.651,2.0,0.0,0.0005,ok,,False,False
+M1,19,s_hc1.2_supply_temperature,1.0,10145,10.479,1.5,0.0,0.0001,ok,,False,False
+M1,19,s_hc1.1_supply_temperature_setpoint,1.0,6191,10.6151,503.5,0.0,0.0172,ok,,False,False
+M1,19,s_hc1.2_supply_temperature_setpoint,1.0,6918,9.0577,504.0,0.0,0.002,ok,,False,False
+M1,20,outdoor_temperature,1.0,8430,6.8098,8.5,0.0,0.0,ok,,True,False
+M1,20,s_hc1_supply_temperature,1.0,9012,8.7845,1.5,0.0,0.0013,ok,,True,False
+M1,20,s_hc1_supply_temperature_setpoint,1.0,7846,16.1059,499.0,0.0,0.0112,ok,,True,False
+M1,20,s_dhw_supply_temperature,1.0,1782,1.2455,1.5,0.0,0.0001,ok,,False,False
+M1,20,s_dhw_supply_temperature_setpoint,1.0,16,0.1584,802.5,0.0,0.0,ok,,False,False
+M1,20,p_hc1_return_temperature,1.0,7531,6.1785,5.0,0.0,0.0043,ok,,True,False
+M1,20,p_hc1_return_temperature_setpoint,1.0,240,0.1515,2729.5,0.0,0.0,ok,,False,False
+M1,20,s_dhw_upper_storage_temperature,1.0,2140,2.6887,2.0,0.0,0.0062,ok,,False,False
+M1,20,s_dhw_lower_storage_temperature,1.0,6982,18.9015,2.0,0.0,0.0,ok,,False,False
+M1,20,p_net_meter_energy,0.9919,82426,650480.3125,255.5,0.0,0.0,frozen,连续 256h 数值不变（阈值 168h）,False,False
+M1,20,p_net_meter_volume,0.9919,82426,11530.8408,255.5,0.0,0.0,frozen,连续 256h 数值不变（阈值 168h）,False,False
+M1,20,p_net_meter_heat_power,0.9919,4329,37.0951,255.5,0.0,0.0002,frozen,连续 256h 数值不变（阈值 168h）,True,False
+M1,20,p_net_meter_flow,0.9919,10739,570.2529,255.5,0.0,0.0006,frozen,连续 256h 数值不变（阈值 168h）,True,False
+M1,20,p_net_supply_temperature,0.9919,15760,6.5957,255.5,0.0,0.0009,frozen,连续 256h 数值不变（阈值 168h）,True,False
+M1,20,p_net_return_temperature,0.9919,13895,5.5508,255.5,0.0,0.0,frozen,连续 256h 数值不变（阈值 168h）,True,False
+M1,20,s_hc1.1_supply_temperature,1.0,8415,8.0978,1.5,0.0,0.0001,ok,,False,False
+M1,20,s_hc1.2_supply_temperature,1.0,8726,9.7716,26.5,0.0,0.0019,ok,,False,False
+M1,20,s_hc1.1_return_temperature,1.0,7014,6.2675,8.5,0.0,0.0002,ok,,False,False
+M1,20,s_hc1.2_return_temperature,1.0,8559,6.9697,10.5,0.0,0.0011,ok,,False,False
+M1,20,s_hc1.1_supply_temperature_setpoint,1.0,7078,13.6685,499.0,0.0,0.0125,ok,,False,False
+M1,20,s_hc1.2_supply_temperature_setpoint,1.0,6845,14.6925,499.0,0.0,0.0158,ok,,False,False
+M1,21,outdoor_temperature,1.0,8352,6.6224,5.5,0.0,0.0019,ok,,True,False
+M1,21,p_dhw_return_temperature_setpoint,1.0,3,11.3916,31401.5,0.0,0.0,ok,,False,False
+M1,21,s_hc1_supply_temperature,1.0,7573,9.2548,2.0,0.0,0.0024,ok,,True,False
+M1,21,s_hc1_supply_temperature_setpoint,1.0,5878,14.1954,310.5,0.0,0.0156,ok,,True,False
+M1,21,s_dhw_supply_temperature,1.0,1935,2.6485,2.0,0.0,0.0004,ok,,False,False
+M1,21,s_dhw_supply_temperature_setpoint,1.0,23,2.5622,1989.5,0.0,0.0,ok,,False,False
+M1,21,p_hc1_return_temperature,1.0,7262,7.1835,10.0,0.0,0.0006,ok,,True,False
+M1,21,s_dhw_upper_storage_temperature,1.0,3395,7.0963,5.5,0.0,0.0405,noisy,4.1% 相邻点突跳,False,False
+M1,21,s_dhw_upper_storage_temperature_setpoint,1.0,8,2.5281,15942.0,0.0,0.0,ok,,False,False
+M1,21,s_dhw_lower_storage_temperature,1.0,8482,22.737,7.5,0.0,0.3039,noisy,30.4% 相邻点突跳,False,False
+M1,21,p_net_meter_energy,0.8463,75082,792000.6875,5989.0,0.0,0.0,frozen,连续 5989h 数值不变（阈值 168h）,False,False
+M1,21,p_net_meter_volume,0.8463,75082,16210.5654,5989.0,0.0,0.0,frozen,连续 5989h 数值不变（阈值 168h）,False,False
+M1,21,p_net_meter_heat_power,0.8463,5150,45.9906,5989.0,0.0,0.0221,frozen,连续 5989h 数值不变（阈值 168h）,True,False
+M1,21,p_net_meter_flow,0.8463,1286,753.923,5989.0,0.0,0.0182,frozen,连续 5989h 数值不变（阈值 168h）,True,False
+M1,21,p_net_supply_temperature,0.8463,14596,6.4779,5989.0,0.0,0.0002,frozen,连续 5989h 数值不变（阈值 168h）,True,False
+M1,21,p_net_return_temperature,0.8463,11318,4.2665,5989.0,0.0,0.0015,frozen,连续 5989h 数值不变（阈值 168h）,True,False
+M1,22,outdoor_temperature,1.0,16428,8.6068,5.0,0.0,0.0101,ok,,True,False
+M1,22,p_dhw_return_temperature,1.0,11453,4.9826,2.5,0.0,0.0149,ok,,False,False
+M1,22,p_dhw_return_temperature_setpoint,1.0,5,4.4531,9122.0,0.0,0.0,ok,,False,False
+M1,22,s_hc1_supply_temperature,1.0,18017,11.4339,2.5,0.0,0.0032,ok,,True,False
+M1,22,s_hc1_supply_temperature_setpoint,1.0,14077,18.6414,335.0,0.0,0.0935,noisy,9.4% 突跳,True,False
+M1,22,s_dhw_supply_temperature,1.0,10584,3.8055,2.5,0.0,0.0225,noisy,2.2% 相邻点突跳,False,False
+M1,22,s_dhw_supply_temperature_setpoint,1.0,83,1.8538,21.5,0.0,0.0,ok,,False,False
+M1,22,p_hc1_return_temperature,1.0,13954,6.5419,6.5,0.0,0.0036,ok,,True,False
+M1,22,p_hc1_return_temperature_setpoint,1.0,226,0.6547,12181.5,0.0,0.0,ok,,False,False
+M1,22,s_dhw_upper_storage_temperature,1.0,11111,3.9477,4.0,0.0,0.0391,noisy,3.9% 相邻点突跳,False,False
+M1,22,s_dhw_upper_storage_temperature_setpoint,1.0,14,1.7854,9122.0,0.0,0.0,ok,,False,False
+M1,22,s_dhw_lower_storage_temperature,1.0,17879,19.1424,2.0,0.0,0.0506,noisy,5.1% 相邻点突跳,False,False
+M1,22,p_net_meter_energy,0.9471,32850,35178.957,62.5,0.0,0.0,ok,,False,False
+M1,22,p_net_meter_volume,0.9471,27877,777.968,62.5,0.0,0.0,ok,,False,False
+M1,22,p_net_meter_heat_power,0.9471,3067,7.4311,62.5,0.0,0.0558,noisy,5.6% 相邻点突跳,True,False
+M1,22,p_net_meter_flow,0.9471,5326,146.6491,62.5,0.0,0.0375,noisy,3.8% 相邻点突跳,True,False
+M1,22,p_net_supply_temperature,0.9471,1059,6.3909,62.5,0.0,0.0246,noisy,2.5% 相邻点突跳,True,False
+M1,22,p_net_return_temperature,0.9471,994,7.6975,62.5,0.0,0.0001,ok,,True,False
+M1,23,outdoor_temperature,1.0,8858,7.1904,6.0,0.0,0.0,ok,,True,False
+M1,23,p_dhw_return_temperature,1.0,7264,6.3482,1.5,0.0,0.0,ok,,False,False
+M1,23,p_dhw_return_temperature_setpoint,1.0,3,4.8716,22267.0,0.0,0.0,ok,,False,False
+M1,23,s_hc1_supply_temperature,1.0,11504,11.1726,1.5,0.0,0.0142,ok,,True,False
+M1,23,s_hc1_supply_temperature_setpoint,1.0,9711,21.0201,310.0,0.0,0.0477,noisy,4.8% 突跳,True,False
+M1,23,s_dhw_supply_temperature,1.0,4134,2.4566,1.5,0.0,0.0,ok,,False,False
+M1,23,s_dhw_supply_temperature_setpoint,1.0,59,1.8534,15.5,0.0,0.0002,ok,,False,False
+M1,23,p_hc1_return_temperature,1.0,8762,7.4608,3.5,0.0,0.0056,ok,,True,False
+M1,23,s_dhw_upper_storage_temperature,1.0,3924,2.5415,2.5,0.0,0.0076,ok,,False,False
+M1,23,s_dhw_upper_storage_temperature_setpoint,1.0,9,1.7527,23304.5,0.0,0.0,ok,,False,False
+M1,23,s_dhw_lower_storage_temperature,1.0,11393,13.034,3.5,0.0,0.0,ok,,False,False
+M1,23,p_net_meter_energy,0.7069,51388,1032560.75,10551.5,0.0,0.0,frozen,连续 10552h 数值不变（阈值 168h）,False,False
+M1,23,p_net_meter_volume,0.7069,51388,19967.3906,10551.5,0.0,0.0,frozen,连续 10552h 数值不变（阈值 168h）,False,False
+M1,23,p_net_meter_heat_power,0.7069,4103,96.7559,10551.5,0.0,0.0,frozen,连续 10552h 数值不变（阈值 168h）,True,False
+M1,23,p_net_meter_flow,0.7069,3441,1668.8469,10551.5,0.0,0.0002,frozen,连续 10552h 数值不变（阈值 168h）,True,False
+M1,23,p_net_supply_temperature,0.7069,12838,6.0406,10551.5,0.0,0.0002,frozen,连续 10552h 数值不变（阈值 168h）,True,False
+M1,23,p_net_return_temperature,0.7069,14108,6.371,10551.5,0.0,0.0,frozen,连续 10552h 数值不变（阈值 168h）,True,False
+M1,23,s_hc1.1_supply_temperature,0.9999,12204,14.3684,15.0,0.0,0.0149,ok,,False,False
+M1,23,s_hc1.2_supply_temperature,0.9999,13599,15.4413,16.0,0.0,0.0129,ok,,False,False
+M1,23,s_hc1.1_return_temperature,0.9999,7508,6.5794,11.0,0.0,0.0021,ok,,False,False
+M1,23,s_hc1.2_return_temperature,0.9999,8329,7.5223,10.0,0.0,0.0074,ok,,False,False
+M1,23,s_hc1.1_supply_temperature_setpoint,0.9999,8175,21.9319,1666.5,0.0,0.0376,noisy,3.8% 突跳,False,False
+M1,23,s_hc1.2_supply_temperature_setpoint,0.9999,9823,21.0495,422.5,0.0,0.0479,noisy,4.8% 突跳,False,False
+M1,24,outdoor_temperature,1.0,9546,7.6784,4.0,0.0,0.0002,ok,,True,False
+M1,24,s_hc1_supply_temperature,1.0,11068,14.7541,37.5,0.0,0.0016,ok,,True,False
+M1,24,s_hc1_supply_temperature_setpoint,1.0,8621,17.7467,284.5,0.0,0.0196,ok,,True,False
+M1,24,p_hc1_return_temperature,1.0,9723,10.0827,31.0,0.0,0.0142,ok,,True,False
+M1,24,p_hc1_return_temperature_setpoint,1.0,1,0.0,40262.0,0.0,0.0,ok,,False,False
+M1,24,s_dhw_upper_storage_temperature_setpoint,1.0,1,0.0,40262.0,0.0,0.0,ok,,False,False
+M1,24,p_net_meter_energy,0.6915,44926,105718.4531,12360.0,0.0,0.0,frozen,连续 12360h 数值不变（阈值 168h）,False,False
+M1,24,p_net_meter_volume,0.6915,45637,2198.1592,12360.0,0.0,0.0,frozen,连续 12360h 数值不变（阈值 168h）,False,False
+M1,24,p_net_meter_heat_power,0.6915,427,13.014,12360.0,0.0,0.0045,frozen,连续 12360h 数值不变（阈值 168h）,True,False
+M1,24,p_net_meter_flow,0.6915,6129,271.3055,12360.0,0.0,0.006,frozen,连续 12360h 数值不变（阈值 168h）,True,False
+M1,24,p_net_supply_temperature,0.6915,643,25.1681,12360.0,0.0,0.0143,frozen,连续 12360h 数值不变（阈值 168h）,True,False
+M1,24,p_net_return_temperature,0.6915,347,10.7423,12360.0,0.0,0.0029,frozen,连续 12360h 数值不变（阈值 168h）,True,False
+M1,24,s_hc1.1_supply_temperature,1.0,9390,11.821,24.5,0.0,0.0018,ok,,False,False
+M1,24,s_hc1.2_supply_temperature,1.0,10895,13.4647,40.0,0.0,0.0023,ok,,False,False
+M1,24,s_hc1.1_return_temperature,1.0,7640,8.0952,26.5,0.0,0.0158,ok,,False,False
+M1,24,s_hc1.2_return_temperature,1.0,8870,10.8456,34.0,0.0,0.0122,ok,,False,False
+M1,24,s_hc1.1_supply_temperature_setpoint,1.0,6969,14.8244,284.5,0.0,0.0185,ok,,False,False
+M1,24,s_hc1.2_supply_temperature_setpoint,1.0,8369,16.2189,332.5,0.0,0.0203,noisy,2.0% 突跳,False,False
+M1,24,s_hc1.2_return_temperature_setpoint,1.0,213,0.2318,33206.0,0.0,0.0,ok,,False,False
+M1,25,outdoor_temperature,1.0,8444,6.7901,4.0,0.0,0.0082,ok,,True,False
+M1,25,s_hc1_supply_temperature,1.0,10306,12.0745,16.5,0.0,0.0123,ok,,True,False
+M1,25,s_hc1_supply_temperature_setpoint,1.0,6290,17.466,476.0,0.0,0.0433,noisy,4.3% 突跳,True,False
+M1,25,p_hc1_return_temperature,1.0,7502,8.3841,23.5,0.0,0.004,ok,,True,False
+M1,25,p_net_meter_energy,0.9794,37992,481179.875,464.0,0.0,0.0,frozen,连续 464h 数值不变（阈值 168h）,False,False
+M1,25,p_net_meter_volume,0.9794,38537,8466.1885,464.0,0.0,0.0,frozen,连续 464h 数值不变（阈值 168h）,False,False
+M1,25,p_net_meter_heat_power,0.9794,6093,61.9045,464.0,0.0,0.0231,frozen,连续 464h 数值不变（阈值 168h）,True,False
+M1,25,p_net_meter_flow,0.9794,800,1038.6228,464.0,0.0,0.0312,frozen,连续 464h 数值不变（阈值 168h）,True,False
+M1,25,p_net_supply_temperature,0.9794,19648,26.7294,464.0,0.0,0.0251,frozen,连续 464h 数值不变（阈值 168h）,True,False
+M1,25,p_net_return_temperature,0.9794,11715,8.2332,464.0,0.0,0.0039,frozen,连续 464h 数值不变（阈值 168h）,True,False
+M1,26,outdoor_temperature,0.9999,9001,7.3625,2.0,0.0,0.0002,ok,,True,False
+M1,26,p_dhw_return_temperature,1.0,3056,1.984,1.5,0.0,0.0263,noisy,2.6% 相邻点突跳,False,False
+M1,26,p_dhw_return_temperature_setpoint,1.0,3,10.4469,12742.5,0.0,0.0,ok,,False,False
+M1,26,s_hc1_supply_temperature,0.9963,8360,7.2655,55.0,0.0,0.0,ok,,True,False
+M1,26,s_hc1_supply_temperature_setpoint,1.0,6451,10.1291,72.5,0.0,0.045,noisy,4.5% 突跳,True,False
+M1,26,s_dhw_supply_temperature,0.9965,3190,1.978,38.5,0.0,0.0003,ok,,False,False
+M1,26,s_dhw_supply_temperature_setpoint,1.0,6,0.1635,3131.0,0.0,0.0,ok,,False,False
+M1,26,p_hc1_return_temperature,1.0,5650,4.2207,1.5,0.0,0.0297,noisy,3.0% 相邻点突跳,True,False
+M1,26,p_hc1_return_temperature_setpoint,1.0,1,0.0,14838.0,0.0,0.0,ok,,False,False
+M1,26,s_dhw_upper_storage_temperature,1.0,3532,2.157,1.5,0.0,0.0114,ok,,False,False
+M1,26,s_dhw_lower_storage_temperature,1.0,8121,14.6513,2.0,0.0,0.0955,noisy,9.5% 相邻点突跳,False,False
+M1,26,p_net_meter_energy,1.0,29536,38036.125,18.0,0.0,0.0,ok,,False,False
+M1,26,p_net_meter_volume,1.0,27212,736.6204,12.0,0.0,0.0,ok,,False,False
+M1,26,p_net_meter_flow,1.0,1777,105.9219,1.0,0.0,0.0006,ok,,True,False
+M1,26,p_net_supply_temperature,1.0,268,7.6626,25.5,0.0,0.0035,ok,,True,False
+M1,26,p_net_meter_heat_power,1.0,1286,7.9115,13.5,0.0,0.0052,ok,,True,False
+M1,26,p_net_return_temperature,1.0,221,8.7267,9.5,0.0,0.0004,ok,,True,False
+M1,26,s_hc1.1_supply_temperature,0.9998,7344,6.3179,2.5,0.0,0.0086,ok,,False,False
+M1,26,s_hc1.1_supply_temperature_setpoint,0.9998,6154,9.4914,92.0,0.0,0.0287,noisy,2.9% 突跳,False,False
+M1,26,s_hc1.2_supply_temperature_setpoint,0.9998,1,0.0,8296.5,0.0,0.0,ok,,False,False
+M1,26,s_hc1.1_return_temperature,0.9998,3369,2.0797,2.5,0.0,0.0001,ok,,False,False
+M1,27,outdoor_temperature,1.0,6170,7.4285,1.0,0.0,0.0001,ok,,True,False
+M1,27,s_hc1_supply_temperature,1.0,6588,8.421,1.0,0.0,0.0003,ok,,True,False
+M1,27,s_hc1_supply_temperature_setpoint,1.0,6092,14.7164,67.5,0.0,0.0324,noisy,3.2% 突跳,True,False
+M1,27,s_dhw_supply_temperature,1.0,2259,2.1527,1.5,0.0,0.0047,ok,,False,False
+M1,27,s_dhw_supply_temperature_setpoint,1.0,12,2.0005,36.5,0.0,0.0,ok,,False,False
+M1,27,p_hc1_return_temperature,1.0,5969,7.0393,2.0,0.0,0.0006,ok,,True,False
+M1,27,s_dhw_upper_storage_temperature,1.0,3611,2.8353,1.0,0.0,0.0255,noisy,2.6% 相邻点突跳,False,False
+M1,27,s_dhw_upper_storage_temperature_setpoint,1.0,3,1.9911,2894.0,0.0,0.0,ok,,False,False
+M1,27,s_dhw_lower_storage_temperature,1.0,6989,16.3983,2.0,0.0,0.0897,noisy,9.0% 相邻点突跳,False,False
+M1,27,p_net_meter_energy,1.0,10212,13356.4248,2.5,0.0,0.0,ok,,False,False
+M1,27,p_net_meter_volume,1.0,8048,242.7181,3.0,0.0,0.0,ok,,False,False
+M1,27,p_net_meter_flow,1.0,1491,112.7976,3.5,0.0,0.0216,noisy,2.2% 相邻点突跳,True,False
+M1,27,p_net_supply_temperature,1.0,239,9.1096,13.5,0.0,0.0189,ok,,True,False
+M1,27,p_net_meter_heat_power,1.0,1030,7.4857,16.5,0.0,0.0283,noisy,2.8% 相邻点突跳,True,False
+M1,27,p_net_return_temperature,1.0,175,6.6945,20.5,0.0,0.0046,ok,,True,False
+M1,28,outdoor_temperature,1.0,7987,9.9965,1.5,0.0001,0.0058,ok,,True,False
+M1,28,s_hc1_supply_temperature,1.0,4484,5.3154,1.0,0.0,0.0115,ok,,True,False
+M1,28,s_hc1_supply_temperature_setpoint,1.0,3688,10.6537,234.5,0.0,0.0263,noisy,2.6% 突跳,True,False
+M1,28,p_hc1_return_temperature,1.0,2720,4.2558,1.5,0.0,0.0107,ok,,True,False
+M1,28,p_hc1_return_temperature_setpoint,1.0,3,0.0566,7057.0,0.0,0.0,ok,,False,False
+M1,28,p_net_meter_energy,1.0,13758,185677.2969,16.5,0.0,0.0,ok,,False,False
+M1,28,p_net_meter_volume,1.0,13750,4561.062,16.5,0.0,0.0,ok,,False,False
+M1,28,p_net_meter_flow,1.0,6834,1240.4182,16.5,0.0,0.032,noisy,3.2% 相邻点突跳,True,False
+M1,28,p_net_supply_temperature,1.0,7643,10.613,1.5,0.0,0.0086,ok,,True,False
+M1,28,p_net_meter_heat_power,1.0,4934,61.2364,16.5,0.0,0.0297,noisy,3.0% 相邻点突跳,True,False
+M1,28,p_net_return_temperature,1.0,2928,4.4181,1.5,0.0,0.0087,ok,,True,False
+M1,29,outdoor_temperature,1.0,7923,5.8991,1.5,0.0,0.0001,ok,,True,False
+M1,29,p_dhw_return_temperature,1.0,7140,4.6447,1.0,0.0,0.0,ok,,False,False
+M1,29,p_dhw_return_temperature_setpoint,1.0,1,0.0,6982.0,0.0,0.0,ok,,False,False
+M1,29,s_hc1_supply_temperature,1.0,7680,5.1388,1.0,0.0,0.0,ok,,True,False
+M1,29,s_hc1_supply_temperature_setpoint,1.0,9385,17.4937,8.0,0.0,0.0,ok,,True,False
+M1,29,s_dhw_supply_temperature,1.0,7947,5.7984,1.0,0.0,0.0,ok,,False,False
+M1,29,s_dhw_supply_temperature_setpoint,1.0,101,22.4623,46.5,0.0,0.0,ok,,False,False
+M1,29,p_hc1_return_temperature,1.0,8950,7.6271,1.0,0.0,0.0,ok,,True,False
+M1,29,s_dhw_upper_storage_temperature,1.0,5821,5.8263,1.0,0.0,0.0026,ok,,False,False
+M1,29,s_dhw_upper_storage_temperature_setpoint,1.0,2,2.4995,3561.0,0.0,0.0,ok,,False,False
+M1,29,s_dhw_lower_storage_temperature,1.0,6170,5.7135,1.0,0.0,0.0142,ok,,False,False
+M1,29,p_net_meter_energy,1.0,13498,52389.4297,3.5,0.0,0.0,ok,,False,False
+M1,29,p_net_meter_volume,1.0,13144,1170.3682,3.5,0.0,0.0,ok,,False,False
+M1,29,p_net_meter_flow,1.0,4432,408.8885,2.0,0.0,0.0,ok,,True,False
+M1,29,p_net_supply_temperature,1.0,615,9.6157,9.5,0.0,0.0001,ok,,True,False
+M1,29,p_net_meter_heat_power,1.0,3147,20.9886,3.5,0.0,0.0,ok,,True,False
+M1,29,p_net_return_temperature,1.0,680,8.7474,2.5,0.0,0.0,ok,,True,False
+M1,29,s_hc1.1_supply_temperature,1.0,9332,9.9033,1.0,0.0,0.0,ok,,False,False
+M1,29,s_hc1.1_supply_temperature_setpoint,1.0,6859,19.1203,811.5,0.0,0.007,ok,,False,False
+M1,29,s_hc1.2_supply_temperature_setpoint,1.0,4919,6.0604,977.5,0.0,0.0428,noisy,4.3% 突跳,False,False
+M1,29,s_hc1.1_return_temperature,1.0,7513,4.9821,1.0,0.0,0.0011,ok,,False,False
+M1,29,s_hc1.1_return_temperature_setpoint,1.0,1,0.0,6982.0,0.0,0.0,ok,,False,False
+M1,29,s_hc1.2_return_temperature,0.0,0,0.0,6982.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M1,29,s_hc1.2_return_temperature_setpoint,1.0,2261,1.0312,1434.0,0.0,0.0,ok,,False,False
+M1,30,outdoor_temperature,1.0,6025,7.7529,1.5,0.0,0.0001,ok,,True,False
+M1,30,p_dhw_return_temperature,1.0,2632,14.2032,1.5,0.0,0.0557,noisy,5.6% 相邻点突跳,False,False
+M1,30,p_dhw_return_temperature_setpoint,1.0,1,0.0,4957.0,0.0,0.0,ok,,False,False
+M1,30,s_hc1_supply_temperature,1.0,6641,14.5749,1.5,0.0,0.0205,noisy,2.0% 相邻点突跳,True,False
+M1,30,s_hc1_supply_temperature_setpoint,1.0,4639,19.9492,143.0,0.0,0.0508,noisy,5.1% 突跳,True,False
+M1,30,s_dhw_supply_temperature,1.0,2417,14.8119,1.5,0.0,0.0089,ok,,False,False
+M1,30,s_dhw_supply_temperature_setpoint,1.0,5,1.3357,3623.0,0.0,0.0,ok,,False,False
+M1,30,p_hc1_return_temperature,1.0,6054,10.7846,1.5,0.0,0.0162,ok,,True,False
+M1,30,s_dhw_upper_storage_temperature,1.0,2060,14.9235,2.0,0.0,0.0021,ok,,False,False
+M1,30,s_dhw_upper_storage_temperature_setpoint,1.0,2,0.1674,4944.5,0.0,0.0,ok,,False,False
+M1,30,s_dhw_lower_storage_temperature,1.0,2071,14.8378,1.5,0.0,0.0044,ok,,False,False
+M1,30,p_net_meter_energy,1.0,7877,10995.1699,175.5,0.0,0.0,frozen,连续 176h 数值不变（阈值 168h）,False,False
+M1,30,p_net_meter_volume,1.0,9346,613.0042,173.0,0.0,0.0,frozen,连续 173h 数值不变（阈值 168h）,False,False
+M1,30,p_net_meter_flow,1.0,2335,279.3977,2.0,0.0,0.013,ok,,True,False
+M1,30,p_net_supply_temperature,1.0,203,16.9727,51.0,0.0,0.0028,ok,,True,False
+M1,30,p_net_meter_heat_power,1.0,857,6.9149,173.0,0.0,0.0225,frozen,连续 173h 数值不变（阈值 168h）,True,False
+M1,30,p_net_return_temperature,1.0,195,12.9548,25.0,0.0,0.0052,ok,,True,False
+M1,31,outdoor_temperature,0.7986,6207,7.1285,1473.5,0.0,0.0039,frozen,连续 1474h 数值不变（阈值 72h）,True,True
+M1,31,s_hc1_supply_temperature,1.0,6579,5.5632,1.0,0.0,0.0,ok,,True,False
+M1,31,s_hc1_supply_temperature_setpoint,1.0,795,2.2008,2586.5,0.0,0.0,ok,,True,False
+M1,31,s_dhw_supply_temperature,1.0,6606,5.5594,1.0,0.0,0.0,ok,,False,False
+M1,31,s_dhw_supply_temperature_setpoint,1.0,48,24.184,36.5,0.0,0.0,ok,,False,False
+M1,31,p_hc1_return_temperature,1.0,6303,4.8952,1.0,0.0,0.0,ok,,True,False
+M1,31,s_dhw_upper_storage_temperature,1.0,4862,4.0045,1.0,0.0,0.0,ok,,False,False
+M1,31,s_dhw_upper_storage_temperature_setpoint,1.0,3,2.429,4523.5,0.0,0.0,ok,,False,False
+M1,31,s_dhw_lower_storage_temperature,1.0,7442,6.8453,1.0,0.0,0.0,ok,,False,False
+M1,31,p_net_meter_energy,1.0,9271,18234.1191,7.0,0.0,0.0,ok,,False,False
+M1,31,p_net_meter_volume,1.0,8502,325.1406,7.0,0.0,0.0,ok,,False,False
+M1,31,p_net_meter_flow,1.0,1684,153.7042,3.0,0.0,0.0,ok,,True,False
+M1,31,p_net_supply_temperature,1.0,665,17.5062,15.0,0.0,0.0,ok,,True,False
+M1,31,p_net_meter_heat_power,1.0,1062,8.2509,7.0,0.0,0.0,ok,,True,False
+M1,31,p_net_return_temperature,1.0,494,7.7984,3.0,0.0,0.0,ok,,True,False
+M1,32,outdoor_temperature,1.0,8522,6.4004,6.5,0.0,0.0,ok,,True,False
+M1,32,s_hc1_supply_temperature,1.0,10216,9.6005,2.5,0.0,0.012,ok,,True,False
+M1,32,s_hc1_supply_temperature_setpoint,1.0,9405,15.9189,836.5,0.0,0.059,noisy,5.9% 突跳,True,False
+M1,32,s_dhw_supply_temperature,1.0,3514,1.728,2.5,0.0,0.0,ok,,False,False
+M1,32,s_dhw_supply_temperature_setpoint,1.0,51,1.3209,19.5,0.0,0.0,ok,,False,False
+M1,32,p_hc1_return_temperature,1.0,7329,5.5578,3.5,0.0,0.0012,ok,,True,False
+M1,32,p_hc1_return_temperature_setpoint,1.0,266,0.067,15274.0,0.0,0.0,ok,,False,False
+M1,32,s_dhw_upper_storage_temperature,1.0,3928,2.3234,3.0,0.0,0.0001,ok,,False,False
+M1,32,s_dhw_upper_storage_temperature_setpoint,1.0,12,1.2763,30.5,0.0,0.0,ok,,False,False
+M1,32,s_dhw_lower_storage_temperature,1.0,12286,19.5314,1.5,0.0,0.0,ok,,False,False
+M1,32,p_net_meter_energy,0.9946,35242,115352.3672,39.5,0.0,0.0,ok,,False,False
+M1,32,p_net_meter_volume,0.9946,34650,2373.2959,39.5,0.0,0.0,ok,,False,False
+M1,32,p_net_meter_heat_power,0.9946,2972,20.3315,39.5,0.0,0.0614,noisy,6.1% 相邻点突跳,True,False
+M1,32,p_net_meter_flow,0.9946,6413,337.4656,39.5,0.0,0.0207,noisy,2.1% 相邻点突跳,True,False
+M1,32,p_net_supply_temperature,0.9946,534,8.2786,39.5,0.0,0.0126,ok,,True,False
+M1,32,p_net_return_temperature,0.9946,388,8.8159,39.5,0.0,0.0038,ok,,True,False
+M1,33,outdoor_temperature,1.0,11410,7.2588,7.5,0.0,0.0,ok,,True,False
+M1,33,p_dhw_return_temperature_setpoint,1.0,5,3.7006,20803.0,0.0,0.0,ok,,False,False
+M1,33,s_hc1_supply_temperature,1.0,13045,10.66,6.0,0.0,0.0051,ok,,True,False
+M1,33,s_hc1_supply_temperature_setpoint,1.0,13242,17.321,547.5,0.0,0.0233,noisy,2.3% 突跳,True,False
+M1,33,s_dhw_supply_temperature,1.0,5161,2.3318,3.5,0.0,0.0025,ok,,False,False
+M1,33,s_dhw_supply_temperature_setpoint,1.0,77,3.487,935.5,0.0,0.0571,noisy,5.7% 突跳,False,False
+M1,33,p_hc1_return_temperature,1.0,10454,7.061,6.5,0.0,0.0015,ok,,True,False
+M1,33,p_hc1_return_temperature_setpoint,1.0,1658,1.9365,18681.0,0.0,0.0,ok,,False,False
+M1,33,s_dhw_upper_storage_temperature,1.0,5607,8.3199,5.5,0.0,0.0002,ok,,False,False
+M1,33,s_dhw_upper_storage_temperature_setpoint,1.0,12,1.023,11424.5,0.0,0.0,ok,,False,False
+M1,33,s_dhw_lower_storage_temperature,1.0,14375,15.2714,7.5,0.0,0.0,ok,,False,False
+M1,33,p_net_meter_energy,0.8156,67611,866389.125,3311.0,0.0,0.0,frozen,连续 3311h 数值不变（阈值 168h）,False,False
+M1,33,p_net_meter_volume,0.8156,68257,15781.4326,3311.0,0.0,0.0,frozen,连续 3311h 数值不变（阈值 168h）,False,False
+M1,33,p_net_meter_heat_power,0.8156,6765,44.7659,3312.0,0.0,0.0083,frozen,连续 3312h 数值不变（阈值 168h）,True,False
+M1,33,p_net_meter_flow,0.8156,7144,692.6878,3312.0,0.0,0.0039,frozen,连续 3312h 数值不变（阈值 168h）,True,False
+M1,33,p_net_supply_temperature,0.8156,15430,5.8795,3311.0,0.0,0.0005,frozen,连续 3311h 数值不变（阈值 168h）,True,False
+M1,33,p_net_return_temperature,0.8156,16974,6.4107,3311.0,0.0,0.0029,frozen,连续 3311h 数值不变（阈值 168h）,True,False
+M1,34,outdoor_temperature,1.0,8321,6.6607,2.5,0.0,0.0043,ok,,True,False
+M1,34,s_hc1_supply_temperature,1.0,10122,12.2585,53.5,0.0,0.0245,noisy,2.5% 相邻点突跳,True,False
+M1,34,s_hc1_supply_temperature_setpoint,1.0,6285,17.5322,855.5,0.0,0.0409,noisy,4.1% 突跳,True,False
+M1,34,p_hc1_return_temperature,1.0,8244,8.8549,32.5,0.0,0.0062,ok,,True,False
+M1,34,p_net_meter_energy,0.9848,38008,497104.25,818.0,0.0,0.0,frozen,连续 818h 数值不变（阈值 168h）,False,False
+M1,34,p_net_meter_volume,0.9848,37941,8764.8848,818.0,0.0,0.0,frozen,连续 818h 数值不变（阈值 168h）,False,False
+M1,34,p_net_meter_heat_power,0.9848,6218,65.425,818.0,0.0,0.0481,frozen,连续 818h 数值不变（阈值 168h）,True,False
+M1,34,p_net_meter_flow,0.9848,10786,1100.2006,818.0,0.0,0.0447,frozen,连续 818h 数值不变（阈值 168h）,True,False
+M1,34,p_net_supply_temperature,0.9848,19243,27.5847,339.0,0.0,0.0174,frozen,连续 339h 数值不变（阈值 168h）,True,False
+M1,34,p_net_return_temperature,0.9848,12199,8.3056,339.0,0.0,0.0041,frozen,连续 339h 数值不变（阈值 168h）,True,False
+M1,35,outdoor_temperature,1.0,9312,7.8012,4.5,0.0,0.0054,ok,,True,False
+M1,35,s_hc1_supply_temperature,1.0,10467,12.0557,24.5,0.0,0.007,ok,,True,False
+M1,35,s_hc1_supply_temperature_setpoint,1.0,6797,17.046,855.0,0.0,0.0452,noisy,4.5% 突跳,True,False
+M1,35,p_hc1_return_temperature,1.0,8852,9.4951,26.0,0.0,0.0016,ok,,True,False
+M1,35,p_hc1_return_temperature_setpoint,1.0,2686,3.6618,10430.5,0.0,0.0,ok,,False,False
+M1,35,p_net_meter_energy,0.9835,37807,493138.5,576.0,0.0,0.0,frozen,连续 576h 数值不变（阈值 168h）,False,False
+M1,35,p_net_meter_volume,0.9767,38823,9707.5068,338.5,0.0,0.0,frozen,连续 338h 数值不变（阈值 168h）,False,False
+M1,35,p_net_meter_heat_power,0.9767,6501,67.0936,338.5,0.0,0.0124,frozen,连续 338h 数值不变（阈值 168h）,True,False
+M1,35,p_net_meter_flow,0.9767,1072,1277.0765,338.5,0.0,0.0146,frozen,连续 338h 数值不变（阈值 168h）,True,False
+M1,35,p_net_supply_temperature,0.9767,20479,24.3647,338.5,0.0,0.0149,frozen,连续 338h 数值不变（阈值 168h）,True,False
+M1,35,p_net_return_temperature,0.9767,13834,9.1259,338.5,0.0,0.0009,frozen,连续 338h 数值不变（阈值 168h）,True,False
+M2,1,s_dhw_supply_temperature_setpoint,1.0,1,0.0,129.5,0.0,0.0,ok,,False,False
+M2,1,outdoor_temperature,1.0,165,2.7701,1.0,0.0,0.0,ok,,True,False
+M2,1,s_hc1_control_unit_mode,0.0,0,0.0,129.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,1,s_dhw_control_unit_mode,0.0,0,0.0,129.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,1,s_hc1_room_temperature_setpoint,1.0,4,1.263,17.5,0.0,0.0,ok,,False,False
+M2,1,p_hc1_return_temperature_setpoint,1.0,1,0.0,129.5,0.0,0.0,ok,,False,False
+M2,1,p_hc1_return_temperature,1.0,207,4.5277,1.0,0.0,0.0,ok,,True,False
+M2,1,p_dhw_return_temperature,1.0,175,5.8433,1.0,0.0,0.0,ok,,False,False
+M2,1,s_dhw_upper_storage_temperature,1.0,84,0.9625,1.5,0.0,0.0039,ok,,False,False
+M2,1,s_dhw_lower_storage_temperature,1.0,174,5.768,1.0,0.0,0.0155,ok,,False,False
+M2,1,p_hc1_control_valve_position_setpoint,1.0,118,12.3108,2.5,0.0,0.0155,ok,,False,False
+M2,1,p_dhw_control_valve_position,1.0,52,12.8537,9.0,0.0,0.0,ok,,False,False
+M2,1,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,129.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,1,s_hc1_supply_temperature_setpoint,1.0,202,6.5114,1.0,0.0,0.0,ok,,True,False
+M2,1,s_hc1_supply_temperature,1.0,218,6.7717,1.0,0.0,0.0,ok,,True,False
+M2,1,s_dhw_supply_temperature,1.0,173,4.7276,1.0,0.0,0.0,ok,,False,False
+M2,1,p_net_meter_energy,1.0,259,318.8638,0.5,0.0,0.0,ok,,False,False
+M2,1,p_net_meter_flow,1.0,228,83.7234,1.0,0.0,0.0,ok,,True,False
+M2,1,p_net_meter_heat_power,1.0,194,3.7034,1.0,0.0,0.0,ok,,True,False
+M2,1,p_net_return_temperature,1.0,50,4.0828,1.5,0.0,0.0,ok,,True,False
+M2,1,p_net_meter_volume,1.0,259,7.5201,0.5,0.0,0.0,ok,,False,False
+M2,1,p_net_supply_temperature,1.0,44,3.4375,2.0,0.0,0.0,ok,,True,False
+M2,2,outdoor_temperature,1.0,548,3.6312,3.0,0.0,0.0,ok,,True,False
+M2,2,s_hc1_control_unit_mode,0.0,0,0.0,2368.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,2,s_dhw_control_unit_mode,0.0,0,0.0,2368.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,2,s_hc1_room_temperature_setpoint,1.0,4,1.2642,17.5,0.0,0.0,ok,,False,False
+M2,2,p_hc1_return_temperature,1.0,485,3.1426,1.5,0.0,0.0,ok,,True,False
+M2,2,s_dhw_upper_storage_temperature,1.0,472,3.1032,1.5,0.0,0.0218,noisy,2.2% 相邻点突跳,False,False
+M2,2,s_dhw_lower_storage_temperature,1.0,1244,17.5441,4.0,0.0,0.1155,noisy,11.6% 相邻点突跳,False,False
+M2,2,p_hc1_control_valve_position_setpoint,1.0,97,5.1302,6.0,0.0,0.0021,ok,,False,False
+M2,2,p_dhw_control_valve_position,1.0,111,4.3963,27.5,0.0,0.0,ok,,False,False
+M2,2,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2368.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,2,s_hc1_supply_temperature_setpoint,1.0,802,6.501,5.5,0.0,0.0389,noisy,3.9% 突跳,True,False
+M2,2,s_hc1_supply_temperature,1.0,895,6.7918,1.5,0.0,0.0,ok,,True,False
+M2,2,s_dhw_supply_temperature,1.0,172,1.1216,4.5,0.0,0.004,ok,,False,False
+M2,2,p_net_meter_energy,1.0,4736,20166.416,0.5,0.0,0.0,ok,,False,False
+M2,2,p_net_meter_flow,1.0,1710,154.6331,1.0,0.0,0.0006,ok,,True,False
+M2,2,p_net_meter_heat_power,1.0,1208,9.9133,1.0,0.0,0.0,ok,,True,False
+M2,2,p_net_return_temperature,1.0,71,3.0564,3.5,0.0,0.0,ok,,True,False
+M2,2,p_net_meter_volume,1.0,4736,339.8359,0.5,0.0,0.0,ok,,False,False
+M2,2,p_net_supply_temperature,1.0,69,4.0742,8.5,0.0,0.0002,ok,,True,False
+M2,3,outdoor_temperature,1.0,10,0.08,711.5,0.0,0.0,frozen,连续 712h 数值不变（阈值 72h）,True,True
+M2,3,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,3,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,3,s_hc1_room_temperature_setpoint,1.0,3,0.8477,29403.5,0.0,0.0,ok,,False,False
+M2,3,p_hc1_return_temperature,1.0,279,0.8422,12.5,0.0,0.0001,ok,,True,False
+M2,3,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,3,s_dhw_upper_storage_temperature,1.0,558,1.8994,12.5,0.0,0.0514,noisy,5.1% 相邻点突跳,False,False
+M2,3,s_dhw_lower_storage_temperature,1.0,1711,17.0854,12.5,0.0,0.179,noisy,17.9% 相邻点突跳,False,False
+M2,3,p_hc1_control_valve_position_setpoint,1.0,291,13.7513,39.0,0.0,0.0008,ok,,False,False
+M2,3,p_dhw_control_valve_position,1.0,117,3.6655,45.5,0.0,0.0,ok,,False,False
+M2,3,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,3,s_hc1_supply_temperature_setpoint,1.0,786,5.5369,12.5,0.0,0.0001,ok,,True,False
+M2,3,s_hc1_supply_temperature,1.0,793,5.7963,12.5,0.0,0.0,ok,,True,False
+M2,3,s_dhw_supply_temperature,1.0,383,1.2398,12.5,0.0,0.0051,ok,,False,False
+M2,3,p_net_meter_energy,0.4702,33725,94838.9141,20358.0,0.0,0.0,frozen,连续 20358h 数值不变（阈值 168h）,False,False
+M2,3,p_net_meter_flow,0.4702,3527,283.8186,20358.0,0.0,0.0119,frozen,连续 20358h 数值不变（阈值 168h）,True,False
+M2,3,p_net_meter_heat_power,0.4702,2077,14.5964,20358.0,0.0,0.0338,frozen,连续 20358h 数值不变（阈值 168h）,True,False
+M2,3,p_net_return_temperature,0.4702,100,14.0751,20358.0,0.0,0.0066,frozen,连续 20358h 数值不变（阈值 168h）,True,False
+M2,3,p_net_meter_volume,0.4702,33727,2760.9053,20358.0,0.0,0.0,frozen,连续 20358h 数值不变（阈值 168h）,False,False
+M2,3,p_net_supply_temperature,0.4702,161,21.7187,20358.0,0.0,0.0007,frozen,连续 20358h 数值不变（阈值 168h）,True,False
+M2,4,outdoor_temperature,1.0,1340,7.5178,5.5,0.0,0.0018,ok,,True,False
+M2,4,s_hc1_control_unit_mode,0.0,0,0.0,33698.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,4,s_dhw_control_unit_mode,0.0,0,0.0,33698.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,4,p_hc1_return_temperature_setpoint,1.0,1,0.0,33698.5,0.0,0.0,ok,,False,False
+M2,4,p_hc1_return_temperature,1.0,774,4.5051,5.5,0.0,0.0,ok,,True,False
+M2,4,s_dhw_3_way_valve_status,0.0,0,0.0,33698.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,4,p_hc1_control_valve_position_setpoint,1.0,165,6.0428,5.5,0.0,0.0,ok,,False,False
+M2,4,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,33698.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,4,s_hc1_supply_temperature_setpoint,1.0,641,5.7158,3137.5,0.0,0.0,ok,,True,False
+M2,4,s_hc1_supply_temperature,1.0,860,5.8789,5.5,0.0,0.0,ok,,True,False
+M2,4,p_net_meter_energy,1.0,67363,213275.5781,5.5,0.0,0.0,ok,,False,False
+M2,4,p_net_meter_flow,1.0,4045,259.9962,5.5,0.0,0.0,ok,,True,False
+M2,4,p_net_meter_heat_power,1.0,2159,14.118,5.5,0.0,0.0,ok,,True,False
+M2,4,p_net_return_temperature,1.0,93,4.4747,5.5,0.0,0.0,ok,,True,False
+M2,4,p_net_meter_volume,1.0,67363,4771.7622,5.5,0.0,0.0,ok,,False,False
+M2,4,p_net_supply_temperature,1.0,126,5.4062,64.5,0.0,0.0007,ok,,True,False
+M2,5,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,5,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,5,p_hc1_return_temperature,1.0,1355,8.7085,431.0,0.0,0.003,frozen,连续 431h 数值不变（阈值 168h）,True,False
+M2,5,p_hc1_control_valve_position_setpoint,1.0,310,31.0686,431.5,0.0,0.0805,noisy,8.0% 突跳,False,False
+M2,5,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,5,s_hc1_supply_temperature_setpoint,1.0,1780,15.0587,872.0,0.0,0.0,ok,,True,False
+M2,5,s_hc1_supply_temperature,1.0,1861,10.9481,431.0,0.0,0.0123,frozen,连续 431h 数值不变（阈值 168h）,True,False
+M2,5,p_net_meter_energy,1.0,47162,301956.8438,431.5,0.0,0.0,frozen,连续 432h 数值不变（阈值 168h）,False,False
+M2,5,p_net_meter_flow,1.0,627,336.7936,431.0,0.0,0.0909,frozen,连续 431h 数值不变（阈值 168h）,True,False
+M2,5,p_net_meter_heat_power,1.0,2600,18.7585,431.0,0.0,0.0893,frozen,连续 431h 数值不变（阈值 168h）,True,False
+M2,5,p_net_return_temperature,1.0,136,8.5464,431.5,0.0,0.0024,frozen,连续 432h 数值不变（阈值 168h）,True,False
+M2,5,p_net_meter_volume,1.0,49197,5051.8545,431.5,0.0,0.0,frozen,连续 432h 数值不变（阈值 168h）,False,False
+M2,5,p_net_supply_temperature,1.0,299,17.9551,431.0,0.0,0.0099,frozen,连续 431h 数值不变（阈值 168h）,True,False
+M2,6,outdoor_temperature,1.0,331,2.0087,24.0,0.0,0.0,ok,,True,False
+M2,6,s_hc1_control_unit_mode,0.0,0,0.0,2966.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,6,s_hc1_room_temperature_setpoint,1.0,1,0.0,2966.0,0.0,0.0,ok,,False,False
+M2,6,p_hc1_return_temperature,1.0,869,6.8128,24.0,0.0,0.0,ok,,True,False
+M2,6,p_hc1_control_valve_position_setpoint,1.0,205,10.6935,24.0,0.0,0.0002,ok,,False,False
+M2,6,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2966.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,6,s_hc1_supply_temperature_setpoint,1.0,527,4.5586,24.0,0.0,0.0,ok,,True,False
+M2,6,s_hc1_supply_temperature,1.0,722,4.7924,24.0,0.0,0.0002,ok,,True,False
+M2,6,p_net_meter_energy,1.0,5866,3278.6135,24.0,0.0,0.0,ok,,False,False
+M2,6,p_net_meter_flow,1.0,431,27.0094,24.0,0.0,0.0005,ok,,True,False
+M2,6,p_net_meter_heat_power,1.0,267,1.4635,24.0,0.0,0.0012,ok,,True,False
+M2,6,p_net_return_temperature,1.0,97,6.7579,24.0,0.0,0.0,ok,,True,False
+M2,6,p_net_meter_volume,1.0,5882,60.7059,24.0,0.0,0.0,ok,,False,False
+M2,6,p_net_supply_temperature,1.0,118,6.3484,24.0,0.0,0.0002,ok,,True,False
+M2,7,outdoor_temperature,1.0,1413,8.0979,214.0,0.0,0.0015,frozen,连续 214h 数值不变（阈值 72h）,True,True
+M2,7,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,7,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,7,s_hc1_room_temperature_setpoint,0.855,5,2.2586,613.5,0.0,0.0,ok,,False,False
+M2,7,p_hc1_return_temperature,1.0,971,5.2824,213.5,0.0,0.0052,frozen,连续 214h 数值不变（阈值 168h）,True,False
+M2,7,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,7,s_dhw_upper_storage_temperature,1.0,581,3.1496,214.0,0.0,0.0172,frozen,连续 214h 数值不变（阈值 168h）,False,False
+M2,7,s_dhw_lower_storage_temperature,1.0,1558,15.8225,213.5,0.0,0.083,frozen,连续 214h 数值不变（阈值 168h）,False,False
+M2,7,p_hc1_control_valve_position_setpoint,1.0,308,34.2168,259.0,0.0,0.0623,noisy,6.2% 突跳,False,False
+M2,7,p_dhw_control_valve_position,1.0,255,8.8643,214.0,0.0,0.0,ok,,False,False
+M2,7,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,7,s_hc1_supply_temperature_setpoint,0.855,1440,11.7023,214.0,0.0,0.0454,noisy,4.5% 突跳,True,False
+M2,7,s_hc1_supply_temperature,1.0,1627,11.2024,213.5,0.0,0.0213,frozen,连续 214h 数值不变（阈值 168h）,True,False
+M2,7,s_dhw_supply_temperature,1.0,508,1.4121,213.5,0.0,0.0093,frozen,连续 214h 数值不变（阈值 168h）,False,False
+M2,7,p_net_meter_energy,1.0,42638,168010.7031,214.0,0.0,0.0,frozen,连续 214h 数值不变（阈值 168h）,False,False
+M2,7,p_net_meter_flow,1.0,2165,157.6265,213.5,0.0,0.1064,frozen,连续 214h 数值不变（阈值 168h）,True,False
+M2,7,p_net_meter_heat_power,1.0,1445,9.9462,214.0,0.0,0.0963,frozen,连续 214h 数值不变（阈值 168h）,True,False
+M2,7,p_net_return_temperature,1.0,129,8.111,213.5,0.0,0.0673,frozen,连续 214h 数值不变（阈值 168h）,True,False
+M2,7,p_net_meter_volume,1.0,44767,3275.8228,213.5,0.0,0.0,frozen,连续 214h 数值不变（阈值 168h）,False,False
+M2,7,p_net_supply_temperature,1.0,170,8.0568,213.5,0.0,0.0,frozen,连续 214h 数值不变（阈值 168h）,True,False
+M2,8,outdoor_temperature,1.0,733,5.0262,4.0,0.0,0.0,ok,,True,False
+M2,8,s_hc1_control_unit_mode,0.0,0,0.0,4048.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,8,s_hc1_room_temperature_setpoint,1.0,4,0.3926,61.5,0.0,0.0,ok,,False,False
+M2,8,p_hc1_return_temperature_setpoint,1.0,2,0.1066,4001.5,0.0,0.0,ok,,False,False
+M2,8,p_hc1_return_temperature,1.0,990,7.6281,1.5,0.0,0.0007,ok,,True,False
+M2,8,p_hc1_control_valve_position_setpoint,1.0,273,14.3396,3.5,0.0,0.0005,ok,,False,False
+M2,8,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4048.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,8,s_hc1_supply_temperature_setpoint,1.0,1145,8.1211,4.0,0.0,0.0,ok,,True,False
+M2,8,s_hc1_supply_temperature,1.0,1212,7.9188,1.0,0.0,0.0,ok,,True,False
+M2,8,p_net_meter_energy,1.0,7950,11329.2979,5.0,0.0,0.0,ok,,False,False
+M2,8,p_net_meter_flow,1.0,1148,85.647,1.5,0.0,0.0,ok,,True,False
+M2,8,p_net_meter_heat_power,1.0,650,4.2597,1.5,0.0,0.0,ok,,True,False
+M2,8,p_net_return_temperature,1.0,123,7.6789,5.0,0.0,0.0019,ok,,True,False
+M2,8,p_net_meter_volume,1.0,8002,226.0802,5.0,0.0,0.0,ok,,False,False
+M2,8,p_net_supply_temperature,1.0,157,6.0666,11.5,0.0,0.0049,ok,,True,False
+M2,9,outdoor_temperature,1.0,1330,7.6151,5.5,0.0,0.0004,ok,,True,False
+M2,9,s_hc1_control_unit_mode,0.0,0,0.0,33751.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,9,s_dhw_control_unit_mode,0.0,0,0.0,33751.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,9,s_hc1_room_temperature_setpoint,1.0,4,0.3314,21912.0,0.0,0.0,ok,,False,False
+M2,9,p_hc1_return_temperature,1.0,974,5.845,4.0,0.0,0.0,ok,,True,False
+M2,9,s_dhw_3_way_valve_status,0.0,0,0.0,33751.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,9,p_hc1_control_valve_position_setpoint,1.0,189,5.4829,4.0,0.0,0.0,ok,,False,False
+M2,9,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,33751.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,9,s_hc1_supply_temperature_setpoint,1.0,587,3.9325,3618.5,0.0,0.0,ok,,True,False
+M2,9,s_hc1_supply_temperature,1.0,808,4.1634,4.0,0.0,0.0,ok,,True,False
+M2,9,p_net_meter_energy,1.0,67476,189326.5938,4.0,0.0,0.0,ok,,False,False
+M2,9,p_net_meter_flow,1.0,3748,230.209,4.0,0.0,0.0,ok,,True,False
+M2,9,p_net_meter_heat_power,1.0,2078,13.2455,4.0,0.0,0.0,ok,,True,False
+M2,9,p_net_return_temperature,1.0,108,5.8618,4.0,0.0,0.0,ok,,True,False
+M2,9,p_net_meter_volume,1.0,67477,3900.405,4.0,0.0,0.0,ok,,False,False
+M2,9,p_net_supply_temperature,1.0,131,5.289,32.0,0.0,0.0005,ok,,True,False
+M2,10,outdoor_temperature,1.0,1002,5.119,15.5,0.0,0.0001,ok,,True,False
+M2,10,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,10,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,10,p_hc1_return_temperature,1.0,596,2.6023,4.0,0.0,0.0,ok,,True,False
+M2,10,p_hc1_control_valve_position_setpoint,1.0,299,16.7241,10.0,0.0,0.0197,ok,,False,False
+M2,10,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,10,s_hc1_supply_temperature_setpoint,1.0,644,1.6663,612.0,0.0,0.0,ok,,True,False
+M2,10,s_hc1_supply_temperature,1.0,708,1.904,4.0,0.0,0.0,ok,,True,False
+M2,10,p_net_meter_energy,1.0,76774,2175961.0,4.0,0.0,0.0,ok,,False,False
+M2,10,p_net_meter_flow,1.0,3247,1747.7327,4.0,0.0,0.0001,ok,,True,False
+M2,10,p_net_meter_heat_power,1.0,10425,84.0015,4.0,0.0,0.0004,ok,,True,False
+M2,10,p_net_return_temperature,1.0,554,2.1908,4.5,0.0,0.0001,ok,,True,False
+M2,10,p_net_meter_volume,1.0,76770,76793.1719,4.0,0.0,0.0,ok,,False,False
+M2,10,p_net_supply_temperature,1.0,1022,6.2537,61.5,0.0,0.0003,ok,,True,False
+M2,11,outdoor_temperature,1.0,509,3.5907,24.0,0.0,0.0,ok,,True,False
+M2,11,s_hc1_control_unit_mode,0.0,0,0.0,4215.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,11,s_hc1_room_temperature_setpoint,1.0,4,1.2732,29.5,0.0,0.0,ok,,False,False
+M2,11,p_hc1_return_temperature,1.0,835,5.397,23.5,0.0,0.0,ok,,True,False
+M2,11,p_hc1_control_valve_position_setpoint,1.0,253,17.0813,24.5,0.0,0.0019,ok,,False,False
+M2,11,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4215.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,11,s_hc1_supply_temperature_setpoint,1.0,1046,8.9209,24.0,0.0,0.0416,noisy,4.2% 突跳,True,False
+M2,11,s_hc1_supply_temperature,1.0,1263,9.4708,23.5,0.0,0.0004,ok,,True,False
+M2,11,p_net_meter_energy,1.0,8348,35655.8086,24.0,0.0,0.0,ok,,False,False
+M2,11,p_net_meter_flow,1.0,2513,225.0561,24.0,0.0,0.0001,ok,,True,False
+M2,11,p_net_meter_heat_power,1.0,1535,12.5076,24.0,0.0,0.0001,ok,,True,False
+M2,11,p_net_return_temperature,1.0,103,5.4576,24.0,0.0,0.0,ok,,True,False
+M2,11,p_net_meter_volume,1.0,8348,650.548,24.0,0.0,0.0,ok,,False,False
+M2,11,p_net_supply_temperature,1.0,141,7.8586,24.5,0.0,0.0012,ok,,True,False
+M2,12,outdoor_temperature,1.0,1493,8.3587,6.0,0.0,0.0003,ok,,True,False
+M2,12,s_hc1_control_unit_mode,0.0,0,0.0,34253.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,12,s_dhw_control_unit_mode,0.0,0,0.0,34253.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,12,p_hc1_return_temperature_setpoint,1.0,5,2.226,19100.5,0.0,0.0,ok,,False,False
+M2,12,p_hc1_return_temperature,1.0,726,3.2581,5.5,0.0,0.0,ok,,True,False
+M2,12,p_hc1_control_valve_position_setpoint,1.0,233,8.0155,5.5,0.0,0.0,ok,,False,False
+M2,12,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,34253.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,12,s_hc1_supply_temperature_setpoint,1.0,625,5.7839,3217.0,0.0,0.0,ok,,True,False
+M2,12,s_hc1_supply_temperature,1.0,793,5.8334,5.5,0.0,0.0,ok,,True,False
+M2,12,p_net_meter_energy,1.0,68454,430632.3125,6.5,0.0,0.0,ok,,False,False
+M2,12,p_net_meter_flow,1.0,1001,557.3582,6.5,0.0,0.0,ok,,True,False
+M2,12,p_net_meter_heat_power,1.0,3747,27.3911,6.0,0.0,0.0,ok,,True,False
+M2,12,p_net_return_temperature,1.0,92,3.1402,6.5,0.0,0.0,ok,,True,False
+M2,12,p_net_meter_volume,1.0,68455,10669.2227,6.5,0.0,0.0,ok,,False,False
+M2,12,p_net_supply_temperature,1.0,111,5.4667,24.0,0.0,0.0,ok,,True,False
+M2,13,outdoor_temperature,1.0,590,3.583,3.0,0.0,0.0,ok,,True,False
+M2,13,s_hc1_control_unit_mode,0.0,0,0.0,3495.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,13,s_hc1_room_temperature_setpoint,1.0,4,1.3835,15.5,0.0,0.0,ok,,False,False
+M2,13,p_hc1_return_temperature,1.0,550,3.4108,1.0,0.0,0.0,ok,,True,False
+M2,13,p_hc1_control_valve_position_setpoint,1.0,119,5.5704,1.5,0.0,0.0001,ok,,False,False
+M2,13,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3495.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,13,s_hc1_supply_temperature_setpoint,1.0,1041,8.4238,3.0,0.0,0.0415,noisy,4.1% 突跳,True,False
+M2,13,s_hc1_supply_temperature,1.0,1096,8.2575,1.5,0.0,0.0,ok,,True,False
+M2,13,p_net_meter_energy,0.7248,5067,23999.0645,962.0,0.0,0.0,frozen,连续 962h 数值不变（阈值 168h）,False,False
+M2,13,p_net_meter_flow,0.7248,2045,207.406,962.0,0.0,0.0,frozen,连续 962h 数值不变（阈值 168h）,True,False
+M2,13,p_net_meter_heat_power,0.7248,1431,12.4547,962.0,0.0,0.0,frozen,连续 962h 数值不变（阈值 168h）,True,False
+M2,13,p_net_return_temperature,0.7248,69,3.7612,962.0,0.0,0.0,frozen,连续 962h 数值不变（阈值 168h）,True,False
+M2,13,p_net_meter_volume,0.7248,5067,407.3198,962.0,0.0,0.0,frozen,连续 962h 数值不变（阈值 168h）,False,False
+M2,13,p_net_supply_temperature,0.7248,72,4.2165,962.0,0.0,0.0012,frozen,连续 962h 数值不变（阈值 168h）,True,False
+M2,14,s_dhw_supply_temperature_setpoint,1.0,1,0.0,4385.0,0.0,0.0,ok,,False,False
+M2,14,outdoor_temperature,1.0,811,5.2243,4.5,0.0,0.0033,ok,,True,False
+M2,14,s_hc1_control_unit_mode,0.0,0,0.0,4385.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,14,s_dhw_control_unit_mode,0.0,0,0.0,4385.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,14,s_hc1_room_temperature_setpoint,0.9921,4,1.2695,17.5,0.0,0.0,ok,,False,False
+M2,14,p_hc1_return_temperature_setpoint,0.9921,2,0.0179,3240.5,0.0,0.0,ok,,False,False
+M2,14,p_hc1_return_temperature,1.0,1073,8.828,4.5,0.0,0.0,ok,,True,False
+M2,14,s_dhw_upper_storage_temperature,1.0,356,1.9513,4.5,0.0,0.0066,ok,,False,False
+M2,14,s_dhw_lower_storage_temperature,1.0,1435,17.9569,4.5,0.0,0.074,noisy,7.4% 相邻点突跳,False,False
+M2,14,p_hc1_control_valve_position_setpoint,1.0,301,20.6528,4.5,0.0,0.0,ok,,False,False
+M2,14,p_dhw_control_valve_position,1.0,185,10.9699,16.0,0.0,0.0,ok,,False,False
+M2,14,s_dhw_upper_storage_temperature_setpoint,1.0,1,0.0,4385.0,0.0,0.0,ok,,False,False
+M2,14,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4385.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,14,s_hc1_supply_temperature_setpoint,0.9921,1097,9.9209,11.5,0.0,0.0124,ok,,True,False
+M2,14,s_hc1_supply_temperature,1.0,1237,9.9779,4.5,0.0,0.0,ok,,True,False
+M2,14,s_dhw_supply_temperature,1.0,209,1.2527,5.0,0.0,0.0002,ok,,False,False
+M2,14,p_net_meter_energy,1.0,8761,9415.9131,4.5,0.0,0.0,ok,,False,False
+M2,14,p_net_meter_flow,1.0,1049,71.0463,4.5,0.0,0.0,ok,,True,False
+M2,14,p_net_meter_heat_power,1.0,635,4.074,4.5,0.0,0.0002,ok,,True,False
+M2,14,p_net_return_temperature,1.0,85,4.9642,5.0,0.0,0.0,ok,,True,False
+M2,14,p_net_meter_volume,1.0,8761,182.3083,4.5,0.0,0.0,ok,,False,False
+M2,14,p_net_supply_temperature,1.0,97,5.2015,8.5,0.0,0.0005,ok,,True,False
+M2,15,outdoor_temperature,1.0,611,3.673,8.0,0.0,0.0006,ok,,True,False
+M2,15,s_hc1_control_unit_mode,0.0,0,0.0,3492.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,15,s_hc1_room_temperature_setpoint,0.9999,4,1.2661,17.5,0.0,0.0,ok,,False,False
+M2,15,p_hc1_return_temperature,1.0,613,4.2504,8.0,0.0,0.0,ok,,True,False
+M2,15,p_hc1_control_valve_position_setpoint,1.0,274,25.3237,77.0,0.0,0.0182,ok,,False,False
+M2,15,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3492.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,15,s_hc1_supply_temperature_setpoint,0.9999,938,5.9865,8.0,0.0,0.0001,ok,,True,False
+M2,15,s_hc1_supply_temperature,1.0,931,6.3699,8.0,0.0,0.0,ok,,True,False
+M2,15,p_net_meter_energy,1.0,6969,13361.1572,8.0,0.0,0.0,ok,,False,False
+M2,15,p_net_meter_flow,1.0,1861,174.1016,8.0,0.0,0.0007,ok,,True,False
+M2,15,p_net_meter_heat_power,1.0,872,5.8337,8.0,0.0,0.0001,ok,,True,False
+M2,15,p_net_return_temperature,1.0,83,4.2663,8.5,0.0,0.0,ok,,True,False
+M2,15,p_net_meter_volume,1.0,6970,358.0763,8.0,0.0,0.0,ok,,False,False
+M2,15,p_net_supply_temperature,1.0,149,12.079,8.0,0.0,0.0001,ok,,True,False
+M2,16,outdoor_temperature,1.0,1514,8.6494,13.5,0.0,0.0007,ok,,True,False
+M2,16,s_hc1_control_unit_mode,0.0,0,0.0,35545.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,16,s_dhw_control_unit_mode,0.0,0,0.0,35545.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,16,s_hc1_room_temperature_setpoint,1.0,3,0.344,22118.5,0.0,0.0,ok,,False,False
+M2,16,p_hc1_return_temperature_setpoint,0.9887,6,1.0424,22118.5,0.0,0.0,ok,,False,False
+M2,16,p_hc1_return_temperature,0.9887,1226,5.3757,400.5,0.0,0.0001,frozen,连续 400h 数值不变（阈值 168h）,True,False
+M2,16,p_hc1_control_valve_position_setpoint,1.0,305,34.0296,980.0,0.0,0.0191,ok,,False,False
+M2,16,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,35545.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,16,s_hc1_supply_temperature_setpoint,1.0,1687,16.242,601.0,0.0,0.0,ok,,True,False
+M2,16,s_hc1_supply_temperature,1.0,1461,6.4164,13.5,0.0,0.0004,ok,,True,False
+M2,16,p_net_meter_energy,0.9319,65721,5670459.5,2419.5,0.0,0.0,frozen,连续 2420h 数值不变（阈值 168h）,False,False
+M2,16,p_net_meter_flow,0.9319,4586,6131.2319,2419.5,0.0,0.0053,frozen,连续 2420h 数值不变（阈值 168h）,True,False
+M2,16,p_net_meter_heat_power,0.9319,11051,313.3464,2419.5,0.0,0.0016,frozen,连续 2420h 数值不变（阈值 168h）,True,False
+M2,16,p_net_return_temperature,0.9319,1118,4.8214,2419.5,0.0,0.0009,frozen,连续 2420h 数值不变（阈值 168h）,True,False
+M2,16,p_net_meter_volume,0.9319,66167,144389.0781,2419.5,0.0,0.0,frozen,连续 2420h 数值不变（阈值 168h）,False,False
+M2,16,p_net_supply_temperature,0.9319,1274,8.7127,2419.5,0.0,0.0017,frozen,连续 2420h 数值不变（阈值 168h）,True,False
+M2,17,outdoor_temperature,1.0,1371,7.7885,73.5,0.0,0.0014,frozen,连续 74h 数值不变（阈值 72h）,True,True
+M2,17,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,17,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,17,p_hc1_return_temperature_setpoint,0.8337,5,7.0152,340.5,0.0,0.0,ok,,False,False
+M2,17,p_hc1_return_temperature,1.0,755,2.6607,72.5,0.0,0.0,ok,,True,False
+M2,17,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,17,s_dhw_upper_storage_temperature,1.0,711,3.5673,72.5,0.0,0.0,ok,,False,False
+M2,17,s_dhw_lower_storage_temperature,1.0,699,3.2856,72.5,0.0,0.0,ok,,False,False
+M2,17,p_hc1_control_valve_position_setpoint,1.0,310,32.9762,72.5,0.0,0.0,ok,,False,False
+M2,17,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,17,s_hc1.2_heating_pump_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,17,s_hc1_supply_temperature_setpoint,0.8339,1126,5.6426,104.5,0.0,0.0694,noisy,6.9% 突跳,True,False
+M2,17,s_hc1_supply_temperature,1.0,844,4.6642,72.5,0.0,0.0,ok,,True,False
+M2,17,p_net_meter_energy,1.0,64833,206484.875,72.5,0.0,0.0,ok,,False,False
+M2,17,p_net_meter_flow,1.0,4003,352.8425,72.5,0.0,0.0,ok,,True,False
+M2,17,p_net_meter_heat_power,1.0,1822,13.2233,74.5,0.0,0.0,ok,,True,False
+M2,17,p_net_return_temperature,1.0,102,3.4716,72.5,0.0,0.0,ok,,True,False
+M2,17,p_net_meter_volume,1.0,65872,5762.2822,72.5,0.0,0.0,ok,,False,False
+M2,17,p_net_supply_temperature,1.0,192,10.764,72.5,0.0,0.0,ok,,True,False
+M2,18,outdoor_temperature,1.0,25,0.1599,41.5,0.0,0.0,coarse,温度列仅 25 个不同取值,True,True
+M2,18,p_hc1_return_temperature,1.0,420,3.4561,2.0,0.0,0.0002,ok,,True,False
+M2,18,s_dhw_3_way_valve_status,0.0,0,0.0,2295.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,18,s_dhw_upper_storage_temperature,1.0,264,1.703,2.0,0.0,0.0,ok,,False,False
+M2,18,s_dhw_lower_storage_temperature,1.0,282,1.7889,2.5,0.0,0.0,ok,,False,False
+M2,18,p_hc1_control_valve_position_setpoint,1.0,204,10.0776,11.5,0.0,0.0989,noisy,9.9% 突跳,False,False
+M2,18,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2295.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,18,s_hc1_supply_temperature_setpoint,1.0,349,2.612,459.0,0.0,0.0447,noisy,4.5% 突跳,True,False
+M2,18,s_hc1_supply_temperature,1.0,369,2.3937,1.0,0.0,0.0004,ok,,True,False
+M2,18,p_net_meter_energy,1.0,4591,13817.3008,0.5,0.0,0.0,ok,,False,False
+M2,18,p_net_meter_flow,1.0,1332,116.8215,1.0,0.0,0.0072,ok,,True,False
+M2,18,p_net_meter_heat_power,1.0,988,7.5486,2.5,0.0,0.002,ok,,True,False
+M2,18,p_net_return_temperature,1.0,47,3.4609,12.5,0.0,0.002,ok,,True,False
+M2,18,p_net_meter_volume,1.0,4591,309.9543,0.5,0.0,0.0,ok,,False,False
+M2,18,p_net_supply_temperature,1.0,90,4.2205,8.0,0.0,0.0007,ok,,True,False
+M2,19,s_dhw_supply_temperature_setpoint,1.0,2,0.0193,19668.5,0.0,0.0,ok,,False,False
+M2,19,outdoor_temperature,1.0,1399,7.7159,5.0,0.0,0.0004,ok,,True,False
+M2,19,s_hc1_control_unit_mode,0.0,0,0.0,33726.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,19,s_dhw_control_unit_mode,0.0,0,0.0,33726.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,19,s_hc1_room_temperature_setpoint,0.9167,13,1.7396,364.0,0.0,0.0,ok,,False,False
+M2,19,p_hc1_return_temperature,1.0,1117,6.3997,8.0,0.0,0.0017,ok,,True,False
+M2,19,s_dhw_3_way_valve_status,0.0,0,0.0,33726.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,19,s_dhw_upper_storage_temperature,1.0,786,3.2696,2.5,0.0,0.0132,ok,,False,False
+M2,19,s_dhw_lower_storage_temperature,1.0,1704,17.006,3.0,0.0,0.1305,noisy,13.1% 相邻点突跳,False,False
+M2,19,p_hc1_control_valve_position_setpoint,1.0,305,37.0063,364.0,0.0,0.0,ok,,False,False
+M2,19,p_dhw_control_valve_position,1.0,296,13.92,24.5,0.0,0.0,ok,,False,False
+M2,19,s_dhw_upper_storage_temperature_setpoint,1.0,2,0.0193,30704.0,0.0,0.0,ok,,False,False
+M2,19,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,33726.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,19,s_hc1.2_heating_pump_status,0.0,0,0.0,33726.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,19,s_hc1.3_heating_pump_status,0.0,0,0.0,33726.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,19,s_hc1_supply_temperature_setpoint,0.9167,1509,14.3663,364.0,0.0,0.0089,ok,,True,False
+M2,19,s_hc1_supply_temperature,1.0,1648,10.5678,2.0,0.0,0.0085,ok,,True,False
+M2,19,s_dhw_supply_temperature,1.0,787,3.0116,2.5,0.0,0.0016,ok,,False,False
+M2,19,p_net_meter_energy,1.0,67290,126342.5938,8.5,0.0,0.0,ok,,False,False
+M2,19,p_net_meter_flow,1.0,5502,470.5254,2.5,0.0,0.0354,noisy,3.5% 相邻点突跳,True,False
+M2,19,p_net_meter_heat_power,1.0,2139,13.2283,3.0,0.0,0.054,noisy,5.4% 相邻点突跳,True,False
+M2,19,p_net_return_temperature,1.0,161,9.4248,10.0,0.0,0.0005,ok,,True,False
+M2,19,p_net_meter_volume,1.0,67383,4567.4131,8.0,0.0,0.0,ok,,False,False
+M2,19,p_net_supply_temperature,1.0,177,6.2105,7.0,0.0,0.0008,ok,,True,False
+M2,20,s_dhw_supply_temperature_setpoint,0.9999,13,0.5964,12495.5,0.0,0.0,ok,,False,False
+M2,20,outdoor_temperature,1.0,1496,8.0585,12.0,0.0,0.0013,ok,,True,False
+M2,20,s_hc1_control_unit_mode,0.0,0,0.0,32693.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,20,s_dhw_control_unit_mode,0.0,0,0.0,32693.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,20,p_hc1_return_temperature,1.0,1111,8.2096,11.5,0.0,0.0,ok,,True,False
+M2,20,s_dhw_3_way_valve_status,0.0,0,0.0,32693.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,20,s_dhw_upper_storage_temperature,1.0,1059,7.1333,11.5,0.0,0.0083,ok,,False,False
+M2,20,s_dhw_lower_storage_temperature,1.0,1623,13.8005,11.5,0.0,0.3189,noisy,31.9% 相邻点突跳,False,False
+M2,20,p_hc1_control_valve_position_setpoint,1.0,309,30.9886,65.5,0.0,0.0039,ok,,False,False
+M2,20,p_dhw_control_valve_position,1.0,282,10.6392,49.5,0.0,0.0,ok,,False,False
+M2,20,s_dhw_upper_storage_temperature_setpoint,1.0,13,0.5964,18690.5,0.0,0.0,ok,,False,False
+M2,20,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,32693.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,20,s_hc1_supply_temperature_setpoint,0.8628,1629,12.5369,63.5,0.0,0.0004,ok,,True,False
+M2,20,s_hc1_supply_temperature,1.0,1723,13.9901,11.5,0.0,0.0006,ok,,True,False
+M2,20,s_dhw_supply_temperature,1.0,604,1.8807,12.0,0.0,0.0133,ok,,False,False
+M2,20,p_net_meter_energy,1.0,58186,531842.0,235.0,0.0,0.0,frozen,连续 235h 数值不变（阈值 168h）,False,False
+M2,20,p_net_meter_flow,1.0,4982,869.0933,235.0,0.0,0.0005,frozen,连续 235h 数值不变（阈值 168h）,True,False
+M2,20,p_net_meter_heat_power,1.0,3430,25.8779,235.0,0.0,0.0014,frozen,连续 235h 数值不变（阈值 168h）,True,False
+M2,20,p_net_return_temperature,1.0,862,5.2603,234.5,0.0,0.001,frozen,连续 234h 数值不变（阈值 168h）,True,False
+M2,20,p_net_meter_volume,1.0,63528,18870.2754,234.5,0.0,0.0,frozen,连续 234h 数值不变（阈值 168h）,False,False
+M2,20,p_net_supply_temperature,1.0,751,4.0513,235.0,0.0,0.0002,frozen,连续 235h 数值不变（阈值 168h）,True,False
+M2,21,s_dhw_supply_temperature_setpoint,1.0,1,0.0,19651.0,0.0,0.0,ok,,False,False
+M2,21,outdoor_temperature,1.0,1496,9.1728,236.0,0.0,0.0082,frozen,连续 236h 数值不变（阈值 72h）,True,True
+M2,21,outdoor_temperature.1,1.0,1496,9.1416,236.0,0.0,0.0081,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,s_hc1_control_unit_mode,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1.1_control_unit_mode,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1.2_control_unit_mode,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_dhw_control_unit_mode,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1.2_dhw_control_unit_mode,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1_room_temperature_setpoint,0.7611,9,2.5848,255.0,0.0,0.0,ok,,False,False
+M2,21,s_hc1.1_room_temperature_setpoint,0.6854,5,2.2734,3256.0,0.0,0.0,ok,,False,False
+M2,21,s_hc1.2_room_temperature_setpoint,0.7207,5,2.273,3049.5,0.0,0.0,ok,,False,False
+M2,21,p_hc1_return_temperature_setpoint,0.7641,1098,9.6929,270.0,0.0,0.0167,ok,,False,False
+M2,21,s_hc1.1_return_temperature_setpoint,0.6854,2,1.1647,4127.5,0.0,0.0,ok,,False,False
+M2,21,s_hc1.2_return_temperature_setpoint,0.7207,762,8.2444,3049.5,0.0,0.0082,ok,,False,False
+M2,21,p_hc1_return_temperature,1.0,800,4.5511,236.0,0.0,0.0053,frozen,连续 236h 数值不变（阈值 168h）,True,False
+M2,21,s_hc1.1_return_temperature,1.0,484,4.4352,236.0,0.0,0.0015,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,s_hc1.2_return_temperature,0.9091,595,3.9947,3049.5,0.0,0.0039,frozen,连续 3050h 数值不变（阈值 168h）,False,False
+M2,21,s_dhw_3_way_valve_status,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_dhw_upper_storage_temperature,1.0,562,2.7328,236.0,0.0,0.0256,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,s_dhw_lower_storage_temperature,1.0,1506,16.1785,236.0,0.0,0.2361,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,p_hc1_control_valve_position_setpoint,1.0,306,30.0301,962.5,0.0,0.0,ok,,False,False
+M2,21,s_hc1.1_control_valve_position,1.0,307,29.2163,4276.0,0.0,0.0,ok,,False,False
+M2,21,p_dhw_control_valve_position,1.0,187,5.5161,236.5,0.0,0.0,ok,,False,False
+M2,21,s_hc1.2_control_valve_position,1.0,312,31.4886,519.0,0.0,0.0,ok,,False,False
+M2,21,s_dhw_upper_storage_temperature_setpoint,1.0,1,0.0,33559.0,0.0,0.0,ok,,False,False
+M2,21,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1.1_heating_pump_status,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1.2_heating_pump_status,0.0,0,0.0,33559.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,21,s_hc1_supply_temperature_setpoint,0.7611,1867,17.1696,255.0,0.0,0.07,noisy,7.0% 突跳,True,False
+M2,21,s_hc1.1_supply_temperature_setpoint,0.6854,456,5.1831,3256.0,0.0,0.0,ok,,False,False
+M2,21,s_hc1.2_supply_temperature_setpoint,0.7207,1042,8.7978,3049.5,0.0,0.0469,noisy,4.7% 突跳,False,False
+M2,21,s_hc1_supply_temperature,1.0,1714,9.0099,236.0,0.0,0.0449,frozen,连续 236h 数值不变（阈值 168h）,True,False
+M2,21,s_hc1.1_supply_temperature,1.0,1361,7.4171,236.0,0.0,0.0527,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,s_dhw_supply_temperature,1.0,405,1.6888,236.0,0.0,0.0164,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,s_hc1.2_supply_temperature,1.0,986,7.4786,236.0,0.0,0.0489,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,p_net_meter_energy,0.9999,43383,112781.8047,236.0,0.0,0.0,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,p_net_meter_flow,0.9999,2340,162.3161,464.0,0.0,0.1197,frozen,连续 464h 数值不变（阈值 168h）,True,False
+M2,21,p_net_meter_heat_power,0.9999,1734,11.3185,464.0,0.0,0.1129,frozen,连续 464h 数值不变（阈值 168h）,True,False
+M2,21,p_net_return_temperature,0.9999,115,7.7656,239.5,0.0,0.0573,frozen,连续 240h 数值不变（阈值 168h）,True,False
+M2,21,p_net_meter_volume,0.9999,43466,2086.7339,236.0,0.0,0.0,frozen,连续 236h 数值不变（阈值 168h）,False,False
+M2,21,p_net_supply_temperature,0.9999,127,3.8869,312.5,0.0,0.0,frozen,连续 312h 数值不变（阈值 168h）,True,False
+M2,23,outdoor_temperature,1.0,562,3.4416,6.5,0.0,0.0,ok,,True,False
+M2,23,s_hc1_control_unit_mode,0.0,0,0.0,3017.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,23,s_hc1_room_temperature_setpoint,1.0,1,0.0,3017.0,0.0,0.0,ok,,False,False
+M2,23,p_hc1_return_temperature,1.0,397,1.8795,1.5,0.0,0.0003,ok,,True,False
+M2,23,p_hc1_control_valve_position_setpoint,1.0,103,4.604,2.5,0.0,0.0027,ok,,False,False
+M2,23,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3017.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,23,s_hc1_supply_temperature_setpoint,1.0,407,2.2915,1.5,0.0,0.0,ok,,True,False
+M2,23,s_hc1_supply_temperature,1.0,408,2.1974,1.5,0.0,0.0002,ok,,True,False
+M2,23,p_net_meter_energy,1.0,5905,18753.1953,1.5,0.0,0.0,ok,,False,False
+M2,23,p_net_meter_flow,1.0,1448,146.4177,1.5,0.0,0.0022,ok,,True,False
+M2,23,p_net_meter_heat_power,1.0,1189,9.2102,1.0,0.0,0.0041,ok,,True,False
+M2,23,p_net_return_temperature,1.0,394,1.9274,2.0,0.0,0.0013,ok,,True,False
+M2,23,p_net_meter_volume,1.0,6030,354.3428,1.0,0.0,0.0,ok,,False,False
+M2,23,p_net_supply_temperature,1.0,1135,9.4988,1.5,0.0,0.0033,ok,,True,False
+M2,24,outdoor_temperature,1.0,553,3.4175,3.0,0.0,0.0,ok,,True,False
+M2,24,s_hc1_control_unit_mode,0.0,0,0.0,3496.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,24,s_dhw_control_unit_mode,0.0,0,0.0,3496.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,24,s_hc1_room_temperature_setpoint,1.0,4,1.266,17.5,0.0,0.0,ok,,False,False
+M2,24,p_hc1_return_temperature,1.0,787,5.9181,1.5,0.0,0.0001,ok,,True,False
+M2,24,s_dhw_upper_storage_temperature,1.0,480,2.7356,2.0,0.0,0.008,ok,,False,False
+M2,24,s_dhw_lower_storage_temperature,1.0,1295,18.4516,2.0,0.0,0.1948,noisy,19.5% 相邻点突跳,False,False
+M2,24,p_hc1_control_valve_position_setpoint,1.0,224,13.1694,3.0,0.0,0.0003,ok,,False,False
+M2,24,p_dhw_control_valve_position,1.0,194,11.7101,13.5,0.0,0.0,ok,,False,False
+M2,24,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3496.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,24,s_hc1_supply_temperature_setpoint,1.0,1028,8.1429,5.5,0.0,0.036,noisy,3.6% 突跳,True,False
+M2,24,s_hc1_supply_temperature,1.0,1133,8.2095,1.0,0.0,0.0,ok,,True,False
+M2,24,s_dhw_supply_temperature,1.0,259,1.5414,2.0,0.0,0.0219,noisy,2.2% 相邻点突跳,False,False
+M2,24,p_net_meter_energy,1.0,6989,20229.8301,2.0,0.0,0.0,ok,,False,False
+M2,24,p_net_meter_flow,1.0,1688,135.0153,1.5,0.0,0.0,ok,,True,False
+M2,24,p_net_meter_heat_power,1.0,1053,7.5201,1.5,0.0,0.0,ok,,True,False
+M2,24,p_net_return_temperature,1.0,105,5.3624,5.0,0.0,0.0,ok,,True,False
+M2,24,p_net_meter_volume,1.0,6990,391.6309,1.5,0.0,0.0,ok,,False,False
+M2,24,p_net_supply_temperature,1.0,83,4.4454,8.5,0.0,0.0013,ok,,True,False
+M2,25,s_dhw_supply_temperature_setpoint,1.0,1,0.0,1865.0,0.0,0.0,ok,,False,False
+M2,25,outdoor_temperature,1.0,548,3.9934,2.0,0.0,0.0,ok,,True,False
+M2,25,s_hc1_control_unit_mode,0.0,0,0.0,1865.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,25,s_dhw_control_unit_mode,0.0,0,0.0,1865.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,25,s_hc1_room_temperature_setpoint,1.0,8,1.4352,18.5,0.0,0.0,ok,,False,False
+M2,25,p_hc1_return_temperature,1.0,579,4.8044,1.0,0.0,0.0,ok,,True,False
+M2,25,s_dhw_3_way_valve_status,0.0,0,0.0,1865.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,25,s_dhw_upper_storage_temperature,1.0,172,1.8471,2.5,0.0,0.0059,ok,,False,False
+M2,25,s_dhw_lower_storage_temperature,1.0,624,14.2892,1.5,0.0,0.1706,noisy,17.1% 相邻点突跳,False,False
+M2,25,p_hc1_control_valve_position_setpoint,1.0,187,9.8251,4.0,0.0,0.0078,ok,,False,False
+M2,25,p_dhw_control_valve_position,1.0,215,12.9806,4.5,0.0,0.0,ok,,False,False
+M2,25,s_dhw_upper_storage_temperature_setpoint,1.0,1,0.0,1865.0,0.0,0.0,ok,,False,False
+M2,25,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,1865.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,25,s_hc1_supply_temperature_setpoint,1.0,1030,9.4995,2.0,0.0,0.015,ok,,True,False
+M2,25,s_hc1_supply_temperature,1.0,1101,9.6814,1.5,0.0,0.0,ok,,True,False
+M2,25,s_dhw_supply_temperature,1.0,221,1.3411,1.5,0.0,0.0,ok,,False,False
+M2,25,p_net_meter_energy,1.0,3729,40434.1445,1.0,0.0,0.0,ok,,False,False
+M2,25,p_net_meter_flow,1.0,2552,420.0289,1.0,0.0,0.0,ok,,True,False
+M2,25,p_net_meter_heat_power,1.0,1971,22.4518,1.5,0.0,0.0,ok,,True,False
+M2,25,p_net_return_temperature,1.0,63,3.3491,3.0,0.0,0.0,ok,,True,False
+M2,25,p_net_meter_volume,1.0,3729,763.5148,1.0,0.0,0.0,ok,,False,False
+M2,25,p_net_supply_temperature,1.0,70,4.5918,18.0,0.0,0.0008,ok,,True,False
+M2,26,s_dhw_supply_temperature_setpoint,1.0,1,0.0,4839.5,0.0,0.0,ok,,False,False
+M2,26,outdoor_temperature,1.0,760,4.8809,5.0,0.0,0.0,ok,,True,False
+M2,26,s_hc1_control_unit_mode,0.0,0,0.0,4839.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,26,s_dhw_control_unit_mode,0.0,0,0.0,4839.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,26,s_hc1_room_temperature_setpoint,1.0,5,2.4444,3168.0,0.0,0.0,ok,,False,False
+M2,26,p_hc1_return_temperature,1.0,833,9.5637,6.0,0.0,0.0004,ok,,True,False
+M2,26,s_dhw_3_way_valve_status,0.0,0,0.0,4839.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,26,s_dhw_upper_storage_temperature,1.0,393,2.0516,3.5,0.0,0.0025,ok,,False,False
+M2,26,s_dhw_lower_storage_temperature,1.0,1397,14.0541,6.0,0.0,0.027,noisy,2.7% 相邻点突跳,False,False
+M2,26,p_hc1_control_valve_position_setpoint,1.0,302,23.3694,69.0,0.0,0.0,ok,,False,False
+M2,26,p_dhw_control_valve_position,1.0,114,5.7018,23.0,0.0,0.0,ok,,False,False
+M2,26,s_dhw_upper_storage_temperature_setpoint,1.0,1,0.0,4839.5,0.0,0.0,ok,,False,False
+M2,26,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4839.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,26,s_hc1_supply_temperature_setpoint,0.993,1221,8.3849,14.5,0.0,0.0001,ok,,True,False
+M2,26,s_hc1_supply_temperature,1.0,1203,7.7996,2.0,0.0,0.0001,ok,,True,False
+M2,26,s_dhw_supply_temperature,1.0,173,1.2829,3.0,0.0,0.0004,ok,,False,False
+M2,26,p_net_meter_energy,1.0,9575,12189.3203,6.0,0.0,0.0,ok,,False,False
+M2,26,p_net_meter_flow,1.0,1081,87.9471,1.5,0.0,0.0,ok,,True,False
+M2,26,p_net_meter_heat_power,1.0,638,4.6666,6.0,0.0,0.0001,ok,,True,False
+M2,26,p_net_return_temperature,1.0,111,4.0857,18.0,0.0,0.0007,ok,,True,False
+M2,26,p_net_meter_volume,1.0,9663,252.9571,6.0,0.0,0.0,ok,,False,False
+M2,26,p_net_supply_temperature,1.0,116,6.796,10.5,0.0,0.0009,ok,,True,False
+M2,27,outdoor_temperature,1.0,629,3.8855,5.0,0.0,0.0,ok,,True,False
+M2,27,s_hc1_control_unit_mode,0.0,0,0.0,3209.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,27,s_hc1_room_temperature_setpoint,1.0,8,1.5454,17.5,0.0,0.0,ok,,False,False
+M2,27,p_hc1_return_temperature_setpoint,1.0,351,3.6876,1455.5,0.0,0.0,ok,,False,False
+M2,27,p_hc1_return_temperature,1.0,526,3.9022,5.0,0.0,0.0003,ok,,True,False
+M2,27,p_hc1_control_valve_position_setpoint,1.0,225,12.3441,5.5,0.0,0.0048,ok,,False,False
+M2,27,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3209.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,27,s_hc1_supply_temperature_setpoint,1.0,790,5.4759,5.0,0.0,0.0002,ok,,True,False
+M2,27,s_hc1_supply_temperature,1.0,791,5.4748,5.0,0.0,0.0,ok,,True,False
+M2,27,p_net_meter_energy,1.0,6403,13350.209,5.0,0.0,0.0,ok,,False,False
+M2,27,p_net_meter_flow,1.0,1351,109.8706,5.0,0.0,0.0002,ok,,True,False
+M2,27,p_net_meter_heat_power,1.0,610,4.4307,5.0,0.0,0.0002,ok,,True,False
+M2,27,p_net_return_temperature,1.0,96,12.0063,5.0,0.0,0.112,noisy,11.2% 相邻点突跳,True,False
+M2,27,p_net_meter_volume,1.0,6403,312.3952,5.0,0.0,0.0,ok,,False,False
+M2,27,p_net_supply_temperature,1.0,118,19.1437,14.0,0.0,0.1114,noisy,11.1% 相邻点突跳,True,False
+M2,28,outdoor_temperature,1.0,619,3.8311,272.0,0.0,0.0,frozen,连续 272h 数值不变（阈值 72h）,True,True
+M2,28,p_hc1_return_temperature,1.0,441,3.3302,272.0,0.0,0.0,frozen,连续 272h 数值不变（阈值 168h）,True,False
+M2,28,s_dhw_3_way_valve_status,0.0,0,0.0,3711.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,28,p_hc1_control_valve_position_setpoint,1.0,240,16.1509,272.0,0.0,0.0,ok,,False,False
+M2,28,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3711.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,28,s_hc1_supply_temperature_setpoint,0.9992,1144,11.6004,272.0,0.0,0.0442,noisy,4.4% 突跳,True,False
+M2,28,s_hc1_supply_temperature,1.0,1319,11.8042,272.0,0.0,0.0,frozen,连续 272h 数值不变（阈值 168h）,True,False
+M2,28,p_net_meter_energy,1.0,5442,19533.2773,714.0,0.0,0.0,frozen,连续 714h 数值不变（阈值 168h）,False,False
+M2,28,p_net_meter_flow,1.0,1277,156.7574,714.0,0.0,0.0005,frozen,连续 714h 数值不变（阈值 168h）,True,False
+M2,28,p_net_meter_heat_power,1.0,936,10.0253,714.0,0.0,0.0005,frozen,连续 714h 数值不变（阈值 168h）,True,False
+M2,28,p_net_return_temperature,1.0,65,17.0277,714.0,0.0,0.0012,frozen,连续 714h 数值不变（阈值 168h）,True,False
+M2,28,p_net_meter_volume,1.0,5442,314.573,714.0,0.0,0.0,frozen,连续 714h 数值不变（阈值 168h）,False,False
+M2,28,p_net_supply_temperature,1.0,81,37.9155,714.0,0.0,0.0032,frozen,连续 714h 数值不变（阈值 168h）,True,False
+M2,29,s_dhw_supply_temperature_setpoint,1.0,4,0.7333,2108.0,0.0,0.0,ok,,False,False
+M2,29,outdoor_temperature,1.0,651,4.3651,2.5,0.0,0.0018,ok,,True,False
+M2,29,s_hc1_control_unit_mode,0.0,0,0.0,2508.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,29,s_dhw_control_unit_mode,0.0,0,0.0,2508.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,29,s_hc1_room_temperature_setpoint,0.999,4,1.2961,17.5,0.0,0.0,ok,,False,False
+M2,29,p_hc1_return_temperature,1.0,891,7.0961,1.0,0.0,0.0,ok,,True,False
+M2,29,s_dhw_upper_storage_temperature,1.0,511,4.0273,2.5,0.0,0.0608,noisy,6.1% 相邻点突跳,False,False
+M2,29,s_dhw_lower_storage_temperature,1.0,1161,17.5318,2.0,0.0,0.1647,noisy,16.5% 相邻点突跳,False,False
+M2,29,p_hc1_control_valve_position_setpoint,1.0,219,13.6549,3.5,0.0,0.0036,ok,,False,False
+M2,29,p_dhw_control_valve_position,1.0,208,14.9957,12.0,0.0,0.0,ok,,False,False
+M2,29,s_dhw_upper_storage_temperature_setpoint,1.0,3,0.7382,2108.5,0.0,0.0,ok,,False,False
+M2,29,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2508.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,29,s_hc1_supply_temperature_setpoint,0.999,1070,9.3744,2.5,0.0,0.0192,ok,,True,False
+M2,29,s_hc1_supply_temperature,1.0,1164,9.4424,1.0,0.0,0.0,ok,,True,False
+M2,29,s_dhw_supply_temperature,1.0,297,1.7007,3.0,0.0,0.012,ok,,False,False
+M2,29,p_net_meter_energy,1.0,5014,9682.5225,1.0,0.0,0.0,ok,,False,False
+M2,29,p_net_meter_flow,1.0,1091,85.8214,1.5,0.0,0.0,ok,,True,False
+M2,29,p_net_meter_heat_power,1.0,765,5.2802,1.0,0.0,0.0,ok,,True,False
+M2,29,p_net_return_temperature,1.0,119,6.9393,3.0,0.0,0.0002,ok,,True,False
+M2,29,p_net_meter_volume,1.0,5016,188.6672,0.5,0.0,0.0,ok,,False,False
+M2,29,p_net_supply_temperature,1.0,81,4.1228,4.0,0.0,0.0,ok,,True,False
+M2,31,outdoor_temperature,1.0,525,3.1671,6.5,0.0,0.0,ok,,True,False
+M2,31,s_hc1_control_unit_mode,0.0,0,0.0,3545.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,31,s_hc1_room_temperature_setpoint,1.0,4,1.266,17.5,0.0,0.0,ok,,False,False
+M2,31,p_hc1_return_temperature,1.0,565,3.2124,1.5,0.0,0.0,ok,,True,False
+M2,31,p_hc1_control_valve_position_setpoint,1.0,156,7.0489,4.5,0.0,0.0007,ok,,False,False
+M2,31,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3545.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,31,s_hc1_supply_temperature_setpoint,1.0,989,7.7926,4.0,0.0,0.0416,noisy,4.2% 突跳,True,False
+M2,31,s_hc1_supply_temperature,1.0,1108,7.8722,1.0,0.0,0.0001,ok,,True,False
+M2,31,p_net_meter_energy,1.0,7090,16450.9668,0.5,0.0,0.0,ok,,False,False
+M2,31,p_net_meter_flow,1.0,1258,90.8914,1.0,0.0,0.0,ok,,True,False
+M2,31,p_net_meter_heat_power,1.0,859,5.7457,1.5,0.0,0.0,ok,,True,False
+M2,31,p_net_return_temperature,1.0,82,3.4529,3.5,0.0,0.0,ok,,True,False
+M2,31,p_net_meter_volume,1.0,7090,253.0088,0.5,0.0,0.0,ok,,False,False
+M2,31,p_net_supply_temperature,1.0,77,4.0548,6.5,0.0,0.0006,ok,,True,False
+M2,33,outdoor_temperature,1.0,461,3.3371,8.0,0.0,0.0,ok,,True,False
+M2,33,p_hc1_return_temperature,1.0,520,4.1501,1.0,0.0,0.0,ok,,True,False
+M2,33,s_dhw_3_way_valve_status,0.0,0,0.0,1813.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,33,s_dhw_upper_storage_temperature,1.0,602,17.4167,2.0,0.0,0.0022,ok,,False,False
+M2,33,s_dhw_lower_storage_temperature,1.0,720,6.7504,1.5,0.0,0.0,ok,,False,False
+M2,33,p_hc1_control_valve_position_setpoint,1.0,285,25.9304,8.0,0.0,0.0,ok,,False,False
+M2,33,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,1813.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,33,s_hc1_supply_temperature_setpoint,0.9713,554,4.4365,65.0,0.0,0.0,ok,,True,False
+M2,33,s_hc1_supply_temperature,1.0,566,4.625,1.5,0.0,0.0,ok,,True,False
+M2,33,p_net_meter_energy,0.4835,1732,3085.2563,936.5,0.0,0.0,frozen,连续 936h 数值不变（阈值 168h）,False,False
+M2,33,p_net_meter_flow,0.4835,1103,184.8741,936.5,0.0,0.0,frozen,连续 936h 数值不变（阈值 168h）,True,False
+M2,33,p_net_meter_heat_power,0.4835,747,8.2835,936.5,0.0,0.0,frozen,连续 936h 数值不变（阈值 168h）,True,False
+M2,33,p_net_return_temperature,0.4835,67,3.3277,936.5,0.0,0.0,frozen,连续 936h 数值不变（阈值 168h）,True,False
+M2,33,p_net_meter_volume,0.4835,1740,76.0495,936.5,0.0,0.0,frozen,连续 936h 数值不变（阈值 168h）,False,False
+M2,33,p_net_supply_temperature,0.4835,135,7.432,936.5,0.0,0.0,frozen,连续 936h 数值不变（阈值 168h）,True,False
+M2,34,s_dhw_supply_temperature_setpoint,1.0,4,0.0096,17426.5,0.0,0.0,ok,,False,False
+M2,34,outdoor_temperature,1.0,1330,7.5189,13.5,0.0,0.0001,ok,,True,False
+M2,34,s_hc1_control_unit_mode,0.0,0,0.0,33726.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,34,s_dhw_control_unit_mode,0.0,0,0.0,33726.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,34,s_hc1_room_temperature_setpoint,0.8575,5,1.3119,70.0,0.0,0.0,ok,,False,False
+M2,34,p_hc1_return_temperature,1.0,1010,5.1919,13.5,0.0,0.0001,ok,,True,False
+M2,34,s_dhw_3_way_valve_status,0.0,0,0.0,33726.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,34,s_dhw_upper_storage_temperature,1.0,793,22.2289,13.5,0.0,0.0034,ok,,False,False
+M2,34,s_dhw_lower_storage_temperature,1.0,1420,21.454,13.5,0.0,0.0454,noisy,4.5% 相邻点突跳,False,False
+M2,34,p_hc1_control_valve_position_setpoint,1.0,307,30.4651,285.5,0.0,0.0453,noisy,4.5% 突跳,False,False
+M2,34,p_dhw_control_valve_position,1.0,267,18.3061,86.0,0.0,0.0047,ok,,False,False
+M2,34,s_dhw_upper_storage_temperature_setpoint,1.0,4,0.0096,17426.5,0.0,0.0,ok,,False,False
+M2,34,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,33726.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,34,s_hc1_supply_temperature_setpoint,0.8575,1665,13.5449,70.0,0.0,0.0001,ok,,True,False
+M2,34,s_hc1_supply_temperature,1.0,1715,11.6474,13.5,0.0,0.0002,ok,,True,False
+M2,34,s_dhw_supply_temperature,1.0,441,1.6129,13.5,0.0,0.0,ok,,False,False
+M2,34,p_net_meter_energy,1.0,67277,152721.6406,13.5,0.0,0.0,ok,,False,False
+M2,34,p_net_meter_flow,1.0,4764,315.989,13.5,0.0,0.0023,ok,,True,False
+M2,34,p_net_meter_heat_power,1.0,1828,12.4759,13.5,0.0,0.0024,ok,,True,False
+M2,34,p_net_return_temperature,1.0,109,6.1023,13.5,0.0,0.0,ok,,True,False
+M2,34,p_net_meter_volume,1.0,67331,5314.2568,13.5,0.0,0.0,ok,,False,False
+M2,34,p_net_supply_temperature,1.0,171,6.3058,13.5,0.0,0.0007,ok,,True,False
+M2,35,outdoor_temperature,1.0,557,3.6557,3.5,0.0,0.0,ok,,True,False
+M2,35,p_hc1_return_temperature_setpoint,0.7714,5,0.2203,50.0,0.0,0.0,ok,,False,False
+M2,35,p_hc1_return_temperature,1.0,594,3.439,1.0,0.0,0.0,ok,,True,False
+M2,35,s_dhw_3_way_valve_status,0.0,0,0.0,3663.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,35,s_dhw_upper_storage_temperature,1.0,377,1.5876,1.5,0.0,0.0,ok,,False,False
+M2,35,s_dhw_lower_storage_temperature,1.0,324,1.456,1.5,0.0,0.0066,ok,,False,False
+M2,35,p_hc1_control_valve_position_setpoint,1.0,262,25.8861,5.5,0.0,0.0,ok,,False,False
+M2,35,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3663.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,35,s_hc1_supply_temperature_setpoint,0.7714,463,2.7765,28.0,0.0,0.0,ok,,True,False
+M2,35,s_hc1_supply_temperature,1.0,838,5.33,1.0,0.0,0.0,ok,,True,False
+M2,35,p_net_meter_energy,1.0,7311,21123.6641,1.5,0.0,0.0,ok,,False,False
+M2,35,p_net_meter_flow,1.0,2276,263.218,2.0,0.0,0.0,ok,,True,False
+M2,35,p_net_meter_heat_power,1.0,1508,14.7938,2.0,0.0,0.0,ok,,True,False
+M2,35,p_net_return_temperature,1.0,73,3.4231,6.5,0.0,0.0,ok,,True,False
+M2,35,p_net_meter_volume,1.0,7318,384.7309,1.0,0.0,0.0,ok,,False,False
+M2,35,p_net_supply_temperature,1.0,128,5.7673,2.5,0.0,0.0003,ok,,True,False
+M2,36,p_hc1_return_temperature,1.0,1026,9.1697,0.5,0.0,0.0,ok,,True,False
+M2,36,s_dhw_3_way_valve_status,0.0,0,0.0,2318.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,36,s_dhw_upper_storage_temperature,1.0,263,1.9916,1.0,0.0,0.0,ok,,False,False
+M2,36,s_dhw_lower_storage_temperature,1.0,958,8.8736,1.0,0.0,0.0,ok,,False,False
+M2,36,p_hc1_control_valve_position_setpoint,1.0,184,32.5158,4.0,0.0,0.0,ok,,False,False
+M2,36,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2318.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,36,s_hc1_supply_temperature_setpoint,0.582,166,1.1426,13.0,0.0,0.0,ok,,True,False
+M2,36,s_hc1_supply_temperature,1.0,803,6.7499,1.0,0.0,0.0,ok,,True,False
+M2,36,p_net_meter_energy,1.0,3688,10857.8252,4.0,0.0,0.0,ok,,False,False
+M2,36,p_net_meter_flow,1.0,1632,297.6237,1.5,0.0,0.0,ok,,True,False
+M2,36,p_net_meter_heat_power,1.0,1281,16.6733,3.0,0.0,0.0,ok,,True,False
+M2,36,p_net_return_temperature,1.0,106,6.8316,1.0,0.0,0.0,ok,,True,False
+M2,36,p_net_meter_volume,1.0,3758,198.2364,3.5,0.0,0.0,ok,,False,False
+M2,36,p_net_supply_temperature,1.0,218,15.479,1.5,0.0,0.0,ok,,True,False
+M2,37,s_hc1_control_unit_mode,0.0,0,0.0,3205.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,37,s_dhw_control_unit_mode,0.0,0,0.0,3205.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,37,s_hc1_room_temperature_setpoint,1.0,1,0.0,3205.5,0.0,0.0,ok,,False,False
+M2,37,p_hc1_return_temperature_setpoint,1.0,1,0.0,3205.5,0.0,0.0,ok,,False,False
+M2,37,p_hc1_return_temperature,1.0,321,1.8019,1.5,0.0,0.0009,ok,,True,False
+M2,37,s_dhw_3_way_valve_status,0.0,0,0.0,3205.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,37,s_dhw_upper_storage_temperature,1.0,412,2.0379,1.5,0.0,0.0242,noisy,2.4% 相邻点突跳,False,False
+M2,37,s_dhw_lower_storage_temperature,1.0,1177,17.6534,1.5,0.0,0.0,ok,,False,False
+M2,37,p_hc1_control_valve_position_setpoint,1.0,175,14.4809,32.5,0.0,0.0,ok,,False,False
+M2,37,p_dhw_control_valve_position,1.0,172,10.7906,8.0,0.0,0.11,noisy,11.0% 突跳,False,False
+M2,37,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3205.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,37,s_hc1_supply_temperature_setpoint,1.0,1,0.0,3205.5,0.0,0.0,ok,,True,False
+M2,37,s_hc1_supply_temperature,1.0,120,0.8722,1.5,0.0,0.0,ok,,True,False
+M2,37,s_dhw_supply_temperature,1.0,255,1.4653,2.0,0.0,0.0179,ok,,False,False
+M2,37,p_net_meter_energy,1.0,6411,38313.3477,0.5,0.0,0.0,ok,,False,False
+M2,37,p_net_meter_flow,1.0,1765,142.0996,1.0,0.0,0.0427,noisy,4.3% 相邻点突跳,True,False
+M2,37,p_net_meter_heat_power,1.0,1677,13.7931,1.0,0.0,0.1159,noisy,11.6% 相邻点突跳,True,False
+M2,37,p_net_return_temperature,1.0,85,4.3079,5.0,0.0,0.0426,noisy,4.3% 相邻点突跳,True,False
+M2,37,p_net_meter_volume,1.0,6411,600.1,0.5,0.0,0.0,ok,,False,False
+M2,37,p_net_supply_temperature,1.0,66,3.9368,7.5,0.0,0.0,ok,,True,False
+M2,38,outdoor_temperature,1.0,123,2.8575,1.0,0.0,0.0,ok,,True,False
+M2,38,s_hc1_control_unit_mode,0.0,0,0.0,88.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,38,s_hc1_room_temperature_setpoint,1.0,4,1.2327,17.5,0.0,0.0,ok,,False,False
+M2,38,p_hc1_return_temperature,1.0,159,5.341,1.0,0.0,0.0,ok,,True,False
+M2,38,p_hc1_control_valve_position_setpoint,1.0,98,12.101,1.0,0.0,0.0,ok,,False,False
+M2,38,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,88.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,38,s_hc1_supply_temperature_setpoint,1.0,154,6.5493,1.0,0.0,0.0,ok,,True,False
+M2,38,s_hc1_supply_temperature,1.0,148,6.791,1.0,0.0,0.0,ok,,True,False
+M2,38,p_net_meter_energy,1.0,176,262.6245,0.5,0.0,0.0,ok,,False,False
+M2,38,p_net_meter_flow,1.0,161,83.0463,1.0,0.0,0.0,ok,,True,False
+M2,38,p_net_meter_heat_power,1.0,140,3.8434,1.0,0.0,0.0,ok,,True,False
+M2,38,p_net_return_temperature,1.0,56,5.3177,2.5,0.0,0.0,ok,,True,False
+M2,38,p_net_meter_volume,1.0,176,5.3278,0.5,0.0,0.0,ok,,False,False
+M2,38,p_net_supply_temperature,1.0,38,3.4096,2.0,0.0,0.0057,ok,,True,False
+M2,39,outdoor_temperature,1.0,503,3.5392,5.5,0.0,0.0,ok,,True,False
+M2,39,p_hc1_return_temperature_setpoint,0.9691,1,0.0,257.0,0.0,0.0,ok,,False,False
+M2,39,p_hc1_return_temperature,1.0,690,4.2981,1.0,0.0,0.0,ok,,True,False
+M2,39,s_dhw_3_way_valve_status,0.0,0,0.0,4143.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,39,s_dhw_upper_storage_temperature,1.0,372,3.0227,1.0,0.0,0.0,ok,,False,False
+M2,39,s_dhw_lower_storage_temperature,1.0,579,3.5465,1.0,0.0,0.0,ok,,False,False
+M2,39,p_hc1_control_valve_position_setpoint,1.0,291,25.9254,3.5,0.0,0.0,ok,,False,False
+M2,39,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4143.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,39,s_hc1_supply_temperature_setpoint,0.9691,590,4.9537,15.5,0.0,0.0,ok,,True,False
+M2,39,s_hc1_supply_temperature,1.0,521,4.171,1.0,0.0,0.0,ok,,True,False
+M2,39,p_net_meter_energy,1.0,8042,26977.8965,4.0,0.0,0.0,ok,,False,False
+M2,39,p_net_meter_flow,1.0,2718,280.9676,1.0,0.0,0.0,ok,,True,False
+M2,39,p_net_meter_heat_power,1.0,1585,14.6792,1.5,0.0,0.0,ok,,True,False
+M2,39,p_net_return_temperature,1.0,95,4.3634,2.0,0.0,0.0,ok,,True,False
+M2,39,p_net_meter_volume,1.0,8140,547.9866,4.0,0.0,0.0,ok,,False,False
+M2,39,p_net_supply_temperature,1.0,194,8.8316,2.5,0.0,0.0,ok,,True,False
+M2,40,s_dhw_supply_temperature_setpoint,1.0,73,0.1781,12088.0,0.0,0.0,ok,,False,False
+M2,40,outdoor_temperature,1.0,1250,6.8275,9.5,0.0,0.0017,ok,,True,False
+M2,40,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,40,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,40,s_hc1_room_temperature_setpoint,0.9257,5,1.2746,67.0,0.0,0.0,ok,,False,False
+M2,40,p_hc1_return_temperature,1.0,1381,10.5563,16.5,0.0,0.007,ok,,True,False
+M2,40,p_dhw_return_temperature,1.0,1180,4.6227,10.0,0.0,0.1066,noisy,10.7% 相邻点突跳,False,False
+M2,40,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,40,s_dhw_upper_storage_temperature,1.0,793,5.4204,11.5,0.0,0.0602,noisy,6.0% 相邻点突跳,False,False
+M2,40,s_dhw_lower_storage_temperature,1.0,1615,16.3455,11.0,0.0,0.1932,noisy,19.3% 相邻点突跳,False,False
+M2,40,p_hc1_control_valve_position_setpoint,1.0,308,36.387,670.0,0.0,0.0127,ok,,False,False
+M2,40,p_dhw_control_valve_position,1.0,270,9.4745,47.5,0.0,0.0,ok,,False,False
+M2,40,s_dhw_upper_storage_temperature_setpoint,1.0,2,0.0017,22481.0,0.0,0.0,ok,,False,False
+M2,40,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,40,s_hc1_supply_temperature_setpoint,0.9257,1894,12.9617,67.0,0.0,0.0106,ok,,True,False
+M2,40,s_hc1_supply_temperature,1.0,1691,10.6472,4.0,0.0,0.0092,ok,,True,False
+M2,40,s_dhw_supply_temperature,1.0,537,1.527,5.5,0.0,0.0327,noisy,3.3% 相邻点突跳,False,False
+M2,40,p_net_meter_energy,1.0,76807,140926.2188,4.0,0.0,0.0,ok,,False,False
+M2,40,p_net_meter_flow,1.0,2412,140.3715,4.0,0.0,0.028,noisy,2.8% 相邻点突跳,True,False
+M2,40,p_net_meter_heat_power,1.0,1646,8.4,4.0,0.0,0.0451,noisy,4.5% 相邻点突跳,True,False
+M2,40,p_net_return_temperature,1.0,136,5.7924,11.5,0.0,0.0206,noisy,2.1% 相邻点突跳,True,False
+M2,40,p_net_meter_volume,1.0,76810,3014.3862,4.0,0.0,0.0,ok,,False,False
+M2,40,p_net_supply_temperature,1.0,141,6.6163,15.0,0.0,0.0001,ok,,True,False
+M2,41,outdoor_temperature,1.0,903,3.8462,133.0,0.0,0.0,frozen,连续 133h 数值不变（阈值 72h）,True,True
+M2,41,s_hc1_control_unit_mode,0.0,0,0.0,32141.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,41,s_dhw_control_unit_mode,0.0,0,0.0,32141.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,41,p_hc1_return_temperature_setpoint,0.9998,3,0.0119,27034.0,0.0,0.0,ok,,False,False
+M2,41,p_hc1_return_temperature,1.0,1183,6.4212,12.5,0.0,0.0,ok,,True,False
+M2,41,s_dhw_3_way_valve_status,0.0,0,0.0,32141.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,41,s_dhw_upper_storage_temperature,1.0,795,16.7203,12.5,0.0,0.0146,ok,,False,False
+M2,41,s_dhw_lower_storage_temperature,1.0,1614,15.5565,13.0,0.0,0.1418,noisy,14.2% 相邻点突跳,False,False
+M2,41,p_hc1_control_valve_position_setpoint,1.0,224,16.8761,12.5,0.0,0.0,ok,,False,False
+M2,41,p_dhw_control_valve_position,1.0,297,26.0789,13.0,0.0,0.0058,ok,,False,False
+M2,41,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,32141.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,41,s_hc1_supply_temperature_setpoint,0.9998,970,3.718,50.5,0.0,0.0,ok,,True,False
+M2,41,s_hc1_supply_temperature,1.0,1281,6.4096,12.5,0.0,0.0,ok,,True,False
+M2,41,s_dhw_supply_temperature,1.0,569,1.8088,12.5,0.0,0.0181,ok,,False,False
+M2,41,p_net_meter_energy,1.0,64017,480444.4688,13.0,0.0,0.0,ok,,False,False
+M2,41,p_net_meter_flow,1.0,8434,715.1972,13.0,0.0,0.0,ok,,True,False
+M2,41,p_net_meter_heat_power,1.0,6394,474022.5,13.0,0.0,0.0,ok,,True,False
+M2,41,p_net_return_temperature,1.0,1470,8.3642,13.0,0.0,0.0,ok,,True,False
+M2,41,p_net_meter_volume,1.0,64021,8952.2627,13.0,0.0,0.0,ok,,False,False
+M2,41,p_net_supply_temperature,1.0,1229,6.4327,13.0,0.0,0.0311,noisy,3.1% 相邻点突跳,True,False
+M2,42,outdoor_temperature,1.0,396,4.2685,1.0,0.0,0.0,ok,,True,False
+M2,42,s_hc1_control_unit_mode,0.0,0,0.0,423.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,42,s_hc1_room_temperature_setpoint,1.0,4,1.2601,17.5,0.0,0.0,ok,,False,False
+M2,42,p_hc1_return_temperature,1.0,352,4.7619,1.5,0.0,0.0059,ok,,True,False
+M2,42,p_hc1_control_valve_position_setpoint,1.0,110,11.4266,2.0,0.0,0.0,ok,,False,False
+M2,42,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,423.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,42,s_hc1_supply_temperature_setpoint,1.0,526,8.9628,1.0,0.0,0.0,ok,,True,False
+M2,42,s_hc1_supply_temperature,1.0,569,9.0955,1.0,0.0,0.0,ok,,True,False
+M2,42,p_net_meter_energy,1.0,846,530.1483,0.5,0.0,0.0,ok,,False,False
+M2,42,p_net_meter_flow,1.0,277,28.7387,1.0,0.0,0.0,ok,,True,False
+M2,42,p_net_meter_heat_power,1.0,182,1.618,1.0,0.0,0.0,ok,,True,False
+M2,42,p_net_return_temperature,1.0,68,4.7558,7.0,0.0,0.0012,ok,,True,False
+M2,42,p_net_meter_volume,1.0,846,8.7443,0.5,0.0,0.0,ok,,False,False
+M2,42,p_net_supply_temperature,1.0,45,2.9697,3.5,0.0,0.0,ok,,True,False
+M2,43,outdoor_temperature,1.0,547,3.7142,4.0,0.0,0.0,ok,,True,False
+M2,43,s_hc1_control_unit_mode,0.0,0,0.0,2482.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,43,s_dhw_control_unit_mode,0.0,0,0.0,2482.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,43,s_hc1_room_temperature_setpoint,1.0,4,1.295,17.5,0.0,0.0,ok,,False,False
+M2,43,p_hc1_return_temperature,1.0,713,5.821,4.0,0.0,0.0,ok,,True,False
+M2,43,s_dhw_upper_storage_temperature,1.0,578,5.2595,4.0,0.0,0.0461,noisy,4.6% 相邻点突跳,False,False
+M2,43,s_dhw_lower_storage_temperature,1.0,1246,16.4929,4.0,0.0,0.0353,noisy,3.5% 相邻点突跳,False,False
+M2,43,p_hc1_control_valve_position_setpoint,1.0,254,15.8943,5.0,0.0,0.0008,ok,,False,False
+M2,43,p_dhw_control_valve_position,1.0,132,11.0421,11.5,0.0,0.0,ok,,False,False
+M2,43,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2482.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,43,s_hc1_supply_temperature_setpoint,1.0,992,8.3555,4.0,0.0,0.0389,noisy,3.9% 突跳,True,False
+M2,43,s_hc1_supply_temperature,1.0,1075,8.5411,4.0,0.0,0.0002,ok,,True,False
+M2,43,s_dhw_supply_temperature,1.0,223,1.3567,4.0,0.0,0.006,ok,,False,False
+M2,43,p_net_meter_energy,1.0,4956,15821.3994,4.0,0.0,0.0,ok,,False,False
+M2,43,p_net_meter_flow,1.0,1590,139.621,4.0,0.0,0.0002,ok,,True,False
+M2,43,p_net_meter_heat_power,1.0,974,7.2437,4.0,0.0,0.0002,ok,,True,False
+M2,43,p_net_return_temperature,1.0,112,6.0391,4.5,0.0,0.0004,ok,,True,False
+M2,43,p_net_meter_volume,1.0,4956,304.5404,4.0,0.0,0.0,ok,,False,False
+M2,43,p_net_supply_temperature,1.0,78,4.2928,4.5,0.0,0.0012,ok,,True,False
+M2,44,p_hc1_return_temperature,1.0,451,2.8699,1.0,0.0,0.0,ok,,True,False
+M2,44,s_dhw_3_way_valve_status,0.0,0,0.0,2343.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,44,s_dhw_upper_storage_temperature,1.0,296,2.1942,2.0,0.0,0.0,ok,,False,False
+M2,44,s_dhw_lower_storage_temperature,1.0,286,2.2547,2.0,0.0,0.0,ok,,False,False
+M2,44,p_hc1_control_valve_position_setpoint,1.0,259,22.8424,2.5,0.0,0.0,ok,,False,False
+M2,44,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2343.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,44,s_hc1_supply_temperature_setpoint,0.997,592,5.1175,7.5,0.0,0.0,ok,,True,False
+M2,44,s_hc1_supply_temperature,1.0,429,3.4164,1.0,0.0,0.0,ok,,True,False
+M2,44,p_net_meter_energy,1.0,4341,5931.0542,3.5,0.0,0.0,ok,,False,False
+M2,44,p_net_meter_flow,1.0,1112,105.1955,2.0,0.0,0.0,ok,,True,False
+M2,44,p_net_meter_heat_power,1.0,663,5.6491,2.5,0.0,0.0,ok,,True,False
+M2,44,p_net_return_temperature,1.0,90,4.4971,1.5,0.0,0.0,ok,,True,False
+M2,44,p_net_meter_volume,1.0,4441,121.5565,3.0,0.0,0.0,ok,,False,False
+M2,44,p_net_supply_temperature,1.0,200,11.2584,2.0,0.0,0.0002,ok,,True,False
+M2,45,outdoor_temperature,0.9993,821,6.1505,265.0,0.0,0.0151,frozen,连续 265h 数值不变（阈值 72h）,True,True
+M2,45,s_hc1_control_unit_mode,0.0,0,0.0,2148.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,45,s_hc1_room_temperature_setpoint,0.9788,4,1.221,285.0,0.0,0.0,ok,,False,False
+M2,45,p_hc1_return_temperature_setpoint,0.9788,3,0.1359,1388.0,0.0,0.0,ok,,False,False
+M2,45,p_hc1_return_temperature,1.0,830,7.1474,264.0,0.0,0.0007,frozen,连续 264h 数值不变（阈值 168h）,True,False
+M2,45,p_hc1_control_valve_position_setpoint,1.0,296,25.048,264.0,0.0,0.0107,ok,,False,False
+M2,45,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2148.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,45,s_hc1_supply_temperature_setpoint,0.9788,1065,9.9328,264.0,0.0,0.0093,ok,,True,False
+M2,45,s_hc1_supply_temperature,1.0,1186,10.8618,264.0,0.0,0.0016,frozen,连续 264h 数值不变（阈值 168h）,True,False
+M2,45,p_net_meter_energy,1.0,3671,44841.2969,264.0,0.0,0.0,frozen,连续 264h 数值不变（阈值 168h）,False,False
+M2,45,p_net_meter_flow,1.0,979,1001.5802,264.0,0.0,0.0212,frozen,连续 264h 数值不变（阈值 168h）,True,False
+M2,45,p_net_meter_heat_power,1.0,2435,49.5797,264.0,0.0,0.0165,frozen,连续 264h 数值不变（阈值 168h）,True,False
+M2,45,p_net_return_temperature,1.0,125,7.6989,265.0,0.0,0.0007,frozen,连续 265h 数值不变（阈值 168h）,True,False
+M2,45,p_net_meter_volume,1.0,3673,812.8235,264.0,0.0,0.0,frozen,连续 264h 数值不变（阈值 168h）,False,False
+M2,45,p_net_supply_temperature,1.0,143,5.9916,264.5,0.0,0.0105,frozen,连续 264h 数值不变（阈值 168h）,True,False
+M2,46,outdoor_temperature,1.0,669,4.417,50.5,0.0,0.0001,ok,,True,False
+M2,46,p_hc1_return_temperature_setpoint,0.9779,1,0.0,2216.5,0.0,0.0,ok,,False,False
+M2,46,p_hc1_return_temperature,1.0,572,3.5745,50.5,0.0,0.0,ok,,True,False
+M2,46,s_dhw_3_way_valve_status,0.0,0,0.0,3952.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,46,s_dhw_upper_storage_temperature,1.0,458,1.9202,50.5,0.0,0.0019,ok,,False,False
+M2,46,s_dhw_lower_storage_temperature,1.0,449,2.0695,50.5,0.0,0.0024,ok,,False,False
+M2,46,p_hc1_control_valve_position_setpoint,1.0,226,15.8759,71.0,0.0,0.0006,ok,,False,False
+M2,46,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3952.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,46,s_hc1_supply_temperature_setpoint,0.9779,547,2.5576,190.0,0.0,0.0,ok,,True,False
+M2,46,s_hc1_supply_temperature,1.0,567,3.2768,50.5,0.0,0.0,ok,,True,False
+M2,46,p_net_meter_energy,1.0,7604,17782.6875,50.5,0.0,0.0,ok,,False,False
+M2,46,p_net_meter_flow,1.0,1473,125.8926,50.5,0.0,0.0,ok,,True,False
+M2,46,p_net_meter_heat_power,1.0,960,7.4707,50.5,0.0,0.0,ok,,True,False
+M2,46,p_net_return_temperature,1.0,78,3.4725,50.5,0.0,0.0,ok,,True,False
+M2,46,p_net_meter_volume,1.0,7655,341.2629,50.5,0.0,0.0,ok,,False,False
+M2,46,p_net_supply_temperature,1.0,139,5.6861,50.5,0.0,0.0124,ok,,True,False
+M2,47,outdoor_temperature,1.0,21,0.1075,7.0,0.0,0.0,coarse,温度列仅 21 个不同取值,True,True
+M2,47,s_hc1_control_unit_mode,0.0,0,0.0,1788.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,47,s_dhw_control_unit_mode,0.0,0,0.0,1788.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,47,s_hc1_room_temperature_setpoint,1.0,4,0.8442,17.5,0.0,0.0,ok,,False,False
+M2,47,p_hc1_return_temperature_setpoint,1.0,4,0.1029,569.0,0.0,0.0,ok,,False,False
+M2,47,p_hc1_return_temperature,1.0,64,0.2979,2.0,0.0,0.0006,ok,,True,False
+M2,47,s_dhw_upper_storage_temperature,1.0,214,1.496,2.0,0.0,0.0196,ok,,False,False
+M2,47,s_dhw_lower_storage_temperature,1.0,1107,15.0948,2.5,0.0,0.0789,noisy,7.9% 相邻点突跳,False,False
+M2,47,p_hc1_control_valve_position_setpoint,1.0,207,18.01,5.5,0.0,0.0014,ok,,False,False
+M2,47,p_dhw_control_valve_position,1.0,60,1.5231,39.5,0.0,0.0,ok,,False,False
+M2,47,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,1788.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,47,s_hc1_supply_temperature_setpoint,1.0,152,1.0593,1.5,0.0,0.0014,ok,,True,False
+M2,47,s_hc1_supply_temperature,1.0,126,0.6822,1.5,0.0,0.0011,ok,,True,False
+M2,47,s_dhw_supply_temperature,1.0,157,1.1364,2.0,0.0,0.0067,ok,,False,False
+M2,47,p_net_meter_energy,1.0,3575,84166.6172,1.0,0.0,0.0,ok,,False,False
+M2,47,p_net_meter_flow,1.0,925,763.2978,1.0,0.0,0.0011,ok,,True,False
+M2,47,p_net_meter_heat_power,1.0,2488,49.7986,1.0,0.0,0.0014,ok,,True,False
+M2,47,p_net_return_temperature,1.0,21,0.8254,17.0,0.0,0.0,coarse,温度列仅 21 个不同取值,True,False
+M2,47,p_net_meter_volume,1.0,3576,1873.0234,0.5,0.0,0.0,ok,,False,False
+M2,47,p_net_supply_temperature,1.0,63,4.6323,36.0,0.0,0.0,ok,,True,False
+M2,48,outdoor_temperature,1.0,178,2.4865,1.0,0.0,0.0,ok,,True,False
+M2,48,p_hc1_return_temperature,1.0,171,2.1826,1.0,0.0,0.0,ok,,True,False
+M2,48,s_dhw_3_way_valve_status,0.0,0,0.0,156.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,48,s_dhw_upper_storage_temperature,1.0,208,3.3165,0.5,0.0,0.0,ok,,False,False
+M2,48,s_dhw_lower_storage_temperature,1.0,188,2.8853,1.0,0.0,0.0,ok,,False,False
+M2,48,p_hc1_control_valve_position_setpoint,1.0,125,28.6474,4.5,0.0,0.0,ok,,False,False
+M2,48,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,156.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,48,s_hc1_supply_temperature_setpoint,1.0,252,14.7456,1.5,0.0,0.0,ok,,True,False
+M2,48,s_hc1_supply_temperature,1.0,223,3.5552,0.5,0.0,0.0,ok,,True,False
+M2,48,p_net_meter_energy,1.0,175,217.7678,5.5,0.0,0.0,ok,,False,False
+M2,48,p_net_meter_flow,1.0,175,194.3531,1.0,0.0,0.0,ok,,True,False
+M2,48,p_net_meter_heat_power,1.0,144,8.0837,4.0,0.0,0.0,ok,,True,False
+M2,48,p_net_return_temperature,1.0,99,11.0805,1.5,0.0,0.0,ok,,True,False
+M2,48,p_net_meter_volume,1.0,193,5.6419,5.0,0.0,0.0,ok,,False,False
+M2,48,p_net_supply_temperature,1.0,150,21.377,1.0,0.0,0.0,ok,,True,False
+M2,49,outdoor_temperature,1.0,1436,8.0068,5.5,0.0,0.0001,ok,,True,False
+M2,49,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,49,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,49,s_hc1_room_temperature_setpoint,0.8975,15,1.0394,17223.0,0.0,0.0,ok,,False,False
+M2,49,p_hc1_return_temperature,1.0,1165,9.2392,6.0,0.0,0.0,ok,,True,False
+M2,49,p_dhw_return_temperature,1.0,1292,7.8211,4.0,0.0,0.0916,noisy,9.2% 相邻点突跳,False,False
+M2,49,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,49,s_dhw_upper_storage_temperature,1.0,797,3.6173,4.5,0.0,0.0026,ok,,False,False
+M2,49,s_dhw_lower_storage_temperature,1.0,1643,15.3533,4.5,0.0,0.0,ok,,False,False
+M2,49,p_hc1_control_valve_position_setpoint,1.0,307,28.4333,445.0,0.0,0.0233,noisy,2.3% 突跳,False,False
+M2,49,p_dhw_control_valve_position,1.0,295,17.981,11.0,0.0,0.0492,noisy,4.9% 突跳,False,False
+M2,49,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,49,s_hc1_supply_temperature_setpoint,0.8975,1496,13.4109,444.0,0.0,0.0,ok,,True,False
+M2,49,s_hc1_supply_temperature,1.0,1612,13.2696,4.5,0.0,0.0,ok,,True,False
+M2,49,s_dhw_supply_temperature,1.0,729,3.0665,4.0,0.0,0.0036,ok,,False,False
+M2,49,p_net_meter_energy,1.0,76463,144047.5312,5.5,0.0,0.0,ok,,False,False
+M2,49,p_net_meter_flow,1.0,2222,156.2674,5.5,0.0,0.0001,ok,,True,False
+M2,49,p_net_meter_heat_power,1.0,1578,9.654,5.5,0.0,0.0052,ok,,True,False
+M2,49,p_net_return_temperature,1.0,129,6.4322,8.5,0.0,0.0,ok,,True,False
+M2,49,p_net_meter_volume,1.0,76797,3335.4756,5.5,0.0,0.0,ok,,False,False
+M2,49,p_net_supply_temperature,1.0,166,9.1983,11.0,0.0,0.0002,ok,,True,False
+M2,50,outdoor_temperature,1.0,537,3.7237,3.0,0.0,0.0,ok,,True,False
+M2,50,p_hc1_return_temperature_setpoint,0.9843,2,0.3953,767.5,0.0,0.0,ok,,False,False
+M2,50,p_hc1_return_temperature,1.0,745,4.5334,1.0,0.0,0.0,ok,,True,False
+M2,50,s_dhw_3_way_valve_status,0.0,0,0.0,4022.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,50,s_dhw_upper_storage_temperature,1.0,680,6.7887,1.5,0.0,0.0,ok,,False,False
+M2,50,s_dhw_lower_storage_temperature,1.0,1048,7.953,1.5,0.0,0.0,ok,,False,False
+M2,50,p_hc1_control_valve_position_setpoint,1.0,300,31.8699,7.5,0.0,0.0,ok,,False,False
+M2,50,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4022.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,50,s_hc1_supply_temperature_setpoint,0.9843,1317,11.8104,10.5,0.0,0.0,ok,,True,False
+M2,50,s_hc1_supply_temperature,1.0,628,5.1365,1.0,0.0,0.0,ok,,True,False
+M2,50,p_net_meter_energy,1.0,6650,16640.2715,8.0,0.0,0.0,ok,,False,False
+M2,50,p_net_meter_flow,1.0,2011,225.1987,1.5,0.0,0.0,ok,,True,False
+M2,50,p_net_meter_heat_power,1.0,1175,11.1637,6.5,0.0,0.0,ok,,True,False
+M2,50,p_net_return_temperature,1.0,121,7.9811,3.0,0.0,0.0,ok,,True,False
+M2,50,p_net_meter_volume,1.0,7011,357.6722,8.0,0.0,0.0,ok,,False,False
+M2,50,p_net_supply_temperature,1.0,239,17.5923,4.5,0.0,0.0,ok,,True,False
+M2,51,outdoor_temperature,1.0,375,3.1735,3.0,0.0,0.0,ok,,True,False
+M2,51,s_hc1_control_unit_mode,0.0,0,0.0,593.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,51,s_hc1_room_temperature_setpoint,1.0,4,1.422,14.5,0.0,0.0,ok,,False,False
+M2,51,p_hc1_return_temperature,1.0,499,5.2022,1.0,0.0,0.0,ok,,True,False
+M2,51,p_hc1_control_valve_position_setpoint,1.0,129,8.2417,5.5,0.0,0.0135,ok,,False,False
+M2,51,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,593.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,51,s_hc1_supply_temperature_setpoint,1.0,397,6.3683,18.0,0.0,0.0253,noisy,2.5% 突跳,True,False
+M2,51,s_hc1_supply_temperature,1.0,499,6.8131,1.0,0.0,0.0,ok,,True,False
+M2,51,p_net_meter_energy,1.0,1186,9589.8711,0.5,0.0,0.0,ok,,False,False
+M2,51,p_net_meter_flow,1.0,495,614.0849,1.0,0.0,0.0076,ok,,True,False
+M2,51,p_net_meter_heat_power,1.0,938,28.7453,1.0,0.0,0.0051,ok,,True,False
+M2,51,p_net_return_temperature,1.0,78,5.8809,3.5,0.0,0.0,ok,,True,False
+M2,51,p_net_meter_volume,1.0,1186,183.8301,0.5,0.0,0.0,ok,,False,False
+M2,51,p_net_supply_temperature,1.0,55,3.5796,6.0,0.0,0.0,ok,,True,False
+M2,52,s_dhw_supply_temperature_setpoint,0.9999,4,0.0098,12935.0,0.0,0.0,ok,,False,False
+M2,52,outdoor_temperature,1.0,1452,7.9916,31.0,0.0,0.0048,ok,,True,False
+M2,52,s_hc1_control_unit_mode,0.0,0,0.0,32647.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,52,s_dhw_control_unit_mode,0.0,0,0.0,32647.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,52,s_hc1_room_temperature_setpoint,0.8679,5,0.7941,139.0,0.0,0.0,ok,,False,False
+M2,52,p_hc1_return_temperature,1.0,816,6.587,31.0,0.0,0.0006,ok,,True,False
+M2,52,s_dhw_3_way_valve_status,0.0,0,0.0,32647.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,52,s_dhw_upper_storage_temperature,1.0,512,2.965,31.0,0.0,0.0195,ok,,False,False
+M2,52,s_dhw_lower_storage_temperature,1.0,1503,15.9532,33.5,0.0,0.119,noisy,11.9% 相邻点突跳,False,False
+M2,52,p_hc1_control_valve_position_setpoint,1.0,309,32.9851,41.5,0.0,0.0341,noisy,3.4% 突跳,False,False
+M2,52,p_dhw_control_valve_position,1.0,298,9.9021,64.0,0.0,0.0,ok,,False,False
+M2,52,s_dhw_upper_storage_temperature_setpoint,1.0,4,0.0098,17426.5,0.0,0.0,ok,,False,False
+M2,52,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,32647.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,52,s_hc1_supply_temperature_setpoint,0.8679,1246,9.357,41.5,0.0,0.0025,ok,,True,False
+M2,52,s_hc1_supply_temperature,1.0,1283,11.0431,31.0,0.0,0.0009,ok,,True,False
+M2,52,s_dhw_supply_temperature,1.0,354,1.5078,31.5,0.0,0.007,ok,,False,False
+M2,52,p_net_meter_energy,0.9987,51860,88494.4297,31.0,0.0,0.0,ok,,False,False
+M2,52,p_net_meter_flow,0.9987,4462,361.2141,31.0,0.0,0.0585,noisy,5.8% 相邻点突跳,True,False
+M2,52,p_net_meter_heat_power,0.9987,1689,9.8814,31.0,0.0,0.0743,noisy,7.4% 相邻点突跳,True,False
+M2,52,p_net_return_temperature,0.9987,100,3.2899,36.5,0.0,0.0394,noisy,3.9% 相邻点突跳,True,False
+M2,52,p_net_meter_volume,0.9987,52315,4449.9556,31.0,0.0,0.0,ok,,False,False
+M2,52,p_net_supply_temperature,0.9987,97,4.0364,36.5,0.0,0.0003,ok,,True,False
+M2,53,outdoor_temperature,1.0,678,4.5306,4.0,0.0,0.0,ok,,True,False
+M2,53,p_hc1_return_temperature_setpoint,1.0,3,0.4369,3325.5,0.0,0.0,ok,,False,False
+M2,53,p_hc1_return_temperature,1.0,563,3.4002,1.0,0.0,0.0,ok,,True,False
+M2,53,s_dhw_3_way_valve_status,0.0,0,0.0,4476.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,53,s_dhw_upper_storage_temperature,1.0,954,7.8636,1.0,0.0,0.0,ok,,False,False
+M2,53,s_dhw_lower_storage_temperature,1.0,904,6.5965,1.5,0.0,0.0,ok,,False,False
+M2,53,p_hc1_control_valve_position_setpoint,1.0,264,13.9466,11.0,0.0,0.0063,ok,,False,False
+M2,53,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,4476.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,53,s_hc1_supply_temperature_setpoint,1.0,530,3.9341,130.0,0.0,0.0728,noisy,7.3% 突跳,True,False
+M2,53,s_hc1_supply_temperature,1.0,576,3.9487,1.5,0.0,0.0001,ok,,True,False
+M2,53,p_net_meter_energy,1.0,8929,25818.4824,1.0,0.0,0.0,ok,,False,False
+M2,53,p_net_meter_flow,1.0,1861,158.557,1.5,0.0,0.0003,ok,,True,False
+M2,53,p_net_meter_heat_power,1.0,1129,9.1029,1.5,0.0,0.0,ok,,True,False
+M2,53,p_net_return_temperature,1.0,69,3.3757,5.0,0.0,0.0,ok,,True,False
+M2,53,p_net_meter_volume,1.0,8952,534.2639,0.5,0.0,0.0,ok,,False,False
+M2,53,p_net_supply_temperature,1.0,138,6.3622,8.5,0.0,0.0049,ok,,True,False
+M2,54,outdoor_temperature,1.0,527,3.7894,2.0,0.0,0.0,ok,,True,False
+M2,54,p_hc1_return_temperature,1.0,448,3.2931,1.5,0.0,0.0,ok,,True,False
+M2,54,s_dhw_3_way_valve_status,0.0,0,0.0,1813.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,54,s_dhw_upper_storage_temperature,1.0,655,5.6793,1.0,0.0,0.0,ok,,False,False
+M2,54,s_dhw_lower_storage_temperature,1.0,616,4.4026,1.0,0.0,0.0,ok,,False,False
+M2,54,p_hc1_control_valve_position_setpoint,1.0,301,32.4867,7.0,0.0,0.0,ok,,False,False
+M2,54,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,1813.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,54,s_hc1_supply_temperature_setpoint,0.9857,1030,10.487,7.0,0.0,0.0,ok,,True,False
+M2,54,s_hc1_supply_temperature,1.0,707,6.0733,1.0,0.0,0.0,ok,,True,False
+M2,54,p_net_meter_energy,1.0,2820,5399.5137,8.0,0.0,0.0,ok,,False,False
+M2,54,p_net_meter_flow,1.0,1543,234.0281,1.5,0.0,0.0,ok,,True,False
+M2,54,p_net_meter_heat_power,1.0,949,10.4967,3.0,0.0,0.0,ok,,True,False
+M2,54,p_net_return_temperature,1.0,125,7.6893,2.0,0.0,0.0,ok,,True,False
+M2,54,p_net_meter_volume,1.0,3067,126.2846,6.5,0.0,0.0,ok,,False,False
+M2,54,p_net_supply_temperature,1.0,236,15.8845,2.0,0.0,0.0,ok,,True,False
+M2,55,outdoor_temperature,1.0,1192,6.8418,10.0,0.0,0.0,ok,,True,False
+M2,55,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_hc1.2_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_hc1.3_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_hc1.2_room_temperature_setpoint,0.8473,7,2.5394,70.5,0.0,0.0,ok,,False,False
+M2,55,s_hc1.3_room_temperature_setpoint,0.9392,8,1.1195,386.0,0.0,0.0,ok,,False,False
+M2,55,p_hc1_return_temperature,1.0,1275,9.4404,16.5,0.0,0.0154,ok,,True,False
+M2,55,p_dhw_return_temperature,1.0,1240,9.326,14.5,0.0,0.0118,ok,,False,False
+M2,55,s_hc1.3_return_temperature,1.0,451,2.3771,18.0,0.0,0.0001,ok,,False,False
+M2,55,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,p_hc1_control_valve_position_setpoint,1.0,310,29.6798,70.5,0.0,0.0191,ok,,False,False
+M2,55,p_dhw_control_valve_position,1.0,304,34.9019,70.5,0.0,0.0504,noisy,5.0% 突跳,False,False
+M2,55,s_hc1.3_control_valve_position,1.0,289,25.2595,70.5,0.0,0.0,ok,,False,False
+M2,55,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_hc1.2_heating_pump_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_hc1.3_heating_pump_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,55,s_hc1_supply_temperature_setpoint,0.9392,1583,13.4934,70.5,0.0,0.0249,noisy,2.5% 突跳,True,False
+M2,55,s_hc1.2_supply_temperature_setpoint,0.8473,1536,13.471,70.5,0.0,0.053,noisy,5.3% 突跳,False,False
+M2,55,s_hc1.3_supply_temperature_setpoint,0.9392,1558,13.6312,70.5,0.0,0.0295,noisy,3.0% 突跳,False,False
+M2,55,s_hc1_supply_temperature,1.0,1971,15.8001,12.0,0.0,0.0026,ok,,True,False
+M2,55,s_dhw_supply_temperature,1.0,1812,16.9253,18.0,0.0,0.0287,noisy,2.9% 相邻点突跳,False,False
+M2,55,s_hc1.3_supply_temperature,1.0,1143,8.8342,16.5,0.0,0.0015,ok,,False,False
+M2,55,p_net_meter_energy,1.0,63457,259321.2969,72.0,0.0,0.0,ok,,False,False
+M2,55,p_net_meter_flow,1.0,2909,200.0247,10.0,0.0,0.0136,ok,,True,False
+M2,55,p_net_meter_heat_power,1.0,1617,10.5738,70.5,0.0,0.0181,ok,,True,False
+M2,55,p_net_return_temperature,1.0,152,9.6715,65.0,0.0,0.0201,noisy,2.0% 相邻点突跳,True,False
+M2,55,p_net_meter_volume,1.0,68122,4863.7524,44.0,0.0,0.0,ok,,False,False
+M2,55,p_net_supply_temperature,1.0,290,19.3719,27.5,0.0,0.0837,noisy,8.4% 相邻点突跳,True,False
+M2,56,s_dhw_supply_temperature_setpoint,1.0,3,0.9907,1341.5,0.0,0.0,ok,,False,False
+M2,56,outdoor_temperature,1.0,652,4.3607,2.5,0.0,0.0,ok,,True,False
+M2,56,s_hc1_control_unit_mode,0.0,0,0.0,2363.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,56,s_dhw_control_unit_mode,0.0,0,0.0,2363.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,56,s_hc1_room_temperature_setpoint,1.0,4,1.265,17.5,0.0,0.0,ok,,False,False
+M2,56,p_hc1_return_temperature,1.0,715,5.8351,1.0,0.0,0.0,ok,,True,False
+M2,56,s_dhw_upper_storage_temperature,1.0,471,5.1197,1.5,0.0,0.0237,noisy,2.4% 相邻点突跳,False,False
+M2,56,s_dhw_lower_storage_temperature,1.0,1245,16.7945,1.5,0.0,0.0605,noisy,6.1% 相邻点突跳,False,False
+M2,56,p_hc1_control_valve_position_setpoint,1.0,262,20.7855,2.0,0.0,0.0017,ok,,False,False
+M2,56,p_dhw_control_valve_position,1.0,149,7.3071,18.0,0.0,0.0,ok,,False,False
+M2,56,s_dhw_upper_storage_temperature_setpoint,1.0,3,0.9907,1341.5,0.0,0.0,ok,,False,False
+M2,56,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2363.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,56,s_hc1_supply_temperature_setpoint,1.0,1054,8.6858,2.5,0.0,0.0,ok,,True,False
+M2,56,s_hc1_supply_temperature,1.0,1093,8.7576,1.0,0.0,0.0,ok,,True,False
+M2,56,s_dhw_supply_temperature,1.0,278,1.7405,2.0,0.0,0.0008,ok,,False,False
+M2,56,p_net_meter_energy,1.0,4726,11140.6523,0.5,0.0,0.0,ok,,False,False
+M2,56,p_net_meter_flow,1.0,1310,109.1996,1.0,0.0,0.0,ok,,True,False
+M2,56,p_net_meter_heat_power,1.0,804,6.0608,1.0,0.0,0.0,ok,,True,False
+M2,56,p_net_return_temperature,1.0,87,4.8615,3.0,0.0,0.0,ok,,True,False
+M2,56,p_net_meter_volume,1.0,4726,239.6011,0.5,0.0,0.0,ok,,False,False
+M2,56,p_net_supply_temperature,1.0,90,5.4228,5.0,0.0,0.0,ok,,True,False
+M2,57,s_dhw_supply_temperature_setpoint,1.0,1,0.0,3684.5,0.0,0.0,ok,,False,False
+M2,57,outdoor_temperature,1.0,596,3.8246,2.5,0.0,0.0,ok,,True,False
+M2,57,outdoor_temperature.1,0.9738,582,3.6825,96.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1_control_unit_mode,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_hc1.1_control_unit_mode,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_hc1.2_control_unit_mode,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_dhw_control_unit_mode,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_hc1_room_temperature_setpoint,1.0,4,0.4222,17.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1.1_room_temperature_setpoint,0.9738,4,0.422,96.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1.2_room_temperature_setpoint,0.9738,4,0.422,96.5,0.0,0.0,ok,,False,False
+M2,57,p_hc1_return_temperature_setpoint,1.0,1,0.0,3684.5,0.0,0.0,ok,,False,False
+M2,57,p_hc1_return_temperature,1.0,710,4.7968,1.0,0.0,0.0,ok,,True,False
+M2,57,s_hc1.1_return_temperature,0.9738,579,3.6479,96.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1.2_return_temperature,0.9738,617,4.5163,96.5,0.0,0.0,ok,,False,False
+M2,57,s_dhw_upper_storage_temperature,1.0,322,2.2194,2.0,0.0,0.0,ok,,False,False
+M2,57,s_dhw_lower_storage_temperature,1.0,1189,17.7696,3.0,0.0,0.2261,noisy,22.6% 相邻点突跳,False,False
+M2,57,p_hc1_control_valve_position_setpoint,1.0,245,15.3678,1.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1.1_control_valve_position,0.9738,223,12.5896,96.5,0.0,0.0,ok,,False,False
+M2,57,p_dhw_control_valve_position,1.0,140,6.4781,3.5,0.0,0.0345,noisy,3.4% 突跳,False,False
+M2,57,s_hc1.2_control_valve_position,0.9738,244,14.3478,96.5,0.0,0.0004,ok,,False,False
+M2,57,s_dhw_upper_storage_temperature_setpoint,1.0,1,0.0,3684.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_hc1.1_heating_pump_status,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_hc1.2_heating_pump_status,0.0,0,0.0,3684.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,57,s_hc1_supply_temperature_setpoint,1.0,839,6.6532,3.0,0.0,0.0007,ok,,True,False
+M2,57,s_hc1.1_supply_temperature_setpoint,0.9738,1032,7.9868,96.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1.2_supply_temperature_setpoint,0.9738,1044,7.9576,96.5,0.0,0.0001,ok,,False,False
+M2,57,s_hc1_supply_temperature,1.0,1035,7.2864,1.5,0.0,0.0,ok,,True,False
+M2,57,s_hc1.1_supply_temperature,0.9738,1055,7.6047,96.5,0.0,0.0,ok,,False,False
+M2,57,s_dhw_supply_temperature,1.0,278,1.6889,1.5,0.0,0.0,ok,,False,False
+M2,57,s_hc1.2_supply_temperature,0.9738,1022,7.4738,96.5,0.0,0.0,ok,,False,False
+M2,57,p_net_meter_energy,1.0,7369,135058.7969,0.5,0.0,0.0,ok,,False,False
+M2,57,p_net_meter_flow,1.0,1118,899.0309,1.0,0.0,0.0,ok,,True,False
+M2,57,p_net_meter_heat_power,1.0,4041,50.4654,1.0,0.0,0.0,ok,,True,False
+M2,57,p_net_return_temperature,1.0,84,3.7447,3.5,0.0,0.0001,ok,,True,False
+M2,57,p_net_meter_volume,1.0,7369,2541.4282,0.5,0.0,0.0,ok,,False,False
+M2,57,p_net_supply_temperature,1.0,79,4.0873,11.5,0.0,0.0,ok,,True,False
+M2,58,outdoor_temperature,1.0,577,4.0104,2.5,0.0,0.0,ok,,True,False
+M2,58,s_hc1_control_unit_mode,0.0,0,0.0,1984.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,58,s_dhw_control_unit_mode,0.0,0,0.0,1984.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,58,s_hc1_room_temperature_setpoint,1.0,4,0.9223,15.5,0.0,0.0,ok,,False,False
+M2,58,p_hc1_return_temperature,1.0,567,4.0243,1.0,0.0,0.0,ok,,True,False
+M2,58,s_dhw_upper_storage_temperature,1.0,356,2.5659,2.5,0.0,0.0136,ok,,False,False
+M2,58,s_dhw_lower_storage_temperature,1.0,1146,19.4309,3.0,0.0,0.0968,noisy,9.7% 相邻点突跳,False,False
+M2,58,p_hc1_control_valve_position_setpoint,1.0,222,13.5924,4.5,0.0,0.001,ok,,False,False
+M2,58,p_dhw_control_valve_position,1.0,88,4.5679,38.0,0.0,0.0,ok,,False,False
+M2,58,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,1984.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,58,s_hc1_supply_temperature_setpoint,1.0,972,8.4419,2.0,0.0,0.0005,ok,,True,False
+M2,58,s_hc1_supply_temperature,1.0,1031,8.4616,1.0,0.0,0.0,ok,,True,False
+M2,58,s_dhw_supply_temperature,1.0,157,1.1508,2.5,0.0,0.0053,ok,,False,False
+M2,58,p_net_meter_energy,1.0,3968,13380.5693,0.5,0.0,0.0,ok,,False,False
+M2,58,p_net_meter_flow,1.0,1430,127.7666,1.5,0.0,0.0003,ok,,True,False
+M2,58,p_net_meter_heat_power,1.0,958,7.9622,1.0,0.0,0.0053,ok,,True,False
+M2,58,p_net_return_temperature,1.0,71,2.9857,3.5,0.0,0.0,ok,,True,False
+M2,58,p_net_meter_volume,1.0,3968,259.6422,0.5,0.0,0.0,ok,,False,False
+M2,58,p_net_supply_temperature,1.0,81,4.8899,6.5,0.0,0.0015,ok,,True,False
+M2,59,outdoor_temperature,1.0,531,3.541,2.5,0.0,0.0,ok,,True,False
+M2,59,s_hc1_control_unit_mode,0.0,0,0.0,2316.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,59,s_hc1_room_temperature_setpoint,1.0,4,0.8439,17.5,0.0,0.0,ok,,False,False
+M2,59,p_hc1_return_temperature,1.0,857,6.6423,1.0,0.0,0.0,ok,,True,False
+M2,59,p_hc1_control_valve_position_setpoint,1.0,181,10.9479,2.5,0.0,0.0004,ok,,False,False
+M2,59,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2316.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,59,s_hc1_supply_temperature_setpoint,1.0,966,7.6225,2.5,0.0,0.0006,ok,,True,False
+M2,59,s_hc1_supply_temperature,1.0,1019,7.7273,1.0,0.0,0.0,ok,,True,False
+M2,59,p_net_meter_energy,1.0,4629,10501.6406,2.0,0.0,0.0,ok,,False,False
+M2,59,p_net_meter_flow,1.0,1503,134.4239,1.0,0.0,0.0,ok,,True,False
+M2,59,p_net_meter_heat_power,1.0,891,6.732,2.0,0.0,0.0002,ok,,True,False
+M2,59,p_net_return_temperature,1.0,99,6.6838,3.0,0.0,0.0,ok,,True,False
+M2,59,p_net_meter_volume,1.0,4632,200.9036,1.0,0.0,0.0,ok,,False,False
+M2,59,p_net_supply_temperature,1.0,97,5.1024,5.0,0.0,0.0013,ok,,True,False
+M2,60,s_dhw_supply_temperature_setpoint,1.0,4,0.8594,12145.5,0.0,0.0,ok,,False,False
+M2,60,outdoor_temperature,1.0,1457,7.8976,5.0,0.0,0.0002,ok,,True,False
+M2,60,s_hc1_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,60,s_dhw_control_unit_mode,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,60,s_hc1_room_temperature_setpoint,0.86,8,2.2588,68.5,0.0,0.0,ok,,False,False
+M2,60,p_hc1_return_temperature,1.0,1024,6.8896,4.5,0.0,0.003,ok,,True,False
+M2,60,s_dhw_3_way_valve_status,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,60,s_dhw_upper_storage_temperature,1.0,663,2.496,3.5,0.0,0.0199,ok,,False,False
+M2,60,s_dhw_lower_storage_temperature,1.0,1894,18.5978,5.5,0.0,0.1522,noisy,15.2% 相邻点突跳,False,False
+M2,60,p_hc1_control_valve_position_setpoint,1.0,307,27.9323,68.5,0.0,0.1194,noisy,11.9% 突跳,False,False
+M2,60,p_dhw_control_valve_position,1.0,301,20.4119,9.5,0.0,0.0004,ok,,False,False
+M2,60,s_dhw_upper_storage_temperature_setpoint,1.0,3,0.3311,21862.0,0.0,0.0,ok,,False,False
+M2,60,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,38424.0,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,60,s_hc1_supply_temperature_setpoint,0.86,1091,8.7232,68.5,0.0,0.0409,noisy,4.1% 突跳,True,False
+M2,60,s_hc1_supply_temperature,1.0,1197,9.0802,3.0,0.0,0.0164,ok,,True,False
+M2,60,s_dhw_supply_temperature,1.0,420,1.488,2.0,0.0,0.0,ok,,False,False
+M2,60,p_net_meter_energy,1.0,76827,382124.1562,3.0,0.0,0.0,ok,,False,False
+M2,60,p_net_meter_flow,1.0,3108,212.6978,3.0,0.0,0.0,ok,,True,False
+M2,60,p_net_meter_heat_power,1.0,2419,14.7091,3.0,0.0,0.0,ok,,True,False
+M2,60,p_net_return_temperature,1.0,136,6.5677,5.5,0.0,0.0,ok,,True,False
+M2,60,p_net_meter_volume,1.0,76827,7383.353,3.0,0.0,0.0,ok,,False,False
+M2,60,p_net_supply_temperature,1.0,135,6.4823,9.5,0.0,0.0002,ok,,True,False
+M2,61,outdoor_temperature,1.0,23,0.0998,34.0,0.0,0.0,coarse,温度列仅 23 个不同取值,True,True
+M2,61,s_hc1_control_unit_mode,0.0,0,0.0,2293.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,61,s_hc1_room_temperature_setpoint,1.0,1,0.0,2293.5,0.0,0.0,ok,,False,False
+M2,61,p_hc1_return_temperature,1.0,278,2.3242,1.5,0.0,0.0048,ok,,True,False
+M2,61,p_hc1_control_valve_position_setpoint,1.0,233,23.6636,6.0,0.0,0.0148,ok,,False,False
+M2,61,s_hc1_heating_pump_status_setpoint,0.0,0,0.0,2293.5,0.0,0.0,missing,覆盖率 0.00 < 0.3,False,True
+M2,61,s_hc1_supply_temperature_setpoint,1.0,537,5.1427,158.0,0.0,0.0085,ok,,True,False
+M2,61,s_hc1_supply_temperature,1.0,604,5.3024,1.5,0.0,0.0028,ok,,True,False
+M2,61,p_net_meter_energy,1.0,4578,16669.7949,3.5,0.0,0.0,ok,,False,False
+M2,61,p_net_meter_flow,1.0,1907,200.0821,1.0,0.0,0.0044,ok,,True,False
+M2,61,p_net_meter_heat_power,1.0,1164,10.2557,2.0,0.0,0.0041,ok,,True,False
+M2,61,p_net_return_temperature,1.0,54,2.3512,24.0,0.0,0.0031,ok,,True,False
+M2,61,p_net_meter_volume,1.0,4580,354.313,2.5,0.0,0.0,ok,,False,False
+M2,61,p_net_supply_temperature,1.0,79,4.4452,13.0,0.0,0.002,ok,,True,False
