@@ -1,0 +1,10 @@
+﻿manufacturer,substation_id,from,to,description
+M1,1,start,2018-07-20,Change in behaviour
+M1,19,start,2016-06,Broken outside temperature sensor
+M1,21,2019-10,end,HC1 flow temperature and its reference/set point more or less constant
+M1,33,2018-10,2018-11,"No DHW, both storage temperatures low"
+M1,33,2020-03-01,2020-03-31,"No DHW, both storage temperatures low"
+M2,22,2019-09-16,2019-09-25,No flow
+M2,22,2020-02-11,2020-03-17,No flow
+M2,41,2017-04,2017-12,"No DHW, both storage temperatures low"
+M2,34,2017-09,end,"No DHW, both storage temperatures low"

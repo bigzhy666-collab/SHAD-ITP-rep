@@ -1,0 +1,25 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ---- 原始数据与缓存（只在仓库根目录，266MB 压缩包解压后约 2.4GB；见 docs/数据说明.md）----
+/数据/
+/数据缓存/
+
+# ---- 可复现的中间产物（体积大，跑一遍脚本就会重建）----
+*.pkl
+!models/*.pkl
+*_log.txt
+*.log
+
+# ---- 系统 / 编辑器 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

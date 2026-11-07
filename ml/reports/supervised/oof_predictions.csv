@@ -1,0 +1,887 @@
+﻿event_key,label,fault_label,mp,manufacturer,sid,offset_h,oof_prob
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,6.0,0.9773682871489239
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,12.0,0.9528795892810507
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,24.0,0.1817551877997784
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,48.0,0.05947563380565673
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,72.0,0.36369875229338366
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,120.0,0.13876589913889817
+M1_E1,1,Motorised control valve (primary side): Actuator defective,3.4,M1,10,168.0,0.3219026714649948
+M1_H1,0,normal,,M1,10,,0.8065975368826681
+M1_H1,0,normal,,M1,10,,0.018623079285502137
+M1_H1,0,normal,,M1,10,,0.9601314008207505
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,6.0,0.16680708379070575
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,12.0,0.034266838322966564
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,24.0,0.8206364340309358
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,48.0,0.849746110926953
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,72.0,0.693573125758923
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,120.0,0.874164663211216
+M1_E3,1,Control unit: Incorrect parameterisation,4.0,M1,12,168.0,0.6510493938381756
+M1_H3,0,normal,,M1,12,,0.4568287350475079
+M1_H3,0,normal,,M1,12,,0.023303798052596372
+M1_H3,0,normal,,M1,12,,0.1741069956692385
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,6.0,0.7440065302731489
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,12.0,0.15427701969590132
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,24.0,0.7866445846857805
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,48.0,0.29481462455776053
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,72.0,0.3250065816662505
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,120.0,0.2039113605829364
+M1_E13,1,Failure of the heating circuit pump,3.8,M1,24,168.0,0.1576852969266937
+M1_H13,0,normal,,M1,24,,0.058405690615873376
+M1_H13,0,normal,,M1,24,,0.4839135985172341
+M1_H13,0,normal,,M1,24,,0.005360485109997692
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,6.0,0.3862582160624289
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,12.0,0.34584505397905646
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,24.0,0.660375962049389
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,48.0,0.8034436136426404
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,72.0,0.7994928226015906
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,120.0,0.6389557427030611
+M1_E40,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,24,168.0,0.5616551645107033
+M1_H40,0,normal,,M1,24,,0.5637579566110322
+M1_H40,0,normal,,M1,24,,0.005575545395045812
+M1_H40,0,normal,,M1,24,,0.8427449665476222
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,6.0,0.4379150687296487
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,12.0,0.23384409985395624
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,24.0,0.09651936916232337
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,48.0,0.2383825232702591
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,72.0,0.03624581968987334
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,120.0,0.09853555059913366
+M1_E24,1,Failure of the heating circuit pump,3.8,M1,13,168.0,0.06073820628527011
+M1_H24,0,normal,,M1,13,,0.3192548022129197
+M1_H24,0,normal,,M1,13,,0.11037817480547761
+M1_H24,0,normal,,M1,13,,0.802798995475395
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,6.0,0.4633265731924447
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,12.0,0.07653669585559233
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,24.0,0.3736437095950164
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,48.0,0.6655743620030479
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,72.0,0.6254841260985244
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,120.0,0.7724419671652485
+M1_E38,1,Incorrect setting of the differential pressure regulator,3.1,M1,24,168.0,0.8244807937405123
+M1_H38,0,normal,,M1,24,,0.03724418916103513
+M1_H38,0,normal,,M1,24,,0.7409407704648862
+M1_H38,0,normal,,M1,24,,0.06938217362452677
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,6.0,0.9255190178371114
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,12.0,0.44659890868220925
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,24.0,0.3237390825810324
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,48.0,0.17274801821208804
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,72.0,0.3441440349195456
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,120.0,0.45598776945336805
+M1_E6,1,Control unit: Incorrect parameterisation,4.0,M1,21,168.0,0.3477244144941042
+M1_H6,0,normal,,M1,21,,0.15212252117185698
+M1_H6,0,normal,,M1,21,,0.04020080817272207
+M1_H6,0,normal,,M1,21,,0.7079537881926053
+M1_E34,1,unknown,,M1,20,6.0,0.2696293107948725
+M1_E34,1,unknown,,M1,20,12.0,0.48555195493404807
+M1_E34,1,unknown,,M1,20,24.0,0.6504309994779284
+M1_E34,1,unknown,,M1,20,48.0,0.41909225694363317
+M1_E34,1,unknown,,M1,20,72.0,0.9657360433185538
+M1_E34,1,unknown,,M1,20,120.0,0.6208169272311523
+M1_E34,1,unknown,,M1,20,168.0,0.5644288147870296
+M1_H34,0,normal,,M1,20,,0.03502637582111827
+M1_H34,0,normal,,M1,20,,0.9653622303055747
+M1_H34,0,normal,,M1,20,,0.6523237058483109
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,6.0,0.9378835262443725
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,12.0,0.6846062953098704
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,24.0,0.9252056307265466
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,48.0,0.8694211943561251
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,72.0,0.8958831820781729
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,120.0,0.37186138971681304
+M1_E67,1,Motorised control valve (primary side) defective,3.4,M1,7,168.0,0.8676989619062564
+M1_H67,0,normal,,M1,7,,0.3852248109699541
+M1_H67,0,normal,,M1,7,,0.10329310757497491
+M1_H67,0,normal,,M1,7,,0.5369771384696408
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,6.0,0.512934179430202
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,12.0,0.3708873204721346
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,24.0,0.9273314277536415
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,48.0,0.8086495067247339
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,72.0,0.8970114737659655
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,120.0,0.9253817772896905
+M1_E44,1,Temperature monitor/controller defective,3.0,M1,8,168.0,0.9313832194491523
+M1_H44,0,normal,,M1,8,,0.4230235438118512
+M1_H44,0,normal,,M1,8,,0.5953651482097638
+M1_H44,0,normal,,M1,8,,0.1588025195907302
+M1_E20,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,11,48.0,0.24865926531671978
+M1_E20,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,11,72.0,0.5429974327903349
+M1_E20,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,11,120.0,0.5736682413707701
+M1_E20,1,"Safety relief valve: Water loss, does not close properly",2.0,M1,11,168.0,0.5088933246304965
+M1_H20,0,normal,,M1,11,,0.21758205804993005
+M1_H20,0,normal,,M1,11,,0.19578711564116572
+M1_H20,0,normal,,M1,11,,0.22790854595339666
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,6.0,0.10585077930495314
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,12.0,0.08648053630608596
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,24.0,0.787395129454805
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,48.0,0.9565540567414431
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,72.0,0.8035342209649198
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,120.0,0.7325599322344077
+M1_E37,1,Control unit: Incorrect parameterisation,4.0,M1,19,168.0,0.8160927141080637
+M1_H37,0,normal,,M1,19,,0.3230301945032505
+M1_H37,0,normal,,M1,19,,0.3546746216223695
+M1_H37,0,normal,,M1,19,,0.8772233031942278
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,6.0,0.23285232771740408
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,12.0,0.18179817209406096
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,24.0,0.9360220294306134
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,48.0,0.7146971215196105
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,72.0,0.9105941192255623
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,120.0,0.2978489064966798
+M1_E5,1,Failure of the heating circuit pump,3.8,M1,11,168.0,0.7706122358309835
+M1_H5,0,normal,,M1,11,,0.11594188909485158
+M1_H5,0,normal,,M1,11,,0.24287878821816553
+M1_H5,0,normal,,M1,11,,0.023857379094150477
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,6.0,0.22779846650162888
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,12.0,0.2123754233316701
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,24.0,0.12129117160480642
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,48.0,0.3466260660750559
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,72.0,0.10222773705007067
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,120.0,0.4070552177597887
+M1_E29,1,Motorised control valve (primary side): Control valve jams when closed,3.2,M1,17,168.0,0.3926758642625171
+M1_H29,0,normal,,M1,17,,0.14811483396434397
+M1_H29,0,normal,,M1,17,,0.5358797911361192
+M1_H29,0,normal,,M1,17,,0.0374067066074361
+M1_E65,1,Leakage,1.75,M1,11,6.0,0.026694075425397104
+M1_E65,1,Leakage,1.75,M1,11,12.0,0.3202319682281632
+M1_E65,1,Leakage,1.75,M1,11,24.0,0.09767008014805885
+M1_E65,1,Leakage,1.75,M1,11,48.0,0.11107791767958304
+M1_E65,1,Leakage,1.75,M1,11,72.0,0.09581163007489488
+M1_E65,1,Leakage,1.75,M1,11,120.0,0.1719336625049945
+M1_E65,1,Leakage,1.75,M1,11,168.0,0.20253322391291198
+M1_H65,0,normal,,M1,11,,0.13135287602685217
+M1_H65,0,normal,,M1,11,,0.17486192332986275
+M1_H65,0,normal,,M1,11,,0.297362874384912
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,6.0,0.025243418367995433
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,12.0,0.03129898951467642
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,24.0,0.47948407018671707
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,48.0,0.5263081630719525
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,72.0,0.5143893664486676
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,120.0,0.2830804107913073
+M1_E64,1,Differential pressure regulator defective,3.2,M1,6,168.0,0.11702643723801691
+M1_H64,0,normal,,M1,6,,0.3929271527744621
+M1_H64,0,normal,,M1,6,,0.5397246750672593
+M1_H64,0,normal,,M1,6,,0.17658328166353554
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,6.0,0.49560932959600146
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,12.0,0.09011623385531868
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,24.0,0.52596856877189
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,48.0,0.4210709470068879
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,72.0,0.47595377919332016
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,120.0,0.5619729373418397
+M1_E49,1,Control unit: Incorrect parameterisation,4.0,M1,18,168.0,0.48160063653975965
+M1_H49,0,normal,,M1,18,,0.09938848757618216
+M1_H49,0,normal,,M1,18,,0.6042960284963089
+M1_H49,0,normal,,M1,18,,0.08231230754992394
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,6.0,0.8958870982607888
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,12.0,0.15176169407189255
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,24.0,0.7781711145635996
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,48.0,0.6060490321665193
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,72.0,0.5062737748801056
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,120.0,0.23316560526399957
+M1_E47,1,Failure of the heating circuit pump,3.8,M1,28,168.0,0.3669340137199846
+M1_H47,0,normal,,M1,28,,0.3562253177378174
+M1_H47,0,normal,,M1,28,,0.5257597423630456
+M1_H47,0,normal,,M1,28,,0.26262371558380293
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,6.0,0.8880516956442794
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,12.0,0.8350010535290912
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,24.0,0.8110428405362675
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,48.0,0.5859297187365324
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,72.0,0.4042660436667076
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,120.0,0.6048125763675315
+M1_E45,1,"Heat exchanger: Leakage, external",2.0,M1,31,168.0,0.7049295383341104
+M1_H45,0,normal,,M1,31,,0.6364086741449517
+M1_H45,0,normal,,M1,31,,0.8260179352344855
+M1_H45,0,normal,,M1,31,,0.7524452168043857
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,6.0,0.2090555784814048
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,12.0,0.12704007178156385
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,24.0,0.5450439168605865
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,48.0,0.715788087435574
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,72.0,0.6119722240081618
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,120.0,0.8630015218909809
+M1_E23,1,Control unit: Incorrect parameterisation,4.0,M1,27,168.0,0.9093681492180917
+M1_H23,0,normal,,M1,27,,0.07515391015002576
+M1_H23,0,normal,,M1,27,,0.11382394243709948
+M1_H23,0,normal,,M1,27,,0.19623409751639323
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,6.0,0.8854466962590222
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,12.0,0.9042875746444962
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,24.0,0.29427289917469873
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,48.0,0.41821982383590384
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,72.0,0.5616301895901243
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,120.0,0.45569309703449573
+M1_E57,1,Differential pressure regulator defective,3.2,M1,9,168.0,0.8164474774387507
+M1_H57,0,normal,,M1,9,,0.8162034511069449
+M1_H57,0,normal,,M1,9,,0.037515894918228154
+M1_H57,0,normal,,M1,9,,0.04826698818790102
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,6.0,0.5855201525613383
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,12.0,0.07062869277061881
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,24.0,0.891604979762929
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,48.0,0.9122318743649368
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,72.0,0.9014272751332938
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,120.0,0.8800364357694564
+M1_E15,1,Failure of the domestic hot water storage charging pump,3.7,M1,29,168.0,0.9057943318719698
+M1_H15,0,normal,,M1,29,,0.16362623864064302
+M1_H15,0,normal,,M1,29,,0.11915932671689976
+M1_H15,0,normal,,M1,29,,0.7212986450646147
+M1_E69,1,unknown,,M1,26,6.0,0.852007540674126
+M1_E69,1,unknown,,M1,26,12.0,0.9312974481433867
+M1_E69,1,unknown,,M1,26,24.0,0.16249317941013133
+M1_E69,1,unknown,,M1,26,48.0,0.6478504566933417
+M1_E69,1,unknown,,M1,26,72.0,0.8016675037495014
+M1_E69,1,unknown,,M1,26,120.0,0.19601064726012823
+M1_E69,1,unknown,,M1,26,168.0,0.08730964412165064
+M1_H69,0,normal,,M1,26,,0.034990134205093476
+M1_H69,0,normal,,M1,26,,0.5602768620160322
+M1_H69,0,normal,,M1,26,,0.05374312109723863
+M1_E10,1,Leakage,1.75,M1,30,6.0,0.6230470773790217
+M1_E10,1,Leakage,1.75,M1,30,12.0,0.43742990131103954
+M1_E10,1,Leakage,1.75,M1,30,24.0,0.391817486582901
+M1_E10,1,Leakage,1.75,M1,30,48.0,0.3719409639842739
+M1_E10,1,Leakage,1.75,M1,30,72.0,0.4647015175182185
+M1_E10,1,Leakage,1.75,M1,30,120.0,0.7644088921174472
+M1_E10,1,Leakage,1.75,M1,30,168.0,0.31999250698848036
+M1_H10,0,normal,,M1,30,,0.16450573250745387
+M1_H10,0,normal,,M1,30,,0.08808970174145683
+M1_H10,0,normal,,M1,30,,0.5343048693351528
+M1_E53,1,Shut-off valve closed,2.8,M1,13,6.0,0.07551960767005358
+M1_E53,1,Shut-off valve closed,2.8,M1,13,12.0,0.025937411105764085
+M1_E53,1,Shut-off valve closed,2.8,M1,13,24.0,0.5294827613468225
+M1_E53,1,Shut-off valve closed,2.8,M1,13,48.0,0.4448200121616818
+M1_E53,1,Shut-off valve closed,2.8,M1,13,72.0,0.38237140463857333
+M1_E53,1,Shut-off valve closed,2.8,M1,13,120.0,0.5205867203680826
+M1_E53,1,Shut-off valve closed,2.8,M1,13,168.0,0.6373390285872723
+M1_H53,0,normal,,M1,13,,0.49858341280259
+M1_H53,0,normal,,M1,13,,0.10902865140319119
+M1_H53,0,normal,,M1,13,,0.06629067557504036
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,6.0,0.318966768535782
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,12.0,0.05491506374865075
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,24.0,0.22202599685480523
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,48.0,0.2665471291129627
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,72.0,0.23635402493255853
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,120.0,0.33291768179056674
+M1_E7,1,Incorrect setting of the differential pressure regulator,3.1,M1,26,168.0,0.5050157628769083
+M1_H7,0,normal,,M1,26,,0.014195590817945782
+M1_H7,0,normal,,M1,26,,0.8326087777305444
+M1_H7,0,normal,,M1,26,,0.8647601220628635
+M2_E41,1,Air in the piping system,2.1,M2,4,6.0,0.16332358099957572
+M2_E41,1,Air in the piping system,2.1,M2,4,12.0,0.34541232660096977
+M2_E41,1,Air in the piping system,2.1,M2,4,24.0,0.5640792671688504
+M2_E41,1,Air in the piping system,2.1,M2,4,48.0,0.23778334831563433
+M2_E41,1,Air in the piping system,2.1,M2,4,72.0,0.49665512823670355
+M2_E41,1,Air in the piping system,2.1,M2,4,120.0,0.5929135871160761
+M2_E41,1,Air in the piping system,2.1,M2,4,168.0,0.308733969111384
+M2_H41,0,normal,,M2,4,,0.37607097082812446
+M2_H41,0,normal,,M2,4,,0.03871817614302305
+M2_H41,0,normal,,M2,4,,0.3632665528800688
+M2_E40,1,unknown,,M2,10,6.0,0.0266586411758834
+M2_E40,1,unknown,,M2,10,12.0,0.07811240540697963
+M2_E40,1,unknown,,M2,10,24.0,0.08486848505515054
+M2_E40,1,unknown,,M2,10,48.0,0.08212213129210572
+M2_E40,1,unknown,,M2,10,72.0,0.07303390211895767
+M2_E40,1,unknown,,M2,10,120.0,0.15150221247224321
+M2_E40,1,unknown,,M2,10,168.0,0.09869642496020549
+M2_H40,0,normal,,M2,10,,0.9617644325121575
+M2_H40,0,normal,,M2,10,,0.7663190976464413
+M2_H40,0,normal,,M2,10,,0.4327406871250726
+M2_E38,1,Incorrect setting of the differential pressure regulator,3.1,M2,10,6.0,0.10919623437540504
+M2_E38,1,Incorrect setting of the differential pressure regulator,3.1,M2,10,12.0,0.040876166136113945
+M2_E38,1,Incorrect setting of the differential pressure regulator,3.1,M2,10,24.0,0.8544936274773317
+M2_E38,1,Incorrect setting of the differential pressure regulator,3.1,M2,10,48.0,0.7782146520526552
+M2_E38,1,Incorrect setting of the differential pressure regulator,3.1,M2,10,72.0,0.6933601995447356
+M2_E38,1,Incorrect setting of the differential pressure regulator,3.1,M2,10,168.0,0.8237803819376976
+M2_H38,0,normal,,M2,10,,0.1275215059019447
+M2_H38,0,normal,,M2,10,,0.6338973125266545
+M2_H38,0,normal,,M2,10,,0.3243911746715288
+M2_E37,1,unknown,,M2,4,6.0,0.839124367321853
+M2_E37,1,unknown,,M2,4,12.0,0.48341344953986604
+M2_E37,1,unknown,,M2,4,24.0,0.8118681638412456
+M2_E37,1,unknown,,M2,4,48.0,0.9121784185951949
+M2_E37,1,unknown,,M2,4,72.0,0.8830197484691593
+M2_E37,1,unknown,,M2,4,120.0,0.9106697835915302
+M2_E37,1,unknown,,M2,4,168.0,0.7637976300238088
+M2_H37,0,normal,,M2,4,,0.5091837474827684
+M2_H37,0,normal,,M2,4,,0.06675194995743805
+M2_H37,0,normal,,M2,4,,0.38059841535206673
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,6.0,0.49698353566225595
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,12.0,0.2305680252663818
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,24.0,0.5560637756744242
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,48.0,0.7293434544940416
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,72.0,0.8425481078218293
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,120.0,0.8791338453236476
+M2_E36,1,Failure of the domestic hot water storage charging pump,3.7,M2,20,168.0,0.8694882576164674
+M2_H36,0,normal,,M2,20,,0.15881392250185752
+M2_H36,0,normal,,M2,20,,0.30147530919483717
+M2_H36,0,normal,,M2,20,,0.659943906267107
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,6.0,0.6678948082678255
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,12.0,0.34272690876566675
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,24.0,0.5410502346705882
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,48.0,0.6172850206141989
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,72.0,0.905401463233482
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,120.0,0.5771392943932748
+M2_E31,1,Motorised control valve (primary side): Actuator defective,3.4,M2,16,168.0,0.6401771793328128
+M2_H31,0,normal,,M2,16,,0.0276527195774662
+M2_H31,0,normal,,M2,16,,0.008280091980499941
+M2_H31,0,normal,,M2,16,,0.14224579327016487
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,6.0,0.8691252934474215
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,12.0,0.4149511363122559
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,24.0,0.4064640516921045
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,48.0,0.6680381805396973
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,72.0,0.6421469059078283
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,120.0,0.7538252701938023
+M2_E30,1,Control unit: Incorrect parameterisation,4.0,M2,21,168.0,0.389585600675761
+M2_H30,0,normal,,M2,21,,0.020797053968477613
+M2_H30,0,normal,,M2,21,,0.6832448090467369
+M2_H30,0,normal,,M2,21,,0.1058948528868668
+M2_E29,1,Leakage,1.75,M2,19,6.0,0.862804528893092
+M2_E29,1,Leakage,1.75,M2,19,12.0,0.05754612256875285
+M2_E29,1,Leakage,1.75,M2,19,24.0,0.9666162734201141
+M2_E29,1,Leakage,1.75,M2,19,48.0,0.9225570746704812
+M2_E29,1,Leakage,1.75,M2,19,72.0,0.8885770171047449
+M2_E29,1,Leakage,1.75,M2,19,120.0,0.9406493198243538
+M2_E29,1,Leakage,1.75,M2,19,168.0,0.8453912540380094
+M2_H29,0,normal,,M2,19,,0.09564553811060972
+M2_H29,0,normal,,M2,19,,0.9774077666867158
+M2_H29,0,normal,,M2,19,,0.07857900105880676
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,6.0,0.38085624104406635
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,12.0,0.16671478995427616
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,24.0,0.9310145289084998
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,48.0,0.953193966266131
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,72.0,0.9632408299340872
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,120.0,0.9339621513976012
+M2_E28,1,Low pre-charge at the expansion vessel,2.9,M2,52,168.0,0.8607682773663096
+M2_H28,0,normal,,M2,52,,0.09339348890696215
+M2_H28,0,normal,,M2,52,,0.40998701264075343
+M2_H28,0,normal,,M2,52,,0.1506342920247248
+M2_E26,1,Air in the piping system,2.1,M2,39,6.0,0.41976367885804833
+M2_E26,1,Air in the piping system,2.1,M2,39,12.0,0.19045859449878627
+M2_E26,1,Air in the piping system,2.1,M2,39,24.0,0.5210070361676619
+M2_E26,1,Air in the piping system,2.1,M2,39,48.0,0.3162005272785854
+M2_E26,1,Air in the piping system,2.1,M2,39,72.0,0.5657139366840865
+M2_E26,1,Air in the piping system,2.1,M2,39,120.0,0.3313832135317959
+M2_E26,1,Air in the piping system,2.1,M2,39,168.0,0.44668955404787536
+M2_H26,0,normal,,M2,39,,0.11351618020328759
+M2_H26,0,normal,,M2,39,,0.05040505217647524
+M2_H26,0,normal,,M2,39,,0.19735638283878412
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,6.0,0.06691820997765643
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,12.0,0.37561553999517816
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,24.0,0.08659097734531745
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,48.0,0.08512166885879655
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,72.0,0.04036152174049719
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,120.0,0.08249046754955847
+M2_E25,1,Failure of the heating circuit pump,3.8,M2,10,168.0,0.10564708526573094
+M2_H25,0,normal,,M2,10,,0.6721458381316473
+M2_H25,0,normal,,M2,10,,0.09424337000579437
+M2_H25,0,normal,,M2,10,,0.0470609528221203
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,6.0,0.06795941611703447
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,12.0,0.023919214291278166
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,24.0,0.3819912827822752
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,48.0,0.5915354307533826
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,72.0,0.6616655896618833
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,120.0,0.6501111059553817
+M2_E22,1,Incorrect setting of the differential pressure regulator,3.1,M2,26,168.0,0.8706401977397459
+M2_H22,0,normal,,M2,26,,0.8190294601935448
+M2_H22,0,normal,,M2,26,,0.6127593577983528
+M2_H22,0,normal,,M2,26,,0.02764741590535505
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,6.0,0.324362852982137
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,12.0,0.857442301856623
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,24.0,0.8936533767702243
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,48.0,0.9258210486277585
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,72.0,0.9120531585253367
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,120.0,0.663945621157553
+M2_E21,1,Failure of the domestic hot water storage charging pump,3.7,M2,53,168.0,0.37309651552827766
+M2_H21,0,normal,,M2,53,,0.8553491773829508
+M2_H21,0,normal,,M2,53,,0.8527029537337972
+M2_H21,0,normal,,M2,53,,0.8099739192312386
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,6.0,0.19256713587984176
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,12.0,0.08596816874938087
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,24.0,0.3556396550631644
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,48.0,0.278564725957502
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,72.0,0.17583102013283142
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,120.0,0.29835369195380207
+M2_E20,1,Failure of the domestic hot water storage charging pump,3.7,M2,50,168.0,0.3216951998438965
+M2_H20,0,normal,,M2,50,,0.7712124135224346
+M2_H20,0,normal,,M2,50,,0.06851688740687148
+M2_H20,0,normal,,M2,50,,0.06846162989064758
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,6.0,0.1307646138863429
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,12.0,0.06132035397462838
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,24.0,0.3364989188762161
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,48.0,0.3519427876340591
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,72.0,0.638991761912892
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,120.0,0.2901825415426625
+M2_E18,1,Incorrect setting of the differential pressure regulator,3.1,M2,11,168.0,0.43479072033542737
+M2_H18,0,normal,,M2,11,,0.005208166573412623
+M2_H18,0,normal,,M2,11,,0.3466248735077219
+M2_H18,0,normal,,M2,11,,0.29064451915101097
+M2_E13,1,Leakage,1.75,M2,15,6.0,0.09182344077553665
+M2_E13,1,Leakage,1.75,M2,15,12.0,0.010908375593817611
+M2_E13,1,Leakage,1.75,M2,15,24.0,0.2233190708772506
+M2_E13,1,Leakage,1.75,M2,15,48.0,0.32231634425824807
+M2_E13,1,Leakage,1.75,M2,15,72.0,0.42826936982417163
+M2_E13,1,Leakage,1.75,M2,15,120.0,0.4923806084994897
+M2_E13,1,Leakage,1.75,M2,15,168.0,0.2784173049771498
+M2_H13,0,normal,,M2,15,,0.01992056857162713
+M2_H13,0,normal,,M2,15,,0.3497049262084878
+M2_H13,0,normal,,M2,15,,0.14811902746759956
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,6.0,0.5759148942860496
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,12.0,0.8590225361872745
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,24.0,0.7963633211497985
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,48.0,0.8951843909362132
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,72.0,0.8030961400624298
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,120.0,0.5198524048078779
+M2_E12,1,Strainer (secondary side): Poor flow rate,3.6,M2,43,168.0,0.8885443076028126
+M2_H12,0,normal,,M2,43,,0.9062634381148085
+M2_H12,0,normal,,M2,43,,0.34351749178901997
+M2_H12,0,normal,,M2,43,,0.42407994265600574
+M2_E10,1,Leakage,1.75,M2,18,6.0,0.9793833637142381
+M2_E10,1,Leakage,1.75,M2,18,12.0,0.9733856883495018
+M2_E10,1,Leakage,1.75,M2,18,24.0,0.9355088946898991
+M2_E10,1,Leakage,1.75,M2,18,48.0,0.9594606167515556
+M2_E10,1,Leakage,1.75,M2,18,72.0,0.9210556666036589
+M2_E10,1,Leakage,1.75,M2,18,120.0,0.9664140169419289
+M2_E10,1,Leakage,1.75,M2,18,168.0,0.9675937538848531
+M2_H10,0,normal,,M2,18,,0.968016910706782
+M2_H10,0,normal,,M2,18,,0.9375598258569537
+M2_H10,0,normal,,M2,18,,0.9590450416928105
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,6.0,0.8158521291252645
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,12.0,0.9213939354384599
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,24.0,0.5292490666439585
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,48.0,0.9453135969667901
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,72.0,0.8216946228600976
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,120.0,0.4128362921355103
+M2_E8,1,Failure of the heating circuit pump,3.8,M2,59,168.0,0.5355664709579974
+M2_H8,0,normal,,M2,59,,0.8231634450817967
+M2_H8,0,normal,,M2,59,,0.06689848354852607
+M2_H8,0,normal,,M2,59,,0.00171917253589324
+M2_E6,1,Leakage,1.75,M2,35,6.0,0.7160273824849237
+M2_E6,1,Leakage,1.75,M2,35,12.0,0.32536206967208753
+M2_E6,1,Leakage,1.75,M2,35,24.0,0.43478742439584067
+M2_E6,1,Leakage,1.75,M2,35,48.0,0.2991560667343324
+M2_E6,1,Leakage,1.75,M2,35,72.0,0.35909111119160136
+M2_E6,1,Leakage,1.75,M2,35,120.0,0.38997922008991154
+M2_E6,1,Leakage,1.75,M2,35,168.0,0.6558327835892165
+M2_H6,0,normal,,M2,35,,0.8036156949004296
+M2_H6,0,normal,,M2,35,,0.6032358322524302
+M2_H6,0,normal,,M2,35,,0.4849598068490206
+M2_E5,1,Leakage,1.75,M2,8,6.0,0.780352671307585
+M2_E5,1,Leakage,1.75,M2,8,12.0,0.671248009148836
+M2_E5,1,Leakage,1.75,M2,8,24.0,0.7399237553452698
+M2_E5,1,Leakage,1.75,M2,8,48.0,0.6016412232639008
+M2_E5,1,Leakage,1.75,M2,8,72.0,0.5140955788717182
+M2_E5,1,Leakage,1.75,M2,8,120.0,0.15240639707950024
+M2_E5,1,Leakage,1.75,M2,8,168.0,0.8490825480120693
+M2_H5,0,normal,,M2,8,,0.9177380327805119
+M2_H5,0,normal,,M2,8,,0.2542483162111437
+M2_H5,0,normal,,M2,8,,0.9673458841688458
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,6.0,0.01169738151883539
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,12.0,0.0999180896384139
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,24.0,0.07089750869456317
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,48.0,0.022986017876295513
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,72.0,0.018761183692137712
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,120.0,0.025596931982708005
+M2_E3,1,Motorised control valve (primary side): Incorrect setting of the actuator travel time,3.3,M2,45,168.0,0.048998826468303204
+M2_H3,0,normal,,M2,45,,0.5350096264578591
+M2_H3,0,normal,,M2,45,,0.11933746229246012
+M2_H3,0,normal,,M2,45,,0.005106208544345392
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,6.0,0.36870359217035675
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,12.0,0.20815279032646605
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,24.0,0.682337784000205
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,48.0,0.6995007518545141
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,72.0,0.6949024268649665
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,120.0,0.7393899263925869
+M2_E2,1,Incorrect setting of the differential pressure regulator,3.1,M2,53,168.0,0.32702104333397713
+M2_H2,0,normal,,M2,53,,0.6831316899255051
+M2_H2,0,normal,,M2,53,,0.24594007659796208
+M2_H2,0,normal,,M2,53,,0.9260496756395337
+M2_E1,1,Shut-off valve closed,2.8,M2,24,6.0,0.201712975784354
+M2_E1,1,Shut-off valve closed,2.8,M2,24,12.0,0.028091871571956934
+M2_E1,1,Shut-off valve closed,2.8,M2,24,24.0,0.25241557535242637
+M2_E1,1,Shut-off valve closed,2.8,M2,24,48.0,0.17431500675179173
+M2_E1,1,Shut-off valve closed,2.8,M2,24,72.0,0.2586053264319852
+M2_E1,1,Shut-off valve closed,2.8,M2,24,120.0,0.38734402906616283
+M2_E1,1,Shut-off valve closed,2.8,M2,24,168.0,0.3560578151374951
+M2_H1,0,normal,,M2,24,,0.9810826878329832
+M2_H1,0,normal,,M2,24,,0.11085161430492124
+M2_H1,0,normal,,M2,24,,0.276842625427056
+M1_N2,0,normal,,M1,9,,0.01386393536637705
+M1_N2,0,normal,,M1,9,,0.23085910409575022
+M1_N2,0,normal,,M1,9,,0.06981568524615603
+M1_N2,0,normal,,M1,9,,0.03093189037914223
+M1_N2,0,normal,,M1,9,,0.18081562606643595
+M1_N2,0,normal,,M1,9,,0.3252112374327039
+M1_N4,0,normal,,M1,15,,0.07697622702027909
+M1_N4,0,normal,,M1,15,,0.24446564845292632
+M1_N4,0,normal,,M1,15,,0.2440846717842375
+M1_N4,0,normal,,M1,15,,0.13679379643860912
+M1_N4,0,normal,,M1,15,,0.3198617070889705
+M1_N4,0,normal,,M1,15,,0.1604127398270163
+M1_N8,0,normal,,M1,6,,0.0039398903100589374
+M1_N8,0,normal,,M1,6,,0.010802034265790371
+M1_N8,0,normal,,M1,6,,0.01669065947237406
+M1_N8,0,normal,,M1,6,,0.004102972155030476
+M1_N8,0,normal,,M1,6,,0.04085728434420191
+M1_N8,0,normal,,M1,6,,0.034725715479946656
+M1_N12,0,normal,,M1,19,,0.05718915042249782
+M1_N12,0,normal,,M1,19,,0.2782577694234583
+M1_N12,0,normal,,M1,19,,0.10973825194388429
+M1_N12,0,normal,,M1,19,,0.04372752235295469
+M1_N12,0,normal,,M1,19,,0.18466207575586244
+M1_N12,0,normal,,M1,19,,0.09327677448138531
+M1_N14,0,normal,,M1,26,,0.21818142371757066
+M1_N14,0,normal,,M1,26,,0.4411729770313967
+M1_N14,0,normal,,M1,26,,0.7833273086971495
+M1_N14,0,normal,,M1,26,,0.3214837728536899
+M1_N14,0,normal,,M1,26,,0.602881207627373
+M1_N14,0,normal,,M1,26,,0.6598996251858094
+M1_N16,0,normal,,M1,17,,0.004528999110250242
+M1_N16,0,normal,,M1,17,,0.06429699533808322
+M1_N16,0,normal,,M1,17,,0.45985687262246017
+M1_N16,0,normal,,M1,17,,0.0354946743745229
+M1_N16,0,normal,,M1,17,,0.3645065686177235
+M1_N16,0,normal,,M1,17,,0.37071396910887705
+M1_N17,0,normal,,M1,2,,0.015139619752064319
+M1_N17,0,normal,,M1,2,,0.38386365263966993
+M1_N17,0,normal,,M1,2,,0.14171571127958152
+M1_N17,0,normal,,M1,2,,0.028362374108093943
+M1_N17,0,normal,,M1,2,,0.39094938041163474
+M1_N17,0,normal,,M1,2,,0.17964375881270525
+M1_N18,0,normal,,M1,16,,0.08581552892178959
+M1_N18,0,normal,,M1,16,,0.22420866769600642
+M1_N18,0,normal,,M1,16,,0.2139389109350765
+M1_N18,0,normal,,M1,16,,0.15987360141372167
+M1_N18,0,normal,,M1,16,,0.21242403039389307
+M1_N18,0,normal,,M1,16,,0.4674693267183281
+M1_N19,0,normal,,M1,8,,0.058963272428923325
+M1_N19,0,normal,,M1,8,,0.2765381919683858
+M1_N19,0,normal,,M1,8,,0.45196185679148404
+M1_N19,0,normal,,M1,8,,0.026749271169005308
+M1_N19,0,normal,,M1,8,,0.6762879714577525
+M1_N19,0,normal,,M1,8,,0.13360836824007527
+M1_N21,0,normal,,M1,1,,0.020443259742279576
+M1_N21,0,normal,,M1,1,,0.2338183098054257
+M1_N21,0,normal,,M1,1,,0.07845544139107465
+M1_N21,0,normal,,M1,1,,0.02149188308300248
+M1_N21,0,normal,,M1,1,,0.07435938684739946
+M1_N21,0,normal,,M1,1,,0.07279278279072307
+M1_N22,0,normal,,M1,5,,0.13682938574935746
+M1_N22,0,normal,,M1,5,,0.09379777407681987
+M1_N22,0,normal,,M1,5,,0.024782904926997217
+M1_N22,0,normal,,M1,5,,0.01890308003331128
+M1_N22,0,normal,,M1,5,,0.14391378565829102
+M1_N22,0,normal,,M1,5,,0.02509822859628255
+M1_N25,0,normal,,M1,20,,0.021119567509607143
+M1_N25,0,normal,,M1,20,,0.10088570330023709
+M1_N25,0,normal,,M1,20,,0.17110447098472448
+M1_N25,0,normal,,M1,20,,0.07247269228002094
+M1_N25,0,normal,,M1,20,,0.08997331078169225
+M1_N25,0,normal,,M1,20,,0.051782183272847976
+M1_N26,0,normal,,M1,4,,0.016901225367297174
+M1_N26,0,normal,,M1,4,,0.10854783458556419
+M1_N26,0,normal,,M1,4,,0.4909452209393399
+M1_N26,0,normal,,M1,4,,0.03866969194144525
+M1_N26,0,normal,,M1,4,,0.6945176899879552
+M1_N26,0,normal,,M1,4,,0.2837704558810539
+M1_N27,0,normal,,M1,12,,0.05509184817086753
+M1_N27,0,normal,,M1,12,,0.07829767247886438
+M1_N27,0,normal,,M1,12,,0.7251561673494623
+M1_N27,0,normal,,M1,12,,0.07130953034949371
+M1_N27,0,normal,,M1,12,,0.10865681733563766
+M1_N27,0,normal,,M1,12,,0.43369345810341065
+M1_N28,0,normal,,M1,7,,0.5708428672544791
+M1_N28,0,normal,,M1,7,,0.2681526988376367
+M1_N28,0,normal,,M1,7,,0.5467514597087894
+M1_N28,0,normal,,M1,7,,0.22141918791696505
+M1_N28,0,normal,,M1,7,,0.4865733994291173
+M1_N28,0,normal,,M1,7,,0.8882806038952665
+M1_N30,0,normal,,M1,16,,0.07256489715818917
+M1_N30,0,normal,,M1,16,,0.5407991151344737
+M1_N30,0,normal,,M1,16,,0.7228609805293471
+M1_N30,0,normal,,M1,16,,0.1055160740098412
+M1_N30,0,normal,,M1,16,,0.10928270280644178
+M1_N30,0,normal,,M1,16,,0.4372944255040195
+M1_N31,0,normal,,M1,3,,0.009813376764505758
+M1_N31,0,normal,,M1,3,,0.022758854971708983
+M1_N31,0,normal,,M1,3,,0.052580376551408244
+M1_N31,0,normal,,M1,3,,0.007470207828802929
+M1_N31,0,normal,,M1,3,,0.06724368222308301
+M1_N31,0,normal,,M1,3,,0.04336236604940228
+M1_N33,0,normal,,M1,3,,0.0482748838418764
+M1_N33,0,normal,,M1,3,,0.20422115707559896
+M1_N33,0,normal,,M1,3,,0.060090357200480934
+M1_N33,0,normal,,M1,3,,0.032511081722371264
+M1_N33,0,normal,,M1,3,,0.02142222479028357
+M1_N33,0,normal,,M1,3,,0.18982099256297333
+M1_N35,0,normal,,M1,11,,0.01867482565451768
+M1_N35,0,normal,,M1,11,,0.028660830868425573
+M1_N35,0,normal,,M1,11,,0.03454816891438399
+M1_N35,0,normal,,M1,11,,0.07218033616842469
+M1_N35,0,normal,,M1,11,,0.012226824403059482
+M1_N35,0,normal,,M1,11,,0.04837676072395319
+M1_N39,0,normal,,M1,15,,0.01291712670362479
+M1_N39,0,normal,,M1,15,,0.07916283133004381
+M1_N39,0,normal,,M1,15,,0.019323698068929137
+M1_N39,0,normal,,M1,15,,0.027712987358062494
+M1_N39,0,normal,,M1,15,,0.050822742166581884
+M1_N39,0,normal,,M1,15,,0.04599255466066732
+M1_N41,0,normal,,M1,2,,0.018079248471445465
+M1_N41,0,normal,,M1,2,,0.10263422367598621
+M1_N41,0,normal,,M1,2,,0.03244446934989421
+M1_N41,0,normal,,M1,2,,0.010056797403729938
+M1_N41,0,normal,,M1,2,,0.09450646734862751
+M1_N41,0,normal,,M1,2,,0.21350628055200094
+M1_N42,0,normal,,M1,22,,0.010910688846375692
+M1_N42,0,normal,,M1,22,,0.02352466325347758
+M1_N42,0,normal,,M1,22,,0.09577631552698504
+M1_N42,0,normal,,M1,22,,0.010233431431276457
+M1_N42,0,normal,,M1,22,,0.012723822662152986
+M1_N42,0,normal,,M1,22,,0.03611845283650251
+M1_N43,0,normal,,M1,25,,0.011847045017481997
+M1_N43,0,normal,,M1,25,,0.03766332308652369
+M1_N43,0,normal,,M1,25,,0.03497322641166514
+M1_N43,0,normal,,M1,25,,0.0016365502124318246
+M1_N43,0,normal,,M1,25,,0.033812818853863245
+M1_N43,0,normal,,M1,25,,0.04745620667296731
+M1_N46,0,normal,,M1,4,,0.023731384686430507
+M1_N46,0,normal,,M1,4,,0.259429948728914
+M1_N46,0,normal,,M1,4,,0.33959270153134824
+M1_N46,0,normal,,M1,4,,0.050888262046435165
+M1_N46,0,normal,,M1,4,,0.32649070144148645
+M1_N46,0,normal,,M1,4,,0.7096455442493783
+M1_N48,0,normal,,M1,11,,0.012997208497859321
+M1_N48,0,normal,,M1,11,,0.024002944045970868
+M1_N48,0,normal,,M1,11,,0.020730128065516364
+M1_N48,0,normal,,M1,11,,0.011273100297448277
+M1_N48,0,normal,,M1,11,,0.015483910193778764
+M1_N48,0,normal,,M1,11,,0.07875891171352946
+M1_N50,0,normal,,M1,17,,0.19474328632614332
+M1_N50,0,normal,,M1,17,,0.6645947862098902
+M1_N50,0,normal,,M1,17,,0.0949869794591648
+M1_N50,0,normal,,M1,17,,0.24271693796515337
+M1_N50,0,normal,,M1,17,,0.15540802521308722
+M1_N50,0,normal,,M1,17,,0.09825931006058246
+M1_N51,0,normal,,M1,20,,0.037907486561218985
+M1_N51,0,normal,,M1,20,,0.6702862184949235
+M1_N51,0,normal,,M1,20,,0.6531754850740424
+M1_N51,0,normal,,M1,20,,0.023405844926969496
+M1_N51,0,normal,,M1,20,,0.6175472964872563
+M1_N51,0,normal,,M1,20,,0.4497191848082556
+M1_N54,0,normal,,M1,22,,0.018230665446771245
+M1_N54,0,normal,,M1,22,,0.03373787115958966
+M1_N54,0,normal,,M1,22,,0.32272628182366625
+M1_N54,0,normal,,M1,22,,0.034563922607000606
+M1_N54,0,normal,,M1,22,,0.01672448337776179
+M1_N54,0,normal,,M1,22,,0.04338972807628834
+M1_N55,0,normal,,M1,23,,0.017326618103782606
+M1_N55,0,normal,,M1,23,,0.06414556671910435
+M1_N55,0,normal,,M1,23,,0.07438835401969426
+M1_N55,0,normal,,M1,23,,0.020643563859906244
+M1_N55,0,normal,,M1,23,,0.07476323376822895
+M1_N55,0,normal,,M1,23,,0.045321849114388316
+M1_N56,0,normal,,M1,2,,0.10250361360210442
+M1_N56,0,normal,,M1,2,,0.8557147887828964
+M1_N56,0,normal,,M1,2,,0.5200506640714173
+M1_N56,0,normal,,M1,2,,0.042688617711828684
+M1_N56,0,normal,,M1,2,,0.7974702434326806
+M1_N56,0,normal,,M1,2,,0.7780714942534952
+M1_N58,0,normal,,M1,5,,0.03353537636237372
+M1_N58,0,normal,,M1,5,,0.03512226523348438
+M1_N58,0,normal,,M1,5,,0.06613765899328299
+M1_N58,0,normal,,M1,5,,0.130238242819252
+M1_N58,0,normal,,M1,5,,0.5932043463019715
+M1_N58,0,normal,,M1,5,,0.12054873757899968
+M1_N59,0,normal,,M1,22,,0.05050443158027376
+M1_N59,0,normal,,M1,22,,0.7985087875833893
+M1_N59,0,normal,,M1,22,,0.23659709384354324
+M1_N59,0,normal,,M1,22,,0.03533690543253172
+M1_N59,0,normal,,M1,22,,0.443220535114433
+M1_N59,0,normal,,M1,22,,0.3211934975214815
+M1_N61,0,normal,,M1,14,,0.042562252097060396
+M1_N61,0,normal,,M1,14,,0.18858522567437955
+M1_N61,0,normal,,M1,14,,0.054799287919274985
+M1_N61,0,normal,,M1,14,,0.05529285691920111
+M1_N61,0,normal,,M1,14,,0.11729633179301972
+M1_N61,0,normal,,M1,14,,0.1388707635622181
+M1_N66,0,normal,,M1,19,,0.09611997549776001
+M1_N66,0,normal,,M1,19,,0.4801953396451571
+M1_N66,0,normal,,M1,19,,0.13428617646861724
+M1_N66,0,normal,,M1,19,,0.07864704012103961
+M1_N66,0,normal,,M1,19,,0.18204634497740288
+M1_N66,0,normal,,M1,19,,0.5068572406169353
+M1_N68,0,normal,,M1,13,,0.06731420761108908
+M1_N68,0,normal,,M1,13,,0.24906086745000452
+M1_N68,0,normal,,M1,13,,0.03959162139965218
+M1_N68,0,normal,,M1,13,,0.04418347613278888
+M1_N68,0,normal,,M1,13,,0.08729976379418719
+M1_N68,0,normal,,M1,13,,0.09190190308374573
+M2_N43,0,normal,,M2,24,,0.02997299707161686
+M2_N43,0,normal,,M2,24,,0.028157933282121614
+M2_N43,0,normal,,M2,24,,0.10571016493132393
+M2_N43,0,normal,,M2,24,,0.03168714952534368
+M2_N43,0,normal,,M2,24,,0.04347079671323327
+M2_N43,0,normal,,M2,24,,0.13012085653417862
+M2_N44,0,normal,,M2,53,,0.011317468556073556
+M2_N44,0,normal,,M2,53,,0.08215948647304656
+M2_N44,0,normal,,M2,53,,0.048443482341502815
+M2_N44,0,normal,,M2,53,,0.0071522364440769325
+M2_N44,0,normal,,M2,53,,0.15489750919091017
+M2_N44,0,normal,,M2,53,,0.03179539395064009
+M2_N45,0,normal,,M2,53,,0.08417782214795924
+M2_N45,0,normal,,M2,53,,0.35723575021310866
+M2_N45,0,normal,,M2,53,,0.34680152571999306
+M2_N45,0,normal,,M2,53,,0.5088718463285492
+M2_N45,0,normal,,M2,53,,0.24330705734510522
+M2_N45,0,normal,,M2,53,,0.2996215215931394
+M2_N46,0,normal,,M2,8,,0.3250955227926652
+M2_N46,0,normal,,M2,8,,0.05257643559137947
+M2_N46,0,normal,,M2,8,,0.1700089454663343
+M2_N46,0,normal,,M2,8,,0.14481912740058325
+M2_N46,0,normal,,M2,8,,0.036668895057582876
+M2_N46,0,normal,,M2,8,,0.24062544025742844
+M2_N47,0,normal,,M2,35,,0.02465146047280802
+M2_N47,0,normal,,M2,35,,0.4440786304635275
+M2_N47,0,normal,,M2,35,,0.22358089248341284
+M2_N47,0,normal,,M2,35,,0.015589189271390656
+M2_N47,0,normal,,M2,35,,0.43141908000393453
+M2_N47,0,normal,,M2,35,,0.14316659459620948
+M2_N48,0,normal,,M2,59,,0.0382000374443646
+M2_N48,0,normal,,M2,59,,0.10513344698568503
+M2_N48,0,normal,,M2,59,,0.11053106004640752
+M2_N48,0,normal,,M2,59,,0.04645952003752831
+M2_N48,0,normal,,M2,59,,0.4171974084067248
+M2_N48,0,normal,,M2,59,,0.04134788423176461
+M2_N49,0,normal,,M2,43,,0.012848307250623766
+M2_N49,0,normal,,M2,43,,0.19270163500918933
+M2_N49,0,normal,,M2,43,,0.1693452861798817
+M2_N49,0,normal,,M2,43,,0.017533155313804134
+M2_N49,0,normal,,M2,43,,0.03734877067805204
+M2_N49,0,normal,,M2,43,,0.04003930217728741
+M2_N50,0,normal,,M2,11,,0.006414529704402695
+M2_N50,0,normal,,M2,11,,0.10555433218328326
+M2_N50,0,normal,,M2,11,,0.18008319094005504
+M2_N50,0,normal,,M2,11,,0.006639281550532101
+M2_N50,0,normal,,M2,11,,0.38165144562658027
+M2_N50,0,normal,,M2,11,,0.08090576121246863
+M2_N51,0,normal,,M2,26,,0.007790879556449493
+M2_N51,0,normal,,M2,26,,0.00871743088174172
+M2_N51,0,normal,,M2,26,,0.010410589862834059
+M2_N51,0,normal,,M2,26,,0.02094039255157739
+M2_N51,0,normal,,M2,26,,0.09238717365667704
+M2_N51,0,normal,,M2,26,,0.19682279889406903
+M2_N52,0,normal,,M2,52,,0.009779651399509003
+M2_N52,0,normal,,M2,52,,0.06928361274051621
+M2_N52,0,normal,,M2,52,,0.023003073241911993
+M2_N52,0,normal,,M2,52,,0.011748413859546749
+M2_N52,0,normal,,M2,52,,0.24417679616142818
+M2_N52,0,normal,,M2,52,,0.06514084200059901
+M2_N53,0,normal,,M2,52,,0.020896290209769283
+M2_N53,0,normal,,M2,52,,0.048203052415649705
+M2_N53,0,normal,,M2,52,,0.024678644613695497
+M2_N53,0,normal,,M2,52,,0.09944901923811009
+M2_N53,0,normal,,M2,52,,0.015806948309006388
+M2_N53,0,normal,,M2,52,,0.07470046554838985
+M2_N54,0,normal,,M2,52,,0.00836067783789291
+M2_N54,0,normal,,M2,52,,0.08255260249004374
+M2_N54,0,normal,,M2,52,,0.007576642722933562
+M2_N54,0,normal,,M2,52,,0.013096610811907744
+M2_N54,0,normal,,M2,52,,0.015957761406508505
+M2_N54,0,normal,,M2,52,,0.02645085287425846
+M2_N55,0,normal,,M2,52,,0.09596204316795243
+M2_N55,0,normal,,M2,52,,0.10788705898600333
+M2_N55,0,normal,,M2,52,,0.238125289605406
+M2_N55,0,normal,,M2,52,,0.02185492404326112
+M2_N55,0,normal,,M2,52,,0.3202299021958533
+M2_N55,0,normal,,M2,52,,0.1914773131167705
+M2_N56,0,normal,,M2,19,,0.06322584992491233
+M2_N56,0,normal,,M2,19,,0.02431904744972446
+M2_N56,0,normal,,M2,19,,0.11311267185350529
+M2_N56,0,normal,,M2,19,,0.030270712350567254
+M2_N56,0,normal,,M2,19,,0.033816375587179356
+M2_N56,0,normal,,M2,19,,0.3298145801431677
+M2_N57,0,normal,,M2,19,,0.027615131812472864
+M2_N57,0,normal,,M2,19,,0.16366804053413153
+M2_N57,0,normal,,M2,19,,0.053494650377241056
+M2_N57,0,normal,,M2,19,,0.01771858585743313
+M2_N57,0,normal,,M2,19,,0.0753775169923399
+M2_N57,0,normal,,M2,19,,0.19380309405489798
+M2_N58,0,normal,,M2,19,,0.058127771108262956
+M2_N58,0,normal,,M2,19,,0.05411489325689109
+M2_N58,0,normal,,M2,19,,0.058779271128719335
+M2_N58,0,normal,,M2,19,,0.006099895065183827
+M2_N58,0,normal,,M2,19,,0.1560088818618196
+M2_N58,0,normal,,M2,19,,0.19691723506117545
+M2_N59,0,normal,,M2,10,,0.059020687089676206
+M2_N59,0,normal,,M2,10,,0.08326759090230731
+M2_N59,0,normal,,M2,10,,0.16465043735863086
+M2_N59,0,normal,,M2,10,,0.14850699626432617
+M2_N59,0,normal,,M2,10,,0.07901414460141434
+M2_N59,0,normal,,M2,10,,0.09556204153336527
+M2_N60,0,normal,,M2,10,,0.04850753432129398
+M2_N60,0,normal,,M2,10,,0.04263671986597415
+M2_N60,0,normal,,M2,10,,0.025286160283618915
+M2_N60,0,normal,,M2,10,,0.006493814333912613
+M2_N60,0,normal,,M2,10,,0.047896326139702385
+M2_N60,0,normal,,M2,10,,0.0672984992327946
+M2_N61,0,normal,,M2,4,,0.07292701379981853
+M2_N61,0,normal,,M2,4,,0.056257313994528546
+M2_N61,0,normal,,M2,4,,0.08940932590325625
+M2_N61,0,normal,,M2,4,,0.23982283421596698
+M2_N61,0,normal,,M2,4,,0.11829986066150171
+M2_N61,0,normal,,M2,4,,0.28741537085158514
+M2_N62,0,normal,,M2,4,,0.09532383564256017
+M2_N62,0,normal,,M2,4,,0.1597029963513681
+M2_N62,0,normal,,M2,4,,0.06200874648238309
+M2_N62,0,normal,,M2,4,,0.07854775276744158
+M2_N62,0,normal,,M2,4,,0.18424224327289543
+M2_N62,0,normal,,M2,4,,0.13336595186745007
+M2_N63,0,normal,,M2,4,,0.029148926439761958
+M2_N63,0,normal,,M2,4,,0.0756688561464049
+M2_N63,0,normal,,M2,4,,0.29872484565952034
+M2_N63,0,normal,,M2,4,,0.18114883657488975
+M2_N63,0,normal,,M2,4,,0.5724873717721971
+M2_N63,0,normal,,M2,4,,0.3442088920156025
+M2_N64,0,normal,,M2,7,,0.012340666283239876
+M2_N64,0,normal,,M2,7,,0.020306166056777337
+M2_N64,0,normal,,M2,7,,0.18145930889075046
+M2_N64,0,normal,,M2,7,,0.024026423589971906
+M2_N64,0,normal,,M2,7,,0.01599200674218461
+M2_N64,0,normal,,M2,7,,0.1741857495957999
+M2_N65,0,normal,,M2,9,,0.21465000006056636
+M2_N65,0,normal,,M2,9,,0.08535269567790177
+M2_N65,0,normal,,M2,9,,0.11217526613613352
+M2_N65,0,normal,,M2,9,,0.14272691798001788
+M2_N65,0,normal,,M2,9,,0.21191863098302413
+M2_N65,0,normal,,M2,9,,0.4770544042745266
+M2_N66,0,normal,,M2,12,,0.145905883087127
+M2_N66,0,normal,,M2,12,,0.2073960899437613
+M2_N66,0,normal,,M2,12,,0.3621468520800544
+M2_N66,0,normal,,M2,12,,0.35641829993956553
+M2_N66,0,normal,,M2,12,,0.29108418594627206
+M2_N66,0,normal,,M2,12,,0.44899810050734473
+M2_N67,0,normal,,M2,31,,0.03578533519470833
+M2_N67,0,normal,,M2,31,,0.16042806710207919
+M2_N67,0,normal,,M2,31,,0.3875819642044227
+M2_N67,0,normal,,M2,31,,0.040806199347659555
+M2_N67,0,normal,,M2,31,,0.5188257857066474
+M2_N67,0,normal,,M2,31,,0.3441343607502597
+M2_N68,0,normal,,M2,40,,0.017186269161640674
+M2_N68,0,normal,,M2,40,,0.012418050737064692
+M2_N68,0,normal,,M2,40,,0.028170010583855168
+M2_N68,0,normal,,M2,40,,0.01791167411558185
+M2_N68,0,normal,,M2,40,,0.023844758759289132
+M2_N68,0,normal,,M2,40,,0.04991580316432769
+M2_N69,0,normal,,M2,40,,0.015456718152330445
+M2_N69,0,normal,,M2,40,,0.10668381003530115
+M2_N69,0,normal,,M2,40,,0.21539729378946604
+M2_N69,0,normal,,M2,40,,0.04008256960430296
+M2_N69,0,normal,,M2,40,,0.1766598349474801
+M2_N69,0,normal,,M2,40,,0.13901570594237
+M2_N70,0,normal,,M2,49,,0.030521913003064057
+M2_N70,0,normal,,M2,49,,0.19429459388133322
+M2_N70,0,normal,,M2,49,,0.07033378909644
+M2_N70,0,normal,,M2,49,,0.011682454329166666
+M2_N70,0,normal,,M2,49,,0.033480526287903926
+M2_N70,0,normal,,M2,49,,0.1350289923632869
+M2_N71,0,normal,,M2,55,,0.009719633546371814
+M2_N71,0,normal,,M2,55,,0.008340999378020497
+M2_N71,0,normal,,M2,55,,0.010252137890718906
+M2_N71,0,normal,,M2,55,,0.013006831674920937
+M2_N71,0,normal,,M2,55,,0.008982846580100559
+M2_N71,0,normal,,M2,55,,0.029341796125720097
+M2_N72,0,normal,,M2,60,,0.01197408129765885
+M2_N72,0,normal,,M2,60,,0.10813922023506707
+M2_N72,0,normal,,M2,60,,0.03435880649412032
+M2_N72,0,normal,,M2,60,,0.007752601802514135
+M2_N72,0,normal,,M2,60,,0.07362507348003267
+M2_N72,0,normal,,M2,60,,0.1037674944812091
