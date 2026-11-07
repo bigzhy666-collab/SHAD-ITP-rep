@@ -1,0 +1,111 @@
+{
+  "viewports": [
+    {
+      "name": "overview",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "name": "networks",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "name": "monitoring",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "name": "diagnosis",
+      "width": 1920,
+      "overflow": false
+    },
+    {
+      "name": "overview",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "name": "networks",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "name": "monitoring",
+      "width": 375,
+      "overflow": false
+    },
+    {
+      "name": "diagnosis",
+      "width": 375,
+      "overflow": false
+    }
+  ],
+  "contrast": [
+    {
+      "fg": "--text",
+      "bg": "--surface",
+      "ratio": 14.63
+    },
+    {
+      "fg": "--muted",
+      "bg": "--canvas",
+      "ratio": 4.9
+    },
+    {
+      "fg": "--muted",
+      "bg": "--primary-soft",
+      "ratio": 4.71
+    },
+    {
+      "fg": "--primary",
+      "bg": "--surface",
+      "ratio": 5.17
+    },
+    {
+      "fg": "--on-primary",
+      "bg": "--primary",
+      "ratio": 5.17
+    },
+    {
+      "fg": "--danger",
+      "bg": "--danger-soft",
+      "ratio": 5.91
+    },
+    {
+      "fg": "--success",
+      "bg": "--success-soft",
+      "ratio": 4.79
+    },
+    {
+      "fg": "--warning",
+      "bg": "--warning-soft",
+      "ratio": 6.84
+    },
+    {
+      "fg": "--purple",
+      "bg": "--purple-soft",
+      "ratio": 6.48
+    },
+    {
+      "fg": "--metric-supply-text",
+      "bg": "--surface",
+      "ratio": 5.18
+    },
+    {
+      "fg": "--metric-return-text",
+      "bg": "--surface",
+      "ratio": 5.36
+    },
+    {
+      "fg": "--metric-pressure-text",
+      "bg": "--surface",
+      "ratio": 5.7
+    },
+    {
+      "fg": "--metric-flow-text",
+      "bg": "--surface",
+      "ratio": 5.93
+    }
+  ]
+}

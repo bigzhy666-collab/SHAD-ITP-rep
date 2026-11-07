@@ -1,0 +1,60 @@
+{
+  "c_thr_global": 13,
+  "variant": "default",
+  "metrics": [
+    {
+      "c_thr": 7,
+      "TP": 15,
+      "FP": 0,
+      "FN": 11,
+      "TN": 35,
+      "precision": 1.0,
+      "recall": 0.5769230769230769,
+      "f0_5": 0.8720930232558138,
+      "A": 1.0,
+      "FAR_event": 0.0,
+      "E": 0.5424336716524216,
+      "lead_days_mean": 4.161144290123456,
+      "lead_days_median": 4.763194444444444,
+      "n_detected": 15,
+      "manufacturer": "M1",
+      "n_events": 61
+    },
+    {
+      "c_thr": 3,
+      "TP": 13,
+      "FP": 7,
+      "FN": 11,
+      "TN": 23,
+      "precision": 0.65,
+      "recall": 0.5416666666666666,
+      "f0_5": 0.625,
+      "A": 0.9773491592482692,
+      "FAR_event": 0.23333333333333334,
+      "E": 0.4676697530864198,
+      "lead_days_mean": 2.9364138176638175,
+      "lead_days_median": 2.7430555555555554,
+      "n_detected": 13,
+      "manufacturer": "M2",
+      "n_events": 54
+    },
+    {
+      "c_thr": 13,
+      "TP": 22,
+      "FP": 2,
+      "FN": 28,
+      "TN": 63,
+      "precision": 0.9166666666666666,
+      "recall": 0.44,
+      "f0_5": 0.7534246575342465,
+      "A": 0.9961652590732709,
+      "FAR_event": 0.03076923076923077,
+      "E": 0.3837831018518518,
+      "lead_days_mean": 3.57618002946128,
+      "lead_days_median": 3.921527777777778,
+      "n_detected": 22,
+      "manufacturer": "ALL",
+      "n_events": 115
+    }
+  ]
+}

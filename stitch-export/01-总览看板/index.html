@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>SHAD · 智慧供热异常检测与辅助诊断平台 - 总览看板</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-base": "#0A0B0E",
+          "surface-canvas": "#101116",
+          "surface-card": "#14161B",
+          "surface-card-hover": "#1C1F26",
+          "surface-container": "#1B1D23",
+          "border-subtle": "#1E222A",
+          "border-grid": "#2B2E36",
+          "primary": "#FB7A18",
+          "primary-dim": "#FFB877",
+          "metric-supply": "#FF7849",
+          "metric-return": "#00B4D8",
+          "metric-pressure": "#A855F7",
+          "metric-flow": "#10B981",
+          "urgent": "#EF4444",
+          "warning": "#F59E0B",
+          "real": "#10B981",
+          "on-surface": "#E2E2E9",
+          "on-surface-variant": "#9CA3AF",
+          "outline": "#6B7280"
+        },
+        fontFamily: {
+          sans: ["Space Grotesk", "system-ui", "sans-serif"],
+          mono: ["JetBrains Mono", "monospace"],
+          condensed: ["Barlow Condensed", "sans-serif"]
+        },
+        borderRadius: {
+          DEFAULT: "2px",
+          sm: "2px",
+          md: "3px",
+          lg: "4px"
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --bg-base: #0A0B0E;
+    --bg-canvas: #101116;
+    --bg-card: #14161B;
+    --bg-card-hover: #1A1D24;
+    --border-subtle: #232731;
+    --border-grid: #2B2E36;
+    --primary: #FB7A18;
+    --primary-light: #FFB877;
+    --metric-supply: #FF7849;
+    --metric-return: #00B4D8;
+    --metric-pressure: #A855F7;
+    --metric-flow: #10B981;
+    --urgent: #EF4444;
+    --warning: #F59E0B;
+    --real: #10B981;
+    --on-surface: #E2E2E9;
+    --on-surface-variant: #9CA3AF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--bg-base);
+    color: var(--on-surface);
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* 工业 SCADA 40px*40px 深色极简网格 */
+  .scada-grid-bg {
+    background-color: var(--bg-canvas);
+    background-image: 
+      linear-gradient(to right, rgba(43, 46, 54, 0.28) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(43, 46, 54, 0.28) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
+  /* 工业细边框卡片 */
+  .scada-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-grid);
+    border-radius: 3px;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  }
+  .scada-card:hover {
+    border-color: #3B404C;
+  }
+
+  /* 工控标题条头标 */
+  .scada-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-grid);
+    background: rgba(10, 11, 14, 0.45);
+  }
+  .scada-card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #F3F4F6;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    text-transform: uppercase;
+  }
+  .scada-card-title .tag-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    background: rgba(251, 122, 24, 0.15);
+    border: 1px solid rgba(251, 122, 24, 0.4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+  }
+
+  /* 告警深红强调卡片 */
+  .scada-card-urgent {
+    border-color: rgba(239, 68, 68, 0.55);
+    background: linear-gradient(180deg, rgba(239, 68, 68, 0.06) 0%, rgba(20, 22, 27, 0.95) 100%);
+  }
+
+  /* 工控按键 */
+  .scada-btn {
+    border: 1px solid var(--border-grid);
+    background: #171A21;
+    color: var(--on-surface);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 9px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .scada-btn:hover {
+    background: #20242E;
+    border-color: var(--primary);
+    color: #FFF;
+  }
+  .scada-btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #100600;
+    font-weight: 700;
+  }
+  .scada-btn-primary:hover {
+    background: #FFA155;
+    color: #000;
+  }
+
+  /* 告警红绿状态点 */
+  .status-dot-ok {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--real);
+    box-shadow: 0 0 6px rgba(16, 185, 129, 0.8);
+    animation: pulseSlow 2s infinite ease-in-out;
+  }
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.85); }
+  }
+
+  /* 工业折线图Tooltip */
+  .scada-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: #14171E;
+    border: 1px solid var(--primary);
+    border-radius: 2px;
+    padding: 6px 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: #F3F4F6;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.7);
+    opacity: 0;
+    z-index: 50;
+    transition: opacity 0.1s;
+  }
+</style>
+</head>
+<body>
+<div class="flex min-h-screen bg-surface-base">
+<!-- ==================== 1. SCADA 标准工控深色侧边栏 ==================== -->
+<aside class="w-[240px] shrink-0 bg-[#0E1015] border-r border-border-grid flex flex-col h-screen sticky top-0 z-40 select-none">
+<!-- Brand / SCADA LOGO -->
+<div class="px-4 py-3.5 border-b border-border-grid flex items-center gap-3">
+<!-- 经典工业折线波形工控LOGO -->
+<div class="w-9 h-9 rounded-[3px] bg-[#171A21] border border-[#2B2E36] flex items-center justify-center relative overflow-hidden shadow-inner">
+<svg height="24" viewbox="0 0 28 24" width="28">
+<!-- 坐标基准刻度 -->
+<line stroke="#333842" stroke-width="1" x1="2" x2="26" y1="20" y2="20"></line>
+<line stroke="#333842" stroke-width="1" x1="3" x2="3" y1="4" y2="20"></line>
+<!-- 橙色动态脉冲折线 -->
+<polyline fill="none" points="4,16 8,16 12,6 16,18 20,10 24,10" stroke="#FB7A18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+<!-- 红色测点目标点环 -->
+<circle cx="12" cy="6" fill="#EF4444" r="2.5" stroke="#FFF" stroke-width="0.8"></circle>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-[13px] font-bold text-white tracking-wide font-sans flex items-center justify-between">
+<span>SHAD · SMART</span>
+<span class="text-[9px] px-1 py-0.2 bg-primary/20 text-primary border border-primary/40 font-mono rounded-[2px]">V0.14</span>
+</div>
+<div class="text-[9.5px] text-[#808898] font-mono tracking-tight flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-real inline-block"></span>
+<span>CONSOLE · 模拟数据</span>
+</div>
+</div>
+</div>
+<!-- 管网上下文快速锚定框 (N-01 工业风格) -->
+<div class="mx-3 mt-3 p-2 bg-[#12141A] border border-border-grid rounded-[2px]">
+<div class="flex items-center justify-between text-[9.5px] font-mono text-primary font-semibold mb-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[11px]">device_hub</span>
+          受析管段 (PRD N-01)
+        </span>
+<span class="text-real text-[9px] font-mono">SCADA 联动</span>
+</div>
+<div class="text-[11px] font-bold text-gray-200 truncate font-mono" id="asidePipeName">1号二次供热管段 (DN300)</div>
+<div class="text-[9.5px] text-gray-500 font-mono mt-0.5 flex justify-between">
+<span>城北主力网 · K2+140</span>
+<span class="text-primary-dim">桩号: #029</span>
+</div>
+</div>
+<!-- 侧边导航组 -->
+<div class="flex-1 overflow-y-auto px-2 py-3 space-y-4">
+<div>
+<div class="px-2 text-[9px] font-mono text-gray-500 uppercase tracking-widest mb-1.5 font-bold">
+          核心监测模块
+        </div>
+<nav class="space-y-0.5">
+<!-- 激活态：高对比工业橙底黑字 -->
+<a class="flex items-center gap-2.5 px-2.5 py-2 text-[11.5px] font-bold rounded-[2px] bg-primary text-[#100600] border-l-2 border-white shadow-sm" href="#">
+<span class="material-symbols-outlined text-[15px]">dashboard</span>
+<span>总览看板 (Overview)</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">hub</span>
+<span>管网拓扑管理</span>
+</a>
+<a class="flex items-center justify-between px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[15px]">warning</span>
+<span>异常检测研判</span>
+</div>
+<span class="text-[9.5px] font-mono px-1 py-0.5 bg-urgent/20 text-urgent border border-urgent/40 rounded-[2px] font-bold">2 待研判</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">psychology</span>
+<span>自研小模型 AI 诊断</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">assessment</span>
+<span>诊断报告归档</span>
+</a>
+</nav>
+</div>
+<div>
+<div class="px-2 text-[9px] font-mono text-gray-500 uppercase tracking-widest mb-1.5 font-bold">
+          工控支撑工具
+        </div>
+<nav class="space-y-0.5">
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>残差阈值标定</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">receipt_long</span>
+<span>闭环操作日志</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[2px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">database</span>
+<span>SCADA点表通道</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- 底部控制台操作 -->
+<div class="p-3 border-t border-border-grid bg-[#0A0C10] space-y-2">
+<button class="w-full py-1.5 px-2 bg-[#1C2029] hover:bg-primary hover:text-black text-primary border border-primary/40 rounded-[2px] text-[11px] font-mono font-bold flex items-center justify-center gap-1.5 transition-all" onclick="triggerQuickReport()">
+<span class="material-symbols-outlined text-[14px]">picture_as_pdf</span>
+        一键生成分析报告
+      </button>
+<div class="text-[9px] font-mono text-gray-500 text-center flex items-center justify-center gap-1">
+<span>ENGINE: ThermalNet-Mini</span>
+<span class="text-real">● v2.3</span>
+</div>
+</div>
+</aside>
+<!-- ==================== 2. 主视口内容区 (SCADA 工业背景) ==================== -->
+<main class="flex-1 min-w-0 flex flex-col scada-grid-bg">
+<!-- 顶部工控全局操作栏 (Top Bar) -->
+<header class="h-11 px-4 bg-[#0E1015]/90 border-b border-border-grid flex items-center justify-between gap-4 backdrop-blur-sm sticky top-0 z-30">
+<!-- 平台标题与层级面包屑 -->
+<div class="flex items-center gap-3 min-w-0">
+<span class="text-[12px] font-bold text-gray-200 tracking-tight font-sans whitespace-nowrap hidden sm:inline">
+          SHAD 智慧供热异常检测与辅助诊断平台
+        </span>
+<span class="text-gray-600 hidden sm:inline">|</span>
+<div class="flex items-center gap-1.5 text-[11px] font-mono text-gray-400 truncate">
+<span>北方热力集团</span>
+<span class="text-gray-600">/</span>
+<span>城北主力网</span>
+<span class="text-gray-600">/</span>
+<span class="text-primary font-semibold" id="topNavPipeName">1号二次供热管段 (DN300)</span>
+</div>
+</div>
+<!-- 右侧工业 SCADA 状态与操作指示 -->
+<div class="flex items-center gap-3 shrink-0">
+<!-- 遥测在线状态心跳指示 -->
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-[#121E19] border border-real/40 rounded-[2px] text-real text-[10px] font-mono">
+<span class="status-dot-ok"></span>
+<span class="font-bold">SCADA 遥测在线 (10s)</span>
+</div>
+<!-- 数据源切换下拉 -->
+<div class="flex items-center gap-1 bg-[#151821] border border-border-grid px-2 py-0.5 rounded-[2px]">
+<span class="text-[10px] font-mono text-gray-500">源:</span>
+<select class="bg-transparent text-[10.5px] font-mono text-gray-200 border-0 p-0 focus:ring-0 cursor-pointer" id="dataSourceSelect" onchange="toggleDataSource(this.value)">
+<option value="sim">模拟运行数据集 (Sim-A)</option>
+<option value="real">SCADA 现场实时通道</option>
+</select>
+</div>
+<!-- 工业等宽大字体时钟 -->
+<div class="px-2 py-0.5 bg-[#161A22] border border-border-grid rounded-[2px] text-primary font-mono text-[11.5px] font-bold tracking-wider" id="liveScadaClock">
+          2026-11-03 09:42:18
+        </div>
+<!-- 刷新与通知 -->
+<button class="w-6 h-6 flex items-center justify-center border border-border-grid bg-[#161922] text-gray-300 hover:text-primary hover:border-primary rounded-[2px] transition-colors" onclick="forceSync()" title="强制刷新采样">
+<span class="material-symbols-outlined text-[14px]">refresh</span>
+</button>
+<!-- 值班工程师工牌 -->
+<div class="flex items-center gap-2 pl-2 border-l border-border-grid">
+<div class="w-5 h-5 rounded-[2px] bg-primary text-black font-mono font-bold text-[10px] flex items-center justify-center">
+            07
+          </div>
+<div class="text-[10.5px] leading-tight font-mono">
+<div class="text-gray-200 font-semibold">张工 (热网调度)</div>
+</div>
+</div>
+</div>
+</header>
+<!-- 主体内容滚动区 (高度紧凑工业布局) -->
+<div class="p-3.5 space-y-3">
+<!-- ==================== A. PRD N-01 三级级联切换横幅 ==================== -->
+<div class="scada-card p-2 flex flex-wrap items-center justify-between gap-2 bg-[#12141A]">
+<div class="flex items-center gap-2 flex-wrap text-[11px] font-mono">
+<div class="flex items-center gap-1.5 px-2 py-1 bg-[#171A22] border border-border-grid rounded-[2px]">
+<span class="text-gray-500">企业:</span>
+<span class="text-gray-200 font-semibold">北方热力有限责任公司</span>
+</div>
+<span class="text-gray-600">→</span>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-[#171A22] border border-border-grid rounded-[2px]">
+<span class="text-gray-500">管网:</span>
+<span class="text-gray-200 font-semibold" id="cascadeNetName">城北主力供热网 (二次网)</span>
+</div>
+<span class="text-gray-600">→</span>
+<div class="flex items-center gap-1.5 px-2 py-1 bg-primary/10 border border-primary/50 text-primary rounded-[2px]">
+<span class="text-primary-dim">管段:</span>
+<span class="font-bold" id="cascadePipeName">1号二次供热管段 (DN300 · K2+140)</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="scada-btn" onclick="openObjectPicker()">
+<span class="material-symbols-outlined text-[13px]">swap_horiz</span>
+            切换管段对象
+          </button>
+<button class="scada-btn scada-btn-primary" onclick="launchDetectionTask()">
+<span class="material-symbols-outlined text-[13px]">play_arrow</span>
+            执行时序快速研判
+          </button>
+</div>
+</div>
+<!-- ==================== B. 第一行：核心运行指标 & 待研判告警卡片 ==================== -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-3">
+<!-- 左侧 2列：一次网/二次网供热工况参数与走势卡片 -->
+<div class="xl:col-span-2 scada-card flex flex-col">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">speed</span></span>
+<span>管网热力工况核心测点监测</span>
+</div>
+<!-- 一次网 / 二次网 工业切换选项卡 -->
+<div class="flex bg-[#0E1015] border border-border-grid rounded-[2px] p-0.5">
+<button class="px-2.5 py-1 text-[10.5px] font-mono rounded-[2px] text-gray-400 hover:text-white transition-all" id="btnNet1" onclick="switchNetwork(1)">
+                一次网 (主干高温)
+              </button>
+<button class="px-2.5 py-1 text-[10.5px] font-mono rounded-[2px] bg-primary text-black font-bold shadow-sm" id="btnNet2" onclick="switchNetwork(2)">
+                二次网 (换热分支)
+              </button>
+</div>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-2.5">
+<!-- 3个指标的工业卡片 (供水/回水温差、压力、流量) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-2.5" id="kpiTileGrid">
+<!-- Dynamically rendered via JS -->
+</div>
+<!-- 当前选中通道测量指标底栏明细 -->
+<div class="px-3 py-2 bg-[#0E1015] border border-border-grid rounded-[2px] flex flex-wrap items-center justify-between text-[11px] font-mono gap-2" id="metricMetaStrip">
+<!-- Dynamically populated -->
+</div>
+</div>
+</div>
+<!-- 右侧 1列：待处理异常事件 (工业深红粗边框告警卡片) -->
+<div class="scada-card scada-card-urgent flex flex-col justify-between">
+<div class="scada-card-header" style="border-bottom-color: rgba(239, 68, 68, 0.3);">
+<div class="scada-card-title text-urgent">
+<span class="tag-box" style="background:rgba(239,68,68,0.15);border-color:#EF4444;color:#EF4444;">
+<span class="material-symbols-outlined text-[13px]">emergency_home</span>
+</span>
+<span>待闭环异常研判池</span>
+</div>
+<span class="text-[10px] font-mono text-gray-400">近 24 小时</span>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-2.5">
+<!-- 告警大数字 -->
+<div class="flex items-baseline justify-between border-b border-border-grid pb-2">
+<div>
+<div class="text-[34px] font-mono font-bold text-urgent leading-none tracking-tight" id="alarmTotalCount">2</div>
+<div class="text-[10.5px] font-mono text-gray-400 mt-1">需值班调度核验之异常残差事件</div>
+</div>
+<div class="flex flex-col items-end gap-1 font-mono text-[9.5px]">
+<span class="px-1.5 py-0.5 bg-urgent/20 text-urgent border border-urgent/40 rounded-[2px] font-bold">高显著偏离: 1 项</span>
+<span class="px-1.5 py-0.5 bg-warning/20 text-warning border border-warning/40 rounded-[2px]">微幅波动: 1 项</span>
+<span class="px-1.5 py-0.5 bg-real/20 text-real border border-real/40 rounded-[2px]">已处置归档: 4 项</span>
+</div>
+</div>
+<!-- 告警快览清单 -->
+<div class="space-y-1.5 flex-1" id="alarmQuickContainer">
+<!-- Dynamically rendered -->
+</div>
+<div class="pt-1">
+<button class="w-full py-1 text-[11px] font-mono font-bold bg-[#1C1820] hover:bg-urgent hover:text-black text-urgent border border-urgent/50 rounded-[2px] transition-all flex items-center justify-center gap-1" onclick="jumpToAnomalyTab()">
+<span>进入全量异常研判工作台</span>
+<span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- ==================== C. 第二行：双轴高精时序运行趋势 (网格底图 + 发光折线 + 时间滑块 Brush) ==================== -->
+<div class="scada-card">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">monitoring</span></span>
+<span>高精时序遥测趋势与异常区间 (SCADA Time-Series)</span>
+<span class="text-[10px] font-mono text-gray-500 font-normal ml-2" id="trendChannelSub">二次网 · 采样分辨率: 10s</span>
+</div>
+<!-- 时间跨度按钮组 -->
+<div class="flex items-center gap-2">
+<div class="flex bg-[#0E1015] border border-border-grid rounded-[2px] p-0.5 text-[10px] font-mono">
+<button class="px-2 py-0.5 text-gray-400 hover:text-white" onclick="changeTrendRange(1)">1h</button>
+<button class="px-2 py-0.5 text-gray-400 hover:text-white" onclick="changeTrendRange(6)">6h</button>
+<button class="px-2 py-0.5 text-gray-400 hover:text-white" onclick="changeTrendRange(12)">12h</button>
+<button class="px-2 py-0.5 bg-primary text-black font-bold rounded-[2px]" id="btnRange24" onclick="changeTrendRange(24)">24h</button>
+</div>
+<button class="w-5 h-5 flex items-center justify-center bg-[#181B22] border border-border-grid text-gray-400 hover:text-white rounded-[2px]" onclick="resetTrendBrush()" title="复位时间范围">
+<span class="material-symbols-outlined text-[13px]">restart_alt</span>
+</button>
+</div>
+</div>
+<div class="p-3">
+<!-- 图表画布区域 -->
+<div class="relative bg-[#0A0C10] border border-border-grid rounded-[2px] p-1.5 overflow-hidden">
+<svg class="w-full h-[220px] block cursor-crosshair" id="scadaTrendSvg"></svg>
+<!-- 底部滑动时间刷选器 (Brush) -->
+<div class="mt-1 border-t border-[#1C202A] pt-1">
+<svg class="w-full h-[24px] block" id="scadaBrushSvg"></svg>
+</div>
+</div>
+<!-- 图表图例栏 -->
+<div class="mt-2 flex flex-wrap items-center justify-between text-[10.5px] font-mono text-gray-400">
+<div class="flex items-center gap-4 flex-wrap">
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-[#FF7849] inline-block"></span>
+<span class="text-gray-300">供水温度 T_sup (℃)</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-[#00B4D8] inline-block"></span>
+<span class="text-gray-300">回水温度 T_ret (℃)</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-[#A855F7] inline-block border-dashed"></span>
+<span class="text-gray-300">二次网压力 P (MPa)</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-0.5 bg-[#10B981] inline-block"></span>
+<span class="text-gray-300">循环流量 Q (m³/h)</span>
+</span>
+<span class="flex items-center gap-1.5">
+<span class="w-3 h-2 border border-urgent/60 bg-urgent/15 inline-block"></span>
+<span class="text-urgent font-semibold">残差异常识别区间 (3.4σ)</span>
+</span>
+</div>
+<div class="text-[9.5px] text-gray-500">
+              提示: 鼠标悬停曲线可探查瞬时遥测采样值
+            </div>
+</div>
+<!-- 交互浮窗 -->
+<div class="scada-tooltip" id="scadaChartTooltip"></div>
+</div>
+</div>
+<!-- ==================== D. 第三行：直角折线拓扑图与点位详情 ==================== -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+<!-- 左侧 2列：直角折线管道、热源厂、换热站及楼宇矩阵 -->
+<div class="lg:col-span-2 scada-card">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">schema</span></span>
+<span>供热管网水力拓扑与末端热力平衡图</span>
+</div>
+<div class="flex items-center gap-2 text-[10px] font-mono">
+<span class="flex items-center gap-1 text-[#FF7849]"><span class="w-2 h-0.5 bg-[#FF7849]"></span>供水管网</span>
+<span class="flex items-center gap-1 text-[#00B4D8]"><span class="w-2 h-0.5 bg-[#00B4D8]"></span>回水管网</span>
+<span class="text-gray-500 ml-1">· 点击末端节点联动详情</span>
+</div>
+</div>
+<div class="p-2.5">
+<div class="bg-[#090B0E] border border-border-grid rounded-[2px] overflow-hidden">
+<svg class="w-full h-[210px] block select-none" id="topoCanvasSvg" viewbox="0 0 760 210"></svg>
+</div>
+</div>
+</div>
+<!-- 右侧 1列：选中节点遥测工况详情 -->
+<div class="scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">tune</span></span>
+<span>选中末端测点遥测工况</span>
+</div>
+<span class="text-[9.5px] font-mono px-1.5 py-0.5 rounded-[2px] bg-urgent/20 text-urgent border border-urgent/40 font-bold" id="selectedNodeBadge">
+              异常关注 (WARN)
+            </span>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-2">
+<div>
+<div class="text-[11px] font-mono text-gray-400" id="detailNodeLoc">红旗三期G (3#) · 建筑二级分区</div>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="text-[32px] font-mono font-bold text-primary leading-none" id="detailNodeSup">61.2</span>
+<span class="text-[12px] font-mono text-gray-400">℃ 供水测点</span>
+</div>
+</div>
+<!-- 参数对照工控列表 -->
+<div class="border-t border-b border-border-grid py-2 space-y-1.5 text-[11px] font-mono">
+<div class="flex justify-between">
+<span class="text-gray-400">末端回水温度 (T_ret):</span>
+<span class="text-gray-100 font-bold" id="detailNodeRet">38.4 ℃</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">供回温差 (ΔT):</span>
+<span class="text-primary-dim font-bold" id="detailNodeDiff">22.8 ℃</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">进端管网压力 (P_in):</span>
+<span class="text-gray-100 font-bold" id="detailNodePress">0.48 MPa</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-400">瞬时回水流量 (Q):</span>
+<span class="text-gray-100 font-bold" id="detailNodeFlow">86.4 m³/h</span>
+</div>
+<div class="flex justify-between pt-1 border-t border-border-grid/50">
+<span class="text-gray-400">水力平衡度评价:</span>
+<span class="text-real font-bold" id="detailNodeHydr">94.2 / 100 (基本平稳)</span>
+</div>
+</div>
+<div class="text-[10px] font-mono text-gray-500 bg-[#0E1015] p-2 rounded-[2px] border border-border-grid">
+<span class="text-primary font-bold">先验提示:</span> 供回温差偏离设计基准 3.2℃，疑似支路混水阀开度轻微受限。
+            </div>
+</div>
+</div>
+</div>
+<!-- ==================== E. 第四行：底部三列完整闭环 (检测明细 -> 自研小模型诊断 -> AI 推理流水) ==================== -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+<!-- 1. 异常检测明细表格 -->
+<div class="scada-card flex flex-col">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">format_list_bulleted</span></span>
+<span>时序残差聚类明细 (V2.3)</span>
+</div>
+<span class="text-[9.5px] font-mono text-gray-500">点击行联动模型</span>
+</div>
+<div class="p-2 flex-1 overflow-x-auto">
+<table class="w-full text-left font-mono text-[10.5px]">
+<thead>
+<tr class="text-gray-500 border-b border-border-grid text-[9.5px]">
+<th class="py-1 px-1.5">时间</th>
+<th class="py-1 px-1.5">异常现象</th>
+<th class="py-1 px-1.5">参数变动</th>
+<th class="py-1 px-1.5 text-right">研判状态</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-grid" id="eventRowsTable">
+<!-- Dynamically populated -->
+</tbody>
+</table>
+</div>
+</div>
+<!-- 2. 自研小模型辅助诊断分析卡片 (仪表环与权重占比条) -->
+<div class="scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box" style="background:rgba(168,85,247,0.15);border-color:#A855F7;color:#A855F7;">
+<span class="material-symbols-outlined text-[13px]">neurology</span>
+</span>
+<span>自研小模型辅助诊断</span>
+</div>
+<span class="text-[9.5px] font-mono px-1.5 py-0.5 bg-[#A855F7]/15 text-[#A855F7] border border-[#A855F7]/40 rounded-[2px] font-bold">
+              ThermalNet-Mini
+            </span>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-2">
+<!-- 诊断置信度环形仪表 -->
+<div class="flex items-center gap-3 bg-[#0F1116] p-2 rounded-[2px] border border-border-grid">
+<div class="relative w-14 h-14 shrink-0">
+<svg class="w-full h-full" viewbox="0 0 64 64">
+<circle cx="32" cy="32" fill="none" r="26" stroke="#1F232D" stroke-width="5"></circle>
+<circle cx="32" cy="32" fill="none" id="modelConfidenceCircle" r="26" stroke="#FB7A18" stroke-dasharray="163.3" stroke-dashoffset="24.5" stroke-linecap="round" stroke-width="5" transform="rotate(-90 32 32)"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center font-mono font-bold text-[13px] text-primary" id="modelConfidenceVal">
+                  87%
+                </div>
+</div>
+<div class="min-w-0">
+<div class="text-[12px] font-bold text-gray-100 truncate" id="diagTitle">回水温度骤降异常</div>
+<div class="text-[9.5px] font-mono text-gray-400 mt-0.5 leading-snug" id="diagSubDetail">
+                  残差突降率超标 (dT/dt &gt; 0.45℃/min)，匹配先验工况 12 组
+                </div>
+</div>
+</div>
+<!-- 物理成因权重列表 -->
+<div class="space-y-1.5">
+<div class="text-[10px] font-mono text-gray-400 font-bold flex justify-between">
+<span>物理机理成因分析权重 (Top 3)</span>
+<span class="text-primary">SHAP 贡献度</span>
+</div>
+<div class="space-y-1.5" id="causeListWrapper">
+<!-- Dynamically rendered -->
+</div>
+</div>
+</div>
+</div>
+<!-- 3. AI 分析执行流水 (5阶段步骤条还原) -->
+<div class="scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">account_tree</span></span>
+<span>AI 推理执行链路 (5-Stage Flow)</span>
+</div>
+<span class="text-[9.5px] font-mono px-1.5 py-0.5 bg-real/15 text-real border border-real/40 rounded-[2px] font-bold">
+              Edge-04 就绪
+            </span>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-2.5">
+<!-- 5-阶段横向流程条 -->
+<div class="relative py-1">
+<div class="absolute top-3.5 left-2 right-2 h-[2px] bg-border-grid"></div>
+<div class="flex justify-between items-center relative z-10 text-center font-mono">
+<div class="flex flex-col items-center gap-1">
+<div class="w-5 h-5 rounded-[2px] bg-real text-black text-[10px] font-bold flex items-center justify-center">✓</div>
+<span class="text-[9px] text-gray-400">分发</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-5 h-5 rounded-[2px] bg-real text-black text-[10px] font-bold flex items-center justify-center">✓</div>
+<span class="text-[9px] text-gray-400">切片</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-5 h-5 rounded-[2px] bg-real text-black text-[10px] font-bold flex items-center justify-center">✓</div>
+<span class="text-[9px] text-gray-400">特征</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-5 h-5 rounded-[2px] bg-primary text-black text-[10px] font-bold flex items-center justify-center animate-pulse">4</div>
+<span class="text-[9px] text-primary font-bold">推演</span>
+</div>
+<div class="flex flex-col items-center gap-1">
+<div class="w-5 h-5 rounded-[2px] bg-[#1B1E28] border border-border-grid text-gray-400 text-[10px] flex items-center justify-center">5</div>
+<span class="text-[9px] text-gray-500">建议</span>
+</div>
+</div>
+</div>
+<!-- 执行参数键值卡 -->
+<div class="p-2 bg-[#0E1015] border border-border-grid rounded-[2px] space-y-1 text-[10.5px] font-mono">
+<div class="flex justify-between">
+<span class="text-gray-500">关联检测任务:</span>
+<span class="text-gray-200 font-bold" id="aiTaskId">DET-20261103-089</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-500">分析数据窗口:</span>
+<span class="text-gray-200">02:15:00 - 03:45:00 (90m)</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-500">边缘推理耗时:</span>
+<span class="text-primary font-bold">14.8s (RT-Edge)</span>
+</div>
+<div class="flex justify-between pt-0.5 border-t border-border-grid/50">
+<span class="text-gray-500">建议处置措施:</span>
+<span class="text-warning font-bold">核查 3号站二次侧电动调节阀</span>
+</div>
+</div>
+<button class="w-full py-1.5 bg-[#171A22] hover:bg-primary hover:text-black text-gray-200 border border-border-grid hover:border-primary rounded-[2px] text-[11px] font-mono font-bold flex items-center justify-center gap-1.5 transition-all" onclick="jumpToAiDetailModal()">
+<span class="material-symbols-outlined text-[13px]">visibility</span>
+              查看完整 AI 辅助诊断报告与时序归因
+            </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- ==================== 前端交互与数据逻辑 ==================== -->
+<script>
+let currentNet = 2; // 默认展示二次网
+let activeMetricKey = 't'; // 't': 温度, 'p': 压力, 'q': 流量
+let selectedEventIdx = 0;
+let timeSpanHours = 24;
+
+// 1. 模拟工况数据 (完全还原经典总览参数体系)
+const NETWORK_CONFIG = {
+  1: {
+    label: '一次网 (主干高温管网 · 热源厂 → 换热站)',
+    pipe: '1号主干供热管段 (DN500 · 主管廊)',
+    metrics: {
+      t: { name: '一次供水温度 (T_sup)', val: 109.8, unit: '℃', diff: '+0.2 ℃', type: 'up', min: 100, max: 150 },
+      p: { name: '一次供水压力 (P_sup)', val: 1.62, unit: 'MPa', diff: '-0.01 MPa', type: 'down', min: 1.2, max: 2.5 },
+      q: { name: '一次循环流量 (Flow)', val: 1520, unit: 'm³/h', diff: '+12 m³/h', type: 'up', min: 1000, max: 2000 }
+    }
+  },
+  2: {
+    label: '二次网 (换热分支管网 · 换热站 → 居民小区)',
+    pipe: '1号二次供热管段 (DN300 · K2+140)',
+    metrics: {
+      t: { name: '二次供水温度 (T_sup)', val: 68.4, unit: '℃', diff: '+0.2 ℃', type: 'up', min: 55, max: 80 },
+      p: { name: '二次供水压力 (P_sup)', val: 0.86, unit: 'MPa', diff: '+0.02 MPa', type: 'up', min: 0.5, max: 1.2 },
+      q: { name: '二次循环流量 (Flow)', val: 186.5, unit: 'm³/h', diff: '-4.2 m³/h', type: 'down', min: 120, max: 280 }
+    }
+  }
+};
+
+// 2. 闭环事件库
+const ANOMALY_EVENTS = [
+  {
+    time: '03:24:12',
+    name: '回水温度骤降异常',
+    param: '42.0 → 33.2 ℃',
+    level: '显著偏差 (Level 3)',
+    status: 'wait',
+    statusText: '待研判',
+    score: 87,
+    task: 'DET-20261103-089',
+    detail: '残差突降率超标 (dT/dt > 0.45℃/min)，疑似次干支路阀门扰动',
+    causes: [
+      { title: '次干支路电动调节阀开度异常扰动', weight: 87.4 },
+      { title: '用户端旁通管路轻度内漏窜水', weight: 62.1 },
+      { title: '换热器机组排污截断阀误触常开', weight: 18.2 }
+    ]
+  },
+  {
+    time: '06:15:30',
+    name: '回水压力微幅脉冲',
+    param: '0.50 → 0.58 MPa',
+    level: '轻度扰动 (Level 1)',
+    status: 'diag',
+    statusText: '分析中',
+    score: 65,
+    task: 'DET-20261103-090',
+    detail: '压力振荡周期超门限 (P_osc > 0.08 MPa, freq: 0.12Hz)',
+    causes: [
+      { title: '变频补水泵启停引起局部水锤', weight: 74.0 },
+      { title: '管网末端止回阀密封轻微松弛', weight: 41.5 },
+      { title: '二次网回水滤网压差波动', weight: 22.0 }
+    ]
+  },
+  {
+    time: '01:40:00',
+    name: '换热站供回温差收窄',
+    param: 'ΔT 26.3 → 21.5 ℃',
+    level: '一般偏差 (Level 2)',
+    status: 'done',
+    statusText: '已诊断',
+    score: 92,
+    task: 'DET-20261103-078',
+    detail: '热负荷未增加情况下流量反常升高，属于水力失衡态',
+    causes: [
+      { title: '末端近端混水短路回流', weight: 89.2 },
+      { title: '户用温控阀故障常开', weight: 45.0 }
+    ]
+  }
+];
+
+// 3. 末端节点拓扑数据
+const TOPO_NODES = [
+  { id: 'n1', name: '世纪花园Z (1#)', sup: 65.4, ret: 41.3, p: 0.53, q: 98.0, x: 230, y: 35, status: 'ok' },
+  { id: 'n2', name: '世纪花园D (2#)', sup: 64.8, ret: 40.9, p: 0.51, q: 92.0, x: 230, y: 110, status: 'ok' },
+  { id: 'n3', name: '红旗三期G (3#)', sup: 61.2, ret: 38.4, p: 0.48, q: 86.4, x: 440, y: 35, status: 'warn' },
+  { id: 'n4', name: '恒盛豪庭 (4#)', sup: 65.1, ret: 41.1, p: 0.54, q: 112.0, x: 440, y: 110, status: 'ok' },
+  { id: 'n5', name: '龙兴家园 (5#)', sup: 65.0, ret: 41.0, p: 0.52, q: 100.0, x: 630, y: 35, status: 'ok' },
+  { id: 'n6', name: '经贸大厦 (6#)', sup: 64.9, ret: 40.8, p: 0.53, q: 88.0, x: 630, y: 110, status: 'ok' }
+];
+
+function initApp() {
+  renderKpiCards();
+  renderAlarmPool();
+  renderScadaTrend();
+  renderBrush();
+  renderTopoMap();
+  renderEventTable();
+  selectEvent(0);
+
+  // 工控时钟
+  setInterval(() => {
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const clockEl = document.getElementById('liveScadaClock');
+    if (clockEl) {
+      clockEl.textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+  }, 1000);
+}
+
+// 切换一次网 / 二次网
+function switchNetwork(netId) {
+  currentNet = netId;
+  const cfg = NETWORK_CONFIG[netId];
+  
+  // 更新按钮样式
+  const b1 = document.getElementById('btnNet1');
+  const b2 = document.getElementById('btnNet2');
+  if (netId === 1) {
+    b1.className = 'px-2.5 py-1 text-[10.5px] font-mono rounded-[2px] bg-primary text-black font-bold shadow-sm';
+    b2.className = 'px-2.5 py-1 text-[10.5px] font-mono rounded-[2px] text-gray-400 hover:text-white transition-all';
+  } else {
+    b2.className = 'px-2.5 py-1 text-[10.5px] font-mono rounded-[2px] bg-primary text-black font-bold shadow-sm';
+    b1.className = 'px-2.5 py-1 text-[10.5px] font-mono rounded-[2px] text-gray-400 hover:text-white transition-all';
+  }
+
+  // 联动上下文
+  document.getElementById('asidePipeName').textContent = cfg.pipe;
+  document.getElementById('topNavPipeName').textContent = cfg.pipe;
+  document.getElementById('cascadePipeName').textContent = cfg.pipe;
+  document.getElementById('cascadeNetName').textContent = cfg.label.split(' · ')[0];
+  document.getElementById('trendChannelSub').textContent = `${cfg.label.split(' ')[0]} · 采样分辨率: 10s`;
+
+  renderKpiCards();
+  renderScadaTrend();
+}
+
+// 渲染 3 个核心 KPI 指标
+function renderKpiCards() {
+  const container = document.getElementById('kpiTileGrid');
+  const metaContainer = document.getElementById('metricMetaStrip');
+  const metrics = NETWORK_CONFIG[currentNet].metrics;
+  const colors = { t: '#FF7849', p: '#A855F7', q: '#10B981' };
+
+  let html = '';
+  for (const [key, m] of Object.entries(metrics)) {
+    const isAct = (key === activeMetricKey);
+    const col = colors[key];
+    const diffColor = m.type === 'up' ? 'text-real bg-real/10 border-real/30' : 'text-warning bg-warning/10 border-warning/30';
+
+    html += `
+      <div onclick="selectActiveMetric('${key}')" 
+           class="p-2.5 bg-[#0C0E13] border ${isAct ? 'border-primary shadow-[inset_0_0_12px_rgba(251,122,24,0.12)]' : 'border-border-grid'} rounded-[2px] cursor-pointer hover:border-gray-500 transition-all relative">
+        <div class="flex items-center justify-between text-[11px] font-mono">
+          <span class="text-gray-300 font-semibold">${m.name}</span>
+          <span class="text-[9.5px] px-1 py-0.2 border ${diffColor} rounded-[2px]">${m.diff}</span>
+        </div>
+        <div class="mt-1 flex items-baseline gap-1">
+          <span class="text-[26px] font-mono font-bold text-white tracking-tight leading-none">${m.val}</span>
+          <span class="text-[11px] font-mono text-gray-400">${m.unit}</span>
+        </div>
+        <div class="text-[9.5px] font-mono text-gray-500 mt-1 flex justify-between">
+          <span>安全基线区间:</span>
+          <span>[${m.min} ~ ${m.max} ${m.unit}]</span>
+        </div>
+        <!-- 迷你 Sparkline 带有设定安全浅色带 -->
+        <div class="h-7 mt-2 pt-1 border-t border-[#1C2028]">
+          <svg class="w-full h-full" viewBox="0 0 100 24" preserveAspectRatio="none">
+            <!-- 基线区间阴影带 -->
+            <rect x="0" y="4" width="100" height="16" fill="rgba(255,255,255,0.03)"/>
+            <path d="M0,16 Q25,6 50,14 T100,8 L100,24 L0,24 Z" fill="${col}" fill-opacity="0.12"/>
+            <path d="M0,16 Q25,6 50,14 T100,8" fill="none" stroke="${col}" stroke-width="1.8"/>
+          </svg>
+        </div>
+      </div>
+    `;
+  }
+  container.innerHTML = html;
+
+  // 底部详情条带
+  const actM = metrics[activeMetricKey];
+  metaContainer.innerHTML = `
+    <div class="flex items-center gap-1.5">
+      <span class="text-gray-500">主选遥测通道:</span>
+      <span class="text-primary font-bold">${actM.name}</span>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <span class="text-gray-500">24h 峰/谷值:</span>
+      <span class="text-gray-200">${(actM.val * 1.06).toFixed(1)} / ${(actM.val * 0.94).toFixed(1)} ${actM.unit}</span>
+    </div>
+    <div class="flex items-center gap-1.5">
+      <span class="text-gray-500">通道包完整率:</span>
+      <span class="text-real">99.85% (SCADA 良好)</span>
+    </div>
+    <div class="text-primary font-bold flex items-center gap-1">
+      <span class="material-symbols-outlined text-[13px]">verified</span>
+      工况健康度标定: 正常
+    </div>
+  `;
+}
+
+function selectActiveMetric(key) {
+  activeMetricKey = key;
+  renderKpiCards();
+  renderScadaTrend();
+}
+
+// 渲染告警池
+function renderAlarmPool() {
+  const container = document.getElementById('alarmQuickContainer');
+  const items = ANOMALY_EVENTS.slice(0, 2);
+  container.innerHTML = items.map((ev, i) => `
+    <div onclick="selectEvent(${i})" class="p-2 bg-[#101217] border border-border-grid hover:border-primary/60 rounded-[2px] cursor-pointer text-[10.5px] font-mono flex items-center justify-between gap-2 transition-all">
+      <div class="flex items-center gap-2 truncate">
+        <span class="text-gray-500">${ev.time}</span>
+        <span class="text-gray-200 font-bold truncate">${ev.name}</span>
+      </div>
+      <span class="px-1 py-0.2 rounded-[2px] ${ev.status === 'wait' ? 'bg-urgent/20 text-urgent border border-urgent/40' : 'bg-warning/20 text-warning border border-warning/40'} font-bold shrink-0 text-[9.5px]">
+        ${ev.statusText}
+      </span>
+    </div>
+  `).join('');
+  document.getElementById('alarmTotalCount').textContent = ANOMALY_EVENTS.filter(e => e.status !== 'done').length;
+}
+
+// 渲染双轴时序运行趋势 (带有深色细网格、发光曲线与异常阴影带)
+function renderScadaTrend() {
+  const svg = document.getElementById('scadaTrendSvg');
+  const w = svg.clientWidth || 800;
+  const h = 220;
+  svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+
+  const padL = 40, padR = 40, padT = 16, padB = 26;
+  const iw = w - padL - padR, ih = h - padT - padB;
+
+  // 工业网格线
+  let gridSvg = '';
+  for (let i = 0; i <= 4; i++) {
+    const y = padT + (ih / 4) * i;
+    gridSvg += `<line x1="${padL}" y1="${y}" x2="${w - padR}" y2="${y}" stroke="#1E222B" stroke-dasharray="2,2"/>`;
+  }
+  for (let i = 0; i <= 6; i++) {
+    const x = padL + (iw / 6) * i;
+    gridSvg += `<line x1="${x}" y1="${padT}" x2="${x}" y2="${h - padB}" stroke="#161922" stroke-dasharray="1,2"/>`;
+  }
+
+  // 时间轴等宽标签
+  let xLabels = '';
+  const ticks = ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'];
+  ticks.forEach((t, idx) => {
+    const x = padL + (iw / (ticks.length - 1)) * idx;
+    xLabels += `<text x="${x}" y="${h - 8}" fill="#6B7280" font-size="9.5" font-family="JetBrains Mono" text-anchor="middle">${t}</text>`;
+  });
+
+  // 模拟 SCADA 遥测曲线 (供水T_sup, 回水T_ret, 压力P, 流量Q)
+  const pts = 52;
+  let pSup = '', pRet = '', pPress = '';
+  for (let i = 0; i < pts; i++) {
+    const x = padL + (iw / (pts - 1)) * i;
+    // 03:24 附近构建真实工控回水急降与压力扰动
+    let drop = 0;
+    if (i >= 12 && i <= 18) {
+      drop = Math.sin((i - 12) / 6 * Math.PI) * 26;
+    }
+    const y1 = padT + ih * 0.30 + Math.sin(i * 0.4) * 4 - drop * 0.3;
+    const y2 = padT + ih * 0.68 + Math.cos(i * 0.3) * 4 + drop;
+    const y3 = padT + ih * 0.50 + Math.sin(i * 0.5) * 6 + (drop > 0 ? 10 : 0);
+
+    pSup += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y1.toFixed(1)} `;
+    pRet += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y2.toFixed(1)} `;
+    pPress += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y3.toFixed(1)} `;
+  }
+
+  // 异常聚类阴影高亮带 (03:24 - 05:40)
+  const ax1 = padL + (iw / 24) * 3.3;
+  const ax2 = padL + (iw / 24) * 5.6;
+  const anomalyArea = `
+    <rect x="${ax1}" y="${padT}" width="${ax2 - ax1}" height="${ih}" fill="rgba(239, 68, 68, 0.12)" stroke="#EF4444" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="${(ax1 + ax2)/2}" y="${padT + 14}" fill="#EF4444" font-size="9" font-family="JetBrains Mono" font-weight="700" text-anchor="middle">
+      异常残差区间: 03:24 骤降
+    </text>
+  `;
+
+  svg.innerHTML = `
+    ${gridSvg}
+    ${anomalyArea}
+    <path d="${pSup}" fill="none" stroke="#FF7849" stroke-width="2" stroke-linecap="round"/>
+    <path d="${pRet}" fill="none" stroke="#00B4D8" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="${pPress}" fill="none" stroke="#A855F7" stroke-width="1.6" stroke-dasharray="3,2"/>
+    ${xLabels}
+  `;
+
+  // 鼠标交互 Tooltip
+  svg.onmousemove = (e) => {
+    const rect = svg.getBoundingClientRect();
+    const tooltip = document.getElementById('scadaChartTooltip');
+    const x = e.clientX - rect.left;
+    if (x >= padL && x <= w - padR) {
+      tooltip.style.left = `${e.clientX + 12}px`;
+      tooltip.style.top = `${e.clientY - 24}px`;
+      tooltip.style.opacity = '1';
+      tooltip.innerHTML = `
+        <div class="text-[10px] text-gray-400 font-bold border-b border-[#2B2E36] pb-1 mb-1">SCADA 瞬时遥测采样点</div>
+        <div class="text-[#FF7849]">供水温度: <b>68.4 ℃</b></div>
+        <div class="text-[#00B4D8]">回水温度: <b>38.4 ℃</b> (残差偏离)</div>
+        <div class="text-[#A855F7]">管网压力: <b>0.48 MPa</b></div>
+      `;
+    }
+  };
+  svg.onmouseleave = () => {
+    document.getElementById('scadaChartTooltip').style.opacity = '0';
+  };
+}
+
+// 底部时间刷选滑块 (Brush)
+function renderBrush() {
+  const svg = document.getElementById('scadaBrushSvg');
+  const w = svg.clientWidth || 800;
+  svg.setAttribute('viewBox', `0 0 ${w} 24`);
+  svg.innerHTML = `
+    <rect width="${w}" height="24" fill="#0E1015" rx="2"/>
+    <path d="M0,16 Q${w*0.25},6 ${w*0.5},14 T${w},10" fill="none" stroke="rgba(251,122,24,0.3)" stroke-width="1.2"/>
+    <!-- 刷选窗口 (可左右拖移模拟) -->
+    <rect x="${w * 0.12}" y="1" width="${w * 0.76}" height="22" fill="rgba(251,122,24,0.08)" stroke="#FB7A18" stroke-width="1" rx="2"/>
+    <line x1="${w * 0.12}" y1="6" x2="${w * 0.12}" y2="18" stroke="#FB7A18" stroke-width="2"/>
+    <line x1="${w * 0.88}" y1="6" x2="${w * 0.88}" y2="18" stroke="#FB7A18" stroke-width="2"/>
+  `;
+}
+
+function changeTrendRange(hrs) {
+  timeSpanHours = hrs;
+  renderScadaTrend();
+}
+function resetTrendBrush() {
+  changeTrendRange(24);
+}
+
+// 拓扑图渲染 (直角折线管道、热源厂、换热站、建筑末端)
+function renderTopoMap() {
+  const svg = document.getElementById('topoCanvasSvg');
+  svg.innerHTML = `
+    <!-- 背景微弱工业点阵 -->
+    <defs>
+      <pattern id="topoDot" width="16" height="16" patternUnits="userSpaceOnUse">
+        <circle cx="2" cy="2" r="0.8" fill="#20242E"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#topoDot)"/>
+
+    <!-- 热源厂圆形标识 (Heat Source Plant) -->
+    <g transform="translate(35, 75)">
+      <circle cx="20" cy="20" r="18" fill="#1C1812" stroke="#FB7A18" stroke-width="1.8"/>
+      <text x="20" y="24" fill="#FB7A18" font-size="9.5" font-family="Space Grotesk" font-weight="700" text-anchor="middle">热源厂</text>
+    </g>
+
+    <!-- 主干一次管线折线 (供水橙红 / 回水蓝) -->
+    <path d="M75,88 H145" stroke="#FF7849" stroke-width="3.5" fill="none"/>
+    <path d="M75,102 H145" stroke="#00B4D8" stroke-width="3.5" fill="none"/>
+
+    <!-- 换热站矩形标识 (Heat Exchange Station) -->
+    <g transform="translate(145, 70)">
+      <rect width="50" height="48" rx="2" fill="#131720" stroke="#00B4D8" stroke-width="1.8"/>
+      <text x="25" y="24" fill="#E2E2E9" font-size="9.5" font-weight="700" text-anchor="middle">换热站</text>
+      <text x="25" y="38" fill="#00B4D8" font-size="8" font-family="JetBrains Mono" text-anchor="middle">#01 中继</text>
+    </g>
+
+    <!-- 二次网直角供水管 (橙色) -->
+    <path d="M195,86 H230 V45 H700" stroke="#FF7849" stroke-width="2" fill="none"/>
+    <!-- 二次网直角回水管 (蓝色) -->
+    <path d="M195,102 H230 V125 H700" stroke="#00B4D8" stroke-width="2" fill="none"/>
+
+    <!-- 末端楼宇矩阵 -->
+    ${TOPO_NODES.map(node => {
+      const isWarn = node.status === 'warn';
+      const strokeColor = isWarn ? '#EF4444' : '#2B2E36';
+      const bgColor = isWarn ? 'rgba(239, 68, 68, 0.14)' : '#12141A';
+      const statusDotColor = isWarn ? '#EF4444' : '#10B981';
+
+      return `
+        <g transform="translate(${node.x}, ${node.y})" style="cursor:pointer;" onclick="selectTopoNode('${node.id}')">
+          <rect width="94" height="42" rx="2" fill="${bgColor}" stroke="${strokeColor}" stroke-width="${isWarn ? '1.5' : '1'}"/>
+          <circle cx="10" cy="13" r="3" fill="${statusDotColor}"/>
+          <text x="18" y="16" fill="#F3F4F6" font-size="9.5" font-family="Space Grotesk" font-weight="700">${node.name}</text>
+          <text x="86" y="16" fill="${isWarn ? '#EF4444' : '#FF7849'}" font-size="9.5" font-family="JetBrains Mono" font-weight="700" text-anchor="end">${node.sup}℃</text>
+          <text x="10" y="32" fill="#6B7280" font-size="8.5" font-family="JetBrains Mono">${node.p}MPa · ${node.q}m³/h</text>
+        </g>
+      `;
+    }).join('')}
+  `;
+}
+
+function selectTopoNode(nodeId) {
+  const node = TOPO_NODES.find(n => n.id === nodeId);
+  if (!node) return;
+
+  document.getElementById('detailNodeLoc').textContent = `${node.name} · 二次供热分支`;
+  document.getElementById('detailNodeSup').textContent = node.sup;
+  document.getElementById('detailNodeRet').textContent = `${node.ret} ℃`;
+  document.getElementById('detailNodeDiff').textContent = `${(node.sup - node.ret).toFixed(1)} ℃`;
+  document.getElementById('detailNodePress').textContent = `${node.p} MPa`;
+  document.getElementById('detailNodeFlow').textContent = `${node.q} m³/h`;
+
+  const tag = document.getElementById('selectedNodeBadge');
+  if (node.status === 'warn') {
+    tag.textContent = '异常关注 (WARN)';
+    tag.className = 'text-[9.5px] font-mono px-1.5 py-0.5 rounded-[2px] bg-urgent/20 text-urgent border border-urgent/40 font-bold';
+  } else {
+    tag.textContent = '工况稳定 (GOOD)';
+    tag.className = 'text-[9.5px] font-mono px-1.5 py-0.5 rounded-[2px] bg-real/20 text-real border border-real/40 font-bold';
+  }
+}
+
+// 底部异常事件明细表格
+function renderEventTable() {
+  const tbody = document.getElementById('eventRowsTable');
+  tbody.innerHTML = ANOMALY_EVENTS.map((ev, idx) => {
+    const isSel = (idx === selectedEventIdx);
+    const pillClass = ev.status === 'wait' ? 'bg-urgent/20 text-urgent border-urgent/40' :
+                      ev.status === 'diag' ? 'bg-[#A855F7]/20 text-[#A855F7] border-[#A855F7]/40' :
+                      'bg-real/20 text-real border-real/40';
+
+    return `
+      <tr onclick="selectEvent(${idx})" class="cursor-pointer transition-colors ${isSel ? 'bg-primary/10 border-l-2 border-primary' : 'hover:bg-[#151821]'}">
+        <td class="py-1.5 px-1.5 text-gray-400">${ev.time}</td>
+        <td class="py-1.5 px-1.5 text-gray-100 font-bold">${ev.name}</td>
+        <td class="py-1.5 px-1.5 text-primary">${ev.param}</td>
+        <td class="py-1.5 px-1.5 text-right">
+          <span class="px-1.5 py-0.2 border ${pillClass} rounded-[2px] font-bold text-[9px]">${ev.statusText}</span>
+        </td>
+      </tr>
+    `;
+  }).join('');
+}
+
+// 选中事件 -> 联动自研小模型仪表与权重条
+function selectEvent(idx) {
+  selectedEventIdx = idx;
+  renderEventTable();
+  const ev = ANOMALY_EVENTS[idx];
+
+  document.getElementById('diagTitle').textContent = ev.name;
+  document.getElementById('diagSubDetail').textContent = ev.detail;
+  document.getElementById('modelConfidenceVal').textContent = `${ev.score}%`;
+  document.getElementById('aiTaskId').textContent = ev.task;
+
+  // 环形进度偏移计算 (周长 163.3)
+  const circle = document.getElementById('modelConfidenceCircle');
+  const dashOffset = 163.3 * (1 - ev.score / 100);
+  circle.style.strokeDashoffset = dashOffset.toFixed(1);
+
+  // 物理成因权重列表
+  const causeWrapper = document.getElementById('causeListWrapper');
+  causeWrapper.innerHTML = ev.causes.map((c, i) => `
+    <div class="space-y-0.5 text-[10px] font-mono">
+      <div class="flex justify-between text-gray-300">
+        <span class="truncate">${i + 1}. ${c.title}</span>
+        <span class="text-primary font-bold ml-1">${c.weight}%</span>
+      </div>
+      <div class="w-full h-1.5 bg-[#171A22] rounded-[1px] overflow-hidden">
+        <div class="h-full bg-gradient-to-r from-primary to-[#FF9E4A] rounded-[1px]" style="width: ${c.weight}%"></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// 辅助跳转与指令交互
+function forceSync() {
+  alert('【SCADA遥测同步】已从城北二次网集中器下发轮询指令，刷新最新 288 点位时序切片。');
+}
+function triggerQuickReport() {
+  alert('【诊断报告生成】已归档当前异常 DET-20261103-089 的时序聚类残差与 ThermalNet-Mini SHAP 归因，正在导出 PDF 报表。');
+}
+function openObjectPicker() {
+  alert('【层级切换】支持按 企业 → 供热管网 → 管段 层级快速切换至任意受析对象。');
+}
+function launchDetectionTask() {
+  alert('【快速研判】正在针对目标管段 1号二次供热管段 (DN300) 执行快速时序特征提取与多尺度残差扫描。');
+}
+function jumpToAnomalyTab() {
+  alert('正在跳转进入【异常检测】全量研判工作台...');
+}
+function jumpToAiDetailModal() {
+  alert('正在打开【AI 辅助诊断详情】：可查看 ThermalNet-Mini 神经网络中间层注意力权重图谱与物理先验机理推演。');
+}
+function toggleDataSource(val) {
+  alert(`数据源通道已切换为：${val === 'sim' ? '模拟运行基准数据集 (Sim-A)' : '现场 SCADA 实时通信通道'}`);
+}
+
+window.onload = initApp;
+</script>
+</body></html>
