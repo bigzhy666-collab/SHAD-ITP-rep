@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>SHAD · 换热站正常行为模型（接入版）</title>
+<style>
+  :root{
+    --bg:#F8FAFC; --card:#FFFFFF; --line:#E2E8F0; --line2:#EEF2F6;
+    --tx:#1E293B; --mut:#64748B; --dim:#94A3B8; --pri:#2563EB;
+    --p1:#C2410C; --p2:#0E7490; --p3:#0369A1; --p4:#7C3AED; --p5:#4F46E5;
+    --ok:#047857; --warn:#B45309; --bad:#B91C1C;
+    --r:3px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0;background:var(--bg);color:var(--tx);font:400 13px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+  .app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+  /* ===== 顶栏 ===== */
+  .top{flex:0 0 auto;display:flex;align-items:center;gap:10px;padding:9px 16px;background:#fff;border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:9px}
+  .brand .mark{width:30px;height:30px;border-radius:5px;background:#16324F;display:grid;place-items:center;flex:0 0 auto}
+  .brand .mark svg{width:19px;height:17px;display:block}
+  .brand b{font:700 17px/1 var(--sans);letter-spacing:.04em}
+  .top h1{margin:0;font:600 13.5px/1.3 var(--sans);color:var(--tx)}
+  .top h1 span{color:var(--dim);font-weight:400;margin-left:6px;font-size:12px}
+
+  .picker{position:relative;margin-left:6px}
+  .picker-btn{display:flex;align-items:center;gap:9px;padding:5px 10px;border:1px solid var(--line);background:#fff;border-radius:var(--r);font:400 11.5px/1.4 var(--sans);color:var(--mut);cursor:pointer;max-width:520px}
+  .picker-btn:hover{background:#F8FAFC;border-color:#CBD5E1}
+  .picker-btn em{font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .picker-btn i{font-style:normal;color:#CBD5E1;margin:0 4px}
+  .picker-btn b{color:var(--mut);font-weight:600;white-space:nowrap}
+  .picker-btn .swap{width:13px;height:13px;color:#475569;flex:0 0 auto}
+  .menu{position:absolute;top:calc(100% + 6px);left:0;display:flex;align-items:flex-start;gap:6px;z-index:60}
+  .menu[hidden]{display:none}
+  .menu-panel{width:250px;background:#fff;border:1px solid #D8DFE8;border-radius:4px;box-shadow:0 10px 28px rgba(15,23,42,.13);padding:5px;max-height:380px;overflow:auto}
+  .menu-panel[hidden]{display:none}
+  .menu-panel .grp{display:flex;justify-content:space-between;padding:7px 10px 5px;font:600 10px/1 var(--sans);letter-spacing:.06em;color:#8A97A8}
+  .menu-panel .grp span{font-weight:400;color:#B6C0CC;letter-spacing:0}
+  .mi{display:flex;align-items:center;gap:8px;width:100%;padding:7px 10px;border:0;background:none;border-radius:3px;font:400 12px/1.4 var(--sans);color:var(--tx);text-align:left;cursor:pointer}
+  .mi:hover{background:#F1F5F9}
+  .mi .mono{margin-left:auto;font:500 10px/1 var(--mono);color:var(--mut)}
+  .mi .chev{margin-left:auto;color:#B6C0CC;font-size:11px}
+  .mi .ck{margin-left:6px;width:12px;display:inline-block;text-align:center;color:var(--pri);font-weight:700;opacity:0}
+  .mi.sel{color:var(--pri);font-weight:600}
+  .mi.sel .ck{opacity:1}
+
+  .state{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--ok);margin-left:auto}
+  .state i{width:6px;height:6px;border-radius:50%;background:var(--ok)}
+  .state.warn{color:var(--warn)} .state.warn i{background:var(--warn)}
+  .clock{font:500 11.5px/1 var(--mono);color:var(--mut);padding:4px 8px;border:1px solid var(--line);border-radius:var(--r)}
+  .me{width:22px;height:22px;border-radius:var(--r);background:#EFF6FF;color:var(--pri);display:grid;place-items:center;font:700 10px/1 var(--mono)}
+
+  /* ===== 内容 ===== */
+  .body{flex:1;min-height:0;padding:12px 16px 14px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+
+  .kpis{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:9px;flex:0 0 auto}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:8px 10px;display:flex;flex-direction:column;gap:3px;min-width:0;cursor:pointer}
+  .kpi:hover{border-color:#BFDBFE}
+  .kpi .h{display:flex;align-items:center;justify-content:space-between;gap:6px}
+  .kpi .k{font:600 11px/1.3 var(--sans);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kpi .tag{font:600 8.5px/1 var(--sans);padding:2px 5px;border-radius:2px;background:#F0FDF4;border:1px solid #BBF7D0;color:#15803D;white-space:nowrap}
+  .kpi .tag.opt{background:#F8FAFC;border-color:var(--line);color:var(--dim)}
+  .kpi .v{font:700 22px/1.1 var(--mono);letter-spacing:-.02em}
+  .kpi .v small{font:500 9.5px/1 var(--mono);color:var(--dim);margin-left:2px}
+  .kpi .f{font:400 9px/1.3 var(--mono);color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kpi.c0 .k,.kpi.c0 .v{color:var(--p5)}
+  .kpi.csup .k,.kpi.csup .v{color:var(--p1)}
+  .kpi.cret .k,.kpi.cret .v{color:var(--p2)}
+  .kpi.cflow .k,.kpi.cflow .v{color:#3B82F6}
+
+  .grid{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,2.05fr) minmax(0,1fr);gap:10px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;min-height:0}
+  .card > header{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:8px 12px;border-bottom:1px solid var(--line2);font:600 12.5px/1.3 var(--sans)}
+  .card > header .ic{width:13px;height:13px;color:var(--pri)}
+  .card > header .tag{margin-left:auto;font:600 10px/1 var(--sans);padding:3px 7px;border-radius:2px;background:#F8FAFC;border:1px solid var(--line);color:var(--mut)}
+  .card > .bd{flex:1;min-height:0;padding:8px 10px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+
+  .topo-svg{flex:1;min-height:0;width:100%;display:block;background:#fff;border-radius:3px}
+  .legend{display:flex;gap:14px;flex:0 0 auto;font:400 10px/1 var(--sans);color:var(--mut);padding-top:2px}
+  .legend span{display:flex;align-items:center;gap:5px}
+  .legend i{width:14px;height:2px;background:currentColor;display:inline-block}
+  .legend .g{color:var(--dim)}
+  .legend .g i{width:14px;height:0;border-top:2px dashed currentColor;background:none}
+
+  /* 模型判定卡 */
+  .ring-row{display:grid;grid-template-columns:104px 1fr;gap:12px;align-items:center}
+  .ring{width:104px;height:104px;position:relative}
+  .ring svg{width:100%;height:100%;display:block}
+  .ring .pct{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+  .ring .pct b{font:700 24px/1 var(--mono);letter-spacing:-.03em}
+  .ring .pct span{display:block;font:500 9.5px/1.4 var(--sans);color:var(--mut);margin-top:2px}
+  .verdict{font:700 14.5px/1.35 var(--sans)}
+  .verdict small{display:block;font:400 10.5px/1.5 var(--mono);color:var(--mut);margin-top:3px}
+
+  .kv{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;padding:8px 9px;background:#F8FAFC;border:1px solid var(--line2);border-radius:var(--r)}
+  .kv .k{font:400 9.5px/1.4 var(--sans);color:var(--dim)}
+  .kv .v{font:600 12px/1.4 var(--mono);color:var(--tx)}
+
+  .lead{border:1px solid #FDE68A;background:#FFFBEB;border-radius:var(--r);padding:8px 10px;font:400 11px/1.6 var(--sans);color:#7C2D12}
+  .lead b{font-weight:700;color:#B45309}
+  .lead.good{border-color:#BBF7D0;background:#F0FDF4;color:#166534}
+  .lead.good b{color:#15803D}
+
+  .causes{list-style:none;margin:0;padding:0}
+  .causes li{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed var(--line2);font:400 11px/1.5 var(--sans)}
+  .causes li:last-child{border-bottom:0}
+  .causes .badge{font:600 9px/1 var(--sans);padding:2px 5px;border-radius:2px;background:#F8FAFC;border:1px solid var(--line);color:var(--dim);white-space:nowrap}
+
+  .quality{display:flex;flex-wrap:wrap;gap:6px}
+  .quality span{font:500 9.5px/1 var(--mono);padding:3px 6px;border-radius:2px;background:#F0FDF4;border:1px solid #BBF7D0;color:#15803D}
+  .quality span.w{background:#FFFBEB;border-color:#FDE68A;color:#B45309}
+
+  .note{font:400 10px/1.5 var(--sans);color:var(--dim)}
+  .actions{margin-top:auto;display:flex;gap:8px;justify-content:flex-end}
+  .btn{font:600 11px/1 var(--sans);padding:7px 12px;border-radius:var(--r);border:1px solid var(--line);background:#fff;color:var(--tx);cursor:pointer}
+  .btn:hover{background:#F8FAFC}
+  .btn.primary{background:var(--pri);border-color:var(--pri);color:#fff}
+  .btn.primary:hover{background:#1D4ED8}
+
+  /* ===== 浮窗 ===== */
+  .mask{position:fixed;inset:0;background:rgba(15,23,42,.18);z-index:80}
+  .mask[hidden]{display:none}
+  .pop{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:820px;max-width:calc(100vw - 40px);background:#fff;border:1px solid #D8DFE8;border-radius:5px;box-shadow:0 18px 48px rgba(15,23,42,.16);z-index:81;display:flex;flex-direction:column;animation:popIn .16s cubic-bezier(.2,.7,.3,1)}
+  .pop[hidden]{display:none}
+  @keyframes popIn{from{opacity:0;transform:translate(-50%,-48%) scale(.985)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+  .pop header{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line2)}
+  .pop header h3{margin:0;font:600 13px/1.3 var(--sans);color:var(--tx)}
+  .pop header .sub{font:400 11px/1.3 var(--sans);color:var(--mut)}
+  .pop .seg{margin-left:auto;display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+  .pop .seg button{border:0;border-right:1px solid var(--line);background:#fff;padding:5px 11px;font:500 11px/1 var(--sans);color:var(--mut);cursor:pointer}
+  .pop .seg button:last-child{border-right:0}
+  .pop .seg button.on{background:var(--pri);color:#fff;font-weight:600}
+  .pop .lg{display:flex;gap:14px;flex-wrap:wrap;padding:8px 14px 2px;font:400 10.5px/1 var(--sans);color:var(--mut)}
+  .pop .lg span{display:flex;align-items:center;gap:5px}
+  .pop .lg i{width:14px;height:2px;background:currentColor;display:inline-block}
+  .pop .popbody{padding:6px 12px 10px}
+  .pop .popbody > svg{width:100%;height:280px;display:block}
+  .brush{margin-top:6px;padding:2px;border:1px solid var(--line2);border-radius:3px;background:#F8FAFC}
+  .pop .brush svg{display:block;width:100%;height:22px;cursor:pointer}
+  .xaxis{display:flex;justify-content:space-between;padding:1px 20px 0 46px;font:500 9.5px/1 var(--mono);color:#94A3B8}
+  .pop footer{padding:8px 14px 11px;border-top:1px solid var(--line2);font:400 10.5px/1.5 var(--sans);color:var(--dim)}
+
+  /* ===== 模型判定：告警段明细 / 段详情 / 执行状态 ===== */
+  #modelBox{display:flex;flex-direction:column;gap:5px;min-height:0;overflow:auto;justify-content:space-between}
+  .m-head{display:grid;grid-template-columns:62px 1fr;gap:10px;align-items:center}
+  .m-ring{width:62px;height:62px;position:relative}
+  .m-ring svg{width:100%;height:100%;display:block}
+  .m-ring .p{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+  .m-ring .p b{font:700 21px/1 var(--mono);letter-spacing:-.03em}
+  .m-ring .p span{display:block;font:500 9px/1.3 var(--sans);color:var(--mut);margin-top:2px}
+  .m-verdict{font:700 13px/1.35 var(--sans)}
+  .m-verdict small{display:block;font:400 10px/1.5 var(--mono);color:var(--mut);margin-top:3px}
+
+  .m-lead{border:1px solid #FDE68A;background:#FFFBEB;border-radius:var(--r);padding:4px 8px;font:400 10.5px/1.55 var(--sans);color:#7C2D12}
+  .m-lead b{font-weight:700;color:#B45309}
+  .m-lead.good{border-color:#BBF7D0;background:#F0FDF4;color:#166534}
+  .m-lead.good b{color:#15803D}
+
+  .m-title{display:flex;justify-content:space-between;align-items:baseline;font:600 10px/1.4 var(--sans);color:var(--dim);letter-spacing:.04em}
+  .m-title span{font-weight:400;color:var(--dim);letter-spacing:0}
+
+  table.m-seg{width:100%;border-collapse:collapse;font:400 10px/1.4 var(--sans)}
+  table.m-seg th{font:600 9px/1.4 var(--sans);color:var(--dim);text-align:left;padding:3px 3px;border-bottom:1px solid var(--line2);white-space:nowrap}
+  table.m-seg td{padding:2px 3px;border-bottom:1px dashed var(--line2);white-space:nowrap}
+  table.m-seg tr{cursor:pointer}
+  table.m-seg tr:hover td{background:#F8FAFC}
+  table.m-seg tr.on td{background:#EFF6FF}
+  table.m-seg td.num{font-family:var(--mono);color:var(--p3);white-space:nowrap}
+  .m-pill{display:inline-block;font:600 8.5px/1 var(--sans);padding:3px 5px;border-radius:2px;white-space:nowrap}
+  .m-pill.red{background:#FEF2F2;border:1px solid #FECACA;color:#B91C1C}
+  .m-pill.purple{background:#F5F3FF;border:1px solid #DDD6FE;color:#6D28D9}
+  .m-pill.blue{background:#EFF6FF;border:1px solid #BFDBFE;color:#1D4ED8}
+  .m-pill.green{background:#F0FDF4;border:1px solid #BBF7D0;color:#15803D}
+
+  .m-spark{width:100%;height:14px;display:block;border:1px solid var(--line2);border-radius:3px;background:#FCFDFE}
+  .m-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding-top:3px;border-top:1px solid var(--line2)}
+  .m-stats div span{display:block;font:400 9px/1.3 var(--sans);color:var(--dim)}
+  .m-stats div b{display:block;font:600 11px/1.4 var(--mono);color:var(--tx)}
+
+  .m-kv{display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;padding:4px 7px;background:#F8FAFC;border:1px solid var(--line2);border-radius:3px}
+  .m-kv .k{font:400 9px/1.3 var(--sans);color:var(--dim)}
+  .m-kv .v{font:600 10.5px/1.4 var(--mono);color:var(--tx)}
+
+  .m-causes{list-style:none;margin:0;padding:0}
+  .m-causes li{display:flex;justify-content:space-between;gap:8px;padding:1px 0;border-bottom:1px dashed var(--line2);font:400 10.5px/1.4 var(--sans)}
+  .m-causes li:last-child{border-bottom:0}
+  .m-causes b{font:600 10.5px/1.4 var(--mono);color:var(--pri)}
+  .m-causes span.b{font:600 8.5px/1 var(--sans);padding:2px 4px;border-radius:2px;background:#F8FAFC;border:1px solid var(--line);color:var(--dim)}
+
+  .m-steps{display:flex;align-items:center;gap:0;margin:2px 0 4px}
+  .m-steps .st{display:flex;flex-direction:column;align-items:center;gap:3px;flex:0 0 auto;width:44px}
+  .m-steps .st i{width:20px;height:20px;border-radius:2px;display:grid;place-items:center;font:700 9px/1 var(--mono);background:#F1F5F9;color:var(--dim);border:1px solid var(--line)}
+  .m-steps .st.done i{background:#047857;color:#fff;border-color:#047857}
+  .m-steps .st.cur i{background:#EFF6FF;color:var(--pri);border-color:#BFDBFE}
+  .m-steps .st span{font:400 8.5px/1.2 var(--sans);color:var(--dim);white-space:nowrap}
+  .m-steps .line{flex:1;height:1px;background:var(--line);margin:0 -2px;align-self:flex-start;margin-top:10px}
+  .m-steps .line.done{background:#86EFAC}
+  .m-bar{height:4px;background:#F1F5F9;border-radius:2px;overflow:hidden}
+  .m-bar i{display:block;height:100%;background:var(--pri);border-radius:2px;transition:width .2s}
+  .m-note{font:400 9px/1.3 var(--sans);color:var(--dim)}
+
+
+  /* ===== 数据来源选择 ===== */
+  .src{position:relative;margin-left:10px}
+  .src-btn{display:flex;align-items:center;gap:6px;padding:5px 9px;border:1px solid var(--line);
+    background:#fff;border-radius:var(--r);font:400 11.5px/1 var(--sans);color:var(--mut);cursor:pointer;white-space:nowrap}
+  .src-btn:hover{background:#F8FAFC;border-color:#CBD5E1}
+  .src-btn b{color:var(--tx);font-weight:600}
+  .src-btn svg{width:11px;height:11px;color:#94A3B8}
+  .src-menu{position:absolute;top:calc(100% + 6px);right:0;min-width:212px;background:#fff;border:1px solid #D8DFE8;
+    border-radius:4px;box-shadow:0 10px 28px rgba(15,23,42,.13);padding:5px;z-index:70}
+  .src-menu[hidden]{display:none}
+  .src-menu button{display:flex;flex-direction:column;gap:2px;width:100%;padding:7px 9px;border:0;background:none;
+    border-radius:3px;text-align:left;cursor:pointer;font:500 12px/1.3 var(--sans);color:var(--tx)}
+  .src-menu button span{font:400 10px/1.3 var(--sans);color:var(--dim)}
+  .src-menu button:hover{background:#F1F5F9}
+  .src-menu button.on{color:var(--pri)}
+  .src-menu button.on span{color:#93B4E6}
+
+  .net-card{flex:2.15;min-height:0}
+  .mrow{flex:1;min-height:0;max-height:262px;display:grid;grid-template-columns:1.02fr 1.32fr 1.2fr 1fr;gap:10px}
+  .mrow .card > .bd{gap:3px;overflow:auto}
+  .mrow .card > header{font-size:12px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand">
+      <span class="mark"><svg viewBox="0 0 28 24" fill="none"><path d="M2 20h24M3 4v16" stroke="#EAF3FB" stroke-width="1.2" opacity=".35"/><path d="M4 16h4l3-8 4 12 3-8h6" stroke="#FF7849" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="11" cy="8" r="2.4" fill="#EF4444" stroke="#EAF3FB" stroke-width="1"/></svg></span>
+      <b>SHAD</b>
+    </div>
+    <h1>智慧供热异常检测与辅助诊断平台<span>换热站正常行为模型</span></h1>
+
+    <div class="picker" id="picker">
+      <button class="picker-btn" id="pickerBtn" aria-haspopup="menu" aria-expanded="false">
+        <span id="crumbText"><em>北方热力有限责任公司</em><i>/</i><em>城北主力供热网</em><i>/</i><b>M1 站 7 · 换热站</b></span>
+        <svg class="swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8.5h14l-3.2-3.2"/><path d="M20 15.5H6l3.2 3.2"/></svg>
+      </button>
+      <div class="menu" id="menu" role="menu" hidden>
+        <div class="menu-panel" id="p1"></div>
+        <div class="menu-panel" id="p2" hidden></div>
+        <div class="menu-panel" id="p3" hidden></div>
+      </div>
+    </div>
+
+    <div class="state" id="modelState"><i></i>模型在线 · 每站自学习</div>
+    <div class="src" id="srcSel">
+      <button class="src-btn" id="srcBtn" aria-haspopup="listbox" aria-expanded="false">
+        数据来源：<b id="srcName">模拟数据</b>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="src-menu" id="srcMenu" hidden>
+        <button data-v="模拟数据" class="on">模拟数据<span>按模型输出现场演示 · 非实时</span></button>
+        <button data-v="图纸导入">图纸导入<span>路北区一网 + 六标段图纸 · 34 个站</span></button>
+        <button data-v="实时接口">实时接口<span>SCADA 未接入 · 仅占位</span></button>
+      </div>
+    </div>
+    <div class="clock" id="clock">--</div>
+    <div class="me">07</div>
+  </div>
+
+  <div class="body">
+    <!-- 六个输入测点 -->
+    <div class="kpis">
+      <div class="kpi c0"><div class="h"><span class="k">室外温度</span></div><div class="v"><span class="num">-3.2</span><small>℃</small></div><div class="f">outdoor_temperature</div></div>
+      <div class="kpi csup"><div class="h"><span class="k">一次侧供水温度</span></div><div class="v"><span class="num">108.6</span><small>℃</small></div><div class="f">p_net_supply_temperature</div></div>
+      <div class="kpi cret"><div class="h"><span class="k">一次侧回水温度</span></div><div class="v"><span class="num">54.3</span><small>℃</small></div><div class="f">p_net_return_temperature</div></div>
+      <div class="kpi csup"><div class="h"><span class="k">二次侧供水温度</span></div><div class="v"><span class="num">63.8</span><small>℃</small></div><div class="f">s_hc1_supply_temperature</div></div>
+      <div class="kpi cret"><div class="h"><span class="k">二次侧回水温度</span></div><div class="v"><span class="num">41.2</span><small>℃</small></div><div class="f">p_hc1_return_temperature</div></div>
+      <div class="kpi cflow"><div class="h"><span class="k">瞬时流量</span></div><div class="v"><span class="num">18.4</span><small>m³/h</small></div><div class="f">p_net_meter_flow</div></div>
+    </div>
+
+    <!-- 网络示意：单独整行 -->
+    <section class="card net-card">
+      <header>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5M16 4v5"/></svg>
+        一次侧 / 二次侧 网络示意 <span id="stationName" style="font-weight:400;color:var(--dim);margin-left:2px">M1 站 7</span>
+        <span class="tag">拖动平移 · 滚轮缩放 · 点击换热站</span>
+      </header>
+      <div class="bd">
+        <svg class="topo-svg" id="stationSvg" viewBox="0 0 960 400" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="legend">
+          <span style="color:#D32F2F"><i></i>一次侧供水 Vorlauf</span>
+          <span style="color:#1565C0"><i></i>一次侧回水 Rücklauf</span>
+          <span style="color:#60A5FA"><i></i>二次侧 Sekundär</span>
+          <span style="color:#EAB308"><i style="width:8px;height:8px;border:2px solid currentColor;background:none"></i>换热站 Übergabestation</span>
+          <span class="g"><i></i>补偿器 / 阀门</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 模型判定：拆成 4 块平铺 -->
+    <div class="mrow">
+      <section class="card">
+        <header>
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+          模型判定 <span class="tag" id="verdictTag">—</span>
+        </header>
+        <div class="bd" id="m1"></div>
+      </section>
+      <section class="card">
+        <header>告警段明细</header>
+        <div class="bd" id="m2"></div>
+      </section>
+      <section class="card">
+        <header>段详情</header>
+        <div class="bd" id="m3"></div>
+      </section>
+      <section class="card">
+        <header>AI 执行状态</header>
+        <div class="bd" id="m4"></div>
+      </section>
+    </div>
+  </div>
+</div>
+
+<!-- 趋势浮窗 -->
+<div class="mask" id="mask" hidden></div>
+<div class="pop" id="pop" hidden>
+  <header>
+    <h3 id="popTitle">室外温度 · 00:00–24:00</h3>
+    <span class="sub" id="popSub"></span>
+    <div class="seg" id="popSeg">
+      <button data-r="1">1h</button><button data-r="6">6h</button><button data-r="12">12h</button><button data-r="24" class="on">24h</button>
+    </div>
+  </header>
+  <div class="lg" id="popLg"></div>
+  <div class="popbody">
+    <svg id="popSvg" viewBox="0 0 800 280" preserveAspectRatio="none"></svg>
+    <div class="brush"><svg id="brushSvg" viewBox="0 0 800 22" preserveAspectRatio="none"></svg></div>
+    <div class="xaxis" id="xAxis"></div>
+  </div>
+  <footer>滚轮缩放时间窗 · 拖动两端手柄调整范围 · 拖动选区平移 · 点击浮窗外关闭</footer>
+</div>
+
+<script>
+/* ================= 级联选择：企业 → 供热网 → 换热站 ================= */
+(function () {
+  /* 数据来源：路北区 2025 一网示意图 / 泰山换热站 / 汇丰水暖外线 / 群星·国际新城外线 / T3 图纸包（一~六标段） */
+  var DATA = [
+    { name: '营口市供热有限公司（路北区）', nets: [
+      { name: '一网北干线', stations: [
+        { n: '泰山换热站', a: 12500, dn: 'DN300' },
+        { n: '中房一期', a: 5000, dn: 'DN200' },
+        { n: '中房二期', a: 3370, dn: 'DN150' },
+        { n: '北方旅游', a: 1500, dn: 'DN100' },
+        { n: '长城山海', a: 2470, dn: 'DN125' },
+        { n: '基金大厦', a: 5170, dn: 'DN200' }
+      ]},
+      { name: '一网南干线', stations: [
+        { n: '海韵东方', a: 2100, dn: 'DN125' },
+        { n: '山海新村', a: 10600, dn: 'DN250' },
+        { n: '嘉丽山海', a: 2000, dn: 'DN100' },
+        { n: '公园丽景', a: 3600, dn: 'DN150' },
+        { n: '禧韵人家', a: 2800, dn: 'DN150' },
+        { n: '博物馆', a: 1500, dn: 'DN80' }
+      ]},
+      { name: '二三网（二标段）', stations: [
+        { n: '亚田换热站', a: 1800, dn: 'DN100' },
+        { n: '沧炼换热站', a: 4200, dn: 'DN150' },
+        { n: '锦绣一期', a: 3900, dn: 'DN150' },
+        { n: '锦绣二期', a: 3300, dn: 'DN125' },
+        { n: '电瓷厂换热站', a: 2400, dn: 'DN100' },
+        { n: '互感器换热站', a: 1200, dn: 'DN80' }
+      ]}
+    ]},
+    { name: '汇丰热力', nets: [
+      { name: '汇丰外线（改造）', stations: [
+        { n: '汇丰小区', a: 8600, dn: 'DN250' },
+        { n: '万科广场 B 区', a: 5170, dn: 'DN200' },
+        { n: '商业大厦', a: 3400, dn: 'DN150' },
+        { n: '圣特酒店', a: 1500, dn: 'DN100' },
+        { n: '海星宾馆', a: 5000, dn: 'DN150' }
+      ]},
+      { name: '路北支线', stations: [
+        { n: '铁路小区', a: 6200, dn: 'DN200' },
+        { n: '铁路南站', a: 3470, dn: 'DN150' },
+        { n: '铁路北站', a: 3100, dn: 'DN150' },
+        { n: '铁路信号', a: 900, dn: 'DN80' },
+        { n: '八三四', a: 2400, dn: 'DN100' }
+      ]}
+    ]},
+    { name: '群星热力', nets: [
+      { name: '群星·国际新城外线', stations: [
+        { n: '群星国际新城 A 区', a: 11800, dn: 'DN300' },
+        { n: '群星国际新城 B 区', a: 9400, dn: 'DN250' },
+        { n: '群星国际新城 C 区', a: 7600, dn: 'DN200' },
+        { n: '24 中学', a: 4200, dn: 'DN150' },
+        { n: '新时代站', a: 3300, dn: 'DN125' },
+        { n: '环卫站', a: 10600, dn: 'DN250' }
+      ]},
+      { name: '东环支线', stations: [
+        { n: '万丰站', a: 2900, dn: 'DN125' },
+        { n: '迎宾大厦', a: 3600, dn: 'DN150' },
+        { n: '奥马庄园', a: 5900, dn: 'DN200' },
+        { n: '桃园', a: 2600, dn: 'DN125' },
+        { n: '51 商业广场', a: 4800, dn: 'DN200' }
+      ]}
+    ]}
+  ];
+  DATA.forEach(function (e) {
+    e.nets.forEach(function (net) {
+      net.stations.forEach(function (s, i) {
+        s.name = s.n;
+        s.code = (net.name.indexOf('一网') === 0 ? 'P' : 'S') + '-' + (i + 1);
+      });
+    });
+  });
+
+  var picker = document.getElementById('picker'), btn = document.getElementById('pickerBtn'), menu = document.getElementById('menu');
+  var P = [document.getElementById('p1'), document.getElementById('p2'), document.getElementById('p3')];
+  var crumb = document.getElementById('crumbText');
+  var sel = { e: 0, n: 0, s: 0 };
+
+  function cur() { var ent = DATA[sel.e], net = ent.nets[sel.n]; return { ent: ent, net: net, st: net.stations[sel.s] }; }
+  function head(t, tier) { return '<div class="grp">' + t + '<span>' + tier + '</span></div>'; }
+
+  function renderEnt() {
+    P[0].innerHTML = head('企业', 'Tier 1') + DATA.map(function (e, i) {
+      return '<button class="mi' + (i === sel.e ? ' sel' : '') + '" data-lv="0" data-i="' + i + '">' + e.name + '<span class="chev">▸</span><span class="ck">✓</span></button>';
+    }).join('');
+  }
+  function renderNet() {
+    var c = cur();
+    P[1].innerHTML = head('供热网 · ' + c.ent.name, 'Tier 2') + c.ent.nets.map(function (n, i) {
+      return '<button class="mi' + (i === sel.n ? ' sel' : '') + '" data-lv="1" data-i="' + i + '">' + n.name + '<span class="mono">' + n.stations.length + ' 站</span><span class="chev">▸</span><span class="ck">✓</span></button>';
+    }).join('');
+  }
+  function renderSt() {
+    var c = cur();
+    P[2].innerHTML = head('换热站 · ' + c.net.name, 'Tier 3') + c.net.stations.map(function (s, i) {
+      return '<button class="mi' + (i === sel.s ? ' sel' : '') + '" data-lv="2" data-i="' + i + '">' + s.name + '<span class="mono">' + s.code + '</span><span class="ck">✓</span></button>';
+    }).join('');
+  }
+  function openChain(lv) {
+    renderEnt(); P[0].hidden = false;
+    if (lv >= 1) { renderNet(); P[1].hidden = false; } else P[1].hidden = true;
+    if (lv >= 2) { renderSt(); P[2].hidden = false; } else P[2].hidden = true;
+  }
+  function open(show) { if (show) openChain(0); menu.hidden = !show; btn.setAttribute('aria-expanded', String(show)); }
+
+  btn.addEventListener('click', function (e) { e.stopPropagation(); open(menu.hidden); });
+  menu.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var mi = e.target.closest('.mi'); if (!mi) return;
+    var lv = Number(mi.dataset.lv), i = Number(mi.dataset.i);
+    if (lv === 0) { sel.e = i; sel.n = 0; sel.s = 0; openChain(1); }
+    else if (lv === 1) { sel.n = i; sel.s = 0; openChain(2); }
+    else { sel.s = i; applyStation(); open(false); }
+  });
+  document.addEventListener('click', function (e) { if (!picker.contains(e.target)) open(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+
+  /* ================= 选站后：刷新测点 / 站名 / 模型判定 ================= */
+  function rnd(a, b, d) { return (a + Math.random() * (b - a)).toFixed(d); }
+  var nums = Array.prototype.slice.call(document.querySelectorAll('.kpi .num'));
+
+  function applyStation() {
+    var c = cur(), st = c.st;
+    crumb.innerHTML = '<em>' + c.ent.name + '</em><i>/</i><em>' + c.net.name + '</em><i>/</i><b>' + st.name + '（' + st.code + '）</b>';
+    document.getElementById('stationName').textContent = st.name + ' · ' + st.code;
+
+    // 测点值（按是否采暖季给不同量级）
+    var vals = [rnd(-9, 4, 1), rnd(96, 118, 1), rnd(46, 58, 1), rnd(58, 68, 1), rnd(37, 45, 1), rnd(14, 24, 1)];
+    nums.forEach(function (el, i) { el.textContent = vals[i]; });
+
+    window.__stationLabel = st.name + ' · ' + st.code;
+    if (window.__renderSystem) window.__renderSystem();
+    if (window.__renderModel) window.__renderModel();
+
+    var ms = document.getElementById('modelState');
+    ms.className = 'state' + (window.__modelBad ? ' warn' : '');
+    ms.innerHTML = '<i></i>' + (window.__modelBad ? '模型在线 · 本站存在偏离' : '模型在线 · 本站运行正常');
+  }
+  window.__getStations = function () {
+    var c = cur();
+    return { ent: c.ent.name, net: c.net.name, stations: c.net.stations, sel: sel };
+  };
+  window.__selectStation = function (ei, ni, si) {
+    sel.e = ei; sel.n = ni; sel.s = si;
+    applyStation();
+    if (window.__renderSystem) window.__renderSystem();
+  };
+  applyStation();
+  window.__applyStation = applyStation;
+})();
+
+/* ================= 一次侧 / 二次侧 网络示意图（德国标准 · 可拖拽） ================= */
+(function () {
+  var svg = document.getElementById('stationSvg');
+  var SUP = '#D32F2F', RET = '#1565C0', NAVY = '#334155', LINE = '#94A3B8',
+      INK = '#1E293B', DIM = '#64748B', EXC = '#EAB308', PLANT = '#EA580C';
+
+  var W = 4400, H = 1560;
+  var VL = 640, RL = 706;          /* 主干 供 / 回 */
+  var ST_TOP = 830, ST_W = 84, ST_H = 74;
+  var HY1 = 1000, HY2 = 1022;      /* 分水器 / 集水器 */
+  var BY = 1150, CW = 176, CH = 58;/* 楼宇卡片 */
+  var view = { x: 0, y: 0, w: 1600, h: 440 };
+  var drag = null, moved = 0;
+
+  function ratio() {
+    var r = svg.getBoundingClientRect();
+    return r.width > 4 ? (r.height / r.width) : 0.3;
+  }
+  function L(d, c, w, dash) {
+    return '<path d="' + d + '" fill="none" stroke="' + c + '" stroke-width="' + (w || 3) +
+      '" stroke-linejoin="round" stroke-linecap="butt"' + (dash ? ' stroke-dasharray="' + dash + '"' : '') + '/>';
+  }
+  function txt(x, y, s, c, size, anchor, weight) {
+    return '<text x="' + x + '" y="' + y + '" fill="' + c + '" font-size="' + (size || 11) +
+      '" text-anchor="' + (anchor || 'middle') + '" font-family="monospace"' +
+      (weight ? ' font-weight="' + weight + '"' : '') + '>' + s + '</text>';
+  }
+  function label(x, y, s, c, size) {
+    return '<text x="' + x + '" y="' + y + '" fill="' + c + '" font-size="' + (size || 13) +
+      '" text-anchor="middle" font-family="sans-serif" font-weight="600">' + s + '</text>';
+  }
+  function valve(x, y, c) {
+    return '<g fill="none" stroke="' + c + '" stroke-width="1.8">' +
+      '<path d="M' + (x - 9) + ' ' + (y - 6) + 'l9 6-9 6z"/><path d="M' + (x + 9) + ' ' + (y - 6) + 'l-9 6 9 6z"/></g>';
+  }
+  function comp(x, y, c) {
+    var s = '';
+    for (var i = 0; i < 3; i++) s += '<path d="M' + (x + i * 9) + ' ' + (y - 6) + 'l5 6-5 6" fill="none" stroke="' + c + '" stroke-width="1.6"/>';
+    return s;
+  }
+
+  function render() {
+    var d = (window.__getStations && window.__getStations()) || null;
+    if (!d) return;
+    var sts = d.stations, s = '';
+
+    s += '<defs><pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">' +
+      '<path d="M26 0H0V26" fill="none" stroke="#EEF2F6" stroke-width="1"/></pattern></defs>';
+    s += '<rect width="' + W + '" height="' + H + '" fill="#FFFFFF"/>';
+    s += '<rect width="' + W + '" height="' + H + '" fill="url(#grid)"/>';
+
+    var x0 = 300, x1 = W - 200;
+    var step = (x1 - x0 - 260) / Math.max(1, sts.length - 1);
+    var xEnd = (sts.length === 1 ? (x0 + x1) / 2 : x0 + (sts.length - 1) * step) + 170;
+    var xTr = Math.min(x1, xEnd);
+    var hx = 150, hy = (VL + RL) / 2, hs = 120;
+
+    /* 热源厂：小方框 + 圆环 */
+    s += '<rect x="' + (hx - hs / 2) + '" y="' + (hy - hs / 2) + '" width="' + hs + '" height="' + hs +
+      '" rx="8" fill="#FFF7ED" stroke="' + PLANT + '" stroke-width="1.6" stroke-dasharray="6 5"/>';
+    s += '<circle cx="' + hx + '" cy="' + hy + '" r="26" fill="none" stroke="' + PLANT + '" stroke-width="2.2"/>';
+    s += '<circle cx="' + hx + '" cy="' + hy + '" r="8" fill="' + PLANT + '">' +
+      '<animate attributeName="opacity" values="1;0.4;1" dur="2.6s" repeatCount="indefinite"/></circle>';
+    s += label(hx, hy - hs / 2 - 26, '热源厂', INK, 13);
+    s += txt(hx, hy - hs / 2 - 12, 'HEIZWERK', DIM, 9);
+    var HX_R = hx + hs / 2 + 8;
+
+    /* 主干 */
+    s += L('M' + HX_R + ' ' + VL + 'H' + xTr, SUP, 3.4);
+    s += L('M' + xTr + ' ' + RL + 'H' + HX_R, RET, 3.4);
+    s += txt(760, VL - 14, '一次侧供水 Vorlauf 130 °C · 1.6 MPa', SUP, 12, 'middle', 600);
+    s += txt(760, RL + 24, '一次侧回水 Rücklauf 70 °C', RET, 12, 'middle', 600);
+    s += comp(xTr - 150, VL - 16, SUP);
+
+    sts.forEach(function (st, i) {
+      var x = sts.length === 1 ? (x0 + x1) / 2 : x0 + i * step;
+      var on = d.sel && d.sel.s === i;
+
+      /* 支管 */
+      s += L('M' + (x - 22) + ' ' + (VL + 2) + 'V' + ST_TOP, SUP, 2.6);
+      s += L('M' + (x + 22) + ' ' + ST_TOP + 'V' + (RL - 2), RET, 2.6);
+      s += '<circle cx="' + (x - 22) + '" cy="' + VL + '" r="4" fill="' + SUP + '"/>';
+      s += '<circle cx="' + (x + 22) + '" cy="' + RL + '" r="4" fill="' + RET + '"/>';
+      s += valve(x - 22, ST_TOP - 44, SUP);
+      s += valve(x + 22, ST_TOP - 44, RET);
+      s += txt(x - 32, VL + 44, st.dn, SUP, 10, 'end', 600);
+
+      /* 换热站：虚线框 + 双 S 波纹 */
+      s += '<rect x="' + (x - ST_W / 2 - 12) + '" y="' + (ST_TOP - 12) + '" width="' + (ST_W + 24) + '" height="' + (ST_H + 24) +
+        '" rx="6" fill="' + (on ? '#FEF9C3' : '#FFFFFF') + '" stroke="' + EXC + '" stroke-width="' + (on ? 2 : 1.3) +
+        '" stroke-dasharray="5 4"/>';
+      [-9, 9].forEach(function (dx) {
+        var cx2 = x + dx, hh = ST_H - 16, top2 = ST_TOP + 8;
+        s += '<path d="M' + cx2 + ' ' + top2 +
+          ' C' + (cx2 + 13) + ' ' + (top2 + hh * 0.2) + ' ' + (cx2 - 13) + ' ' + (top2 + hh * 0.35) + ' ' + cx2 + ' ' + (top2 + hh * 0.5) +
+          ' C' + (cx2 + 13) + ' ' + (top2 + hh * 0.65) + ' ' + (cx2 - 13) + ' ' + (top2 + hh * 0.8) + ' ' + cx2 + ' ' + (top2 + hh) +
+          '" fill="none" stroke="' + EXC + '" stroke-width="5" stroke-linecap="round"/>';
+      });
+
+      /* 站信息 */
+      s += label(x, ST_TOP + ST_H + 40, st.n, on ? '#A16207' : INK, 13);
+      s += txt(x, ST_TOP + ST_H + 56, st.code + ' · ' + st.a.toLocaleString() + ' ㎡ · ' + st.dn, DIM, 10);
+
+      /* 分水器 / 集水器 */
+      var jog = ST_TOP + ST_H + 12;
+      s += L('M' + (x - 16) + ' ' + (ST_TOP + ST_H + 12) + 'V' + HY1 + 'H' + (x - 96), SUP, 2.2);
+      s += L('M' + (x + 16) + ' ' + (ST_TOP + ST_H + 12) + 'V' + HY2 + 'H' + (x + 96), RET, 2.2);
+
+      var CXO = [-190, 0, 190];
+      var supA = x - 190 - 52, supB = x + 190 - 52;
+      s += L('M' + supA + ' ' + HY1 + 'H' + supB, SUP, 2.2);
+      var blueA = x - 190 + 52, blueB = x + 190 + 52, cur2 = blueA;
+      CXO.map(function (o) { return x + o - 52; }).filter(function (cx) { return cx > blueA && cx < blueB; })
+        .sort(function (p1, p2) { return p1 - p2; }).forEach(function (cx) {
+          if (cx - 6 > cur2) s += L('M' + cur2 + ' ' + HY2 + 'H' + (cx - 6), RET, 2.2);
+          cur2 = cx + 6;
+        });
+      if (blueB > cur2) s += L('M' + cur2 + ' ' + HY2 + 'H' + blueB, RET, 2.2);
+
+      CXO.forEach(function (off, k) {
+        var cx2 = x + off, tx1 = cx2 - 52, tx2 = cx2 + 52;
+        s += L('M' + tx1 + ' ' + HY1 + 'V' + BY, SUP, 2);
+        s += L('M' + tx2 + ' ' + BY + 'V' + HY2, RET, 2);
+        s += '<rect x="' + (cx2 - CW / 2) + '" y="' + BY + '" width="' + CW + '" height="' + CH +
+          '" rx="4" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.2"/>';
+        s += '<text x="' + (cx2 - CW / 2 + 14) + '" y="' + (BY + 23) + '" fill="' + INK +
+          '" font-size="12" font-family="sans-serif" font-weight="600">' + ['A 号楼', 'B 号楼', 'C 号楼'][k] + '</text>';
+        s += '<text x="' + (cx2 + CW / 2 - 14) + '" y="' + (BY + 23) + '" fill="' + DIM +
+          '" font-size="11" text-anchor="end" font-family="monospace">' + Math.round(st.a / 3) + ' ㎡</text>';
+        s += '<text x="' + (cx2 - CW / 2 + 14) + '" y="' + (BY + 42) + '" fill="' + DIM +
+          '" font-size="10.5" font-family="monospace">' + [3, 4, 2][k] + ' 栋 · ' +
+          Math.max(12, Math.round(st.a / 25 * [0.42, 0.34, 0.24][k])) + ' 户</text>';
+      });
+
+      /* 站热区 */
+      s += '<rect class="hit" data-i="' + i + '" x="' + (x - ST_W / 2 - 14) + '" y="' + (ST_TOP - 14) +
+        '" width="' + (ST_W + 28) + '" height="' + (ST_H + 68) + '" fill="transparent" style="cursor:pointer"/>';
+    });
+
+    s += txt(xTr + 16, VL + 4, '→', DIM, 12, 'start');
+    s += txt(xTr + 16, RL + 4, '←', DIM, 12, 'start');
+
+    svg.innerHTML = s;
+    applyView();
+    bindHits();
+  }
+
+  function bindHits() {
+    svg.querySelectorAll('.hit').forEach(function (el) {
+      el.addEventListener('pointerdown', function (e) { e.stopPropagation(); });
+      el.addEventListener('click', function (e) {
+        e.stopPropagation();
+        if (moved > 5) return;
+        var d2 = window.__getStations && window.__getStations();
+        if (!d2) return;
+        window.__selectStation(d2.sel.e, d2.sel.n, +el.dataset.i);
+        if (window.__focusStation) window.__focusStation(+el.dataset.i, d2.stations.length);
+      });
+    });
+  }
+
+  function applyView() { svg.setAttribute('viewBox', view.x + ' ' + view.y + ' ' + view.w + ' ' + view.h); }
+
+  function contentBox() {
+    return { top: (VL + RL) / 2 - 130, bottom: BY + CH + 30 };
+  }
+
+  function fitAll(total) {
+    var x0 = 300, x1 = W - 200;
+    var step = (x1 - x0 - 260) / Math.max(1, total - 1);
+    var lastX = total === 1 ? (x0 + x1) / 2 : x0 + (total - 1) * step;
+    var cb = contentBox();
+    view.h = (cb.bottom - cb.top) * 1.12;
+    view.w = view.h / ratio();
+    view.x = 30;
+    view.y = cb.top - (view.h - (cb.bottom - cb.top)) / 2;
+    clampView();
+    applyView();
+    return lastX;
+  }
+
+  function centerOn(i, total) {
+    var x0 = 300, x1 = W - 200;
+    var step = (x1 - x0 - 260) / Math.max(1, total - 1);
+    var cx = total === 1 ? (x0 + x1) / 2 : x0 + i * step;
+    var cb = contentBox();
+    view.h = (cb.bottom - cb.top) * 1.12;
+    view.w = view.h / ratio();
+    view.x = cx - view.w / 2;
+    view.y = cb.top - (view.h - (cb.bottom - cb.top)) / 2;
+    clampView();
+    applyView();
+  }
+
+  function clampView() {
+    var minW = 420, maxW = W * 1.2;
+    view.w = Math.max(minW, Math.min(maxW, view.w));
+    view.h = view.w * ratio();
+    view.x = Math.max(-60, Math.min(W - view.w + 60, view.x));
+    view.y = Math.max(-60, Math.min(H - view.h + 60, view.y));
+  }
+
+  svg.style.cursor = 'grab';
+  svg.addEventListener('pointerdown', function (e) {
+    moved = 0;
+    drag = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y };
+    svg.setPointerCapture(e.pointerId);
+    svg.style.cursor = 'grabbing';
+  });
+  svg.addEventListener('pointermove', function (e) {
+    if (!drag) return;
+    var r = svg.getBoundingClientRect();
+    var kx = view.w / r.width, ky = view.h / r.height;
+    moved = Math.max(moved, Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y));
+    view.x = drag.vx - (e.clientX - drag.x) * kx;
+    view.y = drag.vy - (e.clientY - drag.y) * ky;
+    clampView();
+    applyView();
+  });
+  ['pointerup', 'pointercancel'].forEach(function (t2) {
+    svg.addEventListener(t2, function () {
+      drag = null; svg.style.cursor = 'grab';
+      setTimeout(function () { moved = 0; }, 0);
+    });
+  });
+  svg.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    var r = svg.getBoundingClientRect();
+    var fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+    var k = e.deltaY > 0 ? 1 / 1.12 : 1.12;
+    var nw = view.w * k, nh = nw * ratio();
+    view.x += (view.w - nw) * fx;
+    view.y += (view.h - nh) * fy;
+    view.w = nw; view.h = nh;
+    clampView();
+    applyView();
+  }, { passive: false });
+
+  window.__focusStation = function (i, total) { centerOn(i, total); };
+  window.__renderSystem = function () {
+    render();
+    var d = window.__getStations && window.__getStations();
+    if (d) fitAll(d.stations.length);
+  };
+  window.__renderSystem();
+})();
+
+/* ================= 趋势浮窗 ================= */
+(function () {
+  var METRICS = [
+    { key: 'out', name: '室外温度', unit: '℃', color: '#0E7490', range: [-9, 4], dec: 1 },
+    { key: 'ps', name: '一次侧供水温度', unit: '℃', color: '#C2410C', range: [96, 118], dec: 1 },
+    { key: 'pr', name: '一次侧回水温度', unit: '℃', color: '#C2410C', range: [46, 58], dec: 1 },
+    { key: 'ss', name: '二次侧供水温度', unit: '℃', color: '#0E7490', range: [58, 68], dec: 1 },
+    { key: 'sr', name: '二次侧回水温度', unit: '℃', color: '#0E7490', range: [37, 45], dec: 1 },
+    { key: 'flow', name: '瞬时流量', unit: 'm³/h', color: '#0369A1', range: [14, 24], dec: 1 },
+    { key: 'score', name: '异常分数', unit: '', color: '#DC2626', range: [0, 1], dec: 2, thr: 0.78 }
+  ];
+  var N = 288, cache = {};
+  var mask = document.getElementById('mask'), pop = document.getElementById('pop');
+  var svg = document.getElementById('popSvg'), brush = document.getElementById('brushSvg');
+  var titleEl = document.getElementById('popTitle'), subEl = document.getElementById('popSub'), lg = document.getElementById('popLg');
+  var seg = document.getElementById('popSeg');
+  var cur = 'out', win = { s: 0, e: 1 }, drag = null, dragOff = 0;
+
+  function meta(k) { return METRICS.filter(function (m) { return m.key === k; })[0]; }
+  function fmt(m, v) { return m.dec === 0 ? String(Math.round(v)) : v.toFixed(m.dec); }
+  function seriesFor(k) {
+    if (cache[k]) return cache[k];
+    var m = meta(k), lo = m.range[0], hi = m.range[1], span = hi - lo, v = (lo + hi) / 2, a = [];
+    for (var i = 0; i < N; i++) {
+      v += (Math.random() - .5) * span * 0.10;
+      if (v < lo) v = lo + Math.random() * span * .06;
+      if (v > hi) v = hi - Math.random() * span * .06;
+      a.push(v);
+    }
+    cache[k] = a; return a;
+  }
+  function clockAt(f) {
+    if (f >= 0.9999) return '24:00';
+    var mins = Math.round(f * 24 * 60), h = Math.floor(mins / 60) % 24, mn = mins % 60;
+    return ('0' + h).slice(-2) + ':' + ('0' + mn).slice(-2);
+  }
+  function render() {
+    var m = meta(cur), a = seriesFor(cur);
+    var W = 800, H = 280, L = 46, R = 20, T = 14, B = 12, iw = W - L - R, ih = H - T - B;
+    var i0 = Math.floor(win.s * (N - 1)), i1 = Math.ceil(win.e * (N - 1));
+    if (i1 - i0 < 4) i1 = i0 + 4;
+    var vis = a.slice(i0, i1 + 1);
+    var lo = Math.min.apply(null, vis), hi = Math.max.apply(null, vis);
+    var pad = (hi - lo) * .10 || 1, y0 = lo - pad, y1 = hi + pad, rng = y1 - y0 || 1;
+    var X = function (i) { return L + iw * (i - i0) / (i1 - i0); };
+    var Y = function (v) { return T + ih - ((v - y0) / rng) * ih; };
+
+    var g = '';
+    for (var t = 0; t <= 3; t++) {
+      var yy = T + ih * t / 3;
+      g += '<line x1="' + L + '" y1="' + yy.toFixed(1) + '" x2="' + (W - R) + '" y2="' + yy.toFixed(1) + '" stroke="#EEF2F6" stroke-width="1"/>';
+      g += '<text x="' + (L - 8) + '" y="' + (yy + 3.5).toFixed(1) + '" fill="#94A3B8" font-size="9.5" text-anchor="end" font-family="monospace">' + fmt(m, y1 - (y1 - y0) * t / 3) + '</text>';
+    }
+    var band = '<rect x="' + L + '" y="' + Y(hi).toFixed(1) + '" width="' + iw + '" height="' + Math.max(1, Y(lo) - Y(hi)).toFixed(1) + '" fill="#64748B" fill-opacity=".07"/>'
+      + '<line x1="' + L + '" y1="' + Y(hi).toFixed(1) + '" x2="' + (W - R) + '" y2="' + Y(hi).toFixed(1) + '" stroke="#64748B" stroke-opacity=".45" stroke-dasharray="4 4"/>'
+      + '<line x1="' + L + '" y1="' + Y(lo).toFixed(1) + '" x2="' + (W - R) + '" y2="' + Y(lo).toFixed(1) + '" stroke="#64748B" stroke-opacity=".45" stroke-dasharray="4 4"/>';
+
+    var pts = [];
+    for (var i = i0; i <= i1; i++) pts.push(X(i).toFixed(1) + ',' + Y(a[i]).toFixed(1));
+    var line = '<polyline points="' + pts.join(' ') + '" fill="none" stroke="' + m.color + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+
+    var thr = '';
+    if (m.thr) {
+      var ty = Y(Math.min(y1, Math.max(y0, m.thr)));
+      thr = '<line x1="' + L + '" y1="' + ty.toFixed(1) + '" x2="' + (W - R) + '" y2="' + ty.toFixed(1) + '" stroke="#B45309" stroke-width="1.2" stroke-dasharray="6 4"/>'
+        + '<text x="' + (W - R) + '" y="' + (ty - 4).toFixed(1) + '" fill="#B45309" font-size="9" text-anchor="end" font-family="monospace">阈值 ' + m.thr.toFixed(2) + '</text>';
+    }
+    svg.innerHTML = g + band + thr + line;
+
+    titleEl.textContent = m.name + ' · ' + clockAt(win.s) + '–' + clockAt(win.e);
+    subEl.textContent = m.unit ? ('单位 ' + m.unit + ' · 最高 ' + fmt(m, hi) + ' / 最低 ' + fmt(m, lo)) : ('阈值 ' + m.thr.toFixed(2) + ' · 峰值 ' + fmt(m, hi));
+    lg.innerHTML = '<span style="color:' + m.color + '"><i></i>' + m.name + (m.unit ? '（' + m.unit + '）' : '') + '</span>'
+      + '<span style="color:#64748B"><i style="background:none;border-top:2px dashed currentColor"></i>最高/最低包络</span>'
+      + (m.thr ? '<span style="color:#B45309"><i style="background:none;border-top:2px dashed currentColor"></i>告警阈值</span>' : '');
+  }
+  function drawBrush() {
+    var W = 800, H = 22, s = win.s * W, e = win.e * W;
+    brush.innerHTML = '<rect x="0" y="3" width="' + W + '" height="' + (H - 6) + '" rx="2" fill="#EEF2F6"/>'
+      + '<rect x="' + s.toFixed(1) + '" y="2" width="' + Math.max(6, e - s).toFixed(1) + '" height="' + (H - 4) + '" rx="2" fill="#CBD5E1" fill-opacity=".75" stroke="#94A3B8" stroke-width="1"/>'
+      + '<rect x="' + s.toFixed(1) + '" y="1" width="3" height="' + (H - 2) + '" rx="1" fill="#64748B"/>'
+      + '<rect x="' + (e - 3).toFixed(1) + '" y="1" width="3" height="' + (H - 2) + '" rx="1" fill="#64748B"/>';
+  }
+  function drawAxis() {
+    var box = document.getElementById('xAxis'), out = '';
+    for (var k = 0; k <= 4; k++) out += '<span>' + clockAt(win.s + (win.e - win.s) * k / 4) + '</span>';
+    box.innerHTML = out;
+  }
+  function refresh() { render(); drawBrush(); drawAxis(); }
+  function open(k) { cur = k || cur; refresh(); mask.hidden = false; pop.hidden = false; }
+  function close() { mask.hidden = true; pop.hidden = true; }
+
+  function pos(ev) { var r = brush.getBoundingClientRect(); return Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width)); }
+  brush.addEventListener('pointerdown', function (ev) {
+    var f = pos(ev), W = 800, s = win.s * W, e = win.e * W, x = f * W;
+    if (Math.abs(x - s) < 9) drag = 'l';
+    else if (Math.abs(x - e) < 9) drag = 'r';
+    else if (x > s && x < e) { drag = 'm'; dragOff = f - win.s; }
+    else { var len = win.e - win.s, ns = Math.max(0, Math.min(1 - len, f - len / 2)); win = { s: ns, e: ns + len }; refresh(); return; }
+    brush.setPointerCapture(ev.pointerId);
+  });
+  brush.addEventListener('pointermove', function (ev) {
+    if (!drag) return;
+    var f = pos(ev), min = 0.02;
+    if (drag === 'l') win.s = Math.min(f, win.e - min);
+    else if (drag === 'r') win.e = Math.max(f, win.s + min);
+    else { var len = win.e - win.s, ns = Math.max(0, Math.min(1 - len, f - dragOff)); win = { s: ns, e: ns + len }; }
+    win.s = Math.max(0, Math.min(win.s, win.e - min));
+    win.e = Math.min(1, Math.max(win.e, win.s + min));
+    refresh();
+  });
+  ['pointerup', 'pointercancel'].forEach(function (t) { brush.addEventListener(t, function () { drag = null; }); });
+
+  var popBody = document.querySelector('.pop .popbody');
+  popBody.addEventListener('wheel', function (ev) {
+    ev.preventDefault();
+    var r = brush.getBoundingClientRect(), f = Math.max(0, Math.min(1, (ev.clientX - r.left) / r.width));
+    var len = win.e - win.s, k = ev.deltaY > 0 ? 1.18 : 1 / 1.18;
+    var nl = Math.max(0.02, Math.min(1, len * k));
+    var s = f - (f - win.s) * (nl / len);
+    s = Math.max(0, Math.min(1 - nl, s));
+    win = { s: s, e: s + nl };
+    refresh();
+  }, { passive: false });
+
+  Array.prototype.forEach.call(document.querySelectorAll('.kpi'), function (card, i) {
+    card.addEventListener('click', function () { open(METRICS[i].key); });
+  });
+  window.__openScore = function () { open('score'); };
+  var bs = document.getElementById('btnScore'), bg = document.getElementById('btnSeg');
+  if (bs) bs.addEventListener('click', function () { open('score'); });
+  if (bg) bg.addEventListener('click', function () { open('score'); });
+  mask.addEventListener('click', close);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+  seg.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    Array.prototype.forEach.call(seg.querySelectorAll('button'), function (x) { x.classList.toggle('on', x === b); });
+    var len = Number(b.dataset.r) / 24, c = (win.s + win.e) / 2;
+    var s = Math.max(0, Math.min(1 - len, c - len / 2));
+    win = { s: s, e: s + len };
+    refresh();
+  });
+
+  drawBrush(); render(); drawAxis();
+})();
+</script>
+
+<script>
+/* 顶栏时钟：与系统当前时间同步 */
+(function () {
+  var el = document.getElementById('clock');
+  if (!el) return;
+  function pad(n) { return ('0' + n).slice(-2); }
+  function tick() {
+    var d = new Date();
+    el.textContent = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+      ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+<script>
+/* 模型判定：拆成 4 块（判定 / 告警段 / 段详情 / AI 状态），四块联动 */
+(function () {
+  var m1 = document.getElementById('m1'), m2 = document.getElementById('m2'),
+      m3 = document.getElementById('m3'), m4 = document.getElementById('m4');
+  if (!m1) return;
+
+  var TYPES = [
+    { n: '一次侧压力异常下降', m: 'p', u: 'MPa', d: 2, dir: 'down' },
+    { n: '一次侧温度偏高', m: 't', u: '℃', d: 1, dir: 'up' },
+    { n: '二次侧温度波动', m: 't2', u: '℃', d: 1, dir: 'wave' },
+    { n: '二次侧供温偏低', m: 't2', u: '℃', d: 1, dir: 'down' },
+    { n: '一次侧流量异常升高', m: 'q', u: 'm³/h', d: 0, dir: 'up' },
+    { n: '一次侧流量小幅回落', m: 'q', u: 'm³/h', d: 0, dir: 'down' }
+  ];
+  var RANGE = { p: [1.35, 1.72], t: [100, 118], t2: [57, 67], q: [1380, 1900] };
+  var CAUSE_POOL = ['一次侧调节阀开度与反馈偏差', '二次侧循环泵频率异常', '供水温度设定值偏移', '换热器结垢导致换热效率下降', '旁通阀内漏'];
+
+  var segs = [], cur = 0;
+  function rnd(a2, b2, d) { return (a2 + Math.random() * (b2 - a2)).toFixed(d); }
+  function ri(a2, b2) { return Math.round(a2 + Math.random() * (b2 - a2)); }
+  function pick(a2) { return a2[Math.floor(Math.random() * a2.length)]; }
+  function pad(n) { return ('0' + n).slice(-2); }
+
+  function series(lo, hi) {
+    var n = 48, v = (lo + hi) / 2, arr = [];
+    for (var i = 0; i < n; i++) {
+      v += (Math.random() - .5) * (hi - lo) * 0.16;
+      if (v < lo) v = lo + Math.random() * (hi - lo) * .05;
+      if (v > hi) v = hi - Math.random() * (hi - lo) * .05;
+      arr.push(v);
+    }
+    return arr;
+  }
+
+  function makeSegs() {
+    var n = ri(4, 6);
+    var types = TYPES.slice().sort(function () { return Math.random() - .5; }).slice(0, n);
+    var plan = ['待诊断', '诊断中', '已诊断', '诊断中', '已处理', '已诊断'];
+    var out = [];
+    for (var i = 0; i < n; i++) {
+      var tp = types[i], rg = RANGE[tp.m];
+      var before = +rnd(rg[0] + (rg[1] - rg[0]) * .35, rg[0] + (rg[1] - rg[0]) * .8, tp.d);
+      var after;
+      if (tp.dir === 'down') after = +(before * (0.86 + Math.random() * 0.06)).toFixed(tp.d);
+      else if (tp.dir === 'up') after = +(before * (1.02 + Math.random() * 0.05)).toFixed(tp.d);
+      else after = +(before * (0.985 + Math.random() * 0.02)).toFixed(tp.d);
+      var st = plan[i % plan.length];
+      out.push({
+        t: pad(8 + i) + ':' + pick(['00', '10', '20', '30', '40']),
+        name: tp.n, unit: tp.u, dec: tp.d, before: before, after: after,
+        st: st, step: st === '待诊断' ? 0 : st === '诊断中' ? ri(2, 3) : 5,
+        task: 'AI-' + (1030 + i), dur: (1.2 + Math.random() * 7).toFixed(1),
+        peak: (0.72 + Math.random() * 0.2).toFixed(2), crit: ri(4, 7),
+        data: series(rg[0], rg[1]),
+        causes: st === '待诊断' ? null : CAUSE_POOL.slice().sort(function () { return Math.random() - .5; }).slice(0, 2).map(function (c, k) { return { n: c, w: (86 - k * 24 - Math.random() * 8).toFixed(1) }; })
+      });
+    }
+    out.sort(function (p1, p2) { return p2.t.localeCompare(p1.t); });
+    return out;
+  }
+
+  function pillClass(s) { return s === '待诊断' ? 'red' : s === '诊断中' ? 'purple' : s === '已诊断' ? 'blue' : 'green'; }
+  function poly(d) {
+    var lo = Math.min.apply(null, d), hi = Math.max.apply(null, d), rng = (hi - lo) || 1;
+    return d.map(function (v, i) {
+      return (i ? 'L' : 'M') + (4 + i * (292 / (d.length - 1))).toFixed(1) + ',' + (42 - ((v - lo) / rng) * 36).toFixed(1);
+    }).join(' ');
+  }
+  function stat(d) {
+    var lo = Math.min.apply(null, d), hi = Math.max.apply(null, d);
+    var avg = d.reduce(function (a2, b2) { return a2 + b2; }, 0) / d.length;
+    return { lo: lo, hi: hi, avg: avg };
+  }
+
+  function render() {
+    var s = segs[cur];
+    var bad = s.st === '待诊断' || s.st === '诊断中';
+    window.__modelBad = bad;
+    var health = s.st === '已处理' ? 0.92 : s.st === '已诊断' ? 0.58 : s.st === '诊断中' ? 0.38 : 0.24;
+    var st = stat(s.data);
+
+    var tag = document.getElementById('verdictTag');
+    if (tag) {
+      tag.textContent = bad ? '确认告警' : '正常';
+      tag.style.color = bad ? '#B91C1C' : '#15803D';
+      tag.style.borderColor = bad ? '#FECACA' : '#BBF7D0';
+      tag.style.background = bad ? '#FEF2F2' : '#F0FDF4';
+    }
+
+    /* --- 1. 判定 --- */
+    var h = '';
+    h += '<div class="m-head"><div class="m-ring"><svg viewBox="0 0 120 120">' +
+      '<circle cx="60" cy="60" r="50" fill="none" stroke="#EEF2F6" stroke-width="9"/>' +
+      '<circle cx="60" cy="60" r="50" fill="none" stroke="' + (health > .7 ? '#047857' : health > .45 ? '#B45309' : '#DC2626') +
+      '" stroke-width="9" stroke-linecap="round" transform="rotate(-90 60 60)" stroke-dasharray="314" stroke-dashoffset="' +
+      (314 * (1 - health)).toFixed(0) + '"/></svg><div class="p"><div><b>' + Math.round(health * 100) +
+      '</b><span>健康度</span></div></div></div><div><div class="m-verdict">' + (bad ? '偏离本站正常水平' : '处于本站正常范围') +
+      '<small>score ' + s.peak + ' / 阈值 0.81（自适应）</small></div></div></div>';
+    h += '<div class="m-lead' + (bad ? '' : ' good') + '">' + (bad
+      ? '<b>预计 ' + (3.2 + Math.random() * 1.8).toFixed(1) + ' 天后客户可能报修</b>（按本站历史工单节律推算）'
+      : '<b>当前无需干预</b>：所选告警段已闭环。') + '</div>';
+    h += '<div class="m-kv"><div><div class="k">持续性判据</div><div class="v">' + s.crit + ' / 7 · ' +
+      (s.crit >= 6 ? 'confirmed' : '未确认') + '</div></div><div><div class="k">训练窗</div><div class="v">30 天 · 本站</div></div>' +
+      '<div><div class="k">模型</div><div class="v">无监督 AE</div></div><div><div class="k">部署</div><div class="v">5–8 s / CPU</div></div></div>';
+    m1.innerHTML = h;
+
+    /* --- 2. 告警段明细 --- */
+    var g = '<div class="m-title">共 ' + segs.length + ' 段<span>点击行联动其余三块</span></div>';
+    g += '<table class="m-seg"><thead><tr><th>时间</th><th>异常类型</th><th>参数</th><th>状态</th></tr></thead><tbody>';
+    segs.forEach(function (sg, i) {
+      g += '<tr class="' + (i === cur ? 'on' : '') + '" data-i="' + i + '"><td class="num">' + sg.t + '</td><td>' + sg.name +
+        '</td><td class="num">' + sg.before + ' → ' + sg.after + ' ' + sg.unit + '</td>' +
+        '<td><span class="m-pill ' + pillClass(sg.st) + '">' + sg.st + '</span></td></tr>';
+    });
+    g += '</tbody></table>';
+    m2.innerHTML = g;
+    m2.querySelectorAll('tr[data-i]').forEach(function (tr) {
+      tr.addEventListener('click', function () { cur = +tr.dataset.i; render(); });
+    });
+
+    /* --- 3. 段详情 --- */
+    var d2 = '<div class="m-title">' + s.name + '<span>关联楼宇 ' +
+      ((window.__lastGroups || [])[cur % Math.max(1, (window.__lastGroups || []).length)] || {}).name + '</span></div>';
+    d2 += '<svg class="m-spark" viewBox="0 0 300 46" preserveAspectRatio="none"><path d="' + poly(s.data) +
+      '" fill="none" stroke="#2563EB" stroke-width="1.6"/></svg>';
+    d2 += '<div class="m-stats"><div><span>24h 均值</span><b>' + st.avg.toFixed(s.dec) + ' ' + s.unit +
+      '</b></div><div><span>最高</span><b>' + st.hi.toFixed(s.dec) + ' ' + s.unit +
+      '</b></div><div><span>最低</span><b>' + st.lo.toFixed(s.dec) + ' ' + s.unit + '</b></div></div>';
+    d2 += '<div class="m-kv"><div><div class="k">事件时间</div><div class="v">' + s.t +
+      '</div></div><div><div class="k">持续时长</div><div class="v">' + s.dur + ' h</div></div>' +
+      '<div><div class="k">峰值分数</div><div class="v">' + s.peak + '</div></div>' +
+      '<div><div class="k">持续性计数</div><div class="v">' + s.crit + ' / 7</div></div></div>';
+    d2 += '<ul class="m-causes">';
+    if (s.causes) s.causes.forEach(function (c) { d2 += '<li><span>' + c.n + '</span><b>' + c.w + '%</b></li>'; });
+    else ['一次侧调节阀开度与反馈偏差', '二次侧循环泵频率 / 运行状态', '供水温度设定值与控制参数'].forEach(function (c) {
+      d2 += '<li><span>' + c + '</span><span class="b">待定</span></li>';
+    });
+    d2 += '</ul><div class="m-note">仅做站内设备/控制判定，不做故障分类，不含管道本体。</div>';
+    m3.innerHTML = d2;
+
+    /* --- 4. AI 状态 --- */
+    var a2 = '<div class="m-title">' + s.task + ' · ' + s.step + '/5<span>' +
+      (s.step === 0 ? '待调度' : s.step >= 5 ? '已完成' : '进行中') + '</span></div>';
+    var steps = ['任务分发', '数据分析', '知识检索', '结果验证', '报告生成'];
+    a2 += '<div class="m-steps">';
+    steps.forEach(function (nm, i) {
+      var cls = i < s.step ? 'done' : (i === s.step ? 'cur' : '');
+      a2 += '<div class="st ' + cls + '"><i>' + (i < s.step ? '✓' : (i + 1)) + '</i><span>' + nm + '</span></div>';
+      if (i < steps.length - 1) a2 += '<div class="line ' + (i < s.step ? 'done' : '') + '"></div>';
+    });
+    a2 += '</div>';
+    a2 += '<div class="m-kv"><div><div class="k">分析对象</div><div class="v">' + s.name +
+      '</div></div><div><div class="k">数据范围</div><div class="v">288 点 · 30min</div></div></div>';
+    a2 += '<div class="m-bar"><i style="width:' + (s.step * 20) + '%"></i></div>';
+    a2 += '<div style="display:flex;justify-content:flex-end;margin-top:4px">' +
+      '<button class="btn" id="mScoreBtn" style="padding:5px 10px;font-size:10px">查看异常分数曲线</button></div>';
+    m4.innerHTML = a2;
+    var mb = document.getElementById('mScoreBtn');
+    if (mb) mb.addEventListener('click', function () { if (window.__openScore) window.__openScore(); });
+  }
+
+  window.__renderModel = function () { segs = makeSegs(); cur = 0; render(); };
+  window.__renderModel();
+})();
+</script>
+
+<script>
+/* 数据来源下拉 */
+(function () {
+  var wrap = document.getElementById('srcSel'), btn = document.getElementById('srcBtn');
+  var menu = document.getElementById('srcMenu'), nameEl = document.getElementById('srcName');
+  if (!wrap) return;
+  var CONNECTED = { '模拟数据': 'ok', '图纸导入': 'ok', '实时接口': 'off' };
+
+  function setSource(v) {
+    nameEl.textContent = v;
+    window.__dataSource = v;
+    Array.prototype.forEach.call(menu.querySelectorAll('button'), function (b) {
+      b.classList.toggle('on', b.dataset.v === v);
+    });
+    /* 顶部状态跟随：实时接口未接入时显示提醒 */
+    var ms = document.getElementById('modelState');
+    if (ms && CONNECTED[v] === 'off') {
+      ms.className = 'state warn';
+      ms.innerHTML = '<i></i>实时接口未接入 · 当前为演示数据';
+    } else if (ms && window.__modelBad !== undefined) {
+      ms.className = 'state' + (window.__modelBad ? ' warn' : '');
+      ms.innerHTML = '<i></i>' + (window.__modelBad ? '模型在线 · 本站存在偏离' : '模型在线 · 本站运行正常');
+    }
+  }
+
+  btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    menu.hidden = !menu.hidden;
+    btn.setAttribute('aria-expanded', String(!menu.hidden));
+  });
+  menu.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var b = e.target.closest('button');
+    if (!b) return;
+    setSource(b.dataset.v);
+    menu.hidden = true;
+    btn.setAttribute('aria-expanded', 'false');
+  });
+  document.addEventListener('click', function (e) {
+    if (!wrap.contains(e.target)) { menu.hidden = true; btn.setAttribute('aria-expanded', 'false'); }
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') menu.hidden = true; });
+  window.__setDataSource = setSource;
+})();
+</script>
+</body>
+</html>
