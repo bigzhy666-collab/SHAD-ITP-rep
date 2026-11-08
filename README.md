@@ -1,6 +1,6 @@
 # SHAD 智慧供热异常检测与辅助诊断平台
 
-V3.2 四模块前端交互演示。使用 Vue 3、TypeScript、Pinia、Vue Router 和 ECharts，按本地 Stitch 五页原型及最新修改说明实现，使用 impeccable 完成设计上下文、质量规范检查与检测。
+V3.4 四模块前端，支持演示模式和本机服务接入。使用 Vue 3、TypeScript、Pinia、Vue Router 和 ECharts，沿用已确认的图标、浅色风格与原型；本机模式使用独立 API 客户端，不在接口失败时回退演示结果。
 
 ## 启动
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-浏览器打开终端显示的地址，通常是 http://localhost:5173 。手机可使用同一局域网内的 Network 地址。
+浏览器打开终端显示的本机地址，通常是 http://127.0.0.1:5173 。开发服务默认仅监听本机；需要手机联调时可显式添加 `--host 0.0.0.0`，不作为正式软件运行方式。
 
 ```sh
 npm run build
@@ -44,7 +44,11 @@ npm run preview
 
 ## 数据与实现边界
 
-正式软件按**本机运行**推进：前端、本地后端与 Python 模型在同一台电脑运行，基础检测不依赖云端。本地后端由另一位开发者实现，当前前端仍是演示服务。模型事实、待实现的本机 API、数据标准化、任务状态、错误码及分工见 [本机接口约定与前端接入说明](docs/本机接口约定.md)。该约定不代表接口已经实现，也不改变现有界面设计。
+正式软件按**本机运行**推进：前端、本地后端与 Python 模型在同一台电脑运行，基础检测不依赖云端。本地后端由另一位开发者实现，仓库已完成前端调用与契约测试，尚未提供真实 HTTP 后端。模型事实、API 和分工见 [本机接口约定](docs/本机接口约定.md)，实际启动、字段结构和交接步骤见 [后端联调交接](docs/后端联调交接.md)。
+
+右上角可切换“本机服务”：站点绑定、CSV 映射、模型/数据集选择、检测任务、分数曲线、事件定位及报告均通过独立本机页面处理。开发代理默认 `http://127.0.0.1:8765`，可复制 `.env.example` 为 `.env.local` 修改地址。后端未启动会明确提示，不显示虚构结果。原因诊断和报告存档依据后端 capabilities 开启；未启用存档时，仍可导出明确标识未存档的 Word/PDF 阶段报告。
+
+以下为**演示模式**边界：
 
 - 采样窗口为北京时间 2026-11-03 00:00 至 2026-11-04 00:00。检测按参数与固定异常区间返回可复现演示结果；残差系数被保存和展示，没有运行真实算法。
 - AI 的模型名、权重及关联均为示例。缺少回水温度或流量时禁用散点关联并提示局限，不补造缺失参数。
@@ -58,6 +62,7 @@ npm run preview
 
 ```sh
 npm test
+npm run test:local
 npx playwright install chromium
 npm run test:e2e -- --workers=2
 npm run build
@@ -65,12 +70,14 @@ npm run build
 
 Playwright 自动启动本地预览，覆盖业务闭环、失败重试、来源与选择恢复、持久化、实际文件下载和七种宽度，截图生成至 `test-results`。验收记录见 [verification/验收记录.md](verification/验收记录.md)，稳定截图入口见 [verification/index.html](verification/index.html)，导出样本见 `verification/exports`。
 
-- [PRD.md](PRD.md)：V3.2 功能、交互、状态及验收约定。
+- [PRD.md](PRD.md)：V3.4 功能、交互、状态及本机接入约定。
 - [PRODUCT.md](PRODUCT.md)、[DESIGN.md](DESIGN.md)：产品与设计上下文。
 - [stitch-export/index.html](stitch-export/index.html)：已修复的五页原型截图及 HTML 入口，各页保留原始 JSON 响应。
 - `src/services/demo.ts`：演示数据与校验；真实服务从服务层接入，并将任务轮询改为后台状态。
 - `src/stores/workspace.ts`：对象、任务、报告关联及有版本的本地存储。
 - `src/services/export.ts`：Word/PDF 共享报告内容及导出实现。
+- `src/services/local`、`src/stores/integration.ts`：本机接口类型、请求、来源校验、报告导出及模式连接状态。
+- [本机接入验收与截图](verification/local-integration/验收记录.md)：本轮 60 项单元测试、35 项浏览器回归及 9 项最终本机专项回归；测试使用契约数据，尚未完成真实模型联调。
 
 旧地址 `/analysis/:id?` 与 `/reports/:id?` 自动兼容至 AI诊断。原浏览器历史保留；旧记录缺少过程字段时展示标明演示性质的证据摘要。新版验证见 `verification/ai-diagnosis/验收记录.md`。
 
