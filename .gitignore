@@ -9,3 +9,7 @@ build-check.log
 .env
 .env.*
 !.env.example
+
+# Local instructions for the coding assistant.
+/[Aa][Gg][Ee][Nn][Tt].[Mm][Dd]
+/[Aa][Gg][Ee][Nn][Tt][Ss].[Mm][Dd]
