@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "scope": "isolated icon installation; production install untouched",
+  "replacedLegacyShortcut": true,
+  "checks": [
+    {
+      "appId": "SHAD.Desktop",
+      "icon": "resources/shad-0.7.2.ico,0",
+      "target": "SHAD.exe",
+      "shortcut": "SHAD.lnk"
+    },
+    {
+      "appId": "SHAD.Desktop",
+      "icon": "resources/shad-0.7.2.ico,0",
+      "target": "SHAD.exe",
+      "shortcut": "启动 SHAD.lnk"
+    }
+  ],
+  "defaultDesktopTask": true
+}

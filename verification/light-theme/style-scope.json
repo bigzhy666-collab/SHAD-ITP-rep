@@ -1,0 +1,733 @@
+{
+  "declarationChanges": [
+    {
+      "selector": ":root",
+      "property": "background"
+    },
+    {
+      "selector": ":root",
+      "property": "color"
+    },
+    {
+      "selector": ":root",
+      "property": "color-scheme"
+    },
+    {
+      "selector": ":root",
+      "property": "--orange"
+    },
+    {
+      "selector": ":root",
+      "property": "--border"
+    },
+    {
+      "selector": ":root",
+      "property": "--surface"
+    },
+    {
+      "selector": ":root",
+      "property": "--muted"
+    },
+    {
+      "selector": ":root",
+      "property": "font-family"
+    },
+    {
+      "selector": "button,select,input,textarea",
+      "property": "background"
+    },
+    {
+      "selector": "button:hover:not(:disabled),a.secondary:hover",
+      "property": "background"
+    },
+    {
+      "selector": "button:hover:not(:disabled),a.secondary:hover",
+      "property": "border-color"
+    },
+    {
+      "selector": "button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible",
+      "property": "outline"
+    },
+    {
+      "selector": "input::placeholder,textarea::placeholder",
+      "property": "color"
+    },
+    {
+      "selector": "::selection",
+      "property": "background"
+    },
+    {
+      "selector": "::selection",
+      "property": "color"
+    },
+    {
+      "selector": "::-webkit-scrollbar-track",
+      "property": "background"
+    },
+    {
+      "selector": "::-webkit-scrollbar-thumb",
+      "property": "background"
+    },
+    {
+      "selector": ".orange",
+      "property": "color"
+    },
+    {
+      "selector": ".red,.error",
+      "property": "color"
+    },
+    {
+      "selector": ".green",
+      "property": "color"
+    },
+    {
+      "selector": ".cyan",
+      "property": "color"
+    },
+    {
+      "selector": ".amber",
+      "property": "color"
+    },
+    {
+      "selector": ".purple",
+      "property": "color"
+    },
+    {
+      "selector": ".mono,.metric-value,.big-number,dd,.clock",
+      "property": "font-family"
+    },
+    {
+      "selector": ".primary",
+      "property": "color"
+    },
+    {
+      "selector": ".primary:hover:not(:disabled)",
+      "property": "background"
+    },
+    {
+      "selector": ".primary:hover:not(:disabled)",
+      "property": "border-color"
+    },
+    {
+      "selector": ".secondary",
+      "property": "background"
+    },
+    {
+      "selector": ".text-button",
+      "property": "color"
+    },
+    {
+      "selector": ".text-button:hover",
+      "property": "color"
+    },
+    {
+      "selector": ".icon-button",
+      "property": "background"
+    },
+    {
+      "selector": ".badge",
+      "property": "background"
+    },
+    {
+      "selector": ".badge.orange",
+      "property": "background"
+    },
+    {
+      "selector": ".badge.orange",
+      "property": "border-color"
+    },
+    {
+      "selector": ".badge.green",
+      "property": "background"
+    },
+    {
+      "selector": ".badge.green",
+      "property": "border-color"
+    },
+    {
+      "selector": ".badge.red",
+      "property": "background"
+    },
+    {
+      "selector": ".badge.red",
+      "property": "border-color"
+    },
+    {
+      "selector": ".badge.amber",
+      "property": "background"
+    },
+    {
+      "selector": ".badge.amber",
+      "property": "border-color"
+    },
+    {
+      "selector": ".badge.purple",
+      "property": "background"
+    },
+    {
+      "selector": ".badge.purple",
+      "property": "border-color"
+    },
+    {
+      "selector": ".dot",
+      "property": "background"
+    },
+    {
+      "selector": ".dot.bad",
+      "property": "background"
+    },
+    {
+      "selector": ".skip-link",
+      "property": "background"
+    },
+    {
+      "selector": ".skip-link",
+      "property": "color"
+    },
+    {
+      "selector": ".sidebar",
+      "property": "background"
+    },
+    {
+      "selector": ".brand-icon",
+      "property": "background"
+    },
+    {
+      "selector": ".brand-icon",
+      "property": "border"
+    },
+    {
+      "selector": ".brand small",
+      "property": "color"
+    },
+    {
+      "selector": ".version",
+      "property": "background"
+    },
+    {
+      "selector": ".version",
+      "property": "color"
+    },
+    {
+      "selector": ".version",
+      "property": "border"
+    },
+    {
+      "selector": ".version",
+      "property": "font-family"
+    },
+    {
+      "selector": ".nav-caption",
+      "property": "color"
+    },
+    {
+      "selector": ".nav-item",
+      "property": "color"
+    },
+    {
+      "selector": ".nav-item:hover",
+      "property": "background"
+    },
+    {
+      "selector": ".nav-item:hover",
+      "property": "color"
+    },
+    {
+      "selector": ".nav-item.active",
+      "property": "background"
+    },
+    {
+      "selector": ".nav-item.active",
+      "property": "color"
+    },
+    {
+      "selector": ".sidebar-bottom p",
+      "property": "color"
+    },
+    {
+      "selector": ".sidebar-bottom p",
+      "property": "font-family"
+    },
+    {
+      "selector": ".topbar",
+      "property": "background"
+    },
+    {
+      "selector": ".object-path",
+      "property": "color"
+    },
+    {
+      "selector": ".object-path strong",
+      "property": "color"
+    },
+    {
+      "selector": ".clock",
+      "property": "background"
+    },
+    {
+      "selector": ".clock",
+      "property": "color"
+    },
+    {
+      "selector": ".avatar",
+      "property": "background"
+    },
+    {
+      "selector": ".avatar",
+      "property": "color"
+    },
+    {
+      "selector": ".avatar",
+      "property": "font-family"
+    },
+    {
+      "selector": "main",
+      "property": "background-image"
+    },
+    {
+      "selector": ".panel-heading",
+      "property": "background"
+    },
+    {
+      "selector": ".panel-heading h2:before",
+      "property": "border"
+    },
+    {
+      "selector": ".danger-panel",
+      "property": "border-color"
+    },
+    {
+      "selector": ".danger-panel>.panel-heading h2",
+      "property": "color"
+    },
+    {
+      "selector": ".metric-card",
+      "property": "background"
+    },
+    {
+      "selector": ".metric-value small",
+      "property": "color"
+    },
+    {
+      "selector": ".metric-value.orange",
+      "property": "color"
+    },
+    {
+      "selector": ".spark",
+      "property": "border-top"
+    },
+    {
+      "selector": ".inset",
+      "property": "background"
+    },
+    {
+      "selector": ".event-compact",
+      "property": "background"
+    },
+    {
+      "selector": ".segmented button",
+      "property": "color"
+    },
+    {
+      "selector": ".segmented button.selected",
+      "property": "background"
+    },
+    {
+      "selector": ".segmented button.selected",
+      "property": "color"
+    },
+    {
+      "selector": ".telemetry-chart",
+      "property": "background"
+    },
+    {
+      "selector": ".telemetry-chart",
+      "property": "border"
+    },
+    {
+      "selector": ".chart-caption",
+      "property": "color"
+    },
+    {
+      "selector": ".topology",
+      "property": "background"
+    },
+    {
+      "selector": ".topology-node",
+      "property": "background"
+    },
+    {
+      "selector": ".topology-node small",
+      "property": "color"
+    },
+    {
+      "selector": ".topology-node.warn",
+      "property": "border-color"
+    },
+    {
+      "selector": ".topology-node.selected",
+      "property": "background"
+    },
+    {
+      "selector": ".topology-node.selected",
+      "property": "outline"
+    },
+    {
+      "selector": ".detail-list>div",
+      "property": "border-bottom"
+    },
+    {
+      "selector": ".detail-list dt",
+      "property": "color"
+    },
+    {
+      "selector": ".score-ring",
+      "property": "color"
+    },
+    {
+      "selector": ".score-ring",
+      "property": "border"
+    },
+    {
+      "selector": ".score-ring",
+      "property": "font-family"
+    },
+    {
+      "selector": ".bar",
+      "property": "background"
+    },
+    {
+      "selector": ".bar span",
+      "property": "background"
+    },
+    {
+      "selector": ".stages li",
+      "property": "color"
+    },
+    {
+      "selector": ".stages li:after",
+      "property": "background"
+    },
+    {
+      "selector": ".stages li span",
+      "property": "background"
+    },
+    {
+      "selector": ".stages li span",
+      "property": "border"
+    },
+    {
+      "selector": ".stages li.done span",
+      "property": "background"
+    },
+    {
+      "selector": ".stages li.done span",
+      "property": "color"
+    },
+    {
+      "selector": ".stages li.done span",
+      "property": "border-color"
+    },
+    {
+      "selector": "th",
+      "property": "color"
+    },
+    {
+      "selector": "th",
+      "property": "background"
+    },
+    {
+      "selector": "th,td",
+      "property": "border-bottom"
+    },
+    {
+      "selector": "td small",
+      "property": "color"
+    },
+    {
+      "selector": "tbody tr.selected,tbody tr:hover",
+      "property": "background"
+    },
+    {
+      "selector": ".pagination",
+      "property": "color"
+    },
+    {
+      "selector": ".hierarchy>label",
+      "property": "background"
+    },
+    {
+      "selector": ".hierarchy label>span",
+      "property": "color"
+    },
+    {
+      "selector": ".hierarchy small",
+      "property": "color"
+    },
+    {
+      "selector": ".target-object",
+      "property": "background"
+    },
+    {
+      "selector": ".target-object",
+      "property": "border-color"
+    },
+    {
+      "selector": ".filter-bar label:not(.check-label)",
+      "property": "color"
+    },
+    {
+      "selector": ".form-stack legend",
+      "property": "color"
+    },
+    {
+      "selector": ".modal-backdrop",
+      "property": "background"
+    },
+    {
+      "selector": ".modal",
+      "property": "background"
+    },
+    {
+      "selector": ".modal",
+      "property": "box-shadow"
+    },
+    {
+      "selector": ".modal",
+      "property": "border"
+    },
+    {
+      "selector": ".modal>header",
+      "property": "background"
+    },
+    {
+      "selector": ".empty",
+      "property": "color"
+    },
+    {
+      "selector": ".empty a",
+      "property": "color"
+    },
+    {
+      "selector": ".loader",
+      "property": "border-top-color"
+    },
+    {
+      "selector": ".loader",
+      "property": "border"
+    },
+    {
+      "selector": ".anomaly-card",
+      "property": "background"
+    },
+    {
+      "selector": ".anomaly-card",
+      "property": "border"
+    },
+    {
+      "selector": ".anomaly-card.focused",
+      "property": "border-color"
+    },
+    {
+      "selector": ".comparison>div",
+      "property": "background"
+    },
+    {
+      "selector": ".comparison>div>span",
+      "property": "color"
+    },
+    {
+      "selector": ".comparison strong",
+      "property": "font-family"
+    },
+    {
+      "selector": ".asset-level",
+      "property": "background"
+    },
+    {
+      "selector": ".asset-level>span",
+      "property": "color"
+    },
+    {
+      "selector": ".asset-level small",
+      "property": "color"
+    },
+    {
+      "selector": ".cause-card",
+      "property": "background"
+    },
+    {
+      "selector": ".cause-card",
+      "property": "border"
+    },
+    {
+      "selector": ".notice",
+      "property": "background"
+    },
+    {
+      "selector": ".notice",
+      "property": "color"
+    },
+    {
+      "selector": ".report-icon",
+      "property": "color"
+    },
+    {
+      "selector": ".report-icon",
+      "property": "background"
+    },
+    {
+      "selector": ".report-icon",
+      "property": "border"
+    },
+    {
+      "selector": ".chart-inset",
+      "property": "background"
+    },
+    {
+      "selector": ".report-cause",
+      "property": "background"
+    },
+    {
+      "selector": ".report-cause",
+      "property": "border"
+    },
+    {
+      "selector": ".timeline li",
+      "property": "color"
+    },
+    {
+      "selector": ".toast",
+      "property": "background"
+    },
+    {
+      "selector": ".toast",
+      "property": "color"
+    },
+    {
+      "selector": ".toast",
+      "property": "box-shadow"
+    },
+    {
+      "selector": ".toast",
+      "property": "border"
+    },
+    {
+      "selector": ".storage-warning",
+      "property": "background"
+    },
+    {
+      "selector": ".storage-warning",
+      "property": "color"
+    },
+    {
+      "selector": ".app-footer",
+      "property": "color"
+    },
+    {
+      "selector": ".nav-shade",
+      "property": "background"
+    },
+    {
+      "selector": ".diagnosis-concepts b",
+      "property": "color"
+    },
+    {
+      "selector": ".event-choice.chosen strong",
+      "property": "color"
+    },
+    {
+      "selector": ".process-rail button.selected",
+      "property": "background"
+    },
+    {
+      "selector": ".process-rail button.selected",
+      "property": "border-color"
+    },
+    {
+      "selector": ".process-node",
+      "property": "background"
+    },
+    {
+      "selector": ".process-node",
+      "property": "border"
+    },
+    {
+      "selector": ".process-rail [data-state=done] .process-node",
+      "property": "color"
+    },
+    {
+      "selector": ".process-rail [data-state=done] .process-node",
+      "property": "border-color"
+    },
+    {
+      "selector": ".process-rail [data-state=failed] .process-node",
+      "property": "color"
+    },
+    {
+      "selector": ".process-rail [data-state=failed] .process-node",
+      "property": "border-color"
+    },
+    {
+      "selector": ".process-evidence",
+      "property": "background"
+    },
+    {
+      "selector": ".solution-list dt",
+      "property": "color"
+    },
+    {
+      "selector": ".parameter-item.selected",
+      "property": "background"
+    },
+    {
+      "selector": ".parameter-item.selected",
+      "property": "border-color"
+    },
+    {
+      "selector": ".sample-anomaly",
+      "property": "background"
+    },
+    {
+      "selector": ".sample-quality",
+      "property": "background"
+    },
+    {
+      "selector": ".monitor-event",
+      "property": "background"
+    },
+    {
+      "selector": ".monitor-event",
+      "property": "border-color"
+    },
+    {
+      "selector": ".monitor-event.selected",
+      "property": "background"
+    },
+    {
+      "selector": ".monitor-shortcuts",
+      "property": "background"
+    },
+    {
+      "selector": ".monitor-shortcuts a",
+      "property": "color"
+    },
+    {
+      "selector": ".monitor-shortcuts a:hover",
+      "property": "background"
+    },
+    {
+      "selector": ".brand strong",
+      "property": "font-family"
+    },
+    {
+      "selector": ".brand small",
+      "property": "color"
+    },
+    {
+      "selector": ".brand small",
+      "property": "font-family"
+    }
+  ],
+  "layoutOrSpacingChanges": []
+}

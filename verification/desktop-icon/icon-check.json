@@ -1,0 +1,153 @@
+{
+  "passed": true,
+  "ico": [
+    {
+      "size": 16,
+      "artworkBounds": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "size": 24,
+      "artworkBounds": [
+        0,
+        0,
+        24,
+        24
+      ]
+    },
+    {
+      "size": 32,
+      "artworkBounds": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "size": 48,
+      "artworkBounds": [
+        0,
+        1,
+        48,
+        47
+      ]
+    },
+    {
+      "size": 64,
+      "artworkBounds": [
+        0,
+        1,
+        64,
+        63
+      ]
+    },
+    {
+      "size": 128,
+      "artworkBounds": [
+        0,
+        2,
+        128,
+        126
+      ]
+    },
+    {
+      "size": 256,
+      "artworkBounds": [
+        0,
+        3,
+        256,
+        253
+      ]
+    }
+  ],
+  "embeddedExe": [
+    {
+      "size": 16,
+      "artworkBounds": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "size": 24,
+      "artworkBounds": [
+        0,
+        0,
+        24,
+        24
+      ]
+    },
+    {
+      "size": 32,
+      "artworkBounds": [
+        0,
+        0,
+        32,
+        32
+      ]
+    },
+    {
+      "size": 48,
+      "artworkBounds": [
+        0,
+        1,
+        48,
+        47
+      ]
+    },
+    {
+      "size": 64,
+      "artworkBounds": [
+        0,
+        1,
+        64,
+        63
+      ]
+    },
+    {
+      "size": 128,
+      "artworkBounds": [
+        0,
+        2,
+        128,
+        126
+      ]
+    },
+    {
+      "size": 256,
+      "artworkBounds": [
+        0,
+        3,
+        256,
+        253
+      ]
+    }
+  ],
+  "liveWindowIcons": [
+    {
+      "size": 16,
+      "artworkBounds": [
+        0,
+        0,
+        16,
+        16
+      ]
+    },
+    {
+      "size": 32,
+      "artworkBounds": [
+        0,
+        1,
+        32,
+        31
+      ]
+    }
+  ]
+}

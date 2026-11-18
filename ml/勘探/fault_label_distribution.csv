@@ -1,0 +1,67 @@
+﻿manufacturer,category,value,count
+M1,Fault label,Control unit: Incorrect parameterisation,11
+M1,Fault label,Failure of the heating circuit pump,4
+M1,Fault label,Motorised control valve (primary side): Actuator defective,2
+M1,Fault label,Incorrect setting of the differential pressure regulator,2
+M1,Fault label,Leakage,2
+M1,Fault label,"Safety relief valve: Water loss, does not close properly",2
+M1,Fault label,unknown,2
+M1,Fault label,Differential pressure regulator defective,2
+M1,Fault label,Failure of the domestic hot water storage charging pump,1
+M1,Fault label,Motorised control valve (primary side): Control valve jams when closed,1
+M1,Fault label,Temperature monitor/controller defective,1
+M1,Fault label,"Heat exchanger: Leakage, external",1
+M1,Fault label,Shut-off valve closed,1
+M1,Fault label,Motorised control valve (primary side) defective,1
+M1,Monitoring potential,4,11
+M1,Monitoring potential,3.8,4
+M1,Monitoring potential,3.4,3
+M1,Monitoring potential,2,3
+M1,Monitoring potential,3.2,3
+M1,Monitoring potential,3.1,2
+M1,Monitoring potential,1.75,2
+M1,Monitoring potential,unknown,2
+M1,Monitoring potential,3.7,1
+M1,Monitoring potential,3,1
+M1,Monitoring potential,2.8,1
+M1,Problem EN(lower),no heat,11
+M1,Problem EN(lower),not enough heat,8
+M1,Problem EN(lower),no dhw,7
+M1,Problem EN(lower),leakage,4
+M1,Problem EN(lower),other,2
+M1,Problem EN(lower),noise,1
+M2,Fault label,Leakage,8
+M2,Fault label,Incorrect setting of the differential pressure regulator,6
+M2,Fault label,Failure of the domestic hot water storage charging pump,5
+M2,Fault label,unknown,5
+M2,Fault label,Failure of the heating circuit pump,4
+M2,Fault label,Air in the piping system,3
+M2,Fault label,Control unit: Incorrect parameterisation,2
+M2,Fault label,Shut-off valve closed,1
+M2,Fault label,Motorised control valve (primary side): Incorrect setting of the actuator travel time,1
+M2,Fault label,Failure of the thermal energy meter,1
+M2,Fault label,Strainer (secondary side): Poor flow rate,1
+M2,Fault label,Differential pressure regulator jams when closed,1
+M2,Fault label,Low pre-charge at the expansion vessel,1
+M2,Fault label,Motorised control valve (primary side): Actuator defective,1
+M2,Monitoring potential,1.75,8
+M2,Monitoring potential,3.1,6
+M2,Monitoring potential,3.7,5
+M2,Monitoring potential,unknown,5
+M2,Monitoring potential,3.8,4
+M2,Monitoring potential,2.1,3
+M2,Monitoring potential,3.3,2
+M2,Monitoring potential,4,2
+M2,Monitoring potential,2.8,1
+M2,Monitoring potential,3.2,1
+M2,Monitoring potential,3.6,1
+M2,Monitoring potential,2.9,1
+M2,Monitoring potential,3.4,1
+M2,Problem EN(lower),no heat,16
+M2,Problem EN(lower),leakage,8
+M2,Problem EN(lower),noise,6
+M2,Problem EN(lower),no dhw,3
+M2,Problem EN(lower),not enough heat,3
+M2,Problem EN(lower),other,2
+M2,Problem EN(lower),meter,1
+M2,Problem EN(lower),pressure fluctuations,1

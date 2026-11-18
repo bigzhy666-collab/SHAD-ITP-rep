@@ -1,0 +1,14 @@
+{
+  "applicationVersion": "0.7.3",
+  "installer": "release/installers/20261115-182217/SHAD-Setup-0.7.3-x64.exe",
+  "bytes": 217027904,
+  "sha256": "f41f12b35e24f554947bdcc2c548ee34f6e43d5465f6dac2c52a8225b6a7d4cc",
+  "desktopPackage": "release/desktop/20261115-102121/SHAD-win32-x64",
+  "checks": {
+    "typecheckAndBuild": true,
+    "modelAndFocusBrowserTests": 7,
+    "packagedDesktopTests": 2
+  },
+  "productionInstallation": "not changed",
+  "newWindowsVm": "deferred"
+}

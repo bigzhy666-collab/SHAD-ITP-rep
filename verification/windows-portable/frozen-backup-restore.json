@@ -1,0 +1,41 @@
+{
+  "verifiedAt": "2026-11-10T05:35:53.751850+00:00",
+  "serviceVersion": "0.6.0",
+  "transport": "frozen executable and loopback TCP",
+  "schemaVersion": 4,
+  "input": "actual example model; synthetic input; not site validation",
+  "restoredCounts": {
+    "enterprises": 3,
+    "networks": 4,
+    "segments": 6,
+    "stations": 1,
+    "models": 1,
+    "datasets": 1,
+    "dataset_samples": 60,
+    "detections": 1,
+    "idempotency_keys": 1,
+    "detection_results": 1,
+    "detection_points": 60,
+    "detection_events": 1,
+    "reports": 2,
+    "report_submissions": 2,
+    "schema_migrations": 4
+  },
+  "checks": [
+    "Chinese and spaced data paths",
+    "start and reopen same managed instance",
+    "real static page",
+    "missing stop token rejected",
+    "foreign Origin rejected",
+    "port conflict does not initialize another database or stop the existing listener",
+    "running service blocks backup",
+    "authenticated graceful stop and control record cleanup",
+    "verified offline SQLite and original CSV backup; no code/models/control token",
+    "restore to new folder",
+    "same port restart with restored data",
+    "unchanged notes, archived version, new version, 60 points and stable events",
+    "report/version idempotency retained",
+    "clean stop of restored service"
+  ],
+  "passed": true
+}

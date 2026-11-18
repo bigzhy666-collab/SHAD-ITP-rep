@@ -1,0 +1,33 @@
+{
+  "verifiedAt": "2026-11-09T10:45:44.282463+00:00",
+  "transport": "real CLI and loopback TCP",
+  "serviceVersion": "0.4.0",
+  "schemaVersion": 3,
+  "input": "actual registered example model, synthetic 60-point input; not field validation",
+  "capabilities": {
+    "dataImport": true,
+    "anomalyDetection": true,
+    "causeDiagnosis": false,
+    "reportPersistence": true,
+    "offlineDetection": true
+  },
+  "pointCount": 60,
+  "eventCount": 1,
+  "versions": [
+    1,
+    2
+  ],
+  "checks": [
+    "real detection",
+    "independent report snapshot",
+    "saved Chinese note",
+    "archive lock",
+    "new version preserves old",
+    "actual process stop/start without registry",
+    "unchanged saved reports",
+    "creation/version deduplication across restart",
+    "revision conflict",
+    "lightweight filtered history"
+  ],
+  "passed": true
+}

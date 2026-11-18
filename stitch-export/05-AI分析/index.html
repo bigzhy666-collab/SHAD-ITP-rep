@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SHAD · 智慧供热异常检测与辅助诊断平台 - AI分析详情 (A-03)</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "surface-base": "#0A0B0E",
+          "surface-canvas": "#101116",
+          "surface-card": "#14161B",
+          "surface-card-hover": "#1C1F26",
+          "surface-container": "#1B1D23",
+          "border-subtle": "#1B1D23",
+          "border-grid": "#2B2E36",
+          "primary": "#FB7A18",
+          "primary-dim": "#FFB877",
+          "metric-supply": "#FF7849",
+          "metric-return": "#00B4D8",
+          "metric-pressure": "#7C3AED",
+          "metric-flow": "#4EA8FF",
+          "urgent": "#EF4444",
+          "warning": "#F59E0B",
+          "real": "#10B981",
+          "on-surface": "#E8E9ED",
+          "on-surface-variant": "#C3C6CD",
+          "outline": "#8B8F99"
+        },
+        fontFamily: {
+          sans: ["Space Grotesk", "Barlow Condensed", "system-ui", "sans-serif"],
+          mono: ["JetBrains Mono", "DIN Alternate", "monospace"],
+          condensed: ["Barlow Condensed", "sans-serif"]
+        },
+        borderRadius: {
+          DEFAULT: "4px",
+          sm: "2px",
+          md: "4px",
+          lg: "4px"
+        }
+      }
+    }
+  }
+</script>
+<style>
+  :root {
+    --surface-base: #0A0B0E;
+    --surface-canvas: #101116;
+    --surface-card: #14161B;
+    --surface-card-hover: #1C1F26;
+    --border-grid: #2B2E36;
+    --border-subtle: #1B1D23;
+    --primary: #FB7A18;
+    --primary-dim: #FFB877;
+    --metric-supply: #FF7849;
+    --metric-return: #00B4D8;
+    --metric-pressure: #7C3AED;
+    --metric-flow: #4EA8FF;
+    --urgent: #EF4444;
+    --warning: #F59E0B;
+    --real: #10B981;
+    --outline: #8B8F99;
+    --on-surface: #E8E9ED;
+    --on-surface-variant: #C3C6CD;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background-color: var(--surface-base);
+    color: var(--on-surface);
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    font-size: 12px;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* 40px 工控网格背景 */
+  .scada-grid-bg {
+    background-color: var(--surface-canvas);
+    background-image:
+      linear-gradient(to right, rgba(43, 46, 54, 0.22) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(43, 46, 54, 0.22) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 16px;
+    vertical-align: middle;
+    line-height: 1;
+  }
+
+  /* 工业细边框卡片 */
+  .scada-card {
+    background: var(--surface-card);
+    border: 1px solid var(--border-grid);
+    border-radius: 4px;
+    position: relative;
+  }
+  .scada-card:hover {
+    border-color: #383D48;
+  }
+
+  .scada-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-subtle);
+    background: rgba(10, 11, 14, 0.55);
+  }
+
+  .scada-card-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--on-surface);
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+
+  .tag-box {
+    width: 18px;
+    height: 18px;
+    border-radius: 2px;
+    background: rgba(251, 122, 24, 0.15);
+    border: 1px solid rgba(251, 122, 24, 0.4);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+  }
+
+  .scada-btn {
+    border: 1px solid var(--border-grid);
+    background: #171A21;
+    color: var(--on-surface);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .scada-btn:hover {
+    background: #20242E;
+    border-color: var(--primary);
+    color: #FFF;
+  }
+  .scada-btn-primary {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #1A0B00;
+    font-weight: 700;
+  }
+  .scada-btn-primary:hover {
+    background: #FFA155;
+    color: #000;
+  }
+
+  .glow-alert {
+    filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.45));
+  }
+</style>
+</head>
+<body>
+<div class="flex min-h-screen bg-surface-base">
+<!-- ==================== 1. SCADA 标准工控深色侧边栏 ==================== -->
+<aside class="w-[236px] shrink-0 bg-[#0E1015] border-r border-border-grid flex flex-col h-screen sticky top-0 z-40 select-none">
+<!-- Brand / SCADA LOGO -->
+<div class="px-3.5 py-3 border-b border-border-grid flex items-center gap-3">
+<!-- 经典工业折线波形工控LOGO -->
+<div class="w-9 h-9 rounded-[4px] bg-[#171A21] border border-[#2B2E36] flex items-center justify-center relative overflow-hidden shadow-inner">
+<svg height="24" viewbox="0 0 28 24" width="28">
+<line stroke="#333842" stroke-width="1" x1="2" x2="26" y1="20" y2="20"></line>
+<line stroke="#333842" stroke-width="1" x1="3" x2="3" y1="4" y2="20"></line>
+<polyline fill="none" points="4,16 8,16 12,6 16,18 20,10 24,10" stroke="#FB7A18" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polyline>
+<circle cx="12" cy="6" fill="#EF4444" r="2.5" stroke="#FFF" stroke-width="0.8"></circle>
+</svg>
+</div>
+<div class="flex-1 min-w-0">
+<div class="text-[13px] font-bold text-white tracking-wide font-sans flex items-center justify-between">
+<span>SHAD · SMART</span>
+<span class="text-[9px] px-1 py-0.2 bg-primary/20 text-primary border border-primary/40 font-mono rounded-[2px]">V0.14</span>
+</div>
+<div class="text-[9px] text-[#808898] font-mono tracking-tight flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-real inline-block animate-pulse"></span>
+<span>CONSOLE · 工业边缘</span>
+</div>
+</div>
+</div>
+<!-- 管网上下文快速锚定框 -->
+<div class="mx-2.5 mt-2.5 p-2 bg-[#12141A] border border-border-grid rounded-[4px]">
+<div class="flex items-center justify-between text-[9.5px] font-mono text-primary font-semibold mb-1">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[11px]">account_tree</span>
+          受析管段 (PRD N-01)
+        </span>
+<span class="text-real text-[9px] font-mono">SCADA 联动</span>
+</div>
+<div class="text-[11px] font-bold text-gray-200 truncate font-mono">1号二次供热管段 (DN300)</div>
+<div class="text-[9px] text-gray-500 font-mono mt-0.5 flex justify-between">
+<span>城东高新片区 · K2+140</span>
+<span class="text-primary-dim">桩号: #029</span>
+</div>
+</div>
+<!-- 侧边导航组 (AI分析激活态：高对比实色工业橙底，深黑字 #1A0B00，左粗深橙边框) -->
+<div class="flex-1 overflow-y-auto px-2 py-3 space-y-4">
+<div>
+<div class="px-2 text-[9px] font-mono text-gray-500 uppercase tracking-widest mb-1.5 font-bold">
+          核心监测模块
+        </div>
+<nav class="space-y-0.5 font-sans">
+<!-- 1. 总览看板 -->
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[4px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">dashboard</span>
+<span>总览看板</span>
+</a>
+<!-- 2. 管网管理 -->
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[4px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">hub</span>
+<span>管网管理</span>
+</a>
+<!-- 3. 异常检测 -->
+<a class="flex items-center justify-between px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[4px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[15px]">warning</span>
+<span>异常检测</span>
+</div>
+<span class="text-[9px] font-mono px-1 py-0.2 bg-urgent/20 text-urgent border border-urgent/40 rounded-[2px] font-bold">2 待研判</span>
+</a>
+<!-- 4. AI分析 (ACTIVE ITEM 激活态: 实色工业橙背景#FB7A18，文字#1A0B00，左侧粗橙色边框) -->
+<a class="flex items-center justify-between px-2.5 py-2 text-[11.5px] font-bold rounded-[4px] bg-[#FB7A18] text-[#1A0B00] border-l-4 border-[#A34700] shadow-sm" href="#">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-[15px] font-bold" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<span>AI 分析</span>
+</div>
+<span class="text-[8.5px] font-mono px-1 py-0.2 bg-black/20 text-[#1A0B00] border border-black/30 rounded-[2px] font-bold">A-03</span>
+</a>
+<!-- 5. 诊断报告 -->
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[4px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">assessment</span>
+<span>诊断报告</span>
+</a>
+</nav>
+</div>
+<div>
+<div class="px-2 text-[9px] font-mono text-gray-500 uppercase tracking-widest mb-1.5 font-bold">
+          工控支撑工具
+        </div>
+<nav class="space-y-0.5">
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[4px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">tune</span>
+<span>参数配置</span>
+</a>
+<a class="flex items-center gap-2.5 px-2.5 py-1.5 text-[11.5px] text-gray-400 hover:text-gray-100 hover:bg-[#161922] rounded-[4px] border-l-2 border-transparent transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-[15px]">receipt_long</span>
+<span>操作审计</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- 底部控制台操作 -->
+<div class="p-3 border-t border-border-grid bg-[#0A0C10] space-y-2">
+<div class="p-2 bg-[#14161C] border border-border-grid rounded-[4px] flex items-center justify-between">
+<div class="text-[9.5px] font-mono text-gray-400">自研小模型引擎</div>
+<span class="text-[10px] font-mono text-primary font-bold">v1.8</span>
+</div>
+<button class="w-full py-1.5 px-2 bg-primary text-[#1A0B00] hover:bg-[#FFA155] border border-primary/40 rounded-[4px] text-[11px] font-mono font-bold flex items-center justify-center gap-1.5 transition-all">
+<span class="material-symbols-outlined text-[14px]">description</span>
+        生成诊断报告
+      </button>
+<div class="text-[9px] font-mono text-gray-500 text-center flex items-center justify-center gap-1">
+<span>ENGINE: ThermalNet-Mini</span>
+<span class="text-real">● 已载入</span>
+</div>
+</div>
+</aside>
+<!-- ==================== 2. 主视口内容区 (SCADA 40px网格工业背景) ==================== -->
+<main class="flex-1 min-w-0 flex flex-col scada-grid-bg">
+<!-- 顶部工控全局操作栏 (Top Bar) -->
+<header class="h-11 px-4 bg-[#0E1015]/90 border-b border-border-grid flex items-center justify-between gap-4 backdrop-blur-sm sticky top-0 z-30">
+<div class="flex items-center gap-3 min-w-0">
+<span class="text-[12px] font-bold text-gray-200 tracking-tight font-sans whitespace-nowrap">
+          SHAD 智慧供热异常检测与辅助诊断平台
+        </span>
+<span class="text-gray-600">|</span>
+<div class="flex items-center gap-1.5 text-[11px] font-mono text-gray-400 truncate">
+<span>北方热力集团城东分公司</span>
+<span class="text-gray-600">/</span>
+<span>高新二次网</span>
+<span class="text-gray-600">/</span>
+<span class="text-primary font-semibold">AI分析推演 (A-03)</span>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<div class="flex items-center gap-1.5 px-2 py-0.5 bg-[#121E19] border border-real/40 rounded-[2px] text-real text-[10px] font-mono">
+<span class="w-1.5 h-1.5 rounded-full bg-real animate-pulse"></span>
+<span class="font-bold">SCADA 遥测在线 (10s)</span>
+</div>
+<div class="px-2 py-0.5 bg-[#161A22] border border-border-grid rounded-[2px] text-primary font-mono text-[11.5px] font-bold tracking-wider" id="liveClock">
+          2026-11-03 03:45:18
+        </div>
+<div class="flex items-center gap-2 pl-2 border-l border-border-grid">
+<div class="w-5 h-5 rounded-[2px] bg-primary text-black font-mono font-bold text-[10px] flex items-center justify-center">
+            07
+          </div>
+<div class="text-[10.5px] leading-tight font-mono text-gray-200 font-semibold">
+            张工 (调度分析)
+          </div>
+</div>
+</div>
+</header>
+<!-- 主体内容滚动区 -->
+<div class="p-3.5 space-y-3">
+<!-- ==================== 1. 顶部任务态势栏 (Top Task Banner) ==================== -->
+<section class="scada-card p-2.5 bg-[#12141A]">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
+<div class="space-y-1.5 font-mono">
+<div class="flex flex-wrap items-center gap-2">
+<span class="px-2 py-0.5 rounded-[2px] text-[10.5px] font-bold bg-primary/15 border border-primary/40 text-primary">
+                任务编号 AI-20261103-042
+              </span>
+<span class="px-2 py-0.5 rounded-[2px] text-[10.5px] bg-[#171A22] text-gray-300 border border-border-grid">
+                关联检测任务: DET-20261103-089
+              </span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-[2px] text-[10.5px] bg-real/15 border border-real/40 text-real font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-real animate-pulse"></span>
+                分析完成 (闭环推演)
+              </span>
+<span class="text-[10px] text-gray-400">边缘推理耗时: 14.8s (RT-Edge)</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-3 text-[10.5px] text-gray-400 pt-0.5">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[13px]">memory</span>
+                分析模型: <strong class="text-gray-100 font-bold">ThermalNet-Mini v1.8</strong>
+<span class="text-[9px] px-1 bg-primary/20 text-primary border border-primary/40 rounded-[2px]">自研小模型</span>
+</span>
+<span class="text-gray-600">|</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-gray-500 text-[13px]">domain</span>
+                目标网段: <span class="text-gray-200">城东高新片区 · 1号二次供热管段 (DN300)</span>
+</span>
+<span class="text-gray-600">|</span>
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-gray-500 text-[13px]">schedule</span>
+                数据窗口: <span class="text-gray-200">2026-11-03 02:15:00 ~ 03:45:00 (90m)</span>
+</span>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="scada-btn">
+<span class="material-symbols-outlined text-[13px]">arrow_back</span>
+<span>返回检测结果</span>
+</button>
+<button class="scada-btn scada-btn-primary">
+<span class="material-symbols-outlined text-[13px]">assignment_turned_in</span>
+<span>生成综合诊断报告</span>
+</button>
+</div>
+</div>
+</section>
+<!-- ==================== 2. 三级资产定位 + 多维时序特征提取摘要 (128点小波降噪) ==================== -->
+<section class="grid grid-cols-1 xl:grid-cols-4 gap-3">
+<!-- 左侧 1列：三级资产定位 -->
+<div class="xl:col-span-1 scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">account_tree</span></span>
+<span>三级资产定位</span>
+</div>
+<span class="text-[9px] font-mono text-real bg-real/15 px-1.5 py-0.5 rounded-[2px] border border-real/30 font-bold">SCADA 联机</span>
+</div>
+<div class="p-2.5 space-y-2 font-mono text-[10.5px]">
+<div class="p-2 rounded-[3px] bg-[#0E1015] border border-border-grid">
+<div class="text-gray-500 text-[9.5px]">一级：所属用能企业</div>
+<div class="font-bold text-gray-200 flex justify-between mt-0.5">
+<span>国能热力集团城东分公司</span>
+<span class="text-primary-dim">ENT-104</span>
+</div>
+</div>
+<div class="p-2 rounded-[3px] bg-[#0E1015] border border-border-grid">
+<div class="text-gray-500 text-[9.5px]">二级：供热管网系统</div>
+<div class="font-bold text-gray-200 flex justify-between mt-0.5">
+<span>城东高新片区二次热网</span>
+<span class="text-primary-dim">NET-03B</span>
+</div>
+</div>
+<div class="p-2 rounded-[3px] bg-[#161922] border border-primary/50">
+<div class="text-primary text-[9.5px] font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                三级：当前推演管段 (DN300)
+              </div>
+<div class="font-bold text-primary flex justify-between mt-0.5">
+<span>1号二次供热管段 (ST-P01)</span>
+<span class="text-gray-300 font-mono">DN300 / 840m</span>
+</div>
+</div>
+</div>
+<div class="px-2.5 py-2 border-t border-border-subtle bg-[#0A0C10] text-[9.5px] font-mono text-gray-400 flex justify-between">
+<span>机理边界约束:</span>
+<span class="text-real font-bold">稳态连续流动假设 · 开启</span>
+</div>
+</div>
+<!-- 右侧 3列：多维时序特征提取摘要 (128点小波降噪切片) -->
+<div class="xl:col-span-3 scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">insights</span></span>
+<span>多维时序特征提取摘要 (128点小波降噪切片)</span>
+<span class="text-[9.5px] font-mono text-gray-500 font-normal ml-2">采样率 10s · 真实物理传感器输入</span>
+</div>
+<div class="flex items-center gap-3 font-mono text-[10px]">
+<span class="flex items-center gap-1 text-metric-supply"><span class="w-2 h-0.5 bg-metric-supply"></span>供温 T_sup</span>
+<span class="flex items-center gap-1 text-metric-return"><span class="w-2 h-0.5 bg-metric-return"></span>回温 T_ret</span>
+<span class="flex items-center gap-1 text-metric-pressure"><span class="w-2 h-0.5 bg-metric-pressure"></span>压差 ΔP</span>
+<span class="flex items-center gap-1 text-metric-flow"><span class="w-2 h-0.5 bg-metric-flow"></span>瞬时流量 Q</span>
+</div>
+</div>
+<!-- 4个工业 KPI Bento 卡片 -->
+<div class="p-3 grid grid-cols-2 md:grid-cols-4 gap-2.5">
+<!-- 1: 供温稳定 -->
+<div class="bg-[#0C0E13] p-2.5 rounded-[4px] border border-border-grid">
+<div class="flex items-center justify-between text-[10.5px] font-mono text-gray-400">
+<span>供水温度 (T_sup)</span>
+<span class="text-real font-bold bg-real/10 px-1 py-0.2 rounded border border-real/30">稳定</span>
+</div>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-[26px] font-mono font-bold text-metric-supply leading-none">76.4</span>
+<span class="text-[10.5px] font-mono text-gray-500">℃</span>
+</div>
+<div class="mt-1 text-[9.5px] font-mono text-gray-500 flex justify-between">
+<span>方差 σ²: 0.08</span>
+<span class="text-gray-400">标称 76.0 ± 1.5</span>
+</div>
+</div>
+<!-- 2: 回水骤降 (突变告警) -->
+<div class="bg-[#0C0E13] p-2.5 rounded-[4px] border border-urgent/60 relative overflow-hidden bg-gradient-to-b from-urgent/10 to-transparent">
+<div class="flex items-center justify-between text-[10.5px] font-mono text-gray-400">
+<span>回水温度骤降 (T_ret)</span>
+<span class="text-urgent font-bold bg-urgent/20 px-1 py-0.2 rounded border border-urgent/50 animate-pulse">● 突变</span>
+</div>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-[26px] font-mono font-bold text-urgent leading-none">41.2</span>
+<span class="text-[10.5px] font-mono text-urgent">℃ (↓ 4.6°C)</span>
+</div>
+<div class="mt-1 text-[9.5px] font-mono text-gray-500 flex justify-between">
+<span>负梯度 d(ΔT)/dt</span>
+<span class="text-urgent font-bold">-0.38 °C/min</span>
+</div>
+</div>
+<!-- 3: 流量反常偏高 -->
+<div class="bg-[#0C0E13] p-2.5 rounded-[4px] border border-warning/50">
+<div class="flex items-center justify-between text-[10.5px] font-mono text-gray-400">
+<span>瞬时流量 (Flow Q)</span>
+<span class="text-warning font-bold bg-warning/15 px-1 py-0.2 rounded border border-warning/40">反常偏高</span>
+</div>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-[26px] font-mono font-bold text-metric-flow leading-none">184.6</span>
+<span class="text-[10.5px] font-mono text-warning">t/h (↑ 8.3%)</span>
+</div>
+<div class="mt-1 text-[9.5px] font-mono text-gray-500 flex justify-between">
+<span>雷诺数 Re: 1.42×10⁵</span>
+<span class="text-gray-400">基线: 170.2 t/h</span>
+</div>
+</div>
+<!-- 4: 末端差压脉动 -->
+<div class="bg-[#0C0E13] p-2.5 rounded-[4px] border border-border-grid">
+<div class="flex items-center justify-between text-[10.5px] font-mono text-gray-400">
+<span>末端压差 (ΔP)</span>
+<span class="text-metric-pressure font-bold bg-metric-pressure/15 px-1 py-0.2 rounded border border-metric-pressure/30">轻度脉动</span>
+</div>
+<div class="mt-1 flex items-baseline gap-1">
+<span class="text-[26px] font-mono font-bold text-metric-pressure leading-none">0.31</span>
+<span class="text-[10.5px] font-mono text-gray-500">MPa</span>
+</div>
+<div class="mt-1 text-[9.5px] font-mono text-gray-500 flex justify-between">
+<span>扰动功率: 0.12W</span>
+<span class="text-gray-400">阻抗比 S: 0.88</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 3. 核心：特征关联推演 (散点图) + 模型局部敏感性归因 (SHAP横向柱状图) ==================== -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-3">
+<!-- 左侧 8列：特征关联推演散点图 (回水温度降 vs 流量微增) -->
+<div class="lg:col-span-8 scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">scatter_plot</span></span>
+<span>特征关联推演：回水温度降 (ΔT_ret) vs 流量微增 (ΔQ)</span>
+</div>
+<!-- 视图切换胶囊 -->
+<div class="flex bg-[#0E1015] border border-border-grid rounded-[2px] p-0.5 text-[10px] font-mono">
+<button class="px-2 py-0.5 bg-primary text-black font-bold rounded-[2px]">关联散点流</button>
+<button class="px-2 py-0.5 text-gray-400 hover:text-white">双轴时序对齐</button>
+</div>
+</div>
+<div class="p-3">
+<div class="text-[11px] text-gray-300 font-mono mb-2 flex items-center justify-between">
+<span>自研 ThermalNet-Mini 空间机理散点聚类：提取负相关系数 <strong class="text-urgent bg-urgent/15 px-1.5 py-0.5 rounded border border-urgent/30">-0.84</strong> (显著异态)</span>
+<span class="text-[9.5px] text-gray-500">水动力学推演拟合度 R² = 0.91</span>
+</div>
+<!-- SVG 工业散点与回归拟合画布 -->
+<div class="relative w-full h-[260px] bg-[#0A0C10] rounded-[4px] border border-border-grid overflow-hidden">
+<svg class="w-full h-full block" fill="none" viewbox="0 0 800 240" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="25" id="scatter-grid" patternunits="userSpaceOnUse" width="40">
+<line stroke="rgba(43,46,54,0.35)" stroke-width="1" x1="0" x2="0" y1="0" y2="25"></line>
+<line stroke="rgba(43,46,54,0.35)" stroke-width="1" x1="0" x2="40" y1="0" y2="0"></line>
+</pattern>
+</defs>
+<rect fill="url(#scatter-grid)" height="240" width="800"></rect>
+<!-- 坐标系轴线 -->
+<line stroke="#2B2E36" stroke-dasharray="2 2" stroke-width="1" x1="50" x2="50" y1="20" y2="210"></line>
+<line stroke="#2B2E36" stroke-width="1" x1="50" x2="770" y1="210" y2="210"></line>
+<!-- 轴标签 -->
+<text fill="#8B8F99" font-family="JetBrains Mono" font-size="10" x="50" y="15">ΔT_ret 回水降温幅度 (°C)</text>
+<text fill="#8B8F99" font-family="JetBrains Mono" font-size="10" x="680" y="226">流量偏移量 +ΔQ (t/h)</text>
+<!-- Y 刻度 -->
+<text fill="#8B8F99" font-family="JetBrains Mono" font-size="9" x="25" y="213">0.0</text>
+<text fill="#8B8F99" font-family="JetBrains Mono" font-size="9" x="25" y="160">-1.5</text>
+<text fill="#8B8F99" font-family="JetBrains Mono" font-size="9" x="25" y="110">-3.0</text>
+<text fill="#EF4444" font-family="JetBrains Mono" font-size="9" font-weight="bold" x="20" y="55">-4.6</text>
+<!-- 历史正常流体工况聚类区 -->
+<ellipse cx="200" cy="180" fill="rgba(16, 185, 129, 0.08)" rx="90" ry="24" stroke="#10B981" stroke-dasharray="4 3" stroke-width="1"></ellipse>
+<text fill="#10B981" font-family="Space Grotesk" font-size="10" font-weight="600" x="140" y="184">历史正常流体工况聚类区</text>
+<!-- 正常工况点 -->
+<circle cx="150" cy="175" fill="#10B981" opacity="0.6" r="3"></circle>
+<circle cx="180" cy="185" fill="#10B981" opacity="0.8" r="3.5"></circle>
+<circle cx="210" cy="172" fill="#10B981" opacity="0.7" r="3"></circle>
+<circle cx="230" cy="188" fill="#10B981" opacity="0.85" r="4"></circle>
+<circle cx="245" cy="176" fill="#10B981" opacity="0.6" r="2.5"></circle>
+<circle cx="170" cy="190" fill="#10B981" opacity="0.75" r="3.5"></circle>
+<!-- 理论流体力学拟合基线 (浅天蓝虚线) -->
+<path d="M 230 180 C 350 160, 480 120, 680 40" opacity="0.5" stroke="#4EA8FF" stroke-dasharray="4 4" stroke-width="1.5"></path>
+<text fill="#4EA8FF" font-family="JetBrains Mono" font-size="9.5" x="510" y="85">流体机理推演拟合线 (R²=0.91)</text>
+<!-- 异常漂移回归曲线 (鲜红强调) -->
+<path class="glow-alert" d="M 210 178 Q 440 130 670 48" fill="none" stroke="#EF4444" stroke-width="2.5"></path>
+<!-- 异常散点簇 (橙红过渡) -->
+<circle cx="480" cy="120" fill="#F59E0B" opacity="0.7" r="4"></circle>
+<circle cx="530" cy="100" fill="#EF4444" opacity="0.8" r="4.5"></circle>
+<circle cx="580" cy="85" fill="#EF4444" opacity="0.85" r="5"></circle>
+<circle cx="620" cy="65" fill="#EF4444" opacity="0.9" r="5"></circle>
+<circle cx="650" cy="52" fill="#EF4444" opacity="0.95" r="5.5"></circle>
+<circle cx="670" cy="48" fill="#EF4444" r="7" stroke="#FFFFFF" stroke-width="2"></circle>
+<!-- 当前实测异动坐标挂牌 -->
+<g transform="translate(560, 10)">
+<rect fill="#14161B" height="42" rx="3" stroke="#EF4444" stroke-width="1" width="180"></rect>
+<text fill="#E8E9ED" font-family="Space Grotesk" font-size="10" font-weight="bold" x="10" y="16">测点实测异动坐标 (03:32)</text>
+<text fill="#EF4444" font-family="JetBrains Mono" font-size="10" font-weight="bold" x="10" y="32">ΔT = -4.6°C | +ΔQ = +14.4t/h</text>
+</g>
+</svg>
+<!-- 悬浮机理提示 -->
+<div class="absolute bottom-2.5 left-14 bg-[#14161B]/95 border border-border-grid rounded-[3px] px-2.5 py-1 text-[10.5px] font-mono text-gray-200 flex items-center space-x-2">
+<span class="w-2 h-2 rounded-full bg-urgent animate-pulse"></span>
+<span>水力平衡破坏：流量增加但热交换效能反常骤降（旁通旁路或阀芯失锁典型指征）</span>
+</div>
+</div>
+<!-- 底栏相关系数参数明细 -->
+<div class="mt-2.5 pt-2 border-t border-border-grid grid grid-cols-1 md:grid-cols-3 gap-2 font-mono text-[10.5px]">
+<div class="p-1.5 rounded-[3px] bg-[#0C0E13] border border-border-grid flex justify-between">
+<span class="text-gray-400">皮尔逊负相关度:</span>
+<span class="text-urgent font-bold">-0.842 (极显著)</span>
+</div>
+<div class="p-1.5 rounded-[3px] bg-[#0C0E13] border border-border-grid flex justify-between">
+<span class="text-gray-400">因果置信滞后:</span>
+<span class="text-metric-flow font-bold">110 秒 (水流传播延迟)</span>
+</div>
+<div class="p-1.5 rounded-[3px] bg-[#0C0E13] border border-border-grid flex justify-between">
+<span class="text-gray-400">模型残差分布:</span>
+<span class="text-warning font-bold">Res &gt; 3.8σ (超界)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 右侧 4列：模型局部敏感性归因 (SHAP贡献度横向柱状图) -->
+<div class="lg:col-span-4 scada-card flex flex-col justify-between">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">bar_chart</span></span>
+<span>模型局部敏感性归因 (SHAP)</span>
+</div>
+<span class="text-[9.5px] font-mono px-1.5 py-0.5 bg-primary/15 text-primary border border-primary/40 rounded-[2px] font-bold">ThermalNet-Mini</span>
+</div>
+<div class="p-3 flex-1 flex flex-col justify-between space-y-3">
+<div>
+<p class="text-[11px] font-mono text-gray-400 mb-3">
+                小模型对本次异动判定依据的物理参数贡献权重分解：
+              </p>
+<!-- 4个归因柱状条 -->
+<div class="space-y-3 font-mono text-[10.5px]">
+<!-- 1 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="text-gray-200">回水端温差突降梯度 [d(ΔT)/dt]</span>
+<span class="text-primary font-bold">+44.2%</span>
+</div>
+<div class="w-full h-2 rounded-[2px] bg-[#0C0E13] overflow-hidden border border-border-grid">
+<div class="h-full bg-primary rounded-[2px]" style="width: 88%;"></div>
+</div>
+</div>
+<!-- 2 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="text-gray-200">次支线反常流量扰动 [ΔQ_sub]</span>
+<span class="text-metric-flow font-bold">+31.6%</span>
+</div>
+<div class="w-full h-2 rounded-[2px] bg-[#0C0E13] overflow-hidden border border-border-grid">
+<div class="h-full bg-metric-flow rounded-[2px]" style="width: 63%;"></div>
+</div>
+</div>
+<!-- 3 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="text-gray-200">末端阀后压差高频抖动 [P_diff_std]</span>
+<span class="text-metric-pressure font-bold">+16.4%</span>
+</div>
+<div class="w-full h-2 rounded-[2px] bg-[#0C0E13] overflow-hidden border border-border-grid">
+<div class="h-full bg-metric-pressure rounded-[2px]" style="width: 32%;"></div>
+</div>
+</div>
+<!-- 4 -->
+<div>
+<div class="flex justify-between items-center mb-1">
+<span class="text-gray-200">一次侧热源母管供水温漂 [T_prim]</span>
+<span class="text-gray-400 font-bold">+7.8%</span>
+</div>
+<div class="w-full h-2 rounded-[2px] bg-[#0C0E13] overflow-hidden border border-border-grid">
+<div class="h-full bg-gray-500 rounded-[2px]" style="width: 15%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 机理判别方程约束框 -->
+<div class="p-2.5 rounded-[4px] bg-[#0C0E13] border border-border-grid font-mono">
+<div class="text-[9.5px] text-gray-500 flex justify-between mb-1">
+<span>机理判别方程约束:</span>
+<span class="text-real font-bold">满足热力守恒</span>
+</div>
+<div class="text-[10px] text-gray-300 bg-[#14161C] p-2 rounded-[2px] border border-border-subtle leading-relaxed">
+                Q_h = c·m·(T_s - T_r)<br/>
+<span class="text-urgent font-bold">m ↑ 8.3% 时 Q_h ↓ 14.2%</span><br/>
+<span class="text-gray-500">推论：管段未充分流经换热末端，发生短路旁通</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 4. 可能原因研判 (自研 ThermalNet-Mini 模型推测) ==================== -->
+<section class="space-y-2">
+<div class="flex items-center justify-between">
+<div class="text-[12px] font-bold text-gray-200 flex items-center gap-2">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">psychology_alt</span></span>
+<span>可能原因研判 (自研 ThermalNet-Mini 模型推测)</span>
+</div>
+<span class="text-[10px] font-mono text-gray-500">按综合置信度从高到低排序</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- 原因 1：87.4% (高置信度红框) -->
+<div class="scada-card border-l-4 border-l-urgent p-3 bg-gradient-to-r from-urgent/5 to-transparent">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-[2px] bg-urgent text-black font-bold font-mono text-[11px] flex items-center justify-center">1</span>
+<h4 class="text-[12.5px] font-bold text-gray-100">次干支路电动调节阀开度异常扰动</h4>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-[2px] text-[10px] font-mono font-bold bg-urgent/20 border border-urgent/40 text-urgent">
+<span class="w-1.5 h-1.5 rounded-full bg-urgent animate-pulse"></span>
+                发生概率: 很高 (87.4%)
+              </span>
+</div>
+<div class="space-y-2 text-[11px]">
+<div class="p-2 rounded-[3px] bg-[#0A0C10] border border-border-grid text-gray-300 leading-relaxed font-sans">
+<span class="text-gray-500 font-mono text-[10px] block mb-0.5">模型推演依据：</span>
+                监测到该支路流量反常增加（+14.4 t/h）的同时，供回水换热效率显著衰减（热负荷不增反降）。机理模型特征显示高度匹配<strong class="text-urgent font-semibold">电动执行机构反馈信号虚标或阀瓣卡涩失控</strong>，导致阀门实际过度开大，破坏二次管网水力平衡并引起临近换热站欠流。
+              </div>
+<div class="grid grid-cols-2 gap-2 font-mono text-[10px]">
+<div class="p-1.5 rounded-[2px] bg-[#0C0E13] border border-border-grid">
+<div class="text-gray-500 text-[9px]">执行器指令反馈差</div>
+<div class="text-urgent font-bold mt-0.5">反馈值 42% ≠ 期望 25%</div>
+</div>
+<div class="p-1.5 rounded-[2px] bg-[#0C0E13] border border-border-grid">
+<div class="text-gray-500 text-[9px]">水力失调度指标 (X_g)</div>
+<div class="text-warning font-bold mt-0.5">1.34 (超越上限 1.15)</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 原因 2：62.1% (中置信度橙框) -->
+<div class="scada-card border-l-4 border-l-warning p-3 bg-gradient-to-r from-warning/5 to-transparent">
+<div class="flex items-start justify-between mb-2">
+<div class="flex items-center gap-2">
+<span class="w-5 h-5 rounded-[2px] bg-warning text-black font-bold font-mono text-[11px] flex items-center justify-center">2</span>
+<h4 class="text-[12.5px] font-bold text-gray-100">用户端旁通阀轻度内漏窜水</h4>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-[2px] text-[10px] font-mono font-bold bg-warning/20 border border-warning/40 text-warning">
+<span class="w-1.5 h-1.5 rounded-full bg-warning"></span>
+                发生概率: 中等 (62.1%)
+              </span>
+</div>
+<div class="space-y-2 text-[11px]">
+<div class="p-2 rounded-[3px] bg-[#0A0C10] border border-border-grid text-gray-300 leading-relaxed font-sans">
+<span class="text-gray-500 font-mono text-[10px] block mb-0.5">模型推演依据：</span>
+                末端大口径检修旁通阀或末端混水旁路止回阀若发生密封老化，供水高压热水将直接短路串入回水管线。模型捕捉到<strong class="text-warning font-semibold">低负荷工况时段供回水温差骤缩（ΔT 从 32°C 降至 21°C）</strong>，该短路循环水流稀释了回温，与典型微泄漏水动力学响应曲线吻合度达 62.1%。
+              </div>
+<div class="grid grid-cols-2 gap-2 font-mono text-[10px]">
+<div class="p-1.5 rounded-[2px] bg-[#0C0E13] border border-border-grid">
+<div class="text-gray-500 text-[9px]">旁通回窜估算流量</div>
+<div class="text-warning font-bold mt-0.5">约 8.2 ~ 11.5 t/h</div>
+</div>
+<div class="p-1.5 rounded-[2px] bg-[#0C0E13] border border-border-grid">
+<div class="text-gray-500 text-[9px]">温降响应衰减指数</div>
+<div class="text-gray-200 font-bold mt-0.5">τ = 8.4 min (高速冲刷)</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 5. 现场核查方向与运维建议 (三项工程步骤) ==================== -->
+<section class="scada-card">
+<div class="scada-card-header">
+<div class="scada-card-title">
+<span class="tag-box"><span class="material-symbols-outlined text-[13px]">build_circle</span></span>
+<span>现场核查方向与工程运维处置建议</span>
+</div>
+<span class="text-[9.5px] font-mono text-gray-500">已生成现场巡检工单预草案</span>
+</div>
+<div class="p-3 grid grid-cols-1 md:grid-cols-3 gap-3 font-sans">
+<!-- 处置措施 1 -->
+<div class="bg-[#0C0E13] border border-border-grid p-2.5 rounded-[4px] flex flex-col justify-between">
+<div class="space-y-1.5">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 排查优先级 01
+                </span>
+<span class="text-urgent bg-urgent/15 px-1 py-0.2 rounded border border-urgent/30 font-bold">现场首选</span>
+</div>
+<h5 class="text-[12px] font-bold text-gray-100">3号换热站调节阀反馈核查</h5>
+<p class="text-[11px] text-gray-400 leading-normal">
+                调度巡检员前往 3号换热站（测点编号 VLV-03-SEC），重点核验电动执行机构实际开度标尺与 SCADA 远程反馈开度是否一致；进行全行程标定，排除连杆松动或阀芯脱落。
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-border-grid flex items-center justify-between font-mono text-[10px]">
+<span class="text-gray-500">时长: 25 min</span>
+<button class="text-primary hover:underline font-bold flex items-center gap-0.5">
+                派发工单 <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- 处置措施 2 -->
+<div class="bg-[#0C0E13] border border-border-grid p-2.5 rounded-[4px] flex flex-col justify-between">
+<div class="space-y-1.5">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 排查优先级 02
+                </span>
+<span class="text-warning bg-warning/15 px-1 py-0.2 rounded border border-warning/30 font-bold">红外扫描</span>
+</div>
+<h5 class="text-[12px] font-bold text-gray-100">末端法兰内漏红外扫描</h5>
+<p class="text-[11px] text-gray-400 leading-normal">
+                使用便携式红外热像仪对 DN300 管段末端手动旁通连通管（BYPASS-DN150）及混水止回阀前后管壁测温。若常闭旁通管表面温度高于 55°C，即可确认为止回阀阀座冲蚀内漏窜水。
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-border-grid flex items-center justify-between font-mono text-[10px]">
+<span class="text-gray-500">时长: 15 min</span>
+<button class="text-primary hover:underline font-bold flex items-center gap-0.5">
+                指派设备巡检 <span class="material-symbols-outlined text-[12px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- 处置措施 3 -->
+<div class="bg-[#0C0E13] border border-border-grid p-2.5 rounded-[4px] flex flex-col justify-between">
+<div class="space-y-1.5">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="text-primary font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> 控制临时对策
+                </span>
+<span class="text-metric-flow bg-metric-flow/15 px-1 py-0.2 rounded border border-metric-flow/30 font-bold">控制中心</span>
+</div>
+<h5 class="text-[12px] font-bold text-gray-100">临时微调总流量对策</h5>
+<p class="text-[11px] text-gray-400 leading-normal">
+                在巡检人员抵达现场确认前，控制室调度员将该二次回路主变频循环泵频率从 48.5Hz 回调至 44.0Hz，限制最大瞬时流量至 165t/h，以防止管网持续水力失调危及末梢换热。
+              </p>
+</div>
+<div class="mt-3 pt-2 border-t border-border-grid flex items-center justify-between font-mono text-[10px]">
+<span class="text-gray-500">调度长双人复核</span>
+<button class="text-metric-flow hover:underline font-bold flex items-center gap-0.5">
+                申请调控 <span class="material-symbols-outlined text-[12px]">tune</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 6. 严谨工业声明与免责提示 ==================== -->
+<footer class="p-2.5 rounded-[4px] bg-[#101217] border border-border-grid flex items-start space-x-2.5 text-[10.5px] font-mono text-gray-400">
+<span class="material-symbols-outlined text-primary text-[15px] shrink-0 mt-0.5">info</span>
+<div class="leading-relaxed">
+<p class="text-gray-300">
+<strong>注：</strong>本结论由 <span class="font-bold text-primary">ThermalNet-Mini v1.8</span> 供热水网自研小模型提供辅助诊断推演。分析结果明确区分<strong>传感器客观时序数据事实</strong>与<strong>机理拓扑模型推测</strong>，不代表不可逆的物理确定性结论。请一线运维工程师务必结合现场工况、管线压力表就地读数及红外检测结果综合复核后执行管网动作。
+          </p>
+<div class="mt-1 flex flex-wrap items-center gap-x-4 text-[9.5px] text-gray-500">
+<span>机理推理引擎校验哈希: <span class="text-gray-300">SHA256:7f3b0c8...e1a2</span></span>
+<span>小模型参数量: 4.8M Params</span>
+<span>执行环境: 厂站边缘计算边缘机 (Edge-04)</span>
+</div>
+</div>
+</footer>
+</div>
+</main>
+</div>
+<script>
+  // 实时工业时钟
+  function updateClock() {
+    const d = new Date();
+    const pad = n => String(n).padStart(2, '0');
+    const el = document.getElementById('liveClock');
+    if (el) {
+      el.textContent = `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+    }
+  }
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+</body></html>

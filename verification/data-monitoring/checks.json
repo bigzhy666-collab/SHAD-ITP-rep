@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-05",
+  "prd": "3.2",
+  "unitTests": 50,
+  "browserTests": 26,
+  "widths": [
+    2560,
+    1920,
+    1440,
+    1366,
+    768,
+    390,
+    375
+  ],
+  "screenshots": 8,
+  "dataSource": "demo",
+  "gitPolicy": "local commit only; no push"
+}

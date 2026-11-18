@@ -1,0 +1,35 @@
+{
+  "verifiedAt": "2026-11-09T11:32:57.827134+00:00",
+  "transport": "real CLI and loopback TCP",
+  "serviceVersion": "0.5.0",
+  "schemaVersion": 3,
+  "input": "60 synthetic points and the actual registered example artifact; not field validation",
+  "summary": {
+    "pointCount": 60,
+    "alarmPointCount": 60,
+    "confirmedPointCount": 50,
+    "eventCount": 1,
+    "blockCount": 1,
+    "qualityIssueCount": 0
+  },
+  "capabilities": {
+    "dataImport": true,
+    "anomalyDetection": true,
+    "causeDiagnosis": false,
+    "reportPersistence": true,
+    "offlineDetection": true
+  },
+  "checks": [
+    "CSV import",
+    "202 persisted task",
+    "actual model detection",
+    "60 saved points and stable events",
+    "real process stop/start without registry argument",
+    "unchanged success result and events",
+    "idempotency retained across restart",
+    "seeded crash-running state becomes interrupted failure",
+    "seeded queued state executes after real restart",
+    "interrupted task HTTP retry succeeds"
+  ],
+  "passed": true
+}

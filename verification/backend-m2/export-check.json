@@ -1,0 +1,16 @@
+[
+  {
+    "format": "docx",
+    "name": "synthetic-model-detection-V0.docx",
+    "bytes": 88553,
+    "chineseAndSourceVerified": true,
+    "chartImages": 1
+  },
+  {
+    "format": "pdf",
+    "name": "synthetic-model-detection-V0.pdf",
+    "bytes": 89629,
+    "fontAndUnicodeMap": true,
+    "validHeaderTrailer": true
+  }
+]

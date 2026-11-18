@@ -1,0 +1,31 @@
+{
+  "organizations": {
+    "enterprises": [{"id": "ent-example", "name": "历史接口验证组织", "code": "EXAMPLE-ENT"}],
+    "networks": [{"id": "net-example", "name": "历史接口验证管网", "code": "EXAMPLE-NET", "enterpriseId": "ent-example"}],
+    "segments": [{"id": "seg-example", "name": "历史接口验证对象", "code": "EXAMPLE-SEG", "networkId": "net-example"}]
+  },
+  "stations": [
+    {
+      "id": "station-example-m1-7",
+      "name": "M1 站 7（仅接口验证）",
+      "code": "M1-S7-EXAMPLE",
+      "enterpriseId": "ent-example",
+      "networkId": "net-example",
+      "segmentId": "seg-example",
+      "timezone": "Etc/UTC"
+    }
+  ],
+  "models": [
+    {
+      "id": "station-nbm-m1-7",
+      "version": "example-1",
+      "stationId": "station-example-m1-7",
+      "name": "M1 站 7 已训练示例模型",
+      "artifact": "M1_s7.pkl",
+      "artifactChecksum": "4a80fae84870173a2012be14e5ca2a2c79f75cdd6a743730a10d43e5eccae1ec",
+      "trainingTimezone": "Etc/UTC",
+      "isDemo": true,
+      "description": "只用于合成数据接口一致性测试。原历史数据时区尚未确认，Etc/UTC 是此测试的显式约定，不是原站真实时区；不得据此解释历史周期或部署到国内站点。"
+    }
+  ]
+}

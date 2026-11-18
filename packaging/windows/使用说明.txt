@@ -1,0 +1,32 @@
+SHAD 独立桌面软件 0.7.3
+
+双击 SHAD.exe 或桌面快捷方式，打开独立窗口，默认进入管网模型。
+无需安装 Python、Node.js 或 WebView2；安装和使用不需要在线下载运行环境。
+不要单独复制 SHAD.exe，请保留完整安装目录。
+
+关闭窗口即退出；有未保存备注及运行/排队任务时先提示。
+确认退出后停止本软件启动的服务；复用手动服务时不自动停止。
+如果仍有服务运行，维护工具“停止SHAD.cmd”可查询并安全停止。
+备份前应先退出软件并停止服务，不要在检测过程中强制结束进程。
+
+默认业务目录：%LOCALAPPDATA%\SHAD\data
+窗口设置及桌面日志：%LOCALAPPDATA%\SHAD\desktop
+业务日志：%LOCALAPPDATA%\SHAD\data\logs
+升级和卸载均保留上述业务数据。备份可复制到自行选择的位置。
+
+自定义数据目录启动：
+  .\SHAD.exe --data-dir D:\SHAD数据
+维护命令（PowerShell）：
+  .\resources\backend\SHAD.exe status --data-dir D:\SHAD数据
+  .\resources\backend\SHAD.exe stop --data-dir D:\SHAD数据
+  .\resources\backend\SHAD.exe backup --data-dir D:\SHAD数据 --output D:\备份\SHAD.shad-backup.zip
+  .\resources\backend\SHAD.exe restore --archive D:\备份\SHAD.shad-backup.zip --data-dir D:\SHAD恢复数据
+恢复目标必须是新目录。自定义工作区不自动搬迁。
+
+模型和报表：
+仓库历史训练模型随包提供，但不能自动当作现场模型；应登记适用站点模型和数据。
+模型的可信目录通过原本机服务登记流程管理，示例登记位于 resources\backend\examples。
+场景异常红点为演示，未联动真实检测；具体原因和方案诊断未启用。
+Word/PDF/CSV 导出会显示保存位置选择框；取消保存不会创建文件。
+
+发布验收：本机桌面窗口及安装包验收与全新 Windows 电脑验证分别记录，不宣称已通过后者。

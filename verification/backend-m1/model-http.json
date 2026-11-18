@@ -1,0 +1,128 @@
+{
+  "verifiedAt": "2026-11-09T09:20:52.208149+00:00",
+  "transport": "real loopback TCP",
+  "input": "60 synthetic 30-minute points; not field validation data",
+  "runtime": {
+    "serviceVersion": "0.2.0",
+    "contractVersion": "1.0",
+    "mode": "local",
+    "capabilities": {
+      "dataImport": true,
+      "anomalyDetection": false,
+      "causeDiagnosis": false,
+      "reportPersistence": false,
+      "offlineDetection": false
+    },
+    "storage": {
+      "schemaVersion": 1,
+      "datasetsPersistent": true
+    },
+    "modelInterface": {
+      "available": true,
+      "persisted": false,
+      "maxSamples": 5000
+    }
+  },
+  "model": {
+    "id": "station-nbm-m1-7",
+    "version": "example-1",
+    "stationId": "station-example-m1-7",
+    "name": "M1 站 7 已训练示例模型",
+    "artifactChecksum": "4a80fae84870173a2012be14e5ca2a2c79f75cdd6a743730a10d43e5eccae1ec",
+    "purpose": "station_anomaly_detection",
+    "isDemo": true,
+    "trainingTimezone": "Etc/UTC",
+    "trainedAt": null,
+    "trainStart": "2015-04-12",
+    "trainEnd": "2017-11-12",
+    "featureMode": "phys2",
+    "scoreKind": "mahalanobis",
+    "cyclic": true,
+    "adaptive": true,
+    "cThr": 11,
+    "quantile": 0.99,
+    "requiredFields": [
+      "outdoor_temperature",
+      "p_net_supply_temperature",
+      "p_net_return_temperature",
+      "p_net_meter_heat_power",
+      "p_net_meter_flow",
+      "p_hc1_return_temperature",
+      "s_hc1_supply_temperature",
+      "s_hc1_supply_temperature_setpoint"
+    ],
+    "trainingFeatureColumns": [
+      "outdoor_temperature",
+      "p_net_supply_temperature",
+      "p_net_return_temperature",
+      "p_net_meter_heat_power",
+      "p_net_meter_flow",
+      "p_hc1_return_temperature",
+      "s_hc1_supply_temperature",
+      "s_hc1_supply_temperature_setpoint",
+      "dt_primary",
+      "dt_hc1",
+      "err_supply",
+      "err_return",
+      "err_dhw",
+      "err_storage_upper",
+      "storage_delta",
+      "curve_residual",
+      "power_per_dt",
+      "flow_norm",
+      "load_index",
+      "stuck_score",
+      "hour_sin",
+      "hour_cos",
+      "dow",
+      "is_heating_season",
+      "cyc_hour_sin",
+      "cyc_hour_cos",
+      "cyc_dow_sin",
+      "cyc_dow_cos",
+      "cyc_doy_sin",
+      "cyc_doy_cos"
+    ],
+    "optionalFields": [
+      "p_hc1_return_temperature_setpoint",
+      "s_dhw_supply_temperature",
+      "s_dhw_supply_temperature_setpoint",
+      "s_dhw_upper_storage_temperature",
+      "s_dhw_lower_storage_temperature",
+      "s_dhw_upper_storage_temperature_setpoint"
+    ],
+    "description": "只用于合成数据接口一致性测试。原历史数据时区尚未确认，Etc/UTC 是此测试的显式约定，不是原站真实时区；不得据此解释历史周期或部署到国内站点。",
+    "status": "ready"
+  },
+  "summary": {
+    "pointCount": 60,
+    "alarmPointCount": 60,
+    "confirmedPointCount": 50,
+    "eventCount": 1,
+    "blockCount": 1,
+    "qualityIssueCount": 0
+  },
+  "warnings": [
+    {
+      "code": "OPTIONAL_INPUTS_OMITTED",
+      "message": "部分可选测点未提供；依赖这些测点的特征按模型训练期补值处理。"
+    },
+    {
+      "code": "DEMO_MODEL",
+      "message": "正在执行示例模型；结果用于接口验证，不构成本站模型适用性或诊断准确性证明。"
+    }
+  ],
+  "persisted": false,
+  "checks": [
+    "CLI startup",
+    "runtime capabilities",
+    "actual registered model",
+    "actual inference",
+    "JSON request ID",
+    "all four frontend routes",
+    "API 404 JSON",
+    "unsupported business capability",
+    "Origin rejection",
+    "OpenAPI"
+  ]
+}

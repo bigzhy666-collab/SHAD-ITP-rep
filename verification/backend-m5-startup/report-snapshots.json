@@ -1,0 +1,1572 @@
+{
+  "archivedV1": {
+    "id": "db706a7b805344ce80d36db3cd912483",
+    "seriesId": "db706a7b805344ce80d36db3cd912483",
+    "sourceReportId": null,
+    "title": "合成输入验收站（仅测试）运行状态异常检测报告",
+    "detectionId": "det-519e79d7212549be8ff94e00e2d80419",
+    "diagnosisId": null,
+    "eventIds": [
+      "event-det-519e79d7212549be8ff94e00e2d80419-001"
+    ],
+    "version": 1,
+    "revision": 3,
+    "createdAt": "2026-11-09T11:33:02.536454+00:00",
+    "archivedAt": "2026-11-09T11:33:02.596099+00:00",
+    "note": "真实接口验收：示例模型及合成数据，不作现场结论。",
+    "snapshot": {
+      "task": {
+        "contextSnapshot": {
+          "enterprise": {
+            "id": "ent-1",
+            "name": "北方热力有限责任公司"
+          },
+          "network": {
+            "id": "net-1",
+            "name": "城北主力供热网"
+          },
+          "segment": {
+            "id": "seg-2",
+            "name": "2号一次供热管段"
+          },
+          "station": {
+            "id": "station-browser-fixture",
+            "name": "合成输入验收站（仅测试）",
+            "timezone": "Asia/Shanghai"
+          }
+        },
+        "datasetSnapshot": {
+          "id": "05d7f3bc5249454d966d51b77f1a04cb",
+          "version": "1",
+          "name": "仅测试-合成异常样例",
+          "sourceChecksum": "82c7ffa613ec9e982bf015b0c9ae2d07faf3e16f59d16dc7d10669a2851572b3",
+          "timezone": "Asia/Shanghai",
+          "preprocessingVersion": "csv-utf8-units-30min-quality-v1"
+        },
+        "modelSnapshot": {
+          "id": "model-browser-fixture",
+          "version": "example-1",
+          "name": "接口验收示例模型",
+          "artifactChecksum": "4a80fae84870173a2012be14e5ca2a2c79f75cdd6a743730a10d43e5eccae1ec",
+          "stationId": "station-browser-fixture",
+          "isDemo": true,
+          "trainingTimezone": "Asia/Shanghai",
+          "featureMode": "phys2",
+          "scoreKind": "mahalanobis",
+          "cyclic": true,
+          "adaptive": true,
+          "cThr": 11,
+          "quantile": 0.99
+        },
+        "range": {
+          "start": "2026-11-08T00:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00"
+        },
+        "warnings": [
+          {
+            "code": "SENSOR_CONTEXT_SHORT",
+            "message": "数据集提示：部分连续块不足 72 小时，未据此判定长期冻结/低分辨率，后续检测仍需核对模型上下文。"
+          },
+          {
+            "code": "DEMO_MODEL",
+            "message": "正在执行示例模型；结果用于接口验证，不构成本站模型适用性或诊断准确性证明。"
+          }
+        ],
+        "id": "det-519e79d7212549be8ff94e00e2d80419",
+        "name": "本站运行状态检测",
+        "status": "success",
+        "phase": "completed",
+        "progress": null,
+        "createdAt": "2026-11-09T11:33:00.372163+00:00",
+        "startedAt": "2026-11-09T11:33:00.376163+00:00",
+        "finishedAt": "2026-11-09T11:33:00.442180+00:00",
+        "error": null,
+        "retryOf": null
+      },
+      "result": {
+        "contextSnapshot": {
+          "enterprise": {
+            "id": "ent-1",
+            "name": "北方热力有限责任公司"
+          },
+          "network": {
+            "id": "net-1",
+            "name": "城北主力供热网"
+          },
+          "segment": {
+            "id": "seg-2",
+            "name": "2号一次供热管段"
+          },
+          "station": {
+            "id": "station-browser-fixture",
+            "name": "合成输入验收站（仅测试）",
+            "timezone": "Asia/Shanghai"
+          }
+        },
+        "datasetSnapshot": {
+          "id": "05d7f3bc5249454d966d51b77f1a04cb",
+          "version": "1",
+          "name": "仅测试-合成异常样例",
+          "sourceChecksum": "82c7ffa613ec9e982bf015b0c9ae2d07faf3e16f59d16dc7d10669a2851572b3",
+          "timezone": "Asia/Shanghai",
+          "preprocessingVersion": "csv-utf8-units-30min-quality-v1"
+        },
+        "modelSnapshot": {
+          "id": "model-browser-fixture",
+          "version": "example-1",
+          "name": "接口验收示例模型",
+          "artifactChecksum": "4a80fae84870173a2012be14e5ca2a2c79f75cdd6a743730a10d43e5eccae1ec",
+          "stationId": "station-browser-fixture",
+          "isDemo": true,
+          "trainingTimezone": "Asia/Shanghai",
+          "featureMode": "phys2",
+          "scoreKind": "mahalanobis",
+          "cyclic": true,
+          "adaptive": true,
+          "cThr": 11,
+          "quantile": 0.99
+        },
+        "range": {
+          "start": "2026-11-08T00:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00"
+        },
+        "detectionId": "det-519e79d7212549be8ff94e00e2d80419",
+        "computedAt": "2026-11-09T11:33:00.423164+00:00",
+        "preprocessingVersion": "normalized-30min-blocks-v2",
+        "sampleRange": {
+          "start": "2026-11-08T00:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00"
+        },
+        "summary": {
+          "pointCount": 60,
+          "alarmPointCount": 60,
+          "confirmedPointCount": 50,
+          "eventCount": 1,
+          "blockCount": 1,
+          "qualityIssueCount": 0
+        },
+        "warnings": [
+          {
+            "code": "SENSOR_CONTEXT_SHORT",
+            "message": "数据集提示：部分连续块不足 72 小时，未据此判定长期冻结/低分辨率，后续检测仍需核对模型上下文。"
+          },
+          {
+            "code": "DEMO_MODEL",
+            "message": "正在执行示例模型；结果用于接口验证，不构成本站模型适用性或诊断准确性证明。"
+          }
+        ],
+        "links": {
+          "points": "/api/detections/det-519e79d7212549be8ff94e00e2d80419/points",
+          "events": "/api/detections/det-519e79d7212549be8ff94e00e2d80419/events"
+        }
+      },
+      "events": [
+        {
+          "blockId": "block-1",
+          "kind": "station_state_anomaly",
+          "title": "换热站运行状态偏离正常水平",
+          "start": "2026-11-08T05:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00",
+          "hours": 24.5,
+          "peak_score": 110.81800032487646,
+          "max_criticality": 60,
+          "affectedMetrics": null,
+          "cause": null,
+          "solution": null,
+          "boundary": "touches_range_end",
+          "id": "event-det-519e79d7212549be8ff94e00e2d80419-001",
+          "detectionId": "det-519e79d7212549be8ff94e00e2d80419",
+          "stationId": "station-browser-fixture"
+        }
+      ],
+      "points": [
+        {
+          "timestamp": "2026-11-08T00:00:00+08:00",
+          "blockId": "block-1",
+          "score": 52.828318596607275,
+          "threshold": 10.209426281032423,
+          "alarm": true,
+          "criticality": 1,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T00:30:00+08:00",
+          "blockId": "block-1",
+          "score": 53.37997348562908,
+          "threshold": 10.209426281032423,
+          "alarm": true,
+          "criticality": 2,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T01:00:00+08:00",
+          "blockId": "block-1",
+          "score": 53.92222207037503,
+          "threshold": 10.209426281032423,
+          "alarm": true,
+          "criticality": 3,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T01:30:00+08:00",
+          "blockId": "block-1",
+          "score": 54.454249811268774,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 4,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T02:00:00+08:00",
+          "blockId": "block-1",
+          "score": 54.97565197745831,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 5,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T02:30:00+08:00",
+          "blockId": "block-1",
+          "score": 55.48643366792057,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 6,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T03:00:00+08:00",
+          "blockId": "block-1",
+          "score": 55.98700318577066,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 7,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T03:30:00+08:00",
+          "blockId": "block-1",
+          "score": 56.47815652557156,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 8,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T04:00:00+08:00",
+          "blockId": "block-1",
+          "score": 56.933844940197886,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 9,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T04:30:00+08:00",
+          "blockId": "block-1",
+          "score": 57.38399582883562,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 10,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T05:00:00+08:00",
+          "blockId": "block-1",
+          "score": 57.76068984369218,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 11,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T05:30:00+08:00",
+          "blockId": "block-1",
+          "score": 58.08995937606879,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 12,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T06:00:00+08:00",
+          "blockId": "block-1",
+          "score": 58.415176986468396,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 13,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T06:30:00+08:00",
+          "blockId": "block-1",
+          "score": 58.739768956881946,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 14,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T07:00:00+08:00",
+          "blockId": "block-1",
+          "score": 59.06734604594864,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 15,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T07:30:00+08:00",
+          "blockId": "block-1",
+          "score": 59.40163874980994,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 16,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T08:00:00+08:00",
+          "blockId": "block-1",
+          "score": 59.74639739287429,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 17,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T08:30:00+08:00",
+          "blockId": "block-1",
+          "score": 60.105310644057674,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 18,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T09:00:00+08:00",
+          "blockId": "block-1",
+          "score": 60.48192966186119,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 19,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T09:30:00+08:00",
+          "blockId": "block-1",
+          "score": 60.87957249887213,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 20,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T10:00:00+08:00",
+          "blockId": "block-1",
+          "score": 61.63987208833943,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 21,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T10:30:00+08:00",
+          "blockId": "block-1",
+          "score": 62.55769755269947,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 22,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T11:00:00+08:00",
+          "blockId": "block-1",
+          "score": 62.60296442582094,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 23,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T11:30:00+08:00",
+          "blockId": "block-1",
+          "score": 63.35549828401483,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 24,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T12:00:00+08:00",
+          "blockId": "block-1",
+          "score": 64.13691984350585,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 25,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T12:30:00+08:00",
+          "blockId": "block-1",
+          "score": 64.9368285482859,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 26,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T13:00:00+08:00",
+          "blockId": "block-1",
+          "score": 65.7451885965824,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 27,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T13:30:00+08:00",
+          "blockId": "block-1",
+          "score": 66.55291131350438,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 28,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T14:00:00+08:00",
+          "blockId": "block-1",
+          "score": 67.35235277795273,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 29,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T14:30:00+08:00",
+          "blockId": "block-1",
+          "score": 68.13405551501339,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 30,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T15:00:00+08:00",
+          "blockId": "block-1",
+          "score": 68.74458468959952,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 31,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T15:30:00+08:00",
+          "blockId": "block-1",
+          "score": 69.4770430349036,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 32,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T16:00:00+08:00",
+          "blockId": "block-1",
+          "score": 70.32569459974319,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 33,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T16:30:00+08:00",
+          "blockId": "block-1",
+          "score": 71.09363208904031,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 34,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T17:00:00+08:00",
+          "blockId": "block-1",
+          "score": 71.77601343150371,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 35,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T17:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.43750045326549,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 36,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T18:00:00+08:00",
+          "blockId": "block-1",
+          "score": 73.0981749652198,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 37,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T18:30:00+08:00",
+          "blockId": "block-1",
+          "score": 73.57301343589853,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 38,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T19:00:00+08:00",
+          "blockId": "block-1",
+          "score": 73.63715831318032,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 39,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T19:30:00+08:00",
+          "blockId": "block-1",
+          "score": 73.49728557002432,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 40,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T20:00:00+08:00",
+          "blockId": "block-1",
+          "score": 73.29512466703157,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 41,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T20:30:00+08:00",
+          "blockId": "block-1",
+          "score": 73.5486599828864,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 42,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T21:00:00+08:00",
+          "blockId": "block-1",
+          "score": 74.08294414432473,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 43,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T21:30:00+08:00",
+          "blockId": "block-1",
+          "score": 74.7247000018095,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 44,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T22:00:00+08:00",
+          "blockId": "block-1",
+          "score": 75.45931106633161,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 45,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T22:30:00+08:00",
+          "blockId": "block-1",
+          "score": 76.30933088343181,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 46,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T23:00:00+08:00",
+          "blockId": "block-1",
+          "score": 77.65774936798837,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 47,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T23:30:00+08:00",
+          "blockId": "block-1",
+          "score": 78.62358138208718,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 48,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T00:00:00+08:00",
+          "blockId": "block-1",
+          "score": 109.46063908028668,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 49,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T00:30:00+08:00",
+          "blockId": "block-1",
+          "score": 110.81800032487646,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 50,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T01:00:00+08:00",
+          "blockId": "block-1",
+          "score": 71.10269645284002,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 51,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T01:30:00+08:00",
+          "blockId": "block-1",
+          "score": 71.75000475954224,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 52,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T02:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.23490089019064,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 53,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T02:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.5522177056697,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 54,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T03:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.73646601679225,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 55,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T03:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.80770649833921,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 56,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T04:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.79860354770622,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 57,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T04:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.74887433560379,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 58,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T05:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.70507618662067,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 59,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T05:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.72029734018487,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 60,
+          "health": 0,
+          "confirmed": true
+        }
+      ],
+      "diagnosis": null
+    }
+  },
+  "archivedV2": {
+    "id": "ccdee502950a4fe698d7c6bb50647b38",
+    "seriesId": "db706a7b805344ce80d36db3cd912483",
+    "sourceReportId": "db706a7b805344ce80d36db3cd912483",
+    "title": "合成输入验收站（仅测试）运行状态异常检测报告",
+    "detectionId": "det-519e79d7212549be8ff94e00e2d80419",
+    "diagnosisId": null,
+    "eventIds": [
+      "event-det-519e79d7212549be8ff94e00e2d80419-001"
+    ],
+    "version": 2,
+    "revision": 4,
+    "createdAt": "2026-11-09T11:33:02.736050+00:00",
+    "archivedAt": "2026-11-09T11:33:03.076047+00:00",
+    "note": "复核后备注：合成数据和示例模型，仍需现场核查。",
+    "snapshot": {
+      "task": {
+        "contextSnapshot": {
+          "enterprise": {
+            "id": "ent-1",
+            "name": "北方热力有限责任公司"
+          },
+          "network": {
+            "id": "net-1",
+            "name": "城北主力供热网"
+          },
+          "segment": {
+            "id": "seg-2",
+            "name": "2号一次供热管段"
+          },
+          "station": {
+            "id": "station-browser-fixture",
+            "name": "合成输入验收站（仅测试）",
+            "timezone": "Asia/Shanghai"
+          }
+        },
+        "datasetSnapshot": {
+          "id": "05d7f3bc5249454d966d51b77f1a04cb",
+          "version": "1",
+          "name": "仅测试-合成异常样例",
+          "sourceChecksum": "82c7ffa613ec9e982bf015b0c9ae2d07faf3e16f59d16dc7d10669a2851572b3",
+          "timezone": "Asia/Shanghai",
+          "preprocessingVersion": "csv-utf8-units-30min-quality-v1"
+        },
+        "modelSnapshot": {
+          "id": "model-browser-fixture",
+          "version": "example-1",
+          "name": "接口验收示例模型",
+          "artifactChecksum": "4a80fae84870173a2012be14e5ca2a2c79f75cdd6a743730a10d43e5eccae1ec",
+          "stationId": "station-browser-fixture",
+          "isDemo": true,
+          "trainingTimezone": "Asia/Shanghai",
+          "featureMode": "phys2",
+          "scoreKind": "mahalanobis",
+          "cyclic": true,
+          "adaptive": true,
+          "cThr": 11,
+          "quantile": 0.99
+        },
+        "range": {
+          "start": "2026-11-08T00:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00"
+        },
+        "warnings": [
+          {
+            "code": "SENSOR_CONTEXT_SHORT",
+            "message": "数据集提示：部分连续块不足 72 小时，未据此判定长期冻结/低分辨率，后续检测仍需核对模型上下文。"
+          },
+          {
+            "code": "DEMO_MODEL",
+            "message": "正在执行示例模型；结果用于接口验证，不构成本站模型适用性或诊断准确性证明。"
+          }
+        ],
+        "id": "det-519e79d7212549be8ff94e00e2d80419",
+        "name": "本站运行状态检测",
+        "status": "success",
+        "phase": "completed",
+        "progress": null,
+        "createdAt": "2026-11-09T11:33:00.372163+00:00",
+        "startedAt": "2026-11-09T11:33:00.376163+00:00",
+        "finishedAt": "2026-11-09T11:33:00.442180+00:00",
+        "error": null,
+        "retryOf": null
+      },
+      "result": {
+        "contextSnapshot": {
+          "enterprise": {
+            "id": "ent-1",
+            "name": "北方热力有限责任公司"
+          },
+          "network": {
+            "id": "net-1",
+            "name": "城北主力供热网"
+          },
+          "segment": {
+            "id": "seg-2",
+            "name": "2号一次供热管段"
+          },
+          "station": {
+            "id": "station-browser-fixture",
+            "name": "合成输入验收站（仅测试）",
+            "timezone": "Asia/Shanghai"
+          }
+        },
+        "datasetSnapshot": {
+          "id": "05d7f3bc5249454d966d51b77f1a04cb",
+          "version": "1",
+          "name": "仅测试-合成异常样例",
+          "sourceChecksum": "82c7ffa613ec9e982bf015b0c9ae2d07faf3e16f59d16dc7d10669a2851572b3",
+          "timezone": "Asia/Shanghai",
+          "preprocessingVersion": "csv-utf8-units-30min-quality-v1"
+        },
+        "modelSnapshot": {
+          "id": "model-browser-fixture",
+          "version": "example-1",
+          "name": "接口验收示例模型",
+          "artifactChecksum": "4a80fae84870173a2012be14e5ca2a2c79f75cdd6a743730a10d43e5eccae1ec",
+          "stationId": "station-browser-fixture",
+          "isDemo": true,
+          "trainingTimezone": "Asia/Shanghai",
+          "featureMode": "phys2",
+          "scoreKind": "mahalanobis",
+          "cyclic": true,
+          "adaptive": true,
+          "cThr": 11,
+          "quantile": 0.99
+        },
+        "range": {
+          "start": "2026-11-08T00:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00"
+        },
+        "detectionId": "det-519e79d7212549be8ff94e00e2d80419",
+        "computedAt": "2026-11-09T11:33:00.423164+00:00",
+        "preprocessingVersion": "normalized-30min-blocks-v2",
+        "sampleRange": {
+          "start": "2026-11-08T00:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00"
+        },
+        "summary": {
+          "pointCount": 60,
+          "alarmPointCount": 60,
+          "confirmedPointCount": 50,
+          "eventCount": 1,
+          "blockCount": 1,
+          "qualityIssueCount": 0
+        },
+        "warnings": [
+          {
+            "code": "SENSOR_CONTEXT_SHORT",
+            "message": "数据集提示：部分连续块不足 72 小时，未据此判定长期冻结/低分辨率，后续检测仍需核对模型上下文。"
+          },
+          {
+            "code": "DEMO_MODEL",
+            "message": "正在执行示例模型；结果用于接口验证，不构成本站模型适用性或诊断准确性证明。"
+          }
+        ],
+        "links": {
+          "points": "/api/detections/det-519e79d7212549be8ff94e00e2d80419/points",
+          "events": "/api/detections/det-519e79d7212549be8ff94e00e2d80419/events"
+        }
+      },
+      "events": [
+        {
+          "blockId": "block-1",
+          "kind": "station_state_anomaly",
+          "title": "换热站运行状态偏离正常水平",
+          "start": "2026-11-08T05:00:00+08:00",
+          "end": "2026-11-09T05:30:00+08:00",
+          "hours": 24.5,
+          "peak_score": 110.81800032487646,
+          "max_criticality": 60,
+          "affectedMetrics": null,
+          "cause": null,
+          "solution": null,
+          "boundary": "touches_range_end",
+          "id": "event-det-519e79d7212549be8ff94e00e2d80419-001",
+          "detectionId": "det-519e79d7212549be8ff94e00e2d80419",
+          "stationId": "station-browser-fixture"
+        }
+      ],
+      "points": [
+        {
+          "timestamp": "2026-11-08T00:00:00+08:00",
+          "blockId": "block-1",
+          "score": 52.828318596607275,
+          "threshold": 10.209426281032423,
+          "alarm": true,
+          "criticality": 1,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T00:30:00+08:00",
+          "blockId": "block-1",
+          "score": 53.37997348562908,
+          "threshold": 10.209426281032423,
+          "alarm": true,
+          "criticality": 2,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T01:00:00+08:00",
+          "blockId": "block-1",
+          "score": 53.92222207037503,
+          "threshold": 10.209426281032423,
+          "alarm": true,
+          "criticality": 3,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T01:30:00+08:00",
+          "blockId": "block-1",
+          "score": 54.454249811268774,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 4,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T02:00:00+08:00",
+          "blockId": "block-1",
+          "score": 54.97565197745831,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 5,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T02:30:00+08:00",
+          "blockId": "block-1",
+          "score": 55.48643366792057,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 6,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T03:00:00+08:00",
+          "blockId": "block-1",
+          "score": 55.98700318577066,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 7,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T03:30:00+08:00",
+          "blockId": "block-1",
+          "score": 56.47815652557156,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 8,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T04:00:00+08:00",
+          "blockId": "block-1",
+          "score": 56.933844940197886,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 9,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T04:30:00+08:00",
+          "blockId": "block-1",
+          "score": 57.38399582883562,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 10,
+          "health": 0,
+          "confirmed": false
+        },
+        {
+          "timestamp": "2026-11-08T05:00:00+08:00",
+          "blockId": "block-1",
+          "score": 57.76068984369218,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 11,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T05:30:00+08:00",
+          "blockId": "block-1",
+          "score": 58.08995937606879,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 12,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T06:00:00+08:00",
+          "blockId": "block-1",
+          "score": 58.415176986468396,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 13,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T06:30:00+08:00",
+          "blockId": "block-1",
+          "score": 58.739768956881946,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 14,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T07:00:00+08:00",
+          "blockId": "block-1",
+          "score": 59.06734604594864,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 15,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T07:30:00+08:00",
+          "blockId": "block-1",
+          "score": 59.40163874980994,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 16,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T08:00:00+08:00",
+          "blockId": "block-1",
+          "score": 59.74639739287429,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 17,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T08:30:00+08:00",
+          "blockId": "block-1",
+          "score": 60.105310644057674,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 18,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T09:00:00+08:00",
+          "blockId": "block-1",
+          "score": 60.48192966186119,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 19,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T09:30:00+08:00",
+          "blockId": "block-1",
+          "score": 60.87957249887213,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 20,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T10:00:00+08:00",
+          "blockId": "block-1",
+          "score": 61.63987208833943,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 21,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T10:30:00+08:00",
+          "blockId": "block-1",
+          "score": 62.55769755269947,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 22,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T11:00:00+08:00",
+          "blockId": "block-1",
+          "score": 62.60296442582094,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 23,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T11:30:00+08:00",
+          "blockId": "block-1",
+          "score": 63.35549828401483,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 24,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T12:00:00+08:00",
+          "blockId": "block-1",
+          "score": 64.13691984350585,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 25,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T12:30:00+08:00",
+          "blockId": "block-1",
+          "score": 64.9368285482859,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 26,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T13:00:00+08:00",
+          "blockId": "block-1",
+          "score": 65.7451885965824,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 27,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T13:30:00+08:00",
+          "blockId": "block-1",
+          "score": 66.55291131350438,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 28,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T14:00:00+08:00",
+          "blockId": "block-1",
+          "score": 67.35235277795273,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 29,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T14:30:00+08:00",
+          "blockId": "block-1",
+          "score": 68.13405551501339,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 30,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T15:00:00+08:00",
+          "blockId": "block-1",
+          "score": 68.74458468959952,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 31,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T15:30:00+08:00",
+          "blockId": "block-1",
+          "score": 69.4770430349036,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 32,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T16:00:00+08:00",
+          "blockId": "block-1",
+          "score": 70.32569459974319,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 33,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T16:30:00+08:00",
+          "blockId": "block-1",
+          "score": 71.09363208904031,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 34,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T17:00:00+08:00",
+          "blockId": "block-1",
+          "score": 71.77601343150371,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 35,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T17:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.43750045326549,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 36,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T18:00:00+08:00",
+          "blockId": "block-1",
+          "score": 73.0981749652198,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 37,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T18:30:00+08:00",
+          "blockId": "block-1",
+          "score": 73.57301343589853,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 38,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T19:00:00+08:00",
+          "blockId": "block-1",
+          "score": 73.63715831318032,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 39,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T19:30:00+08:00",
+          "blockId": "block-1",
+          "score": 73.49728557002432,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 40,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T20:00:00+08:00",
+          "blockId": "block-1",
+          "score": 73.29512466703157,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 41,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T20:30:00+08:00",
+          "blockId": "block-1",
+          "score": 73.5486599828864,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 42,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T21:00:00+08:00",
+          "blockId": "block-1",
+          "score": 74.08294414432473,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 43,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T21:30:00+08:00",
+          "blockId": "block-1",
+          "score": 74.7247000018095,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 44,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T22:00:00+08:00",
+          "blockId": "block-1",
+          "score": 75.45931106633161,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 45,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T22:30:00+08:00",
+          "blockId": "block-1",
+          "score": 76.30933088343181,
+          "threshold": 19.611808375065454,
+          "alarm": true,
+          "criticality": 46,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T23:00:00+08:00",
+          "blockId": "block-1",
+          "score": 77.65774936798837,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 47,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-08T23:30:00+08:00",
+          "blockId": "block-1",
+          "score": 78.62358138208718,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 48,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T00:00:00+08:00",
+          "blockId": "block-1",
+          "score": 109.46063908028668,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 49,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T00:30:00+08:00",
+          "blockId": "block-1",
+          "score": 110.81800032487646,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 50,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T01:00:00+08:00",
+          "blockId": "block-1",
+          "score": 71.10269645284002,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 51,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T01:30:00+08:00",
+          "blockId": "block-1",
+          "score": 71.75000475954224,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 52,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T02:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.23490089019064,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 53,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T02:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.5522177056697,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 54,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T03:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.73646601679225,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 55,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T03:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.80770649833921,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 56,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T04:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.79860354770622,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 57,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T04:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.74887433560379,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 58,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T05:00:00+08:00",
+          "blockId": "block-1",
+          "score": 72.70507618662067,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 59,
+          "health": 0,
+          "confirmed": true
+        },
+        {
+          "timestamp": "2026-11-09T05:30:00+08:00",
+          "blockId": "block-1",
+          "score": 72.72029734018487,
+          "threshold": 16.36321027495855,
+          "alarm": true,
+          "criticality": 60,
+          "health": 0,
+          "confirmed": true
+        }
+      ],
+      "diagnosis": null
+    }
+  }
+}

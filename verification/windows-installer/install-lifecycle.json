@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "silent install to Chinese/spaced path",
+    "installed EXE actual model and backup/restore",
+    "running upgrade blocked",
+    "running uninstall blocked",
+    "stopped upgrade preserves database",
+    "uninstall preserves external database",
+    "desktop-window installation mutex",
+    "0.6 browser edition upgrades to 0.7 desktop edition without changing database"
+  ],
+  "cleanWindowsOffline": "not tested",
+  "installationIdentity": "isolated acceptance ID"
+}

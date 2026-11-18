@@ -1,0 +1,35 @@
+{
+  "verifiedAt": "2026-11-09T10:58:14.394059+00:00",
+  "files": [
+    {
+      "file": "verification/backend-m3/exports/synthetic-model-detection-V2.docx",
+      "bytes": 88550,
+      "sha256": "1437bb630d7015da5e3278e6492258df615fbd001cf6349396f9ff961f3e6167",
+      "reportId": "aeb55f387f2c4e4ab562b5e71bae30d3",
+      "version": 2,
+      "curveImages": 1,
+      "snapshotSourceAndNoteMatch": true
+    },
+    {
+      "file": "verification/backend-m3/exports/autosaved-V1.docx",
+      "bytes": 88560,
+      "sha256": "7de046b075f195cab3e1ea2237f329e000442123fe5f77e0f4d3eb2df883f5fb",
+      "reportId": "8934cf248fa146378b3b95f392451105",
+      "version": 1,
+      "curveImages": 1,
+      "snapshotSourceAndNoteMatch": true
+    },
+    {
+      "file": "verification/backend-m3/exports/synthetic-model-detection-V2.pdf",
+      "bytes": 87658,
+      "sha256": "f5dedfbd5a5552fd2dbf83c1c004eae75eccf395f9e6e065e65951c67856cb78",
+      "reportId": "aeb55f387f2c4e4ab562b5e71bae30d3",
+      "version": 2,
+      "pdfHeaderFooterValid": true,
+      "embeddedFontAndUnicodeMap": true,
+      "curveImage": true
+    }
+  ],
+  "limitations": "PDF structure, embedded font, Unicode mapping and chart checked; no independent PDF reader pagination review. DOCX XML text compared against saved API snapshots. Synthetic test input and example model only.",
+  "passed": true
+}

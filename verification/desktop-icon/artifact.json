@@ -1,0 +1,20 @@
+{
+  "applicationVersion": "0.7.2",
+  "serviceVersion": "0.6.0",
+  "schemaVersion": 4,
+  "installer": "release/installers/20261114-173623/SHAD-Setup-0.7.2-x64.exe",
+  "bytes": 216917971,
+  "sha256": "3ef4de01bdd09360aacffb9d39b069e53748d65a8c3777932d235c3d3a9de082",
+  "desktopPackage": "release/desktop/20261114-093558/SHAD-win32-x64",
+  "backendReused": "release/windows/20261114-165058/SHAD",
+  "checks": {
+    "liveWindowIconTest": 1,
+    "icoResolutions": 7,
+    "embeddedExeResolutions": 7,
+    "whiteFringeAndRoundedTransparency": "passed at all resolutions and actual window",
+    "shortcutInstallation": "passed; isolated identity and redirected shortcuts",
+    "businessRegression": "unchanged; 4 desktop tests passed in 0.7.1"
+  },
+  "productionInstallation": "not modified; user window kept running",
+  "newWindowsVm": "deferred by user"
+}

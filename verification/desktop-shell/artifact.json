@@ -1,0 +1,30 @@
+{
+  "applicationVersion": "0.7.0",
+  "serviceVersion": "0.6.0",
+  "schemaVersion": 4,
+  "installer": "release/installers/20261114-170159/SHAD-Setup-0.7.0-x64.exe",
+  "bytes": 216755120,
+  "sha256": "5d0349ad259bebf0f5eeee9629c85d2e4368c5258a662702a9d74382fb007106",
+  "runtime": {
+    "electron": "45.3.2",
+    "packager": "20.3.0",
+    "officialZipSha256": "cd1ab0d49c2f76838c0c9ff75afefb4d9d85ca59036691932bf35be8eceba98b"
+  },
+  "checks": {
+    "desktop": 4,
+    "browser": 16,
+    "unit": 62,
+    "controller": 19,
+    "docxChinese": true,
+    "pdfChinese": true,
+    "staticDesignFindings": 0,
+    "windowsIconImages": 7
+  },
+  "installerExecution": {
+    "passed": true,
+    "installationIdentity": "isolated acceptance ID",
+    "checks": "verification/windows-installer/install-lifecycle.json",
+    "productionInstallation": "untouched",
+    "newWindowsVm": "deferred by user"
+  }
+}
