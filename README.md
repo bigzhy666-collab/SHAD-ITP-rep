@@ -26,7 +26,7 @@ npm run build
 npm run preview
 ```
 
-部署时将 `dist` 作为站点目录，并将前端路由回退至 `index.html`。界面沿用参考 HTML 的系统字体，无界面字体或 Tailwind CDN 运行依赖；颜色与字体变量位于 `src/theme.css`。PDF 使用 `public/fonts/NotoSansSC.ttf`（约 10.6 MB，OFL 许可证见同目录），首次导出需读取该字体；生产部署需保持资源可访问。
+部署时将 `frontend/dist` 作为站点目录，并将前端路由回退至 `index.html`。界面沿用参考 HTML 的系统字体，无界面字体或 Tailwind CDN 运行依赖；颜色与字体变量位于 `src/theme.css`。PDF 使用 `public/fonts/NotoSansSC.ttf`（约 10.6 MB，OFL 许可证见同目录），首次导出需读取该字体；生产部署需保持资源可访问。
 
 已准备好 Python 环境和 dist 后，可双击根目录的 `启动SHAD.cmd`、`查看SHAD状态.cmd`、`停止SHAD.cmd`、`备份SHAD.cmd`。启动脚本默认数据在 `%LOCALAPPDATA%\SHAD\data`；**继续使用此前项目数据时运行 `.\启动SHAD.cmd --data-dir backend/data`**，其他操作同样指定该目录。恢复始终生成新目录，不覆盖原数据。详见 [本地启动与备份](docs/本地软件启动与备份.md)；当前是开发工作区入口，Windows 安装包尚未交付。
 

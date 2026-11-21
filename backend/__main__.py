@@ -24,7 +24,7 @@ def main(argv=None):
     parser.add_argument('--registry', type=Path, help='管理员登记的模型注册表；默认不加载示例模型')
     parser.add_argument('--model-dir', type=Path, help='管理员管理的可信模型目录；默认 ml/models')
     parser.add_argument('--dev-origin', action='append', default=[], help='允许的本机开发 Origin')
-    parser.add_argument('--serve-frontend', action='store_true', help='同时提供 dist 前端资源')
+    parser.add_argument('--serve-frontend', action='store_true', help='同时提供 frontend/dist 前端资源')
     parser.add_argument('--data-dir', type=Path, help='数据库、CSV、日志目录；此开发入口默认 backend/data')
     args = parser.parse_args(argv)
     if not 1 <= args.port <= 65535:
@@ -57,7 +57,7 @@ def main(argv=None):
             control = DesktopControl(instance, token, lambda: setattr(server, 'should_exit', True))
         configured = ModelRegistry(args.registry, artifact_root=args.model_dir)
         app = create_app(registry=configured, dev_origins=tuple(args.dev_origin), lease=lease, control=control,
-                         frontend_dir=ROOT / 'dist' if args.serve_frontend else None, data_dir=directory)
+                         frontend_dir=ROOT / 'frontend/dist' if args.serve_frontend else None, data_dir=directory)
         worker = app.state.worker
         server = uvicorn.Server(uvicorn.Config(app, host='127.0.0.1', port=args.port, proxy_headers=False, workers=1,
                                              timeout_graceful_shutdown=10))

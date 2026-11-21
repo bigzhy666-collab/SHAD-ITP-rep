@@ -20,7 +20,7 @@ try {
         --hidden-import uvicorn.protocols.http.auto --hidden-import uvicorn.lifespan.on `
         --collect-data tzdata --collect-data sklearn --collect-submodules scipy._external `
         --add-data "${projectPath}/ml/src;ml/src" `
-        --add-data "${projectPath}/dist;dist" --add-data "${projectPath}/ml/models/M1_s7.pkl;ml/models" `
+        --add-data "${projectPath}/frontend/dist;dist" --add-data "${projectPath}/ml/models/M1_s7.pkl;ml/models" `
         packaging/windows/entry.py
     if ($LASTEXITCODE -ne 0) { throw '打包失败。' }
     $packagePath = Join-Path $outputPath 'SHAD'

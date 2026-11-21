@@ -26,7 +26,7 @@ def main():
                                description='仅验证前后端连接的合成样例，不能用于国内站点运行判断。')
     config['organizations'] = {}
     app = create_app(registry=ModelRegistry(config=RegistryConfig.model_validate(config)),
-                     data_dir=args.data_dir, frontend_dir=ROOT / 'dist')
+                     data_dir=args.data_dir, frontend_dir=ROOT / 'frontend/dist')
     uvicorn.run(app, host='127.0.0.1', port=args.port, proxy_headers=False)
 
 

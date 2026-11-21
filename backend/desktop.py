@@ -74,7 +74,7 @@ def status(directory):
 
 def start(directory, port=8765, *, registry=None, model_dir=None, open_browser=True, timeout=40):
     directory = directory.resolve()
-    if not (ROOT / 'dist/index.html').is_file():
+    if not (ROOT / 'frontend/dist/index.html').is_file():
         raise RuntimeError('找不到界面文件，请先构建前端或检查安装资源。')
     if not 1 <= port <= 65535:
         raise ValueError('端口必须在 1..65535。')
