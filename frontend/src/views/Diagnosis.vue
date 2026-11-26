@@ -159,13 +159,23 @@ onBeforeUnmount(()=>{window.removeEventListener('keydown',onKey);chart?.dispose(
       <div class="panel-tools"><span class="muted">共 {{box.length}} 个</span><button v-if="box.length" class="secondary" @click="clearAll">清空全部</button></div>
     </header>
     <div class="panel-body">
-      <div v-for="it in box" :key="it.key" class="local-event-choice">
-        <span><strong>{{it.station}} · {{it.taskName}}</strong>
-          <small>{{it.eventCount}} 条异常 · 加入时间 {{new Date(it.addedAt).toLocaleString('zh-CN',{hour12:false})}}</small></span>
-        <span class="local-actions">
-          <button class="primary" :disabled="busy" @click="loadItem(it)">载入处理</button>
-          <button @click="removeItem(it.key)">移除</button>
-        </span>
+      <div v-if="box.length" class="table-wrap">
+        <table>
+          <thead><tr><th>名称</th><th>异常条数</th><th>加入时间</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr v-for="it in box" :key="it.key">
+              <td>{{it.station}} · {{it.taskName}}</td>
+              <td>{{it.eventCount}}</td>
+              <td>{{new Date(it.addedAt).toLocaleString('zh-CN',{hour12:false})}}</td>
+              <td>
+                <span class="local-actions">
+                  <button class="primary" :disabled="busy" @click="loadItem(it)">载入处理</button>
+                  <button @click="removeItem(it.key)">移除</button>
+                </span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <p v-if="!box.length" class="empty">暂无待处理异常集。请到“数据监测”选择换热站完成检测后，点“加入待处理异常集”。</p>
       <p v-if="busy" class="local-notice" role="status">正在载入检测结果…</p>
@@ -179,8 +189,8 @@ onBeforeUnmount(()=>{window.removeEventListener('keydown',onKey);chart?.dispose(
     <header class="panel-heading">
       <h2>检测任务与结果</h2>
       <div class="panel-tools">
-        <button class="secondary" @click="openScore">查看异常分数曲线</button>
-        <button class="secondary" @click="showReport=true">查看报告</button>
+        <button class="primary" @click="openScore">查看异常分数曲线</button>
+        <button class="primary" @click="showReport=true">查看报告</button>
       </div>
     </header>
     <div class="panel-body">

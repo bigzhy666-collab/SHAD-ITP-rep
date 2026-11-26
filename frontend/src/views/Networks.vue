@@ -9,6 +9,10 @@ const netId=ref(ctx.netId)
 const stations=ref<any[]>([])
 const stationId=ref(localStorage.getItem('shad-current-station')||'')
 const datasets=ref<any[]>([])
+const PAGE_DATASETS=3
+const datasetPage=ref(1)
+const datasetPages=computed(()=>Math.max(1,Math.ceil(datasets.value.length/PAGE_DATASETS)))
+const pagedDatasets=computed(()=>datasets.value.slice((datasetPage.value-1)*PAGE_DATASETS,datasetPage.value*PAGE_DATASETS))
 const error=ref(''), notice=ref(''), busy=ref(false)
 
 const FIELDS=[
@@ -52,6 +56,7 @@ async function loadDatasets(){
   if(!stationId.value)return
   const d=await getJson('/api/datasets?'+qs({stationId:stationId.value,page:1,pageSize:500}))
   datasets.value=d.items||[]
+  datasetPage.value=1
 }
 
 function guess(field:any,cols:string[]){
@@ -309,7 +314,7 @@ onMounted(async()=>{
         <table>
           <thead><tr><th>名称 / 版本</th><th>点数</th><th>操作</th></tr></thead>
           <tbody>
-            <tr v-for="d in datasets" :key="d.id">
+            <tr v-for="d in pagedDatasets" :key="d.id">
               <td>{{d.name}} / {{d.version}}</td>
               <td>{{d.normalizedRowCount??'—'}}</td>
               <td><RouterLink :to="`/detections?stationId=${stationId}&datasetId=${d.id}`">查看采样与检测</RouterLink></td>
@@ -317,6 +322,11 @@ onMounted(async()=>{
             <tr v-if="!datasets.length"><td colspan="3" class="empty">当前换热站暂无数据集。</td></tr>
           </tbody>
         </table>
+      </div>
+      <div class="pagination">
+        <span>{{datasets.length}} 条 · {{datasetPage}} / {{datasetPages}}</span>
+        <button :disabled="datasetPage<=1" @click="datasetPage--">上一页</button>
+        <button :disabled="datasetPage>=datasetPages" @click="datasetPage++">下一页</button>
       </div>
     </div>
   </section>
