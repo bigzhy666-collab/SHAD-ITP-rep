@@ -236,8 +236,6 @@ onMounted(async()=>{
   <section class="panel">
     <header class="panel-heading"><h2>管段关联换热站</h2><div class="panel-tools"></div></header>
     <div class="panel-body">
-      <p>当前管段：{{segmentName||'未选择'}}</p>
-      <p class="muted">模型检测换热站设备及控制状态，不检测埋地管道本体缺陷。</p>
       <label>换热站
         <select v-model="stationId" aria-label="关联换热站" :disabled="!segmentId" @change="loadDatasets">
           <option value="">请选择换热站</option>
