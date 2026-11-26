@@ -56,7 +56,15 @@ function pbSet(i:number){
   const v=Math.max(0,Math.min(pbTotal(),i))
   api?.setIndex(v)
   const {range,time}=pbEls()
-  if(range)range.value=String(v)
+  if(range){
+    range.value=String(v)
+    const pct=pbTotal()?Math.round(v/pbTotal()*100):0
+    range.style.backgroundColor='transparent'
+    range.style.backgroundImage=`linear-gradient(90deg,#2563EB 0 ${pct}%,#d7dde6 ${pct}% 100%)`
+    range.style.backgroundSize='100% 3px'
+    range.style.backgroundRepeat='no-repeat'
+    range.style.backgroundPosition='center'
+  }
   if(time&&api?.times?.[v]!=null)time.textContent=api.times[v]
 }
 function pbStop(){
@@ -85,7 +93,32 @@ function pbToggle(){
   raf=requestAnimationFrame(pbTick)
 }
 function bindChrome(){
+  // 能源站不参与“选中”：模块选中后就撤销面板与标题
+  const scene=document.querySelector('.pipe-model-scene')
+  if(scene){
+    scene.addEventListener('click',()=>{
+      setTimeout(()=>{
+        const name=document.getElementById('infoName')?.textContent||''
+        if(!name.includes('能源站'))return
+        const info=document.getElementById('info')
+        info?.classList.remove('show')
+        if(info)info.style.display='none'
+        const h4=document.querySelector('#kpiCard h4')
+        if(h4)h4.textContent='运行指标 · 未选择换热站'
+        const meta=document.getElementById('kpiMeta')
+        if(meta)meta.textContent='点击场景中的换热站查看该站读数'
+      },0)
+    },true)
+  }
+
   const {btn,range}=pbEls()
+  if(range){
+    // 强制细轨：某些样式表会让原生高度生效，这里用内联样式兜底
+    range.style.setProperty('height','3px','important')
+    range.style.setProperty('appearance','none')
+    range.style.setProperty('-webkit-appearance','none')
+    range.style.setProperty('border-radius','2px')
+  }
   if(btn)btn.onclick=()=>pbToggle()
   if(range)range.oninput=()=>{if(playing)pbStop();pbSet(Number(range.value))}
   pbSet(range?Number(range.value):0)

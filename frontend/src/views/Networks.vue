@@ -1,23 +1,27 @@
 <script setup lang="ts">
 import {computed,onMounted,ref} from 'vue'
+import {ctx,setContext} from '../context'
 
-const segmentId=ref(localStorage.getItem('shad-local-segment')||'seg-1')
+const segmentId=ref(ctx.segmentId)
+const segmentName=ref(ctx.segmentName)
+const entId=ref(ctx.entId)
+const netId=ref(ctx.netId)
 const stations=ref<any[]>([])
 const stationId=ref(localStorage.getItem('shad-current-station')||'')
 const datasets=ref<any[]>([])
 const error=ref(''), notice=ref(''), busy=ref(false)
 
 const FIELDS=[
-  {key:'outdoor_temperature',label:'室外温度',required:true,unit:'℃'},
-  {key:'p_net_supply_temperature',label:'一次侧供水温度',required:true,unit:'℃'},
-  {key:'p_net_return_temperature',label:'一次侧回水温度',required:true,unit:'℃'},
+  {key:'outdoor_temperature',label:'室外温度',required:true,unit:'degC'},
+  {key:'p_net_supply_temperature',label:'一次侧供水温度',required:true,unit:'degC'},
+  {key:'p_net_return_temperature',label:'一次侧回水温度',required:true,unit:'degC'},
   {key:'p_net_meter_heat_power',label:'瞬时热功率',required:true,unit:'kW'},
   {key:'p_net_meter_flow',label:'一次侧瞬时流量',required:true,unit:'L/h'},
-  {key:'p_hc1_return_temperature',label:'二次侧采暖回水温度',required:false,unit:'℃'},
-  {key:'s_hc1_supply_temperature',label:'二次侧采暖供水温度',required:true,unit:'℃'},
-  {key:'s_hc1_supply_temperature_setpoint',label:'二次侧供水温度设定值',required:true,unit:'℃'},
+  {key:'p_hc1_return_temperature',label:'二次侧采暖回水温度',required:false,unit:'degC'},
+  {key:'s_hc1_supply_temperature',label:'二次侧采暖供水温度',required:true,unit:'degC'},
+  {key:'s_hc1_supply_temperature_setpoint',label:'二次侧供水温度设定值',required:true,unit:'degC'},
 ]
-const UNITS=['℃','kW','L/h','m3/h','kWh']
+const UNITS=['degC','kW','W','MW','L/h','m3/h']
 
 const fileName=ref(''), header=ref<string[]>([]), previewRows=ref<string[][]>([]), rowCount=ref(0)
 const delimiter=ref(','), timeColumn=ref(''), datasetName=ref(''), timezone='Asia/Shanghai'
@@ -118,6 +122,97 @@ async function doImport(){
   finally{busy.value=false}
 }
 
+function currentName(sel:HTMLSelectElement|null){
+  if(!sel)return ''
+  const o=sel.options[sel.selectedIndex]
+  return o&&o.value?o.textContent!.trim():''
+}
+
+/* 顶部三级选择与下方“管段关联换热站”联动 */
+/* 三级级联：选上一级后，下一级只保留对应选项并自动展开 */
+async function cascade(){
+  const ent=document.getElementById('entSel') as HTMLSelectElement|null
+  const net=document.getElementById('netSel') as HTMLSelectElement|null
+  const seg=document.getElementById('segSel') as HTMLSelectElement|null
+  if(!ent||!net||!seg)return
+  let org:any={enterprises:[],networks:[],segments:[]}
+  try{org=await getJson('/api/organizations')}catch{}
+
+  const fill=(el:HTMLSelectElement,ph:string,items:any[])=>{
+    el.innerHTML=''
+    const o=document.createElement('option');o.value='';o.textContent=ph;el.appendChild(o)
+    items.forEach(it=>{const op=document.createElement('option');op.value=it.id;op.textContent=it.name;el.appendChild(op)})
+  }
+
+  const openNext=(el:HTMLSelectElement)=>{
+    setTimeout(()=>{try{(el as any).showPicker?.();el.focus()}catch{}},60)
+  }
+
+  fill(ent,'请选择企业',org.enterprises||[])
+  fill(net,'请选择管网',[])
+  fill(seg,'请选择管段',[])
+
+  ent.onchange=()=>{
+    const nets=(org.networks||[]).filter((n:any)=>n.enterpriseId===ent.value)
+    fill(net,'请选择管网',nets)
+    fill(seg,'请选择管段',[])
+    if(ent.value)openNext(net)
+  }
+
+  net.onchange=()=>{
+    const segs=(org.segments||[]).filter((s:any)=>s.networkId===net.value)
+    fill(seg,'请选择管段',segs)
+    if(net.value)openNext(seg)
+  }
+}
+
+function bindTopSelects(){
+  const ent=document.getElementById('entSel') as HTMLSelectElement|null
+  const net=document.getElementById('netSel') as HTMLSelectElement|null
+  const seg=document.getElementById('segSel') as HTMLSelectElement|null
+  // 每次刷新都是未选择状态
+  if(ctx.segmentId){
+    if(ent)ent.value=ctx.entId
+    if(net)net.value=ctx.netId
+    if(seg)seg.value=ctx.segmentId
+    segmentId.value=ctx.segmentId
+    segmentName.value=ctx.segmentName
+    entId.value=ctx.entId
+    netId.value=ctx.netId
+    setContext({entId:entId.value,netId:netId.value,segmentId:segmentId.value,segmentName:segmentName.value})
+    loadStations().then(()=>loadDatasets()).catch((e:any)=>{error.value=e.message})
+  }else{
+    if(ent)ent.value=''
+    if(net)net.value=''
+    if(seg)seg.value=''
+    segmentId.value='';segmentName.value='';entId.value='';netId.value=''
+    stationId.value=''
+  }
+
+  const commit=()=>{
+    if(!seg?.value){error.value='请先选择企业、管网和管段，再点“确认选择”。';return}
+    error.value=''
+    entId.value=ent?.value||''
+    netId.value=net?.value||''
+    segmentId.value=seg.value
+    segmentName.value=currentName(seg)
+    localStorage.setItem('shad-local-ent',entId.value)
+    localStorage.setItem('shad-local-net',netId.value)
+    localStorage.setItem('shad-local-segment',segmentId.value)
+    setContext({entId:entId.value,netId:netId.value,segmentId:segmentId.value,segmentName:segmentName.value,stationId:stationId.value})
+    const card=document.querySelector('.sidebar-object') as HTMLElement|null
+    if(card){
+      const strong=card.querySelector('strong')
+      if(strong)strong.textContent=segmentName.value
+      const muted=card.querySelector('.muted')
+      if(muted&&net) muted.textContent=currentName(net)
+    }
+    loadStations().then(()=>loadDatasets()).catch((e:any)=>{error.value=e.message})
+  }
+
+  document.getElementById('btnConfirm')?.addEventListener('click',commit)
+}
+
 onMounted(async()=>{
   const sidebar=document.querySelector('.sidebar-object') as HTMLElement|null
   if(sidebar){
@@ -125,20 +220,21 @@ onMounted(async()=>{
     const sel=document.querySelector('select[aria-label="本机管段选择"]') as HTMLSelectElement|null
     if(sel&&strong){const hit=Array.from(sel.options).find(o=>o.value&&strong.includes(o.textContent!.trim()));if(hit)sel.value=hit.value}
   }
-  try{await loadStations();await loadDatasets()}catch(e:any){error.value=e.message}
+  bindTopSelects()
+  cascade()
 })
 </script>
 
 <template>
 <div class="page-stack local-page">
-<section class="panel"><header class="panel-heading"><h2>企业 / 供热管网 / 管段选择</h2><div class="panel-tools"></div></header><div class="panel-body"><!----><!----><div class="local-form-grid"><label>企业<select aria-label="本机企业选择"><option value="">请选择企业</option><option value="ent-1">北方热力有限责任公司</option><option value="ent-2">城东热力分公司</option></select></label><label>供热管网<select aria-label="本机供热管网选择"><option value="">请选择管网</option><option value="net-1">城北主力供热网</option><option value="net-2">城西供热网</option></select></label><label>管段<select aria-label="本机管段选择"><option value="">请选择管段</option><option value="seg-1">1号二次供热管段</option><option value="seg-2">2号一次供热管段</option><option value="seg-3">3号末端支路</option></select></label><button class="primary">确认选择</button></div><p class="muted">组织数据由本机后端保存；停用上级后，其下管段不可选，历史记录保留。</p></div></section>
+<section class="panel"><header class="panel-heading"><h2>企业 / 供热管网 / 管段选择</h2><div class="panel-tools"></div></header><div class="panel-body"><!----><!----><div class="local-form-grid"><label>企业<select id="entSel" aria-label="本机企业选择"><option value="">请选择企业</option><option value="ent-1">北方热力有限责任公司</option><option value="ent-2">城东热力分公司</option></select></label><label>供热管网<select id="netSel" aria-label="本机供热管网选择"><option value="">请选择管网</option><option value="net-1">城北主力供热网</option><option value="net-2">城西供热网</option></select></label><label>管段<select id="segSel" aria-label="本机管段选择"><option value="">请选择管段</option><option value="seg-1">1号二次供热管段</option><option value="seg-2">2号一次供热管段</option><option value="seg-3">3号末端支路</option></select></label><button class="primary" id="btnConfirm">确认选择</button></div><p class="muted">组织数据由本机后端保存；停用上级后，其下管段不可选，历史记录保留。</p></div></section>
   <section class="panel">
     <header class="panel-heading"><h2>管段关联换热站</h2><div class="panel-tools"></div></header>
     <div class="panel-body">
-      <p>当前管段：1号二次供热管段</p>
+      <p>当前管段：{{segmentName||'未选择'}}</p>
       <p class="muted">模型检测换热站设备及控制状态，不检测埋地管道本体缺陷。</p>
       <label>换热站
-        <select v-model="stationId" aria-label="关联换热站" @change="loadDatasets">
+        <select v-model="stationId" aria-label="关联换热站" :disabled="!segmentId" @change="loadDatasets">
           <option value="">请选择换热站</option>
           <option v-for="s in stations" :key="s.id" :value="s.id">{{s.name}} · {{s.code}}</option>
         </select>
@@ -163,8 +259,6 @@ onMounted(async()=>{
           <select v-model="timeColumn"><option value="">请选择</option><option v-for="c in header" :key="c" :value="c">{{c}}</option></select>
         </label>
       </div>
-      <p class="muted">数据时区：{{timezone}}；预览 {{rowCount}} 行</p>
-
       <div class="table-wrap" v-if="header.length">
         <table>
           <thead><tr><th>模型必需测点</th><th>CSV 原始列</th><th>原始单位（请确认）</th></tr></thead>
@@ -187,9 +281,8 @@ onMounted(async()=>{
         </table>
       </div>
 
-      <p class="muted">可选测点（有数据时建议一并导入）：二次侧采暖回水温度</p>
       <p class="muted">
-        <a href="#" @click.prevent="downloadTemplate">下载空白字段模板</a>
+        <a href="#" class="tpl-link" @click.prevent="downloadTemplate">下载空白字段模板</a>
       </p>
 
       <details v-if="previewRows.length">
@@ -230,3 +323,10 @@ onMounted(async()=>{
 <section class="panel"><header class="panel-heading"><h2>组织维护</h2><div class="panel-tools"></div></header><div class="panel-body"><div class="local-form-grid"><label>管理层级<select aria-label="组织管理层级"><option value="enterprises">企业</option><option value="networks">供热管网</option><option value="segments">管段</option></select></label><label>搜索名称或编码<input aria-label="搜索组织"></label><button>新增企业</button><button>刷新组织</button></div><form class="local-form-grid mt"><label>企业名称<input aria-label="组织名称" maxlength="200" required></label><label>编码<input aria-label="组织编码" maxlength="100" pattern="[A-Za-z0-9_.-]+" required></label><!----><!----><button class="primary" disabled>创建组织</button></form><p class="muted mt">编码使用字母、数字、点、下划线或短横线。已有对象不更换上级，避免改变站点归属。停用不会删除历史；停用上级后，下属对象暂停创建新检测。</p><!----><!----><div class="table-wrap mt"><table><thead><tr><th>名称</th><th>编码</th><th>状态</th><th>操作</th></tr></thead><tbody><tr><td>北方热力有限责任公司</td><td>ENT-001</td><td>启用</td><td><button aria-label="编辑组织 北方热力有限责任公司">编辑</button></td></tr><tr><td>城东热力分公司</td><td>ENT-002</td><td>启用</td><td><button aria-label="编辑组织 城东热力分公司">编辑</button></td></tr><!----></tbody></table></div></div></section>
 </div>
 </template>
+
+<style scoped>
+.tpl-link{color:#2563EB;text-decoration:none;cursor:pointer;transition:color .15s,border-color .15s}
+.tpl-link:hover{color:#1d4ed8;text-decoration:underline;text-underline-offset:3px}
+.tpl-link:active{color:#1e40af}
+.tpl-link:focus-visible{outline:2px solid #93c5fd;outline-offset:2px;border-radius:3px}
+</style>

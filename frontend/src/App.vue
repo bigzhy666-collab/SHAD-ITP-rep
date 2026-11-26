@@ -11,11 +11,28 @@ if(!(window as any).__scrollReset){
 import {onMounted,onBeforeUnmount,ref} from 'vue'
 import HelpOverlay from './components/HelpOverlay.vue'
 const helpOpen=ref(false)
+const path=ref(location.pathname)
 
 let clockTimer:number|undefined
 let observer:MutationObserver|undefined
 
 function two(n:number){return String(n).padStart(2,'0')}
+function bindSpaNav(){
+  document.addEventListener('click',(e)=>{
+    const t=e.target as HTMLElement|null
+    const a=t?.closest('a[href^="/"]') as HTMLAnchorElement|null
+    if(!a)return
+    if(a.getAttribute('target')||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0)return
+    e.preventDefault()
+    const href=a.getAttribute('href')!
+    if(href===path.value)return
+    history.pushState({},'',href)
+    path.value=href
+    window.scrollTo(0,0)
+  },true)
+  window.addEventListener('popstate',()=>{path.value=location.pathname})
+}
+
 function bindHelp(){
   const btn=document.querySelector('.help-button') as HTMLElement|null
   if(btn)btn.onclick=()=>{helpOpen.value=true}
@@ -82,6 +99,7 @@ function widenHeader(){
 }
 
 onMounted(()=>{
+  bindSpaNav()
   bindHelp()
   syncChrome();tickClock();widenHeader()
   clockTimer=window.setInterval(tickClock,1000)
